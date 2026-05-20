@@ -2,25 +2,47 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-
+const base = import.meta.env.BASE_URL;
 const pieces = [
-  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Ventilation, condensation et moisissures dans la pièce la plus humide." },
-  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Causes fréquentes et solutions pour un air sain la nuit." },
-  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Infiltrations, remontées capillaires : comprendre avant d'investir." },
-  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Pourquoi les vêtements sentent l'humidité et comment y remédier." },
-  { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, vapeur d'eau : gérer l'humidité de la buanderie." },
+  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Douches, joints noirs, plafond, extraction : les gestes qui font sécher plus vite.", badge: "Vapeur" },
+  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Condensation nocturne, odeur au réveil, murs froids et circulation d’air.", badge: "Nuit" },
+  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Murs enterrés, stockage, odeurs, ventilation et déshumidificateur adapté.", badge: "Stockage" },
+  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Vêtements qui sentent, air stagnant, mur froid et absorbeur utile ou non.", badge: "Rangement" },
+  { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, sèche-linge, machine et ventilation de la pièce.", badge: "Linge" },
 ];
 ---
-<BaseLayout
-  title="Humidité par pièce — Maison Moins Humide"
-  description="Conseils pratiques contre l'humidité dans chaque pièce de votre maison : salle de bain, chambre, cave, placard, buanderie."
->
-  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+<BaseLayout title="Humidité par pièce : salle de bain, chambre, cave, placard" description="Conseils ciblés contre l’humidité selon la pièce : salle de bain, chambre, cave, placard et buanderie.">
+  <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce' }]} />
-    <h1>Humidité par pièce</h1>
-    <p>Chaque pièce a ses spécificités. Retrouvez les conseils adaptés à votre situation.</p>
-    <div class="card-grid" style="margin-top:1.5rem">
-      {pieces.map(p => <ArticleCard {...p} />)}
+    <section class="hub-hero">
+      <p class="eyebrow">Solutions par pièce</p>
+      <h1>Humidité par pièce</h1>
+      <p class="lead">Une salle de bain humide, une chambre qui condense et une cave qui sent le moisi n’ont pas les mêmes causes. Choisissez la pièce concernée pour aller directement aux bons gestes.</p>
+      <div class="hub-actions"><a class="btn btn--primary" href={`${base}pieces/chambre-humide/`}>Chambre humide</a><a class="btn btn--light" href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain</a></div>
+    </section>
+    <div class="intro-grid">
+      <div class="info-card"><h2>Pièces d’eau</h2><p>Vapeur rapide, extraction et séchage des surfaces sont les priorités.</p></div>
+      <div class="info-card"><h2>Pièces de nuit</h2><p>La condensation du matin vient souvent du couple température + air stagnant.</p></div>
+      <div class="info-card"><h2>Volumes fermés</h2><p>Cave et placard demandent stockage prudent, circulation d’air et suivi du taux.</p></div>
     </div>
+    <div class="section-heading"><h2>Choisir la pièce concernée</h2></div>
+    <div class="card-grid">{pieces.map(p => <ArticleCard {...p} />)}</div>
   </div>
 </BaseLayout>
+
+<style>
+.hub { padding:2rem 0 3.25rem; }
+.hub-hero { background:#fff; border:1px solid var(--color-border); border-radius:20px; padding:clamp(1.25rem,3vw,2rem); box-shadow:0 14px 40px rgba(30,42,58,.06); margin-bottom:2rem; }
+.eyebrow { color:var(--color-primary); font-weight:750; text-transform:uppercase; letter-spacing:.06em; font-size:.78rem; margin-bottom:.45rem; }
+.lead { color:var(--color-text-muted); font-size:1.08rem; max-width:760px; }
+.hub-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+.btn--light { background:#fff; color:var(--color-primary); border:1.5px solid var(--color-primary); }
+.intro-grid { display:grid; gap:1rem; margin:1.25rem 0 2rem; }
+@media(min-width:760px){ .intro-grid{ grid-template-columns:repeat(3,1fr);} }
+.info-card { background:#f7faf8; border:1px solid var(--color-border); border-radius:16px; padding:1rem; }
+.info-card h2, .info-card h3 { margin-top:0; font-size:1.05rem; }
+.info-card p { color:var(--color-text-muted); font-size:.94rem; margin-bottom:0; }
+.section-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin:2rem 0 1rem; }
+.section-heading h2 { margin:0; }
+@media(max-width:640px){ .hub-actions .btn{width:100%;text-align:center}.section-heading{display:block} }
+</style>

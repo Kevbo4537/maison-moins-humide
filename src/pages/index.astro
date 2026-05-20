@@ -2,265 +2,154 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import AlertBox from '../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 
 const guides = [
-  {
-    title: "Humidité dans la maison : que faire ?",
-    description: "Un plan d'action pratique pour identifier la cause et agir efficacement sans paniquer.",
-    href: "/guides/humidite-maison-que-faire/",
-    badge: "Guide complet",
-  },
-  {
-    title: "Quel taux d'humidité est idéal ?",
-    description: "Comprendre le pourcentage d'humidité de référence selon les pièces et les saisons.",
-    href: "/guides/taux-humidite-ideal-maison/",
-    badge: "Essentiel",
-  },
-  {
-    title: "Humidité à 70 % : est-ce dangereux ?",
-    description: "Ce que signifie un taux élevé, quand s'inquiéter et quelles actions envisager.",
-    href: "/guides/humidite-maison-70-pourcent/",
-  },
-  {
-    title: "Moisissures sur les murs",
-    description: "Comprendre les causes, évaluer le risque et savoir quand faire appel à un professionnel.",
-    href: "/guides/moisissure-mur-danger/",
-    badge: "Santé",
-  },
-  {
-    title: "Condensation sur les fenêtres",
-    description: "Pourquoi ça arrive et comment réduire ce phénomène au quotidien.",
-    href: "/guides/condensation-fenetre/",
-  },
-  {
-    title: "Odeur d'humidité dans la maison",
-    description: "Identifier l'origine de l'odeur et agir à la source avant de chercher à masquer.",
-    href: "/guides/odeur-humidite-maison/",
-  },
+  { title: "Humidité dans la maison : que faire ?", description: "La méthode complète : mesurer, observer, ventiler, puis choisir la bonne action.", href: "/guides/humidite-maison-que-faire/", badge: "Départ" },
+  { title: "Taux d’humidité idéal", description: "Les repères 40-60 %, comment mesurer et quand s’inquiéter vraiment.", href: "/guides/taux-humidite-ideal-maison/", badge: "Mesure" },
+  { title: "Humidité à 70 %", description: "Comprendre si le taux est ponctuel ou durable, et quoi tester en premier.", href: "/guides/humidite-maison-70-pourcent/" },
+  { title: "Moisissure sur un mur", description: "Causes probables, risques, nettoyage prudent et signes qui imposent un diagnostic.", href: "/guides/moisissure-mur-danger/", badge: "Important" },
+  { title: "Condensation sur les fenêtres", description: "Pourquoi les vitres ruissellent et comment limiter la buée au quotidien.", href: "/guides/condensation-fenetre/" },
+  { title: "Odeur d’humidité", description: "Trouver l’origine d’une odeur de moisi sans se contenter de parfumer la pièce.", href: "/guides/odeur-humidite-maison/" },
 ];
 
 const pieces = [
-  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Ventilation, moisissures, condensation : solutions pratiques pour la pièce la plus humide." },
-  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Causes fréquentes et astuces pour dormir dans un air sain." },
-  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Infiltrations, remontées capillaires : comprendre avant d'investir." },
-  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Pourquoi vos vêtements sentent l'humidité et comment y remédier." },
+  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Douches, joints noirs, plafond qui cloque : actions concrètes après utilisation." },
+  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Condensation nocturne, odeur au réveil, meubles contre murs froids." },
+  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Stockage, odeur, murs enterrés, ventilation et déshumidification." },
+  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Vêtements qui sentent, air bloqué, absorbeur ou vraie cause à traiter." },
+  { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, sèche-linge, ventilation et choix d’un appareil adapté." },
+];
+
+const quickSteps = [
+  ['1', 'Mesurer', 'Un hygromètre dans la pièce concernée pendant plusieurs jours.'],
+  ['2', 'Observer', 'Vitre, mur, plafond, placard, odeur : l’emplacement donne la piste.'],
+  ['3', 'Ventiler', 'Entrées d’air, VMC, aération courte et efficace, circulation sous les portes.'],
+  ['4', 'Choisir', 'Absorbeur, déshumidificateur ou professionnel selon la cause probable.'],
 ];
 ---
 <BaseLayout
-  title="Humidité dans la maison : comprendre, mesurer et agir efficacement"
-  description="Conseils pratiques pour identifier la cause d'un excès d'humidité chez vous, mesurer le taux, et choisir la bonne solution sans paniquer."
+  title="Humidité maison : mesurer, comprendre, agir — Maison Moins Humide"
+  description="Guides simples pour comprendre l’humidité dans une maison, mesurer le taux, limiter condensation et moisissures, puis choisir une solution adaptée."
   isHome={true}
 >
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>Humidité dans la maison&nbsp;: comprendre, mesurer et agir efficacement</h1>
-      <p class="hero-intro">
-        L'humidité excessive dans une maison est un problème fréquent. Avant d'acheter un appareil ou d'appeler un professionnel,
-        il est utile de comprendre ce qui se passe et de mesurer la situation. Ce site vous aide à y voir clair,
-        sans dramatiser.
-      </p>
-      <div class="hero-cta-row">
-        <a href="/guides/humidite-maison-que-faire/" class="btn btn--primary">Par où commencer ?</a>
-        <a href="/guides/taux-humidite-ideal-maison/" class="btn btn--secondary">Taux idéal d'humidité</a>
+  <section class="hero hero--split">
+    <div class="container container--wide hero-grid">
+      <div>
+        <p class="eyebrow">Maison saine, conseils simples</p>
+        <h1>Humidité dans la maison : mesurer, comprendre, agir dans le bon ordre</h1>
+        <p class="hero-intro">Moisissures, condensation, odeur de renfermé, chambre humide ou cave qui sent le moisi : le but n’est pas de vendre une solution miracle, mais de vous aider à trouver la cause probable et les gestes utiles.</p>
+        <div class="hero-cta-row">
+          <a href={`${base}guides/humidite-maison-que-faire/`} class="btn btn--primary">Commencer le diagnostic</a>
+          <a href={`${base}comparatifs/meilleur-hygrometre-maison/`} class="btn btn--secondary">Choisir un hygromètre</a>
+        </div>
       </div>
+      <aside class="hero-panel" aria-label="Méthode recommandée">
+        <strong>Le bon ordre</strong>
+        <ol>
+          <li>Mesurer le taux d’humidité.</li>
+          <li>Regarder où l’eau ou l’odeur apparaît.</li>
+          <li>Vérifier ventilation et température.</li>
+          <li>Traiter la cause avant d’acheter.</li>
+        </ol>
+      </aside>
     </div>
   </section>
 
-  <!-- Questions rapides -->
   <section class="quick-links">
-    <div class="container">
-      <h2>Votre situation en un clin d'œil</h2>
-      <div class="quick-grid">
-        <a href="/guides/humidite-maison-que-faire/" class="quick-card">
-          <span class="quick-icon">🌡️</span>
-          <strong>Mon hygromètre dépasse 60 %</strong>
-          <span>Que faire ?</span>
-        </a>
-        <a href="/guides/moisissure-mur-danger/" class="quick-card">
-          <span class="quick-icon">🔍</span>
-          <strong>J'ai des moisissures sur les murs</strong>
-          <span>Est-ce dangereux ?</span>
-        </a>
-        <a href="/guides/condensation-fenetre/" class="quick-card">
-          <span class="quick-icon">🪟</span>
-          <strong>Buée sur mes fenêtres</strong>
-          <span>Comment réduire ?</span>
-        </a>
-        <a href="/guides/odeur-humidite-maison/" class="quick-card">
-          <span class="quick-icon">👃</span>
-          <strong>Odeur d'humidité persistante</strong>
-          <span>D'où ça vient ?</span>
-        </a>
+    <div class="container container--wide">
+      <p class="eyebrow">Accès rapide</p>
+      <h2>Votre situation en un clic</h2>
+      <div class="quick-grid quick-grid--five">
+        <a href={`${base}guides/humidite-maison-70-pourcent/`} class="quick-card"><span class="quick-icon">🌡️</span><strong>70 % d’humidité</strong><span>Comprendre le taux</span></a>
+        <a href={`${base}guides/moisissure-mur-danger/`} class="quick-card"><span class="quick-icon">🔍</span><strong>Moisissures</strong><span>Évaluer et agir</span></a>
+        <a href={`${base}guides/condensation-fenetre/`} class="quick-card"><span class="quick-icon">🪟</span><strong>Fenêtres embuées</strong><span>Limiter la condensation</span></a>
+        <a href={`${base}guides/odeur-humidite-maison/`} class="quick-card"><span class="quick-icon">👃</span><strong>Odeur de moisi</strong><span>Trouver l’origine</span></a>
+        <a href={`${base}pieces/chambre-humide/`} class="quick-card"><span class="quick-icon">🛏️</span><strong>Chambre humide</strong><span>Agir sans surchauffer</span></a>
       </div>
     </div>
   </section>
 
-  <!-- Guides populaires -->
+  <section class="method-section">
+    <div class="container container--wide">
+      <p class="eyebrow">Méthode simple</p>
+      <h2>Avant d’acheter : 4 étapes qui évitent les erreurs</h2>
+      <div class="step-grid">
+        {quickSteps.map(([num, title, text]) => (
+          <div class="step-card"><span>{num}</span><h3>{title}</h3><p>{text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section-guides">
-    <div class="container">
-      <h2>Guides populaires</h2>
-      <div class="card-grid">
-        {guides.map(g => <ArticleCard {...g} />)}
-      </div>
-      <p class="mt-2"><a href="/guides/">Voir tous les guides →</a></p>
+    <div class="container container--wide">
+      <div class="section-heading"><div><p class="eyebrow">Guides pratiques</p><h2>Comprendre le problème</h2></div><a href={`${base}guides/`}>Tous les guides →</a></div>
+      <div class="card-grid">{guides.map(g => <ArticleCard {...g} />)}</div>
     </div>
   </section>
 
-  <!-- Solutions par pièce -->
   <section class="section-pieces">
-    <div class="container">
-      <h2>Solutions par pièce</h2>
-      <div class="card-grid">
-        {pieces.map(p => <ArticleCard {...p} />)}
-      </div>
-      <p class="mt-2"><a href="/pieces/">Toutes les pièces →</a></p>
+    <div class="container container--wide">
+      <div class="section-heading"><div><p class="eyebrow">Solutions par pièce</p><h2>Agir là où l’humidité apparaît</h2></div><a href={`${base}pieces/`}>Toutes les pièces →</a></div>
+      <div class="card-grid">{pieces.map(p => <ArticleCard {...p} />)}</div>
     </div>
   </section>
 
-  <!-- Produits utiles -->
   <section class="section-products">
-    <div class="container">
-      <h2>Produits utiles</h2>
-      <p>Avant d'acheter quoi que ce soit, mesurez le taux d'humidité avec un hygromètre pendant plusieurs jours.
-      Un produit peut aider, mais ne remplace pas la recherche de la cause.</p>
+    <div class="container container--wide product-callout">
+      <div>
+        <p class="eyebrow">Produits utiles</p>
+        <h2>Mesurer d’abord, acheter ensuite</h2>
+        <p>Un hygromètre aide à savoir si le problème est réel. Un absorbeur peut aider dans un petit volume. Un déshumidificateur peut stabiliser une pièce. Aucun produit ne remplace la recherche d’une fuite, d’une infiltration ou d’une ventilation insuffisante.</p>
+      </div>
       <div class="products-row">
-        <a href="/comparatifs/meilleur-hygrometre-maison/" class="product-chip">🌡️ Hygromètres</a>
-        <a href="/comparatifs/meilleur-deshumidificateur-maison/" class="product-chip">💨 Déshumidificateurs</a>
-        <a href="/comparatifs/meilleur-absorbeur-humidite/" class="product-chip">🧊 Absorbeurs d'humidité</a>
-        <a href="/comparatifs/deshumidificateur-ou-absorbeur/" class="product-chip">⚖️ Déshumidificateur ou absorbeur ?</a>
+        <a href={`${base}comparatifs/meilleur-hygrometre-maison/`} class="product-chip">🌡️ Hygromètres</a>
+        <a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`} class="product-chip">💨 Déshumidificateurs</a>
+        <a href={`${base}comparatifs/meilleur-absorbeur-humidite/`} class="product-chip">🧊 Absorbeurs</a>
+        <a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`} class="product-chip">⚖️ Comparer</a>
       </div>
     </div>
   </section>
 
-  <!-- Encadré prudence -->
   <section class="section-alert">
     <div class="container">
-      <AlertBox type="warning" title="Quand consulter un professionnel ?">
-        <p>
-          En cas d'infiltration d'eau, de moisissures étendues, de mur mouillé, de salpêtre ou de symptômes de santé
-          (toux persistante, allergies), faites appel à un professionnel du bâtiment ou contactez votre assurance.
-          Ce site ne fournit pas de diagnostic définitif.
-        </p>
+      <AlertBox type="warning" title="Quand demander un avis professionnel ?">
+        <p>Mur mouillé en profondeur, peinture qui cloque, salpêtre, moisissures étendues, infiltration visible ou symptômes persistants : ne vous limitez pas à un produit. Cherchez la cause avec un professionnel du bâtiment, votre assurance ou un avis de santé adapté selon la situation.</p>
       </AlertBox>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #eef4fb 0%, #f0f7f2 100%);
-  padding: 3rem 0 2.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.hero h1 { max-width: 700px; }
-
-.hero-intro {
-  max-width: 640px;
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-  margin: 1rem 0 1.5rem;
-}
-
-.hero-cta-row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.btn--secondary {
-  background: #fff;
-  color: var(--color-primary);
-  border: 1.5px solid var(--color-primary);
-  display: inline-block;
-  padding: 0.6rem 1.4rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.btn--secondary:hover {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-/* Quick links */
-.quick-links {
-  padding: 2.5rem 0;
-}
-
-.quick-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1.25rem;
-}
-
-@media (min-width: 700px) {
-  .quick-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-.quick-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1rem;
-  text-decoration: none;
-  color: var(--color-text);
-  transition: border-color 0.15s, box-shadow 0.15s;
-}
-
-.quick-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(26,86,160,0.1);
-}
-
-.quick-icon { font-size: 1.4rem; }
-.quick-card strong { font-size: 0.9rem; color: var(--color-text); }
-.quick-card span { font-size: 0.8rem; color: var(--color-primary); }
-
-/* Sections */
-.section-guides,
-.section-pieces,
-.section-products,
-.section-alert {
-  padding: 2.5rem 0;
-}
-
-.section-pieces { background: #f5f7fa; }
-.section-alert { background: #fffbf0; }
-
-/* Products */
-.products-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-}
-
-.product-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
-  border: 1.5px solid var(--color-primary);
-  border-radius: 30px;
-  color: var(--color-primary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  background: #fff;
-  transition: background 0.15s, color 0.15s;
-}
-
-.product-chip:hover {
-  background: var(--color-primary);
-  color: #fff;
-}
+.hero--split { background: radial-gradient(circle at top left, #e6f0fb 0, #f7fbf8 52%, #f9f9f7 100%); padding: clamp(2.5rem, 6vw, 4.5rem) 0 3rem; border-bottom: 1px solid var(--color-border); }
+.hero-grid { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 860px) { .hero-grid { grid-template-columns: 1.35fr .75fr; } }
+.eyebrow { color: var(--color-primary); font-weight: 750; text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; margin-bottom: .45rem; }
+.hero h1 { max-width: 820px; font-size: clamp(2rem, 5vw, 3.35rem); }
+.hero-intro { max-width: 720px; font-size: 1.12rem; color: var(--color-text-muted); margin: 1rem 0 1.5rem; }
+.hero-cta-row { display: flex; gap: .75rem; flex-wrap: wrap; }
+.btn--secondary { background: #fff; color: var(--color-primary); border: 1.5px solid var(--color-primary); display: inline-block; padding: .6rem 1.4rem; border-radius: var(--radius); font-weight: 600; text-decoration: none; font-size: .95rem; }
+.btn--secondary:hover { background: var(--color-primary); color: #fff; }
+.hero-panel { background: #fff; border: 1px solid var(--color-border); border-radius: 20px; padding: 1.35rem; box-shadow: 0 18px 45px rgba(30,42,58,.08); }
+.hero-panel strong { display:block; margin-bottom:.7rem; color: var(--color-primary); }
+.hero-panel ol { margin-bottom:0; }
+.quick-links, .method-section, .section-guides, .section-pieces, .section-products, .section-alert { padding: 2.75rem 0; }
+.quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.25rem; }
+@media (min-width: 760px) { .quick-grid--five { grid-template-columns: repeat(5,1fr); } }
+.quick-card { display:flex; flex-direction:column; gap:.3rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:14px; padding:1rem; text-decoration:none; color:var(--color-text); transition:.15s; }
+.quick-card:hover { border-color:var(--color-primary); box-shadow:0 8px 22px rgba(26,86,160,.10); transform: translateY(-1px); }
+.quick-icon { font-size:1.5rem; }.quick-card strong{font-size:.95rem;color:var(--color-text)}.quick-card span:last-child{font-size:.82rem;color:var(--color-primary)}
+.method-section, .section-pieces { background:#f5f7fa; }
+.step-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:1.25rem; }
+@media (min-width: 760px){ .step-grid{ grid-template-columns:repeat(4,1fr);} }
+.step-card { background:#fff; border:1px solid var(--color-border); border-radius:16px; padding:1.15rem; }
+.step-card span { display:inline-grid; place-items:center; width:2rem; height:2rem; border-radius:999px; background:#eaf2fb; color:var(--color-primary); font-weight:800; }
+.step-card h3 { margin:.75rem 0 .35rem; }.step-card p { color:var(--color-text-muted); font-size:.92rem; margin:0; }
+.section-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1.25rem; }
+.section-heading h2 { margin:0; }.section-heading a { font-weight:700; white-space:nowrap; }
+.product-callout { display:grid; gap:1.25rem; background:#fff; border:1px solid var(--color-border); border-radius:20px; padding:clamp(1.25rem,3vw,2rem); box-shadow:0 14px 40px rgba(30,42,58,.06); }
+@media (min-width: 820px){ .product-callout{ grid-template-columns:1fr .85fr; align-items:center;} }
+.products-row { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }.product-chip{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1rem;border:1.5px solid var(--color-primary);border-radius:30px;color:var(--color-primary);font-size:.9rem;font-weight:650;text-decoration:none;background:#fff}.product-chip:hover{background:var(--color-primary);color:#fff}.section-alert{background:#fffbf0}
+@media (max-width:640px){ .quick-grid{grid-template-columns:1fr}.section-heading{display:block}.section-heading a{display:inline-block;margin-top:.5rem}.hero-cta-row .btn,.hero-cta-row .btn--secondary{width:100%;text-align:center} }
 </style>

@@ -1,27 +1,26 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<BaseLayout
-  title="Politique d'affiliation — Maison Moins Humide"
-  description="Transparence sur les liens affiliés présents sur ce site."
->
+<BaseLayout title="Politique d’affiliation — Maison Moins Humide" description="Transparence sur les liens affiliés, la sélection produit et l’indépendance éditoriale du site Maison Moins Humide.">
   <div class="container" style="padding-top:2rem;padding-bottom:3rem">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: "Politique d'affiliation" }]} />
-    <h1>Politique d'affiliation</h1>
-    <p>
-      Certains liens présents sur ce site sont des liens affiliés.
-      Si vous achetez via ces liens, le site peut recevoir une commission,
-      sans coût supplémentaire pour vous.
-    </p>
-    <p>
-      Cela n'influence pas notre volonté de présenter des conseils utiles,
-      prudents et adaptés aux problèmes d'humidité.
-      Nous ne recommandons que des produits ou services qui nous semblent pertinents.
-    </p>
-    <p>
-      Lorsque des liens Amazon sont utilisés : en tant que Partenaire Amazon,
-      je réalise un bénéfice sur les achats remplissant les conditions requises.
-    </p>
+    <article class="prose">
+      <h1>Politique d’affiliation</h1>
+      <p>Certains liens présents sur Maison Moins Humide peuvent être des liens affiliés. Si vous achetez via ces liens, le site peut recevoir une commission, sans coût supplémentaire pour vous.</p>
+      <h2>Ce que cela signifie</h2>
+      <p>L’affiliation peut aider à financer le site. Elle ne doit pas transformer un guide pratique en argumentaire commercial. Les pages produits doivent rester utiles, prudentes et adaptées au problème réel d’humidité.</p>
+      <h2>Notre règle éditoriale</h2>
+      <ul>
+        <li>ne pas présenter un produit comme une solution miracle ;</li>
+        <li>ne pas inventer de marque, prix, disponibilité ou performance ;</li>
+        <li>rappeler qu’un appareil ne répare pas une fuite, une infiltration ou une ventilation défaillante ;</li>
+        <li>encourager la mesure avec un hygromètre avant l’achat.</li>
+      </ul>
+      <h2>Mention Amazon</h2>
+      <p>Si des liens Amazon sont utilisés : en tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
+      <p>Pour une question sur cette politique, utilisez la page <a href={`${base}contact/`}>contact</a>.</p>
+    </article>
   </div>
 </BaseLayout>

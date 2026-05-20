@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout
   title="Politique de confidentialité — Maison Moins Humide"
@@ -25,7 +26,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
     <h2>Vos droits</h2>
     <p>
       Conformément au RGPD, vous pouvez exercer vos droits d'accès, rectification et suppression
-      via notre page <a href="/contact/">contact</a>.
+      via notre page <a href={`${base}contact/`}>contact</a>.
     </p>
   </div>
 </BaseLayout>

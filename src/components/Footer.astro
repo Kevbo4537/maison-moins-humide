@@ -1,5 +1,7 @@
 ---
 import nav from '../data/navigation.json';
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => href === '/' ? base : `${base}${href.replace(/^\//, '')}`;
 ---
 <footer class="site-footer">
   <div class="container">
@@ -12,7 +14,7 @@ import nav from '../data/navigation.json';
       <nav aria-label="Liens utiles">
         <ul>
           {nav.footer.map(item => (
-            <li><a href={item.href}>{item.label}</a></li>
+            <li><a href={withBase(item.href)}>{item.label}</a></li>
           ))}
         </ul>
       </nav>
@@ -20,7 +22,7 @@ import nav from '../data/navigation.json';
     <div class="footer-bottom">
       <p class="text-muted">
         © {new Date().getFullYear()} Maison Moins Humide.
-        Certains liens sont des liens affiliés — <a href="/politique-affiliation/">en savoir plus</a>.
+        Certains liens sont des liens affiliés — <a href={`${base}politique-affiliation/`}>en savoir plus</a>.
       </p>
       <p class="footer-disclaimer text-muted">
         Ce site fournit des informations générales. Il ne remplace pas un diagnostic professionnel.

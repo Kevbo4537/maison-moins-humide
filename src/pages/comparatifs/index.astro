@@ -3,25 +3,47 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
-
+const base = import.meta.env.BASE_URL;
 const comparatifs = [
-  { title: "Meilleur déshumidificateur maison", href: "/comparatifs/meilleur-deshumidificateur-maison/", description: "Critères de choix et sélection selon la superficie et le type de pièce.", badge: "Comparatif" },
-  { title: "Meilleur absorbeur d'humidité", href: "/comparatifs/meilleur-absorbeur-humidite/", description: "Absorbeurs à cristaux : pour quels usages et quelle efficacité réelle.", badge: "Comparatif" },
-  { title: "Meilleur hygromètre maison", href: "/comparatifs/meilleur-hygrometre-maison/", description: "L'outil indispensable avant tout achat : comment bien choisir.", badge: "Comparatif" },
-  { title: "Déshumidificateur ou absorbeur ?", href: "/comparatifs/deshumidificateur-ou-absorbeur/", description: "Quel produit choisir selon votre situation et votre budget.", badge: "Aide au choix" },
+  { title: "Déshumidificateur maison", href: "/comparatifs/meilleur-deshumidificateur-maison/", description: "Critères de choix selon pièce, volume, température, bruit et évacuation.", badge: "Pièce entière" },
+  { title: "Absorbeur d’humidité", href: "/comparatifs/meilleur-absorbeur-humidite/", description: "Usages réalistes dans placard, rangement et petit volume fermé.", badge: "Petit volume" },
+  { title: "Hygromètre maison", href: "/comparatifs/meilleur-hygrometre-maison/", description: "Le premier outil pour décider avec des mesures, pas au ressenti.", badge: "Mesure" },
+  { title: "Déshumidificateur ou absorbeur ?", href: "/comparatifs/deshumidificateur-ou-absorbeur/", description: "Comparer simplement les deux solutions selon le taux, la pièce et le budget.", badge: "Aide au choix" },
 ];
 ---
-<BaseLayout
-  title="Comparatifs produits anti-humidité — Maison Moins Humide"
-  description="Comparatifs honnêtes de déshumidificateurs, absorbeurs et hygromètres pour choisir le bon produit."
->
-  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+<BaseLayout title="Comparatifs anti-humidité : hygromètre, absorbeur, déshumidificateur" description="Guides d’achat prudents pour choisir un hygromètre, un absorbeur ou un déshumidificateur sans inventer de produits ni masquer la cause.">
+  <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs' }]} />
-    <h1>Comparatifs produits anti-humidité</h1>
-    <p>Avant d'acheter, mesurez avec un hygromètre. Un produit aide, mais ne remplace pas la recherche de la cause.</p>
-    <AffiliateDisclosure />
-    <div class="card-grid" style="margin-top:1.5rem">
-      {comparatifs.map(c => <ArticleCard {...c} />)}
+    <section class="hub-hero">
+      <p class="eyebrow">Choisir sans acheter au hasard</p>
+      <h1>Comparatifs produits anti-humidité</h1>
+      <p class="lead">Ces pages expliquent les critères de choix avant la sélection de références précises. Le site ne met pas encore de marques en avant : priorité à la mesure, à la cause et à l’usage réel.</p>
+      <AffiliateDisclosure />
+      <div class="hub-actions"><a class="btn btn--primary" href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Commencer par mesurer</a><a class="btn btn--light" href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Comparer les solutions</a></div>
+    </section>
+    <div class="intro-grid">
+      <div class="info-card"><h2>Hygromètre</h2><p>Premier achat utile pour confirmer le problème et suivre l’évolution.</p></div>
+      <div class="info-card"><h2>Absorbeur</h2><p>Utile en petit volume fermé, rarement suffisant pour une pièce entière.</p></div>
+      <div class="info-card"><h2>Déshumidificateur</h2><p>Plus efficace pour une pièce, mais à choisir selon volume, bruit et température.</p></div>
     </div>
+    <div class="section-heading"><h2>Tous les guides d’achat</h2></div>
+    <div class="card-grid">{comparatifs.map(c => <ArticleCard {...c} />)}</div>
   </div>
 </BaseLayout>
+
+<style>
+.hub { padding:2rem 0 3.25rem; }
+.hub-hero { background:#fff; border:1px solid var(--color-border); border-radius:20px; padding:clamp(1.25rem,3vw,2rem); box-shadow:0 14px 40px rgba(30,42,58,.06); margin-bottom:2rem; }
+.eyebrow { color:var(--color-primary); font-weight:750; text-transform:uppercase; letter-spacing:.06em; font-size:.78rem; margin-bottom:.45rem; }
+.lead { color:var(--color-text-muted); font-size:1.08rem; max-width:760px; }
+.hub-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+.btn--light { background:#fff; color:var(--color-primary); border:1.5px solid var(--color-primary); }
+.intro-grid { display:grid; gap:1rem; margin:1.25rem 0 2rem; }
+@media(min-width:760px){ .intro-grid{ grid-template-columns:repeat(3,1fr);} }
+.info-card { background:#f7faf8; border:1px solid var(--color-border); border-radius:16px; padding:1rem; }
+.info-card h2, .info-card h3 { margin-top:0; font-size:1.05rem; }
+.info-card p { color:var(--color-text-muted); font-size:.94rem; margin-bottom:0; }
+.section-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin:2rem 0 1rem; }
+.section-heading h2 { margin:0; }
+@media(max-width:640px){ .hub-actions .btn{width:100%;text-align:center}.section-heading{display:block} }
+</style>

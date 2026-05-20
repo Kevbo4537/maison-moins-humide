@@ -1,13 +1,82 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import AlertBox from '../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Produits utiles contre l’humidité" description="Comprendre les produits utiles contre l’humidité : hygromètre, absorbeur, déshumidificateur, anti-moisissure et accessoires de ventilation." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Produits utiles' }]}>
+<ArticleLayout title="Produits utiles contre l’humidité : quoi acheter en premier ?" description="Comprendre les produits utiles contre l’humidité : hygromètre, absorbeur, déshumidificateur, anti-moisissure, ventilation et accessoires." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Produits utiles' }]} showAffiliateDisclosure={true}>
   <h1>Produits utiles contre l’humidité</h1>
-  <p>Cette rubrique présente les produits qui peuvent aider à mesurer, limiter ou traiter localement l’humidité. Ils ne remplacent pas la recherche de la cause.</p>
-  <h2>Hygromètre</h2><p>Premier réflexe conseillé : mesurer le taux d’humidité sur plusieurs jours.</p>
-  <h2>Absorbeur d’humidité</h2><p>Utile dans un placard ou une petite zone peu humide, mais insuffisant face à une infiltration.</p>
-  <h2>Déshumidificateur électrique</h2><p>Intéressant pour une pièce régulièrement humide, à condition que la ventilation et la cause soient vérifiées.</p>
-  <h2>Produits anti-moisissure</h2><p>Ils peuvent nettoyer une trace locale, mais ne règlent pas la cause si la moisissure revient.</p>
+  <p>Les produits anti-humidité peuvent aider, mais ils doivent être choisis dans le bon ordre. Le premier achat utile est souvent un hygromètre. Ensuite seulement, on peut décider si un absorbeur, un déshumidificateur ou une amélioration de ventilation a du sens.</p>
+
+  <AlertBox type="tip" title="Ordre conseillé">
+    <p>Mesurer → comprendre la pièce → vérifier la ventilation → choisir un produit adapté. Acheter directement un appareil sans mesure conduit souvent à une solution trop faible, trop bruyante ou inutile.</p>
+  </AlertBox>
+
+  <h2>1. Hygromètre : le premier outil</h2>
+  <p>L’hygromètre mesure le taux d’humidité et souvent la température. Il permet de savoir si le problème est ponctuel ou durable, de comparer plusieurs pièces et de vérifier si une action fonctionne.</p>
+  <ul>
+    <li>utile dans presque toutes les situations ;</li>
+    <li>à placer loin d’une fenêtre, d’un radiateur ou d’une bouche VMC ;</li>
+    <li>à lire matin et soir pendant plusieurs jours ;</li>
+    <li>pratique avant d’acheter un déshumidificateur.</li>
+  </ul>
+  <p><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Voir le guide pour choisir un hygromètre</a></p>
+
+  <h2>2. Absorbeur d’humidité : pour les petits volumes</h2>
+  <p>Un absorbeur peut aider dans un placard, un petit rangement ou une zone fermée légèrement humide. Il est silencieux et simple, mais il reste limité.</p>
+  <ul>
+    <li>pertinent pour placard, chaussures, petit rangement ;</li>
+    <li>moins adapté à une chambre ou une cave entière ;</li>
+    <li>demande de remplacer les recharges ;</li>
+    <li>ne répare pas une fuite ni un mur humide.</li>
+  </ul>
+  <p><a href={`${base}comparatifs/meilleur-absorbeur-humidite/`}>Comprendre quand utiliser un absorbeur</a></p>
+
+  <h2>3. Déshumidificateur électrique : pour une vraie pièce humide</h2>
+  <p>Le déshumidificateur retire plus d’eau de l’air qu’un absorbeur. Il peut être utile dans une buanderie, une cave, une chambre ou une pièce qui reste humide malgré l’aération. Il faut toutefois choisir un modèle adapté au volume et à la température.</p>
+  <ul>
+    <li>plus efficace pour une pièce entière ;</li>
+    <li>à choisir selon volume, bruit, bac et évacuation continue ;</li>
+    <li>moins agréable si l’appareil est bruyant dans une chambre ;</li>
+    <li>inutile seul si la cause est une infiltration active.</li>
+  </ul>
+  <p><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Lire le guide déshumidificateur maison</a></p>
+
+  <h2>4. Produits anti-moisissure : nettoyer, pas résoudre</h2>
+  <p>Un produit anti-moisissure peut nettoyer une trace locale, mais il ne traite pas la cause. Si la tache revient, le mur reçoit encore trop d’humidité ou ne sèche pas assez.</p>
+  <ul>
+    <li>utile pour une petite surface limitée ;</li>
+    <li>à utiliser avec prudence et aération ;</li>
+    <li>à éviter comme seule réponse à un problème récurrent ;</li>
+    <li>à compléter par recherche de cause : condensation, fuite, ventilation, pont thermique.</li>
+  </ul>
+
+  <h2>5. Ventilation et accessoires</h2>
+  <p>Parfois, le bon “produit” n’est pas un appareil anti-humidité mais une amélioration de circulation d’air : grille non bouchée, extracteur, passage sous porte, aération correcte, entretien VMC.</p>
+  <ul>
+    <li>nettoyer les bouches d’extraction ;</li>
+    <li>vérifier les entrées d’air des fenêtres ;</li>
+    <li>laisser l’air circuler autour des meubles ;</li>
+    <li>améliorer l’extraction dans salle de bain ou buanderie si nécessaire.</li>
+  </ul>
+
+  <AlertBox type="warning" title="Ne pas masquer une cause technique">
+    <p>Mur mouillé, salpêtre, peinture qui cloque, eau après pluie, moisissures qui reviennent : dans ces cas, un produit peut accompagner, mais la cause doit être diagnostiquée.</p>
+  </AlertBox>
+
+  <h2>Quel produit selon la situation ?</h2>
+  <ul>
+    <li><strong>Je ne sais pas si la pièce est vraiment humide :</strong> hygromètre.</li>
+    <li><strong>Placard qui sent le moisi :</strong> aération, tri, puis absorbeur si léger.</li>
+    <li><strong>Buanderie ou cave régulièrement humide :</strong> mesure puis déshumidificateur adapté.</li>
+    <li><strong>Fenêtres embuées le matin :</strong> ventilation, chauffage régulier, hygromètre.</li>
+    <li><strong>Moisissure qui revient :</strong> nettoyage prudent + recherche de cause.</li>
+  </ul>
+
   <h2>Guides associés</h2>
-  <ul><li><a href="/comparatifs/meilleur-hygrometre-maison/">Meilleur hygromètre maison</a></li><li><a href="/comparatifs/meilleur-deshumidificateur-maison/">Déshumidificateur maison</a></li><li><a href="/comparatifs/meilleur-absorbeur-humidite/">Absorbeur d’humidité</a></li></ul>
+  <ul>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Déshumidificateur ou absorbeur : lequel choisir ?</a></li>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Humidité maison : que faire ?</a></li>
+    <li><a href={`${base}pieces/placard-humide/`}>Placard humide</a></li>
+    <li><a href={`${base}pieces/buanderie-humide/`}>Buanderie humide</a></li>
+  </ul>
 </ArticleLayout>

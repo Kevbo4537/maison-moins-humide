@@ -1,26 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<BaseLayout
-  title="À propos — Maison Moins Humide"
-  description="Qui sommes-nous et pourquoi ce site sur l'humidité dans la maison."
->
+<BaseLayout title="À propos — Maison Moins Humide" description="Pourquoi Maison Moins Humide existe : conseils pratiques, prudents et lisibles pour comprendre l’humidité dans une maison.">
   <div class="container" style="padding-top:2rem;padding-bottom:3rem">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]} />
-    <h1>À propos</h1>
-    <p>
-      Maison Moins Humide est un site de conseils pratiques sur l'humidité résidentielle.
-      Notre objectif est simple : vous aider à comprendre ce qui se passe chez vous,
-      mesurer la situation avec un hygromètre, et identifier les actions adaptées.
-    </p>
-    <p>
-      Nous ne vendons pas de produits en direct. Certains liens sont des liens affiliés
-      (voir notre <a href="/politique-affiliation/">politique d'affiliation</a>).
-      Nos conseils restent indépendants et prudents.
-    </p>
-    <p>
-      Pour toute question, rendez-vous sur la page <a href="/contact/">Contact</a>.
-    </p>
+    <article class="prose">
+      <h1>À propos</h1>
+      <p>Maison Moins Humide est un site de conseils pratiques sur l’humidité dans la maison : condensation, moisissures, odeurs, cave humide, chambre humide ou choix d’un appareil.</p>
+      <h2>Notre objectif</h2>
+      <p>L’objectif est simple : aider le lecteur à comprendre ce qui se passe chez lui, mesurer la situation avec un hygromètre et choisir une action adaptée, sans dramatiser et sans vendre de solution miracle.</p>
+      <h2>Notre méthode</h2>
+      <ul>
+        <li>commencer par mesurer l’humidité sur plusieurs jours ;</li>
+        <li>observer la pièce touchée et les signes visibles ;</li>
+        <li>vérifier ventilation, température et circulation d’air ;</li>
+        <li>choisir un produit seulement si son usage correspond au problème ;</li>
+        <li>recommander un avis professionnel quand la situation dépasse les gestes simples.</li>
+      </ul>
+      <h2>Transparence</h2>
+      <p>Nous ne vendons pas de produits en direct. Certains liens peuvent être affiliés : si vous achetez via ces liens, le site peut recevoir une commission sans coût supplémentaire pour vous. Cela ne change pas la priorité éditoriale : rester utile, clair et prudent.</p>
+      <p><a href={`${base}politique-affiliation/`}>Lire la politique d’affiliation</a> ou <a href={`${base}contact/`}>contacter le site</a>.</p>
+    </article>
   </div>
 </BaseLayout>

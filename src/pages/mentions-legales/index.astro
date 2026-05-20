@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout
   title="Mentions légales — Maison Moins Humide"
@@ -10,7 +11,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Mentions légales' }]} />
     <h1>Mentions légales</h1>
     <h2>Éditeur du site</h2>
-    <p>Ce site est édité à titre personnel. Pour toute demande, utilisez le formulaire de <a href="/contact/">contact</a>.</p>
+    <p>Ce site est édité à titre personnel. Pour toute demande, utilisez le formulaire de <a href={`${base}contact/`}>contact</a>.</p>
     <h2>Hébergement</h2>
     <p>À compléter selon l'hébergeur retenu.</p>
     <h2>Responsabilité</h2>
