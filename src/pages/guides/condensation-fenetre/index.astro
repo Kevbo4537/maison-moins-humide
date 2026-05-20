@@ -1,57 +1,60 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Condensation sur les fenêtres : causes et solutions" description="Pourquoi de la buée apparaît sur les vitres et comment limiter la condensation au quotidien." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Condensation sur les fenêtres : causes et solutions' }]}>
+<ArticleLayout title="Condensation sur les fenêtres : causes et solutions" description="Comprendre pourquoi les vitres condensent et appliquer les bons gestes pour limiter la buée, l’eau et les moisissures autour des fenêtres." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Condensation sur les fenêtres' }]}>
   <h1>Condensation sur les fenêtres : causes et solutions</h1>
-  <p>Pourquoi de la buée apparaît sur les vitres et comment limiter la condensation au quotidien. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
+  <p>La condensation sur les fenêtres apparaît quand l’air intérieur contient de l’humidité et rencontre une surface froide. La vapeur d’eau se transforme alors en gouttelettes sur la vitre, le dormant ou le mur autour de la fenêtre.</p>
+
+  <AlertBox type="tip" title="Le bon réflexe le matin">
+    <p>Essuyez l’eau visible, aérez franchement quelques minutes, puis surveillez si la condensation revient tous les jours ou seulement ponctuellement.</p>
+  </AlertBox>
+
   <h2>Pourquoi les fenêtres condensent</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Les signes à observer</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Gestes simples le matin</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Ventilation et chauffage</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Produits utiles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <p>Une vitre est souvent l’une des surfaces les plus froides d’une pièce. Si l’air est humide, elle devient le point où l’eau se dépose. Le phénomène est fréquent dans les chambres le matin, les salles de bain après une douche et les cuisines pendant la cuisson.</p>
+  <ul>
+    <li>air intérieur chargé en vapeur d’eau ;</li>
+    <li>surface froide : simple vitrage, ancien double vitrage, pont thermique ;</li>
+    <li>ventilation insuffisante ;</li>
+    <li>pièce peu chauffée ou chauffée par à-coups ;</li>
+    <li>linge qui sèche à l’intérieur.</li>
+  </ul>
+
+  <h2>Ce qui est normal et ce qui doit alerter</h2>
+  <p>Un peu de buée ponctuelle après une douche ou une cuisson est courant. En revanche, de l’eau qui coule tous les matins, des joints noirs, un mur humide autour de la fenêtre ou une odeur de moisi indiquent qu’il faut agir.</p>
+  <ul>
+    <li><strong>ponctuel :</strong> buée qui disparaît vite après aération ;</li>
+    <li><strong>à surveiller :</strong> condensation quotidienne en hiver ;</li>
+    <li><strong>problème probable :</strong> eau qui ruisselle, moisissures, peinture qui s’abîme.</li>
+  </ul>
+
+  <h2>Gestes simples pour réduire la condensation</h2>
+  <ol>
+    <li><strong>Aérer court et fort</strong> le matin, surtout dans les chambres.</li>
+    <li><strong>Essuyer l’eau</strong> sur les vitres et appuis pour éviter qu’elle ne reste dans les joints.</li>
+    <li><strong>Laisser circuler l’air</strong> : ne collez pas rideaux épais et meubles contre les murs froids.</li>
+    <li><strong>Chauffer régulièrement</strong> plutôt que laisser la pièce très froide puis surchauffer.</li>
+    <li><strong>Limiter les apports</strong> : couvercle en cuisine, porte fermée pendant la douche, extraction active.</li>
+  </ol>
+
+  <h2>Vérifier la ventilation</h2>
+  <p>Si les entrées d’air sont bouchées ou si la VMC aspire mal, l’humidité reste dans le logement. Nettoyez les grilles, vérifiez que l’air circule sous les portes et contrôlez les bouches d’extraction. Une fenêtre neuve très étanche sans ventilation adaptée peut aggraver un problème existant.</p>
+
+  <h2>Faut-il un absorbeur ou un déshumidificateur ?</h2>
+  <p>Pour une condensation légère et ponctuelle, les gestes de ventilation suffisent souvent. Pour une pièce qui reste humide malgré tout, un déshumidificateur peut aider. Un absorbeur convient plutôt à un petit volume fermé, comme un placard, mais il aura peu d’effet sur une chambre entière.</p>
+
+  <h2>Quand chercher plus loin</h2>
+  <p>Si la condensation se concentre toujours au même endroit, avec mur froid, moisissures ou peinture abîmée, il peut y avoir un pont thermique ou un défaut d’isolation. Si l’humidité apparaît hors période froide ou près d’un plafond/mur précis, pensez aussi à une fuite ou infiltration.</p>
+
+  <AlertBox type="warning" title="Ne pas se limiter au nettoyage">
+    <p>Nettoyer les moisissures autour des fenêtres est utile, mais si la condensation revient chaque jour, il faut réduire l’humidité et améliorer la circulation d’air.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Comprendre le taux d’humidité idéal</a></li>
+    <li><a href={`${base}pieces/chambre-humide/`}>Que faire dans une chambre humide</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Déshumidificateur ou absorbeur : comparer</a></li>
+  </ul>
 </ArticleLayout>

@@ -21,6 +21,7 @@ const {
 
 const siteUrl = 'https://www.maisonmoinshumide.fr';
 const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
+const base = import.meta.env.BASE_URL;
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -45,7 +46,7 @@ const orgJsonLd = {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content={isHome ? 'website' : 'article'} />
@@ -72,5 +73,13 @@ const orgJsonLd = {
     <slot />
   </main>
   <Footer />
+  {base !== '/' && (
+    <script define:vars={{ base }}>
+      for (const link of document.querySelectorAll('a[href^="/"]')) {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith(base)) link.setAttribute('href', base.replace(/\/$/, '') + href);
+      }
+    </script>
+  )}
 </body>
 </html>

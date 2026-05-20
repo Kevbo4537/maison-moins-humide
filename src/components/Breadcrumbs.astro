@@ -7,13 +7,15 @@ interface Props {
   crumbs: Crumb[];
 }
 const { crumbs } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => href === '/' ? base : `${base}${href.replace(/^\//, '')}`;
 ---
 <nav class="breadcrumbs" aria-label="Fil d'Ariane">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
     {crumbs.map((crumb, index) => (
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         {crumb.href ? (
-          <a href={crumb.href} itemprop="item">
+          <a href={withBase(crumb.href)} itemprop="item">
             <span itemprop="name">{crumb.label}</span>
           </a>
         ) : (

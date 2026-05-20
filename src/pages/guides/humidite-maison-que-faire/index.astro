@@ -1,57 +1,72 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Humidité maison : que faire ?" description="Les bons réflexes pour comprendre la cause, mesurer le taux d’humidité et agir sans acheter de solution au hasard." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité maison : que faire ?' }]}>
+<ArticleLayout title="Humidité maison : que faire ? Le plan simple" description="Un plan d’action concret pour mesurer, trouver la cause probable et réduire l’humidité dans une maison sans acheter au hasard." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité maison : que faire ?' }]}>
   <h1>Humidité maison : que faire ?</h1>
-  <p>Les bons réflexes pour comprendre la cause, mesurer le taux d’humidité et agir sans acheter de solution au hasard. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Est-ce grave ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Les causes possibles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Que faire maintenant ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Produits utiles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand appeler un professionnel ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <p>Quand une maison paraît humide, le mauvais réflexe est d’acheter directement un absorbeur, un déshumidificateur ou une peinture anti-humidité. Le bon réflexe est plus simple : <strong>mesurer, localiser, comprendre la cause, puis agir dans le bon ordre</strong>.</p>
+
+  <AlertBox type="tip" title="Résumé rapide">
+    <p>Installez un hygromètre, notez les taux matin et soir pendant une semaine, vérifiez la ventilation, cherchez les traces visibles, puis choisissez la solution selon la pièce et la cause probable.</p>
+  </AlertBox>
+
+  <h2>1. Mesurer avant de conclure</h2>
+  <p>Une sensation d’air humide ne suffit pas. Une pièce peut paraître froide et moite alors que le taux reste correct, ou au contraire garder un taux élevé sans trace spectaculaire. Placez un hygromètre dans la pièce concernée, loin d’une fenêtre ouverte, d’un radiateur ou d’une bouche de ventilation.</p>
+  <ul>
+    <li>notez le taux d’humidité matin et soir ;</li>
+    <li>notez aussi la température, car air froid et condensation vont souvent ensemble ;</li>
+    <li>mesurez au moins quelques jours, pas seulement une fois ;</li>
+    <li>comparez avec une autre pièce saine de la maison.</li>
+  </ul>
+  <p>Si le taux monte ponctuellement après une douche ou une cuisson puis redescend, le problème est différent d’un taux qui reste haut toute la journée.</p>
+
+  <h2>2. Observer où l’humidité apparaît</h2>
+  <p>L’emplacement donne souvent la première piste. Une vitre embuée le matin ne raconte pas la même chose qu’un bas de mur humide, une tache au plafond ou une odeur dans un placard.</p>
+  <ul>
+    <li><strong>fenêtres :</strong> condensation, pont thermique, manque d’aération ;</li>
+    <li><strong>angles de murs :</strong> zone froide, meuble trop collé, air qui circule mal ;</li>
+    <li><strong>bas de murs :</strong> possible remontée capillaire ou problème de sol ;</li>
+    <li><strong>plafond :</strong> fuite, toiture, salle d’eau au-dessus ;</li>
+    <li><strong>placards :</strong> air stagnant, mur froid, linge rangé trop humide.</li>
+  </ul>
+
+  <h2>3. Vérifier la ventilation</h2>
+  <p>Dans beaucoup de logements, le problème vient d’abord d’un air qui ne se renouvelle pas assez. Avant d’acheter un appareil, contrôlez les points simples.</p>
+  <ul>
+    <li>les entrées d’air des fenêtres ne doivent pas être bouchées ;</li>
+    <li>les bouches VMC doivent aspirer, surtout cuisine, WC et salle de bain ;</li>
+    <li>les portes doivent laisser circuler l’air, souvent par un petit jour en bas ;</li>
+    <li>le linge qui sèche à l’intérieur ajoute beaucoup d’humidité ;</li>
+    <li>une douche chaude sans extraction efficace sature vite une salle de bain.</li>
+  </ul>
+  <p>Si l’air ne sort pas et ne rentre pas correctement, l’humidité produite par la vie quotidienne reste dans le logement.</p>
+
+  <h2>4. Agir dans le bon ordre</h2>
+  <p>Voici l’ordre le plus logique pour éviter les dépenses inutiles :</p>
+  <ol>
+    <li><strong>Aérer court et efficacement</strong> : ouvrez largement 5 à 10 minutes, plutôt que laisser entrouvert toute la journée en hiver.</li>
+    <li><strong>Réduire les apports d’humidité</strong> : couvercle en cuisson, linge dehors si possible, douche ventilée.</li>
+    <li><strong>Remettre la ventilation en état</strong> : nettoyage des grilles, contrôle VMC, entrées d’air dégagées.</li>
+    <li><strong>Chauffer régulièrement</strong> : une pièce trop froide favorise la condensation.</li>
+    <li><strong>Utiliser un appareil si nécessaire</strong> : absorbeur pour petit volume ponctuel, déshumidificateur électrique pour un vrai excès mesuré.</li>
+  </ol>
+
+  <h2>5. Quand un déshumidificateur est utile</h2>
+  <p>Un déshumidificateur peut être très utile si le taux reste élevé malgré l’aération et la ventilation, notamment dans une cave, une buanderie ou une pièce mal ventilée. Il ne corrige pas une fuite, une remontée d’humidité ou une ventilation défaillante, mais il peut stabiliser une pièce et protéger les affaires.</p>
+  <p>Pour choisir sans se tromper, comparez la surface, la température de la pièce, le niveau sonore, la capacité du bac et la possibilité d’évacuation continue.</p>
+
+  <h2>6. Quand appeler un professionnel</h2>
+  <p>Un avis professionnel devient pertinent si les traces reviennent malgré les gestes simples, si un mur reste humide en profondeur, si la peinture cloque, si le plâtre s’abîme ou si vous suspectez une fuite. Dans ces cas, le problème peut être dans le bâti, la toiture, la plomberie ou le drainage.</p>
+
+  <AlertBox type="warning" title="Attention santé et bâtiment">
+    <p>Les moisissures persistantes ne sont pas à banaliser. Si elles reviennent, s’étendent ou s’accompagnent de symptômes respiratoires, il faut supprimer la cause et demander un avis adapté.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Comprendre le bon taux d’humidité</a></li>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Limiter la condensation sur les fenêtres</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Déshumidificateur ou absorbeur : que choisir ?</a></li>
+  </ul>
 </ArticleLayout>

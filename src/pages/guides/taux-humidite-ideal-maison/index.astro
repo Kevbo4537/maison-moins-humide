@@ -1,57 +1,58 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Taux d’humidité idéal dans une maison" description="Comprendre le bon taux d’humidité intérieur, savoir quand mesurer et interpréter les résultats sans paniquer." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Taux d’humidité idéal dans une maison' }]}>
+<ArticleLayout title="Taux d’humidité idéal dans une maison" description="Repères simples pour savoir quel taux d’humidité viser, comment mesurer correctement et quand s’inquiéter." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Taux d’humidité idéal dans une maison' }]}>
   <h1>Taux d’humidité idéal dans une maison</h1>
-  <p>Comprendre le bon taux d’humidité intérieur, savoir quand mesurer et interpréter les résultats sans paniquer. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Le taux conseillé</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Comment mesurer correctement</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Que signifie un taux trop élevé ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Solutions simples</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand approfondir le diagnostic ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <p>Le taux d’humidité intérieur, aussi appelé humidité relative, indique la quantité de vapeur d’eau présente dans l’air. Pour une maison, l’objectif est de rester dans une zone confortable, sans air trop sec et sans humidité durable.</p>
+
+  <AlertBox type="tip" title="Repère pratique">
+    <p>Dans beaucoup de logements, une zone autour de <strong>40 à 60&nbsp;%</strong> est un bon repère de confort. Ce n’est pas une règle absolue : il faut regarder la durée, la température, la pièce et les signes visibles.</p>
+  </AlertBox>
+
+  <h2>Quel taux viser ?</h2>
+  <p>Un taux ponctuel un peu au-dessus de 60&nbsp;% après une douche, une cuisson ou une nuit froide n’est pas forcément inquiétant. Le signal devient plus intéressant quand l’humidité reste élevée plusieurs heures ou plusieurs jours, surtout si vous voyez de la condensation, des taches ou une odeur de moisi.</p>
+  <ul>
+    <li><strong>Air trop sec :</strong> souvent sous 35-40&nbsp;%, inconfort possible, gorge sèche, poussières.</li>
+    <li><strong>Zone confortable :</strong> souvent autour de 40-60&nbsp;% selon saison et température.</li>
+    <li><strong>À surveiller :</strong> au-dessus de 60-65&nbsp;% de façon répétée.</li>
+    <li><strong>Problème probable :</strong> taux élevé durable + traces, odeurs ou condensation fréquente.</li>
+  </ul>
+
+  <h2>Comment mesurer correctement</h2>
+  <p>Un hygromètre coûte peu cher et évite les décisions au hasard. Le plus important n’est pas une mesure isolée, mais la tendance.</p>
+  <ul>
+    <li>placez l’appareil à hauteur de vie, pas collé à une fenêtre ;</li>
+    <li>évitez la proximité directe d’un radiateur, d’une douche ou d’une bouche VMC ;</li>
+    <li>notez les valeurs matin et soir pendant une semaine ;</li>
+    <li>comparez plusieurs pièces : chambre, salle de bain, salon, cave si besoin ;</li>
+    <li>regardez la température en même temps, car une pièce froide condense plus facilement.</li>
+  </ul>
+
+  <h2>Pourquoi le taux varie autant</h2>
+  <p>Le taux change avec la météo, la température, l’occupation du logement et les gestes du quotidien. Une famille qui cuisine, se douche, sèche du linge et garde les fenêtres fermées produit beaucoup d’humidité. En hiver, les surfaces froides favorisent aussi la condensation, même avec un taux qui ne paraît pas extrême.</p>
+
+  <h2>Que faire si le taux est trop haut ?</h2>
+  <ol>
+    <li>Aérez largement quelques minutes, surtout après douche et cuisson.</li>
+    <li>Vérifiez que les entrées d’air et bouches d’extraction ne sont pas bouchées.</li>
+    <li>Évitez le séchage du linge dans une pièce fermée.</li>
+    <li>Chauffez de façon régulière les pièces occupées.</li>
+    <li>Si le taux reste haut, cherchez une cause : ventilation, infiltration, fuite, cave, pont thermique.</li>
+  </ol>
+
+  <h2>Faut-il acheter un absorbeur ?</h2>
+  <p>Un absorbeur peut aider dans un petit placard ou un volume fermé, mais il ne règle pas un problème d’humidité dans toute une pièce. Pour une pièce entière avec un taux réellement élevé, un déshumidificateur électrique est souvent plus efficace, à condition que la cause ne soit pas une fuite ou un problème de bâti.</p>
+
+  <AlertBox type="warning" title="Ne pas masquer le problème">
+    <p>Peinture anti-humidité, parfum, absorbeur ou nettoyage de moisissure ne remplacent pas la recherche de cause. Si l’humidité revient, il faut corriger l’origine.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Plan d’action si la maison est humide</a></li>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre simple</a></li>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Comparer les déshumidificateurs</a></li>
+  </ul>
 </ArticleLayout>

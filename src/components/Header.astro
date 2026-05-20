@@ -1,10 +1,12 @@
 ---
 import nav from '../data/navigation.json';
 const { pathname } = Astro.url;
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => href === '/' ? base : `${base}${href.replace(/^\//, '')}`;
 ---
 <header class="site-header">
   <div class="container">
-    <a class="site-logo" href="/">
+    <a class="site-logo" href={base}>
       <span class="logo-icon" aria-hidden="true">💧</span>
       <span class="logo-text">Maison Moins Humide</span>
     </a>
@@ -15,7 +17,7 @@ const { pathname } = Astro.url;
       <ul>
         {nav.main.map(item => (
           <li>
-            <a href={item.href} class:list={[{ active: pathname.startsWith(item.href) && item.href !== '/' }]}>
+            <a href={withBase(item.href)} class:list={[{ active: pathname.startsWith(item.href) && item.href !== '/' }]}>
               {item.label}
             </a>
           </li>
