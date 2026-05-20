@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "La moisissure sur un mur est-elle dangereuse ?", answer: "Elle ne doit pas être banalisée, surtout si elle s’étend, revient souvent ou s’accompagne de symptômes. Il faut nettoyer prudemment, mais surtout supprimer la cause de l’humidité." },
+  { question: "Peut-on seulement repeindre un mur moisi ?", answer: "Non. Repeindre sans traiter la cause masque le problème et les traces risquent de revenir. Il faut d’abord comprendre l’origine : condensation, fuite, infiltration ou pont thermique." },
+  { question: "Quand demander un avis médical ou professionnel ?", answer: "Demandez un avis adapté si les moisissures sont importantes, si le mur reste humide, si elles reviennent vite ou si des occupants ont des symptômes respiratoires." },
+];
 ---
 <ArticleLayout title="Moisissure sur un mur : danger, causes et actions" description="Comprendre les risques d’une moisissure sur un mur, savoir quoi vérifier et quand demander un diagnostic." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Moisissure sur un mur' }]}>
   <h1>Moisissure sur un mur : danger, causes et actions</h1>
@@ -49,6 +56,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="tip" title="Bon repère">
     <p>Si la moisissure revient au même endroit après nettoyage, considérez que le mur reçoit toujours trop d’humidité ou ne sèche pas assez.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

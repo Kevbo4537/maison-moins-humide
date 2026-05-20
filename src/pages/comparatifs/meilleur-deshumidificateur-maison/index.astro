@@ -1,7 +1,13 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Faut-il acheter le plus puissant ?", answer: "Pas forcément. Un appareil trop petit sera inefficace, mais un modèle surdimensionné peut être plus cher, plus bruyant et inutile selon la pièce." },
+  { question: "Un déshumidificateur suffit-il contre les moisissures ?", answer: "Il peut aider à réduire l’humidité de l’air, mais il faut aussi supprimer la cause et nettoyer les surfaces touchées." },
+  { question: "Quel critère regarder en priorité ?", answer: "Regardez d’abord le volume de la pièce, la température, le niveau sonore et la possibilité d’évacuation continue si l’usage est fréquent." },
+];
 ---
 <ComparisonLayout title="Déshumidificateur maison : guide d’achat prudent" description="Choisir un déshumidificateur adapté à une maison, une chambre, une cave ou une buanderie sans le présenter comme une solution miracle." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur maison : guide d’achat' }]}>
   <h1>Déshumidificateur maison : guide d’achat</h1>
@@ -49,11 +55,7 @@ const base = import.meta.env.BASE_URL;
     <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
   </AlertBox>
 
-  <h2>Questions fréquentes</h2>
-  <h3>Faut-il acheter le plus puissant ?</h3>
-  <p>Pas forcément. Un appareil trop petit sera inefficace, mais un modèle surdimensionné peut être plus cher, plus bruyant et inutile selon la pièce.</p>
-  <h3>Un déshumidificateur suffit-il contre les moisissures ?</h3>
-  <p>Il peut aider à réduire l’humidité de l’air, mais il faut aussi supprimer la cause et nettoyer les surfaces touchées.</p>
+  <FAQSection items={faqs} />
 
   <h2>À lire ensuite</h2>
   <ul>

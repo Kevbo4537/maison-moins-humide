@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Quel taux d’humidité viser dans une chambre ?", answer: "Visez surtout un taux stable proche de 40 à 60 %. Une chambre froide, peu ventilée ou occupée toute la nuit peut monter plus haut, mais le taux doit redescendre après aération." },
+  { question: "Un déshumidificateur est-il conseillé dans une chambre ?", answer: "Il peut aider si l’humidité reste élevée, mais le bruit, la taille et la ventilation doivent être regardés. Il faut d’abord mesurer et vérifier l’aération." },
+  { question: "Pourquoi les angles de la chambre moisissent ?", answer: "Les angles sont souvent plus froids et moins ventilés, surtout derrière un meuble. Cela favorise la condensation et les moisissures si l’air circule mal." },
+];
 ---
 <ArticleLayout title="Chambre humide : causes, risques et solutions" description="Comprendre l’humidité dans une chambre et retrouver un air plus sain sans surchauffer ni masquer le problème." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Chambre humide : causes, risques et solutions' }]}>
   <h1>Chambre humide : causes, risques et solutions</h1>
@@ -47,6 +54,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="À vérifier">
     <p>Une chambre avec moisissures récurrentes doit être traitée sérieusement, surtout si elle est occupée toutes les nuits. Cherchez la cause plutôt que masquer l’odeur.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

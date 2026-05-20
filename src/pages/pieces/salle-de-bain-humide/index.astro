@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Comment réduire rapidement l’humidité dans une salle de bain ?", answer: "Aérez après la douche, laissez la porte entrouverte si possible, essuyez les surfaces très mouillées et vérifiez que la VMC ou l’extracteur fonctionne correctement." },
+  { question: "Un absorbeur suffit-il dans une salle de bain ?", answer: "Il peut aider ponctuellement dans une petite salle d’eau, mais il ne remplace pas une extraction d’air efficace après les douches." },
+  { question: "Pourquoi la moisissure revient dans les joints ?", answer: "Souvent parce que l’eau reste sur les surfaces et que l’air se renouvelle mal. Il faut nettoyer, sécher et réduire l’humidité après chaque usage." },
+];
 ---
 <ArticleLayout title="Salle de bain humide : causes et solutions" description="Ventilation, condensation, joints noircis : les bons réflexes pour une salle de bain qui sèche mieux." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Salle de bain humide : causes et solutions' }]}>
   <h1>Salle de bain humide : causes et solutions</h1>
@@ -46,6 +53,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="À vérifier">
     <p>Si le plafond noircit, si la peinture cloque ou si l’humidité revient malgré une ventilation correcte, vérifiez une fuite, une infiltration ou un défaut d’extraction.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

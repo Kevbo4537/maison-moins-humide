@@ -1,0 +1,30 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<section class="useful-product-links" aria-labelledby="useful-products-title">
+  <h2 id="useful-products-title">Outils utiles pour avancer</h2>
+  <p>Avant d’acheter, l’idéal est de mesurer puis de choisir selon la pièce et la cause probable.</p>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre pour confirmer le taux</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Comparer absorbeur et déshumidificateur</a></li>
+    <li><a href={`${base}produits-utiles/`}>Voir les produits utiles contre l’humidité</a></li>
+  </ul>
+</section>
+
+<style>
+.useful-product-links {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #f7faf8;
+  border: 1px solid var(--color-border);
+}
+
+.useful-product-links h2 {
+  margin-top: 0;
+}
+
+.useful-product-links p {
+  margin-bottom: .75rem;
+}
+</style>

@@ -1,7 +1,13 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Un absorbeur d’humidité est-il efficace ?", answer: "Oui dans un petit volume fermé ou pour un appoint ponctuel, mais son effet reste limité dans une grande pièce ou face à un vrai problème d’humidité." },
+  { question: "Où utiliser un absorbeur ?", answer: "Il est surtout utile dans un placard, une petite entrée, un rangement, une caravane ou un volume peu ventilé, à condition de surveiller régulièrement le bac." },
+  { question: "Quand préférer un déshumidificateur ?", answer: "Préférez un déshumidificateur si toute une pièce reste humide, si le taux est élevé sur plusieurs jours ou si le volume est important." },
+];
 ---
 <ComparisonLayout title="Absorbeur d’humidité : quand est-ce utile ?" description="Comprendre les usages réels d’un absorbeur d’humidité, ses limites et les cas où il ne suffit pas." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Absorbeur d’humidité : guide de choix' }]}>
   <h1>Absorbeur d’humidité : guide de choix</h1>
@@ -48,11 +54,7 @@ const base = import.meta.env.BASE_URL;
     <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
   </AlertBox>
 
-  <h2>Questions fréquentes</h2>
-  <h3>Un absorbeur peut-il remplacer une VMC ?</h3>
-  <p>Non. Il capte une partie de l’humidité dans un petit volume, mais ne renouvelle pas l’air.</p>
-  <h3>Est-ce utile dans un placard ?</h3>
-  <p>Oui, si le problème est léger et localisé, à condition d’aérer, de ne pas serrer les vêtements et de vérifier le mur derrière.</p>
+  <FAQSection items={faqs} />
 
   <h2>À lire ensuite</h2>
   <ul>

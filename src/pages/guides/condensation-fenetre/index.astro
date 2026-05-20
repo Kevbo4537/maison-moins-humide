@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Pourquoi ai-je de la condensation sur les fenêtres le matin ?", answer: "La condensation apparaît quand l’air intérieur humide touche une surface froide. Elle est fréquente la nuit, surtout avec une pièce peu ventilée, froide ou très occupée." },
+  { question: "Faut-il changer les fenêtres pour supprimer la condensation ?", answer: "Pas forcément. Il faut d’abord vérifier l’aération, la VMC, le chauffage et le taux d’humidité. Des fenêtres plus étanches peuvent même aggraver le problème si la ventilation est insuffisante." },
+  { question: "Un déshumidificateur règle-t-il la condensation ?", answer: "Il peut réduire l’humidité de l’air, mais il ne remplace pas une ventilation correcte et ne corrige pas un pont thermique ou une pièce trop froide." },
+];
 ---
 <ArticleLayout title="Condensation sur les fenêtres : causes et solutions" description="Comprendre pourquoi les vitres condensent et appliquer les bons gestes pour limiter la buée, l’eau et les moisissures autour des fenêtres." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Condensation sur les fenêtres' }]}>
   <h1>Condensation sur les fenêtres : causes et solutions</h1>
@@ -50,6 +57,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="Ne pas se limiter au nettoyage">
     <p>Nettoyer les moisissures autour des fenêtres est utile, mais si la condensation revient chaque jour, il faut réduire l’humidité et améliorer la circulation d’air.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

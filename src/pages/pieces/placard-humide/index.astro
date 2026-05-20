@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Pourquoi un placard sent-il l’humidité ?", answer: "L’air circule peu, les vêtements peuvent garder de l’humidité et le placard peut être contre un mur froid. Ces trois facteurs favorisent l’odeur et parfois les moisissures." },
+  { question: "Que faire dans un placard humide ?", answer: "Videz-le, aérez, vérifiez le mur du fond, espacez les vêtements et utilisez éventuellement un absorbeur si le problème est limité au placard." },
+  { question: "Faut-il laisser la porte du placard ouverte ?", answer: "Oui, ponctuellement, cela aide à renouveler l’air. Si l’odeur revient toujours, il faut vérifier le mur, la pièce et le taux d’humidité." },
+];
 ---
 <ArticleLayout title="Placard humide : odeur, moisissure et solutions simples" description="Comprendre pourquoi un placard sent l’humidité et éviter les vêtements ou objets moisis." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Placard humide : odeur, moisissure et solutions simples' }]}>
   <h1>Placard humide : odeur, moisissure et solutions simples</h1>
@@ -46,6 +53,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="À vérifier">
     <p>Si le fond du placard est contre un mur humide ou si la moisissure revient, le problème vient probablement du mur ou de la pièce, pas seulement du placard.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

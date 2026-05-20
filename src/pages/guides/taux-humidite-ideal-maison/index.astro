@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Quel taux d’humidité viser dans une maison ?", answer: "Un repère simple est souvent entre 40 et 60 %. Il faut aussi tenir compte de la température, de la pièce et de la durée pendant laquelle le taux reste élevé." },
+  { question: "Un taux à 65 % est-il forcément grave ?", answer: "Pas forcément si c’est ponctuel après une douche, une cuisson ou une journée humide. Cela devient plus préoccupant si le taux reste élevé plusieurs jours avec condensation, odeur ou moisissures." },
+  { question: "Comment mesurer correctement le taux d’humidité ?", answer: "Placez l’hygromètre à hauteur de vie, loin d’une fenêtre ouverte, d’un radiateur ou d’une bouche de ventilation, puis comparez les mesures matin et soir pendant plusieurs jours." },
+];
 ---
 <ArticleLayout title="Taux d’humidité idéal dans une maison" description="Repères simples pour savoir quel taux d’humidité viser, comment mesurer correctement et quand s’inquiéter." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Taux d’humidité idéal dans une maison' }]}>
   <h1>Taux d’humidité idéal dans une maison</h1>
@@ -48,6 +55,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="Ne pas masquer le problème">
     <p>Peinture anti-humidité, parfum, absorbeur ou nettoyage de moisissure ne remplacent pas la recherche de cause. Si l’humidité revient, il faut corriger l’origine.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

@@ -1,7 +1,13 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Quelle est la différence principale ?", answer: "Un absorbeur agit lentement et sans électricité dans un petit volume. Un déshumidificateur électrique extrait davantage d’eau et convient mieux à une pièce entière." },
+  { question: "Quel choix pour une chambre humide ?", answer: "Commencez par mesurer et vérifier la ventilation. Si la chambre reste humide, un déshumidificateur silencieux est souvent plus cohérent qu’un simple absorbeur." },
+  { question: "Quel choix pour un placard humide ?", answer: "Un absorbeur peut suffire si le problème est limité au placard. Il faut aussi aérer, espacer les vêtements et vérifier que le mur du fond n’est pas humide." },
+];
 ---
 <ComparisonLayout title="Déshumidificateur ou absorbeur : lequel choisir ?" description="Comparer simplement déshumidificateur électrique et absorbeur d’humidité selon la pièce, le taux mesuré et le budget." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur ou absorbeur : lequel choisir ?' }]}>
   <h1>Déshumidificateur ou absorbeur : lequel choisir ?</h1>
@@ -48,11 +54,7 @@ const base = import.meta.env.BASE_URL;
     <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
   </AlertBox>
 
-  <h2>Questions fréquentes</h2>
-  <h3>Quel est le moins cher ?</h3>
-  <p>L’absorbeur coûte moins cher au départ, mais les recharges reviennent régulièrement. Le déshumidificateur coûte plus cher et consomme de l’électricité, mais il est plus efficace pour une pièce.</p>
-  <h3>Peut-on utiliser les deux ?</h3>
-  <p>Oui, par exemple déshumidificateur pour une pièce et absorbeur dans un placard, mais il faut toujours traiter la cause.</p>
+  <FAQSection items={faqs} />
 
   <h2>À lire ensuite</h2>
   <ul>

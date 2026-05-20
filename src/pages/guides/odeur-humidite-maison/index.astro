@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Pourquoi une maison sent-elle l’humidité ?", answer: "L’odeur vient souvent d’un air stagnant, d’un taux d’humidité élevé, de textiles humides, d’un placard mal ventilé ou de moisissures cachées." },
+  { question: "Comment supprimer une odeur d’humidité durablement ?", answer: "Il faut aérer, mesurer l’humidité, nettoyer les surfaces touchées, assécher les textiles et corriger la cause. Un parfum ou un désodorisant ne règle pas le problème." },
+  { question: "Quand s’inquiéter d’une odeur de moisi ?", answer: "Il faut chercher plus loin si l’odeur revient vite, si elle est localisée près d’un mur, d’un plafond ou d’un placard, ou si des traces apparaissent." },
+];
 ---
 <ArticleLayout title="Odeur d’humidité dans la maison : causes et solutions" description="Identifier l’origine d’une odeur d’humidité ou de moisi dans une maison et agir dans le bon ordre." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Odeur d’humidité' }]}>
   <h1>Odeur d’humidité dans la maison : causes et solutions</h1>
@@ -51,6 +58,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="Odeur persistante">
     <p>Une odeur de moisi qui revient après aération et nettoyage doit faire chercher une source cachée : meuble, mur, fuite lente, cave ou défaut de ventilation.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>

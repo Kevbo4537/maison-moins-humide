@@ -1,7 +1,13 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Un hygromètre pas cher suffit-il ?", answer: "Pour un premier repère, oui, s’il est lisible et stable. L’important est surtout de suivre les tendances sur plusieurs jours." },
+  { question: "Faut-il en mettre un dans chaque pièce ?", answer: "Pas forcément. On peut commencer par la pièce problématique, puis comparer avec une pièce saine avant d’équiper davantage." },
+  { question: "Où placer un hygromètre dans une pièce ?", answer: "Placez-le à hauteur de vie, loin d’une fenêtre ouverte, d’un radiateur, d’une bouche de ventilation et d’une source d’eau directe." },
+];
 ---
 <ComparisonLayout title="Hygromètre maison : choisir un modèle simple et utile" description="Pourquoi mesurer l’humidité, où placer un hygromètre et quels critères regarder avant achat." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Hygromètre maison : guide de choix' }]}>
   <h1>Hygromètre maison : guide de choix</h1>
@@ -48,11 +54,7 @@ const base = import.meta.env.BASE_URL;
     <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
   </AlertBox>
 
-  <h2>Questions fréquentes</h2>
-  <h3>Un hygromètre pas cher suffit-il ?</h3>
-  <p>Pour un premier repère, oui, s’il est lisible et stable. L’important est surtout de suivre les tendances.</p>
-  <h3>Faut-il en mettre un dans chaque pièce ?</h3>
-  <p>Pas forcément. On peut commencer par la pièce problématique, puis comparer avec une pièce saine.</p>
+  <FAQSection items={faqs} />
 
   <h2>À lire ensuite</h2>
   <ul>

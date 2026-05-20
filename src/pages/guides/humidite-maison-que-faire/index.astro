@@ -1,7 +1,14 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
 const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "Quel est le premier geste à faire dans une maison humide ?", answer: "Le premier geste est de mesurer l’humidité avec un hygromètre pendant plusieurs jours. Cela permet de savoir si le problème est ponctuel, lié à une pièce précise ou présent dans tout le logement." },
+  { question: "Un absorbeur suffit-il pour traiter une maison humide ?", answer: "Non, un absorbeur peut aider dans un petit volume fermé, mais il ne traite pas une cause comme une fuite, une infiltration, une ventilation insuffisante ou un pont thermique." },
+  { question: "Quand faut-il faire appel à un professionnel ?", answer: "Il faut chercher un avis professionnel si un mur reste humide, si les traces reviennent, si la peinture cloque, si du salpêtre apparaît ou si une fuite ou infiltration est possible." },
+];
 ---
 <ArticleLayout title="Humidité maison : que faire ? Le plan simple" description="Un plan d’action concret pour mesurer, trouver la cause probable et réduire l’humidité dans une maison sans acheter au hasard." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité maison : que faire ?' }]}>
   <h1>Humidité maison : que faire ?</h1>
@@ -62,6 +69,10 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="warning" title="Attention santé et bâtiment">
     <p>Les moisissures persistantes ne sont pas à banaliser. Si elles reviennent, s’étendent ou s’accompagnent de symptômes respiratoires, il faut supprimer la cause et demander un avis adapté.</p>
   </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
 
   <h2>À lire ensuite</h2>
   <ul>
