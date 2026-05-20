@@ -1,22 +1,63 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ComparisonLayout title="Absorbeur d’humidité : guide d’achat" description="Comprendre quand un absorbeur peut aider, et quand il ne suffit pas." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Absorbeur d’humidité : guide d’achat' }]}>
-  <h1>Absorbeur d’humidité : guide d’achat</h1>
-  <p>Comprendre quand un absorbeur peut aider, et quand il ne suffit pas.</p>
-  <AlertBox type="info" title="Transparence"> <p>Cette page pourra contenir des liens affiliés. Les recommandations doivent rester prudentes : un produit peut aider, mais ne corrige pas une infiltration, une fuite ou une ventilation défaillante.</p></AlertBox>
-  <h2>Sélection rapide</h2>
-  <p>La sélection détaillée sera ajoutée après vérification des produits, prix, disponibilités et conditions d’affiliation. Pour la V1, l’objectif est de poser les critères de choix.</p>
-  <h2>Pour quel usage ?</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Critères simples</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Où le placer ?</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Limites à connaître</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Verdict prudent</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p>
+<ComparisonLayout title="Absorbeur d’humidité : quand est-ce utile ?" description="Comprendre les usages réels d’un absorbeur d’humidité, ses limites et les cas où il ne suffit pas." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Absorbeur d’humidité : guide de choix' }]}>
+  <h1>Absorbeur d’humidité : guide de choix</h1>
+  <p>Un absorbeur d’humidité est simple, peu bruyant et pratique dans un petit volume fermé. Il peut rendre service dans un placard, un rangement ou une petite zone peu ventilée. En revanche, il est rarement suffisant pour traiter une pièce entière humide.</p>
+
+  <AlertBox type="info" title="Transparence">
+    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+  </AlertBox>
+
+  <h2>Quand un absorbeur est pertinent</h2>
+  <ul>
+    <li>placard avec légère odeur d’humidité</li>
+    <li>petit rangement peu ventilé</li>
+    <li>résidence secondaire ou pièce peu utilisée</li>
+    <li>protection ponctuelle de chaussures, cartons ou textiles</li>
+    <li>complément après assèchement d’une zone limitée</li>
+  </ul>
+  <h2>Quand il ne suffit pas</h2>
+  <ul>
+    <li>chambre ou salon entier avec taux élevé</li>
+    <li>cave très humide</li>
+    <li>salle de bain qui condense tous les jours</li>
+    <li>mur humide ou peinture qui cloque</li>
+    <li>moisissures qui reviennent rapidement</li>
+  </ul>
+  <h2>Critères de choix</h2>
+  <ul>
+    <li>volume annoncé cohérent avec l’usage</li>
+    <li>recharges faciles à trouver</li>
+    <li>bac stable et anti-renversement</li>
+    <li>indicateur de saturation lisible</li>
+    <li>format adapté au placard ou à l’étagère</li>
+  </ul>
+  <h2>Bonnes pratiques</h2>
+  <ul>
+    <li>ne pas le placer à portée des enfants ou animaux</li>
+    <li>vider le bac avant débordement</li>
+    <li>remplacer la recharge quand elle est saturée</li>
+    <li>aérer et traiter la cause en parallèle</li>
+    <li>ne pas attendre qu’il règle une fuite ou infiltration</li>
+  </ul>
+
+  <AlertBox type="warning" title="Limite importante">
+    <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
+  </AlertBox>
+
   <h2>Questions fréquentes</h2>
-  <h3>Faut-il acheter avant de mesurer ?</h3><p>Non. Mesurer quelques jours avec un hygromètre évite souvent un achat mal adapté.</p>
-  <h3>Un produit règle-t-il définitivement l’humidité ?</h3><p>Pas toujours. Il peut améliorer le confort, mais la cause doit être recherchée si le problème revient.</p>
-  <h2>À lire aussi</h2>
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <h3>Un absorbeur peut-il remplacer une VMC ?</h3>
+  <p>Non. Il capte une partie de l’humidité dans un petit volume, mais ne renouvelle pas l’air.</p>
+  <h3>Est-ce utile dans un placard ?</h3>
+  <p>Oui, si le problème est léger et localisé, à condition d’aérer, de ne pas serrer les vêtements et de vérifier le mur derrière.</p>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}pieces/placard-humide/`}>Placard humide</a></li>
+    <li><a href={`${base}guides/odeur-humidite-maison/`}>Odeur d’humidité</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Comparer avec un déshumidificateur</a></li>
+  </ul>
 </ComparisonLayout>

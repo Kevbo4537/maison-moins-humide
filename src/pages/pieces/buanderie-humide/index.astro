@@ -1,57 +1,56 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Buanderie humide : causes et solutions" description="Linge, séchage, ventilation : limiter l’humidité dans une buanderie sans créer de moisissures." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide : causes et solutions' }]}>
-  <h1>Buanderie humide : causes et solutions</h1>
-  <p>Linge, séchage, ventilation : limiter l’humidité dans une buanderie sans créer de moisissures. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Pourquoi la buanderie concentre l’humidité</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Séchage du linge</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Ventilation et chauffage</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Produits utiles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand améliorer l’installation ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+<ArticleLayout title="Buanderie humide : linge, condensation et ventilation" description="Limiter l’humidité dans une buanderie, surtout avec lave-linge, sèche-linge ou linge qui sèche à l’intérieur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide : linge, condensation et ventilation' }]}>
+  <h1>Buanderie humide : linge, condensation et ventilation</h1>
+  <p>Une buanderie concentre souvent lave-linge, sèche-linge, linge mouillé et peu de ventilation. C’est une pièce pratique, mais elle peut vite devenir humide si l’air ne se renouvelle pas.</p>
+
+  <AlertBox type="tip" title="Premier réflexe">
+    <p>Mesurez l’humidité quelques jours avec un hygromètre et regardez si le problème est ponctuel ou durable.</p>
+  </AlertBox>
+
+  <h2>Pourquoi la buanderie charge en humidité</h2>
+  <ul>
+    <li>linge qui sèche à l’intérieur</li>
+    <li>sèche-linge mal évacué ou pièce fermée</li>
+    <li>machine qui reste humide après cycle</li>
+    <li>ventilation faible</li>
+    <li>pièce fraîche ou peu chauffée</li>
+  </ul>
+  <h2>Signes à surveiller</h2>
+  <ul>
+    <li>odeur de linge humide persistante</li>
+    <li>condensation sur fenêtre ou murs</li>
+    <li>moisissures près des plinthes ou derrière appareils</li>
+    <li>serviettes qui sèchent lentement</li>
+    <li>taux élevé plusieurs heures après lessive</li>
+  </ul>
+  <h2>Gestes efficaces</h2>
+  <ul>
+    <li>essorer correctement le linge</li>
+    <li>ouvrir la porte ou aérer pendant le séchage</li>
+    <li>nettoyer filtres et évacuation du sèche-linge</li>
+    <li>ne pas coller les appareils au mur</li>
+    <li>éviter d’accumuler du linge humide fermé</li>
+  </ul>
+  <h2>Solutions utiles</h2>
+  <ul>
+    <li>ventilation ou extracteur adapté</li>
+    <li>déshumidificateur si séchage intérieur fréquent</li>
+    <li>hygromètre pour suivre les pics</li>
+    <li>évacuation continue si appareil utilisé souvent</li>
+  </ul>
+
+  <AlertBox type="warning" title="À vérifier">
+    <p>Si la buanderie sert souvent à sécher du linge, l’humidité produite est importante. Sans ventilation ou déshumidification, elle peut migrer vers les pièces voisines.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Déshumidificateur maison</a></li>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Plan d’action humidité</a></li>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Taux d’humidité idéal</a></li>
+  </ul>
 </ArticleLayout>

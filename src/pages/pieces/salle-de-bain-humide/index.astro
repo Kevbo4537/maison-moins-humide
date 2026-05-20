@@ -1,57 +1,56 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <ArticleLayout title="Salle de bain humide : causes et solutions" description="Ventilation, condensation, joints noircis : les bons réflexes pour une salle de bain qui sèche mieux." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Salle de bain humide : causes et solutions' }]}>
   <h1>Salle de bain humide : causes et solutions</h1>
-  <p>Ventilation, condensation, joints noircis : les bons réflexes pour une salle de bain qui sèche mieux. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
+  <p>Une salle de bain produit beaucoup de vapeur en peu de temps. Si l’air ne sort pas assez vite ou si les surfaces restent froides, l’eau se dépose sur les murs, les miroirs, les joints et parfois le plafond.</p>
+
+  <AlertBox type="tip" title="Premier réflexe">
+    <p>Mesurez l’humidité quelques jours avec un hygromètre et regardez si le problème est ponctuel ou durable.</p>
+  </AlertBox>
+
   <h2>Pourquoi la salle de bain reste humide</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Signes à surveiller</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Actions simples après la douche</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Produits utiles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand s’inquiéter ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <ul>
+    <li>douche chaude longue ou fréquente</li>
+    <li>VMC ou extracteur insuffisant</li>
+    <li>porte fermée sans passage d’air</li>
+    <li>serviettes et tapis qui sèchent lentement</li>
+    <li>murs ou plafond froids favorisant la condensation</li>
+  </ul>
+  <h2>Signes à surveiller</h2>
+  <ul>
+    <li>miroir embué longtemps après la douche</li>
+    <li>joints noirs autour de la douche ou baignoire</li>
+    <li>peinture qui cloque au plafond</li>
+    <li>odeur de moisi dans les serviettes</li>
+    <li>eau qui perle sur murs ou fenêtres</li>
+  </ul>
+  <h2>Actions simples après la douche</h2>
+  <ul>
+    <li>laisser tourner l’extraction si elle existe</li>
+    <li>ouvrir la fenêtre 5 à 10 minutes si possible</li>
+    <li>racler ou essuyer les parois de douche</li>
+    <li>étendre les serviettes pour qu’elles sèchent vite</li>
+    <li>laisser la porte entrouverte quand l’humidité a commencé à baisser</li>
+  </ul>
+  <h2>Produits utiles</h2>
+  <ul>
+    <li>hygromètre pour confirmer la durée du pic d’humidité</li>
+    <li>petit extracteur ou amélioration de VMC si ventilation faible</li>
+    <li>déshumidificateur seulement si la pièce reste humide durablement</li>
+    <li>joints adaptés si les anciens sont dégradés, après assèchement</li>
+  </ul>
+
+  <AlertBox type="warning" title="À vérifier">
+    <p>Si le plafond noircit, si la peinture cloque ou si l’humidité revient malgré une ventilation correcte, vérifiez une fuite, une infiltration ou un défaut d’extraction.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Condensation : comprendre le phénomène</a></li>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Choisir un déshumidificateur</a></li>
+    <li><a href={`${base}guides/moisissure-mur-danger/`}>Moisissure sur un mur</a></li>
+  </ul>
 </ArticleLayout>

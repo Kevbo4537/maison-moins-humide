@@ -1,22 +1,63 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ComparisonLayout title="Déshumidificateur ou absorbeur : que choisir ?" description="Comparer les deux solutions selon le niveau d’humidité, la taille de la pièce et la cause probable." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur ou absorbeur : que choisir ?' }]}>
-  <h1>Déshumidificateur ou absorbeur : que choisir ?</h1>
-  <p>Comparer les deux solutions selon le niveau d’humidité, la taille de la pièce et la cause probable.</p>
-  <AlertBox type="info" title="Transparence"> <p>Cette page pourra contenir des liens affiliés. Les recommandations doivent rester prudentes : un produit peut aider, mais ne corrige pas une infiltration, une fuite ou une ventilation défaillante.</p></AlertBox>
-  <h2>Sélection rapide</h2>
-  <p>La sélection détaillée sera ajoutée après vérification des produits, prix, disponibilités et conditions d’affiliation. Pour la V1, l’objectif est de poser les critères de choix.</p>
-  <h2>Différence simple</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Quand choisir un absorbeur</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Quand choisir un déshumidificateur</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Quand aucun des deux ne suffit</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Verdict</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p>
+<ComparisonLayout title="Déshumidificateur ou absorbeur : lequel choisir ?" description="Comparer simplement déshumidificateur électrique et absorbeur d’humidité selon la pièce, le taux mesuré et le budget." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur ou absorbeur : lequel choisir ?' }]}>
+  <h1>Déshumidificateur ou absorbeur : lequel choisir ?</h1>
+  <p>Les deux solutions n’ont pas le même rôle. L’absorbeur convient surtout aux petits volumes fermés. Le déshumidificateur électrique est plus adapté à une pièce entière avec un excès d’humidité mesuré.</p>
+
+  <AlertBox type="info" title="Transparence">
+    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+  </AlertBox>
+
+  <h2>Choisir un absorbeur si</h2>
+  <ul>
+    <li>le problème est dans un placard ou petit rangement</li>
+    <li>l’humidité est légère et localisée</li>
+    <li>vous voulez une solution silencieuse sans prise</li>
+    <li>vous acceptez de remplacer régulièrement les recharges</li>
+    <li>il n’y a pas de mur mouillé ni moisissure étendue</li>
+  </ul>
+  <h2>Choisir un déshumidificateur si</h2>
+  <ul>
+    <li>la pièce entière reste humide</li>
+    <li>le taux reste élevé plusieurs heures ou jours</li>
+    <li>vous séchez souvent du linge à l’intérieur</li>
+    <li>la cave ou buanderie doit être stabilisée</li>
+    <li>vous voulez mesurer une quantité d’eau réellement retirée</li>
+  </ul>
+  <h2>Comparaison pratique</h2>
+  <ul>
+    <li>absorbeur : simple, silencieux, peu puissant</li>
+    <li>déshumidificateur : plus efficace, mais bruyant et électrique</li>
+    <li>absorbeur : adapté aux petits volumes</li>
+    <li>déshumidificateur : adapté aux pièces complètes</li>
+    <li>aucun des deux ne répare une infiltration</li>
+  </ul>
+  <h2>Erreur fréquente</h2>
+  <ul>
+    <li>acheter un absorbeur pour une pièce entière très humide</li>
+    <li>acheter un déshumidificateur sans mesurer</li>
+    <li>laisser un appareil tourner sans vérifier la ventilation</li>
+    <li>masquer une fuite avec un produit</li>
+    <li>ignorer les moisissures qui reviennent</li>
+  </ul>
+
+  <AlertBox type="warning" title="Limite importante">
+    <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
+  </AlertBox>
+
   <h2>Questions fréquentes</h2>
-  <h3>Faut-il acheter avant de mesurer ?</h3><p>Non. Mesurer quelques jours avec un hygromètre évite souvent un achat mal adapté.</p>
-  <h3>Un produit règle-t-il définitivement l’humidité ?</h3><p>Pas toujours. Il peut améliorer le confort, mais la cause doit être recherchée si le problème revient.</p>
-  <h2>À lire aussi</h2>
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <h3>Quel est le moins cher ?</h3>
+  <p>L’absorbeur coûte moins cher au départ, mais les recharges reviennent régulièrement. Le déshumidificateur coûte plus cher et consomme de l’électricité, mais il est plus efficace pour une pièce.</p>
+  <h3>Peut-on utiliser les deux ?</h3>
+  <p>Oui, par exemple déshumidificateur pour une pièce et absorbeur dans un placard, mais il faut toujours traiter la cause.</p>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-absorbeur-humidite/`}>Guide absorbeur</a></li>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Guide déshumidificateur</a></li>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Plan d’action humidité</a></li>
+  </ul>
 </ComparisonLayout>

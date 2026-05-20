@@ -1,22 +1,64 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ComparisonLayout title="Déshumidificateur maison : guide d’achat" description="Choisir un déshumidificateur adapté à votre logement, sans le présenter comme une solution miracle." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur maison : guide d’achat' }]}>
+<ComparisonLayout title="Déshumidificateur maison : guide d’achat prudent" description="Choisir un déshumidificateur adapté à une maison, une chambre, une cave ou une buanderie sans le présenter comme une solution miracle." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur maison : guide d’achat' }]}>
   <h1>Déshumidificateur maison : guide d’achat</h1>
-  <p>Choisir un déshumidificateur adapté à votre logement, sans le présenter comme une solution miracle.</p>
-  <AlertBox type="info" title="Transparence"> <p>Cette page pourra contenir des liens affiliés. Les recommandations doivent rester prudentes : un produit peut aider, mais ne corrige pas une infiltration, une fuite ou une ventilation défaillante.</p></AlertBox>
-  <h2>Sélection rapide</h2>
-  <p>La sélection détaillée sera ajoutée après vérification des produits, prix, disponibilités et conditions d’affiliation. Pour la V1, l’objectif est de poser les critères de choix.</p>
-  <h2>Avant d’acheter, mesurez</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Critères de choix</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Quel modèle selon la pièce ?</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Limites d’un déshumidificateur</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Verdict prudent</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p>
+  <p>Un déshumidificateur peut faire baisser l’humidité d’une pièce, améliorer le confort et protéger certains objets. Mais il ne répare pas une fuite, une infiltration ou une ventilation défaillante. Le bon choix dépend de la pièce, de la température et du taux mesuré.</p>
+
+  <AlertBox type="info" title="Transparence">
+    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+  </AlertBox>
+
+  <h2>Avant d’acheter : les vérifications</h2>
+  <ul>
+    <li>mesurer l’humidité plusieurs jours avec un hygromètre</li>
+    <li>vérifier ventilation, entrées d’air et extraction</li>
+    <li>identifier si le problème est ponctuel ou durable</li>
+    <li>chercher traces de fuite, infiltration, salpêtre ou moisissures</li>
+    <li>estimer le volume réel de la pièce</li>
+  </ul>
+  <h2>Critères de choix importants</h2>
+  <ul>
+    <li>capacité d’extraction adaptée au volume</li>
+    <li>efficacité à basse température pour cave ou garage</li>
+    <li>niveau sonore pour chambre ou pièce de vie</li>
+    <li>taille du bac et arrêt automatique</li>
+    <li>évacuation continue si usage fréquent</li>
+    <li>consommation électrique et facilité de nettoyage</li>
+  </ul>
+  <h2>Quel type selon la pièce ?</h2>
+  <ul>
+    <li>chambre : appareil silencieux et dimensionné sans excès</li>
+    <li>salle de bain : utile seulement si ventilation insuffisante ponctuelle</li>
+    <li>buanderie : capacité correcte et évacuation pratique</li>
+    <li>cave : modèle efficace en pièce fraîche, souvent avec tuyau d’évacuation</li>
+    <li>placard : préférer souvent un absorbeur, sauf si toute la pièce est humide</li>
+  </ul>
+  <h2>Limites à connaître</h2>
+  <ul>
+    <li>ne supprime pas la cause d’une infiltration</li>
+    <li>peut coûter en électricité si utilisé en continu</li>
+    <li>demande entretien du filtre et vidage du bac</li>
+    <li>peut être bruyant dans une chambre</li>
+    <li>ne remplace pas une ventilation adaptée</li>
+  </ul>
+
+  <AlertBox type="warning" title="Limite importante">
+    <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
+  </AlertBox>
+
   <h2>Questions fréquentes</h2>
-  <h3>Faut-il acheter avant de mesurer ?</h3><p>Non. Mesurer quelques jours avec un hygromètre évite souvent un achat mal adapté.</p>
-  <h3>Un produit règle-t-il définitivement l’humidité ?</h3><p>Pas toujours. Il peut améliorer le confort, mais la cause doit être recherchée si le problème revient.</p>
-  <h2>À lire aussi</h2>
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <h3>Faut-il acheter le plus puissant ?</h3>
+  <p>Pas forcément. Un appareil trop petit sera inefficace, mais un modèle surdimensionné peut être plus cher, plus bruyant et inutile selon la pièce.</p>
+  <h3>Un déshumidificateur suffit-il contre les moisissures ?</h3>
+  <p>Il peut aider à réduire l’humidité de l’air, mais il faut aussi supprimer la cause et nettoyer les surfaces touchées.</p>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Déshumidificateur ou absorbeur</a></li>
+    <li><a href={`${base}pieces/cave-humide/`}>Cave humide</a></li>
+  </ul>
 </ComparisonLayout>

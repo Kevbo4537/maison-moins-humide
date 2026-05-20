@@ -1,57 +1,56 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Cave humide : causes et solutions" description="Une cave humide demande de distinguer condensation, manque d’aération et infiltration avant d’installer un appareil." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Cave humide : causes et solutions' }]}>
-  <h1>Cave humide : causes et solutions</h1>
-  <p>Une cave humide demande de distinguer condensation, manque d’aération et infiltration avant d’installer un appareil. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Causes possibles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Signes à surveiller</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Ranger sans aggraver</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Déshumidifier avec prudence</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand faire diagnostiquer ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+<ArticleLayout title="Cave humide : que faire avant d’acheter un appareil ?" description="Comprendre l’humidité dans une cave, protéger les affaires stockées et choisir une solution adaptée." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Cave humide : que faire avant d’acheter un appareil ?' }]}>
+  <h1>Cave humide : que faire avant d’acheter un appareil ?</h1>
+  <p>Une cave est naturellement plus fraîche et souvent en contact avec le sol ou des murs enterrés. Elle peut donc être plus humide que le reste de la maison. L’objectif est de distinguer une humidité normale de cave d’un problème à traiter.</p>
+
+  <AlertBox type="tip" title="Premier réflexe">
+    <p>Mesurez l’humidité quelques jours avec un hygromètre et regardez si le problème est ponctuel ou durable.</p>
+  </AlertBox>
+
+  <h2>Causes fréquentes</h2>
+  <ul>
+    <li>murs enterrés plus froids</li>
+    <li>ventilation absente ou insuffisante</li>
+    <li>sol ou murs qui laissent passer l’humidité</li>
+    <li>objets stockés contre les parois</li>
+    <li>infiltration après pluie ou nappe haute</li>
+  </ul>
+  <h2>Ce qu’il faut observer</h2>
+  <ul>
+    <li>odeur de moisi persistante</li>
+    <li>cartons mous ou textiles qui sentent mauvais</li>
+    <li>salpêtre ou poudre blanche sur les murs</li>
+    <li>eau visible après pluie</li>
+    <li>taux élevé même en période sèche</li>
+  </ul>
+  <h2>Protéger ce qui est stocké</h2>
+  <ul>
+    <li>éviter les cartons au sol</li>
+    <li>laisser un espace entre affaires et murs</li>
+    <li>utiliser des bacs plastiques fermés pour le sensible</li>
+    <li>ne pas stocker textiles ou papiers longtemps si la cave est humide</li>
+    <li>surélever les objets avec étagères ou palettes propres</li>
+  </ul>
+  <h2>Solutions possibles</h2>
+  <ul>
+    <li>ventilation naturelle ou mécanique adaptée</li>
+    <li>déshumidificateur avec évacuation continue si usage régulier</li>
+    <li>traitement de l’infiltration si eau visible</li>
+    <li>drainage ou avis professionnel si problème structurel</li>
+  </ul>
+
+  <AlertBox type="warning" title="À vérifier">
+    <p>Un déshumidificateur peut aider une cave, mais s’il y a arrivée d’eau, infiltration ou mur très humide, il ne remplace pas un diagnostic bâtiment.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Déshumidificateur pour cave</a></li>
+    <li><a href={`${base}guides/humidite-maison-70-pourcent/`}>Humidité à 70 %</a></li>
+    <li><a href={`${base}guides/odeur-humidite-maison/`}>Odeur d’humidité</a></li>
+  </ul>
 </ArticleLayout>

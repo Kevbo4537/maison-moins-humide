@@ -1,22 +1,63 @@
 ---
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ComparisonLayout title="Meilleur hygromètre maison : comment choisir ?" description="L’hygromètre est le premier outil utile pour savoir si l’humidité est réellement trop élevée." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Meilleur hygromètre maison : comment choisir ?' }]}>
-  <h1>Meilleur hygromètre maison : comment choisir ?</h1>
-  <p>L’hygromètre est le premier outil utile pour savoir si l’humidité est réellement trop élevée.</p>
-  <AlertBox type="info" title="Transparence"> <p>Cette page pourra contenir des liens affiliés. Les recommandations doivent rester prudentes : un produit peut aider, mais ne corrige pas une infiltration, une fuite ou une ventilation défaillante.</p></AlertBox>
-  <h2>Sélection rapide</h2>
-  <p>La sélection détaillée sera ajoutée après vérification des produits, prix, disponibilités et conditions d’affiliation. Pour la V1, l’objectif est de poser les critères de choix.</p>
-  <h2>Pourquoi mesurer avant d’agir</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Critères de choix</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Où placer l’hygromètre ?</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Lire les résultats</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p><h2>Verdict prudent</h2><p>Le bon choix dépend d’abord de la cause, du volume de la pièce, de la ventilation et du niveau d’humidité mesuré. Cette page prépare une sélection plus détaillée sans inventer de produits ni de prix.</p>
+<ComparisonLayout title="Hygromètre maison : choisir un modèle simple et utile" description="Pourquoi mesurer l’humidité, où placer un hygromètre et quels critères regarder avant achat." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Hygromètre maison : guide de choix' }]}>
+  <h1>Hygromètre maison : guide de choix</h1>
+  <p>L’hygromètre est souvent le premier achat utile quand on suspecte un problème d’humidité. Il ne règle rien à lui seul, mais il évite les décisions au ressenti et permet de savoir si une pièce reste trop humide durablement.</p>
+
+  <AlertBox type="info" title="Transparence">
+    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+  </AlertBox>
+
+  <h2>Pourquoi commencer par mesurer</h2>
+  <ul>
+    <li>confirmer si le taux est réellement élevé</li>
+    <li>comparer plusieurs pièces</li>
+    <li>voir l’effet de l’aération ou du chauffage</li>
+    <li>suivre l’évolution après correction</li>
+    <li>éviter d’acheter un appareil mal adapté</li>
+  </ul>
+  <h2>Critères de choix</h2>
+  <ul>
+    <li>affichage clair du taux et de la température</li>
+    <li>lecture mini/maxi si possible</li>
+    <li>format stable à poser ou fixer</li>
+    <li>pile facile à remplacer</li>
+    <li>plusieurs capteurs si plusieurs pièces à suivre</li>
+  </ul>
+  <h2>Où le placer</h2>
+  <ul>
+    <li>à hauteur de vie, sur une table ou étagère</li>
+    <li>loin d’une fenêtre ouverte</li>
+    <li>pas collé à un radiateur</li>
+    <li>pas directement dans le flux d’une VMC</li>
+    <li>dans la zone représentative de la pièce</li>
+  </ul>
+  <h2>Comment interpréter les mesures</h2>
+  <ul>
+    <li>regarder la tendance sur plusieurs jours</li>
+    <li>noter aussi la température</li>
+    <li>surveiller surtout les taux élevés durables</li>
+    <li>comparer avant et après aération</li>
+    <li>relier les mesures aux signes visibles</li>
+  </ul>
+
+  <AlertBox type="warning" title="Limite importante">
+    <p>Un produit peut aider à contrôler l’humidité, mais ne remplace pas la recherche de la cause : fuite, infiltration, ventilation insuffisante ou pont thermique.</p>
+  </AlertBox>
+
   <h2>Questions fréquentes</h2>
-  <h3>Faut-il acheter avant de mesurer ?</h3><p>Non. Mesurer quelques jours avec un hygromètre évite souvent un achat mal adapté.</p>
-  <h3>Un produit règle-t-il définitivement l’humidité ?</h3><p>Pas toujours. Il peut améliorer le confort, mais la cause doit être recherchée si le problème revient.</p>
-  <h2>À lire aussi</h2>
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+  <h3>Un hygromètre pas cher suffit-il ?</h3>
+  <p>Pour un premier repère, oui, s’il est lisible et stable. L’important est surtout de suivre les tendances.</p>
+  <h3>Faut-il en mettre un dans chaque pièce ?</h3>
+  <p>Pas forcément. On peut commencer par la pièce problématique, puis comparer avec une pièce saine.</p>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Comprendre le taux idéal</a></li>
+    <li><a href={`${base}guides/humidite-maison-70-pourcent/`}>Humidité à 70 %</a></li>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Choisir ensuite un appareil</a></li>
+  </ul>
 </ComparisonLayout>
