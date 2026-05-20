@@ -1,0 +1,16 @@
+{
+  "name": "maison-moins-humide",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:seo": "node scripts/seo-check.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
+    "astro": "^4.16.18"
+  }
+}

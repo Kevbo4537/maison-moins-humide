@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+<BaseLayout
+  title="Politique de confidentialité — Maison Moins Humide"
+  description="Politique de confidentialité et gestion des données personnelles."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Politique de confidentialité' }]} />
+    <h1>Politique de confidentialité</h1>
+    <h2>Données collectées</h2>
+    <p>
+      Ce site ne collecte pas de données personnelles de manière active.
+      Un outil d'analyse d'audience anonymisé peut être utilisé (sans cookie de suivi personnel).
+    </p>
+    <h2>Cookies</h2>
+    <p>Ce site utilise un nombre minimal de cookies, nécessaires au fonctionnement technique.</p>
+    <h2>Liens externes et affiliation</h2>
+    <p>
+      Certains liens renvoient vers des sites tiers (dont Amazon).
+      Ces sites ont leurs propres politiques de confidentialité,
+      indépendantes de la nôtre.
+    </p>
+    <h2>Vos droits</h2>
+    <p>
+      Conformément au RGPD, vous pouvez exercer vos droits d'accès, rectification et suppression
+      via notre page <a href="/contact/">contact</a>.
+    </p>
+  </div>
+</BaseLayout>

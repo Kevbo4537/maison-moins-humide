@@ -1,0 +1,141 @@
+---
+import nav from '../data/navigation.json';
+const { pathname } = Astro.url;
+---
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="/">
+      <span class="logo-icon" aria-hidden="true">💧</span>
+      <span class="logo-text">Maison Moins Humide</span>
+    </a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
+      <ul>
+        {nav.main.map(item => (
+          <li>
+            <a href={item.href} class:list={[{ active: pathname.startsWith(item.href) && item.href !== '/' }]}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.logo-icon { font-size: 1.4rem; }
+
+.main-nav ul {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: #eef2f7;
+  color: var(--color-primary);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 700px) {
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .main-nav.open { display: block; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-nav a {
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+  }
+}
+</style>
+
+<script>
+const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement | null;
+const nav = document.getElementById('main-nav');
+toggle?.addEventListener('click', () => {
+  const open = nav?.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script>

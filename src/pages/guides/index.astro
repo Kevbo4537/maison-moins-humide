@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const guides = [
+  {
+    title: "Humidité dans la maison : que faire ?",
+    description: "Plan d'action pratique pour identifier la cause et agir sans paniquer.",
+    href: "/guides/humidite-maison-que-faire/",
+    badge: "Guide complet",
+  },
+  {
+    title: "Quel taux d'humidité est idéal dans une maison ?",
+    description: "Comprendre le taux de référence selon les pièces et les saisons.",
+    href: "/guides/taux-humidite-ideal-maison/",
+    badge: "Essentiel",
+  },
+  {
+    title: "Humidité à 70 % : est-ce dangereux ?",
+    description: "Ce que signifie un taux élevé et quand s'inquiéter.",
+    href: "/guides/humidite-maison-70-pourcent/",
+  },
+  {
+    title: "Moisissures sur les murs : danger et solutions",
+    description: "Comprendre les causes, évaluer le risque, agir ou appeler un pro.",
+    href: "/guides/moisissure-mur-danger/",
+    badge: "Santé",
+  },
+  {
+    title: "Condensation sur les fenêtres",
+    description: "Pourquoi ça arrive et comment réduire ce phénomène.",
+    href: "/guides/condensation-fenetre/",
+  },
+  {
+    title: "Odeur d'humidité dans la maison",
+    description: "Identifier l'origine et agir à la source.",
+    href: "/guides/odeur-humidite-maison/",
+  },
+];
+---
+<BaseLayout
+  title="Guides humidité maison — Maison Moins Humide"
+  description="Tous nos guides pratiques pour comprendre, mesurer et traiter les problèmes d'humidité dans votre maison."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité' }]} />
+    <h1>Guides humidité maison</h1>
+    <p>Des guides pratiques pour comprendre et agir sur l'humidité dans votre logement.</p>
+    <div class="card-grid" style="margin-top:1.5rem">
+      {guides.map(g => <ArticleCard {...g} />)}
+    </div>
+  </div>
+</BaseLayout>

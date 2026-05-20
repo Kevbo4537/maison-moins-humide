@@ -1,0 +1,32 @@
+---
+interface Props {
+  amazon?: boolean;
+}
+const { amazon = false } = Astro.props;
+---
+<aside class="affiliate-disclosure" role="note" aria-label="Transparence affiliation">
+  <p>
+    Certains liens présents sur ce site sont des liens affiliés. Si vous achetez via ces liens,
+    le site peut recevoir une commission, sans coût supplémentaire pour vous.
+    Cela n'influence pas notre volonté de présenter des conseils utiles, prudents et adaptés
+    aux problèmes d'humidité.
+  </p>
+  {amazon && (
+    <p>En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.</p>
+  )}
+</aside>
+
+<style>
+.affiliate-disclosure {
+  background: #f5f7fa;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 1.5rem 0;
+}
+
+.affiliate-disclosure p { margin-bottom: 0.3rem; }
+.affiliate-disclosure p:last-child { margin-bottom: 0; }
+</style>

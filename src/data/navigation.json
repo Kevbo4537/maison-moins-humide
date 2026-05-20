@@ -1,0 +1,16 @@
+{
+  "main": [
+    { "label": "Guides humidité", "href": "/guides/" },
+    { "label": "Solutions par pièce", "href": "/pieces/" },
+    { "label": "Comparatifs", "href": "/comparatifs/" },
+    { "label": "Produits utiles", "href": "/produits-utiles/" },
+    { "label": "À propos", "href": "/a-propos/" }
+  ],
+  "footer": [
+    { "label": "Contact", "href": "/contact/" },
+    { "label": "Mentions légales", "href": "/mentions-legales/" },
+    { "label": "Politique de confidentialité", "href": "/politique-confidentialite/" },
+    { "label": "Politique d'affiliation", "href": "/politique-affiliation/" },
+    { "label": "Avertissement", "href": "/avertissement/" }
+  ]
+}

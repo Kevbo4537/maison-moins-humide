@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import AlertBox from '../components/AlertBox.astro';
+
+const guides = [
+  {
+    title: "Humidité dans la maison : que faire ?",
+    description: "Un plan d'action pratique pour identifier la cause et agir efficacement sans paniquer.",
+    href: "/guides/humidite-maison-que-faire/",
+    badge: "Guide complet",
+  },
+  {
+    title: "Quel taux d'humidité est idéal ?",
+    description: "Comprendre le pourcentage d'humidité de référence selon les pièces et les saisons.",
+    href: "/guides/taux-humidite-ideal-maison/",
+    badge: "Essentiel",
+  },
+  {
+    title: "Humidité à 70 % : est-ce dangereux ?",
+    description: "Ce que signifie un taux élevé, quand s'inquiéter et quelles actions envisager.",
+    href: "/guides/humidite-maison-70-pourcent/",
+  },
+  {
+    title: "Moisissures sur les murs",
+    description: "Comprendre les causes, évaluer le risque et savoir quand faire appel à un professionnel.",
+    href: "/guides/moisissure-mur-danger/",
+    badge: "Santé",
+  },
+  {
+    title: "Condensation sur les fenêtres",
+    description: "Pourquoi ça arrive et comment réduire ce phénomène au quotidien.",
+    href: "/guides/condensation-fenetre/",
+  },
+  {
+    title: "Odeur d'humidité dans la maison",
+    description: "Identifier l'origine de l'odeur et agir à la source avant de chercher à masquer.",
+    href: "/guides/odeur-humidite-maison/",
+  },
+];
+
+const pieces = [
+  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Ventilation, moisissures, condensation : solutions pratiques pour la pièce la plus humide." },
+  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Causes fréquentes et astuces pour dormir dans un air sain." },
+  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Infiltrations, remontées capillaires : comprendre avant d'investir." },
+  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Pourquoi vos vêtements sentent l'humidité et comment y remédier." },
+];
+---
+<BaseLayout
+  title="Humidité dans la maison : comprendre, mesurer et agir efficacement"
+  description="Conseils pratiques pour identifier la cause d'un excès d'humidité chez vous, mesurer le taux, et choisir la bonne solution sans paniquer."
+  isHome={true}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Humidité dans la maison&nbsp;: comprendre, mesurer et agir efficacement</h1>
+      <p class="hero-intro">
+        L'humidité excessive dans une maison est un problème fréquent. Avant d'acheter un appareil ou d'appeler un professionnel,
+        il est utile de comprendre ce qui se passe et de mesurer la situation. Ce site vous aide à y voir clair,
+        sans dramatiser.
+      </p>
+      <div class="hero-cta-row">
+        <a href="/guides/humidite-maison-que-faire/" class="btn btn--primary">Par où commencer ?</a>
+        <a href="/guides/taux-humidite-ideal-maison/" class="btn btn--secondary">Taux idéal d'humidité</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions rapides -->
+  <section class="quick-links">
+    <div class="container">
+      <h2>Votre situation en un clin d'œil</h2>
+      <div class="quick-grid">
+        <a href="/guides/humidite-maison-que-faire/" class="quick-card">
+          <span class="quick-icon">🌡️</span>
+          <strong>Mon hygromètre dépasse 60 %</strong>
+          <span>Que faire ?</span>
+        </a>
+        <a href="/guides/moisissure-mur-danger/" class="quick-card">
+          <span class="quick-icon">🔍</span>
+          <strong>J'ai des moisissures sur les murs</strong>
+          <span>Est-ce dangereux ?</span>
+        </a>
+        <a href="/guides/condensation-fenetre/" class="quick-card">
+          <span class="quick-icon">🪟</span>
+          <strong>Buée sur mes fenêtres</strong>
+          <span>Comment réduire ?</span>
+        </a>
+        <a href="/guides/odeur-humidite-maison/" class="quick-card">
+          <span class="quick-icon">👃</span>
+          <strong>Odeur d'humidité persistante</strong>
+          <span>D'où ça vient ?</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides populaires -->
+  <section class="section-guides">
+    <div class="container">
+      <h2>Guides populaires</h2>
+      <div class="card-grid">
+        {guides.map(g => <ArticleCard {...g} />)}
+      </div>
+      <p class="mt-2"><a href="/guides/">Voir tous les guides →</a></p>
+    </div>
+  </section>
+
+  <!-- Solutions par pièce -->
+  <section class="section-pieces">
+    <div class="container">
+      <h2>Solutions par pièce</h2>
+      <div class="card-grid">
+        {pieces.map(p => <ArticleCard {...p} />)}
+      </div>
+      <p class="mt-2"><a href="/pieces/">Toutes les pièces →</a></p>
+    </div>
+  </section>
+
+  <!-- Produits utiles -->
+  <section class="section-products">
+    <div class="container">
+      <h2>Produits utiles</h2>
+      <p>Avant d'acheter quoi que ce soit, mesurez le taux d'humidité avec un hygromètre pendant plusieurs jours.
+      Un produit peut aider, mais ne remplace pas la recherche de la cause.</p>
+      <div class="products-row">
+        <a href="/comparatifs/meilleur-hygrometre-maison/" class="product-chip">🌡️ Hygromètres</a>
+        <a href="/comparatifs/meilleur-deshumidificateur-maison/" class="product-chip">💨 Déshumidificateurs</a>
+        <a href="/comparatifs/meilleur-absorbeur-humidite/" class="product-chip">🧊 Absorbeurs d'humidité</a>
+        <a href="/comparatifs/deshumidificateur-ou-absorbeur/" class="product-chip">⚖️ Déshumidificateur ou absorbeur ?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Encadré prudence -->
+  <section class="section-alert">
+    <div class="container">
+      <AlertBox type="warning" title="Quand consulter un professionnel ?">
+        <p>
+          En cas d'infiltration d'eau, de moisissures étendues, de mur mouillé, de salpêtre ou de symptômes de santé
+          (toux persistante, allergies), faites appel à un professionnel du bâtiment ou contactez votre assurance.
+          Ce site ne fournit pas de diagnostic définitif.
+        </p>
+      </AlertBox>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #eef4fb 0%, #f0f7f2 100%);
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero h1 { max-width: 700px; }
+
+.hero-intro {
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin: 1rem 0 1.5rem;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn--secondary {
+  background: #fff;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn--secondary:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Quick links */
+.quick-links {
+  padding: 2.5rem 0;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 700px) {
+  .quick-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.quick-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.quick-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(26,86,160,0.1);
+}
+
+.quick-icon { font-size: 1.4rem; }
+.quick-card strong { font-size: 0.9rem; color: var(--color-text); }
+.quick-card span { font-size: 0.8rem; color: var(--color-primary); }
+
+/* Sections */
+.section-guides,
+.section-pieces,
+.section-products,
+.section-alert {
+  padding: 2.5rem 0;
+}
+
+.section-pieces { background: #f5f7fa; }
+.section-alert { background: #fffbf0; }
+
+/* Products */
+.products-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.product-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 30px;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: #fff;
+  transition: background 0.15s, color 0.15s;
+}
+
+.product-chip:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+</style>

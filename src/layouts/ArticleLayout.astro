@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  breadcrumbs: Array<{ label: string; href?: string }>;
+  publishedDate?: string;
+  updatedDate?: string;
+  showAffiliateDisclosure?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  breadcrumbs,
+  publishedDate,
+  updatedDate,
+  showAffiliateDisclosure = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.maisonmoinshumide.fr';
+const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: canonicalUrl,
+  publisher: {
+    '@type': 'Organization',
+    name: 'Maison Moins Humide',
+    url: siteUrl,
+  },
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(updatedDate && { dateModified: updatedDate }),
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="container article-wrapper">
+    <Breadcrumbs crumbs={breadcrumbs} />
+    <article class="prose">
+      {showAffiliateDisclosure && <AffiliateDisclosure />}
+      <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+.article-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+</style>

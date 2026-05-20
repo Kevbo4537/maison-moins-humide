@@ -1,0 +1,83 @@
+---
+import nav from '../data/navigation.json';
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon" aria-hidden="true">💧</span>
+        <strong>Maison Moins Humide</strong>
+        <p class="footer-tagline">Conseils pratiques pour comprendre et réduire l'humidité chez vous.</p>
+      </div>
+      <nav aria-label="Liens utiles">
+        <ul>
+          {nav.footer.map(item => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">
+        © {new Date().getFullYear()} Maison Moins Humide.
+        Certains liens sont des liens affiliés — <a href="/politique-affiliation/">en savoir plus</a>.
+      </p>
+      <p class="footer-disclaimer text-muted">
+        Ce site fournit des informations générales. Il ne remplace pas un diagnostic professionnel.
+        En cas de doute, consultez un expert du bâtiment ou un professionnel de santé.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  background: #1e2a3a;
+  color: #cdd6e0;
+  margin-top: 4rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.site-footer a { color: #8bb8de; }
+.site-footer a:hover { color: #fff; }
+
+.footer-top {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  flex: 1 1 220px;
+}
+
+.footer-brand .logo-icon { font-size: 1.5rem; }
+.footer-brand strong { font-size: 1.05rem; color: #fff; }
+.footer-tagline { margin-top: 0.5rem; font-size: 0.9rem; color: #8f9faf; }
+
+.site-footer nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.site-footer nav a {
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.site-footer nav a:hover { text-decoration: underline; }
+
+.footer-bottom {
+  border-top: 1px solid #2e3e52;
+  padding-top: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.footer-bottom p { margin-bottom: 0.4rem; }
+.footer-disclaimer { margin-top: 0.5rem; }
+</style>

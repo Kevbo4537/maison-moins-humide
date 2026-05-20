@@ -1,0 +1,50 @@
+---
+interface Props {
+  type?: 'info' | 'warning' | 'tip';
+  title?: string;
+}
+const { type = 'info', title } = Astro.props;
+const icons = { info: 'ℹ️', warning: '⚠️', tip: '💡' };
+---
+<div class:list={['alert-box', `alert-box--${type}`]} role="note">
+  <span class="alert-icon" aria-hidden="true">{icons[type]}</span>
+  <div class="alert-content">
+    {title && <strong class="alert-title">{title}</strong>}
+    <slot />
+  </div>
+</div>
+
+<style>
+.alert-box {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  border-left: 4px solid;
+  margin: 1.5rem 0;
+  font-size: 0.93rem;
+}
+
+.alert-box--info {
+  background: #eef4fb;
+  border-color: var(--color-primary);
+}
+
+.alert-box--warning {
+  background: var(--color-alert-bg);
+  border-color: var(--color-alert-border);
+}
+
+.alert-box--tip {
+  background: #f0f7f2;
+  border-color: var(--color-accent);
+}
+
+.alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+.alert-title {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+</style>

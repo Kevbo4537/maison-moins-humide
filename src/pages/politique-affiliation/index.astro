@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+<BaseLayout
+  title="Politique d'affiliation — Maison Moins Humide"
+  description="Transparence sur les liens affiliés présents sur ce site."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: "Politique d'affiliation" }]} />
+    <h1>Politique d'affiliation</h1>
+    <p>
+      Certains liens présents sur ce site sont des liens affiliés.
+      Si vous achetez via ces liens, le site peut recevoir une commission,
+      sans coût supplémentaire pour vous.
+    </p>
+    <p>
+      Cela n'influence pas notre volonté de présenter des conseils utiles,
+      prudents et adaptés aux problèmes d'humidité.
+      Nous ne recommandons que des produits ou services qui nous semblent pertinents.
+    </p>
+    <p>
+      Lorsque des liens Amazon sont utilisés : en tant que Partenaire Amazon,
+      je réalise un bénéfice sur les achats remplissant les conditions requises.
+    </p>
+  </div>
+</BaseLayout>

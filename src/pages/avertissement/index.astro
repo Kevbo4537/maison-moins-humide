@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AlertBox from '../../components/AlertBox.astro';
+---
+<BaseLayout
+  title="Avertissement santé et bâtiment — Maison Moins Humide"
+  description="Limites de nos conseils en matière de santé et de bâtiment."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Avertissement' }]} />
+    <h1>Avertissement santé &amp; bâtiment</h1>
+
+    <AlertBox type="warning" title="Ce site ne remplace pas un professionnel">
+      <p>Les conseils publiés ici sont de nature générale. Ils ne constituent pas un diagnostic médical ou un diagnostic de bâtiment.</p>
+    </AlertBox>
+
+    <h2>Santé</h2>
+    <p>
+      En cas de symptômes persistants (toux, allergies, difficultés respiratoires) pouvant être liés à
+      l'humidité ou aux moisissures, consultez un médecin.
+      Ce site ne peut pas évaluer votre situation individuelle.
+    </p>
+
+    <h2>Bâtiment</h2>
+    <p>
+      En cas de moisissures étendues, d'infiltrations d'eau, de mur mouillé, de salpêtre important
+      ou de structure endommagée, faites appel à un professionnel du bâtiment ou à votre assurance habitation.
+    </p>
+
+    <h2>Généralité des informations</h2>
+    <p>
+      Les informations publiées reflètent des situations courantes.
+      Chaque logement est différent : l'âge du bâtiment, les matériaux, le climat local,
+      et l'usage influencent les résultats. Une mesure avec un hygromètre sur plusieurs jours
+      est toujours préférable avant toute décision.
+    </p>
+  </div>
+</BaseLayout>

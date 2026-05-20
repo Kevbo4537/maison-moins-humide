@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  isHome?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  isHome = false,
+  ogImage = '/images/og-default.jpg',
+} = Astro.props;
+
+const siteUrl = 'https://www.maisonmoinshumide.fr';
+const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Maison Moins Humide',
+  url: siteUrl,
+  description: "Conseils pratiques pour comprendre, mesurer et réduire l'humidité dans votre maison.",
+};
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Maison Moins Humide',
+  url: siteUrl,
+};
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={isHome ? 'website' : 'article'} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={siteUrl + ogImage} />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  {isHome && (
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+  )}
+</head>
+<body>
+  <a href="#main-content" class="sr-only">Aller au contenu principal</a>
+  <Header />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

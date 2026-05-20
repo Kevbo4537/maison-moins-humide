@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+
+const comparatifs = [
+  { title: "Meilleur déshumidificateur maison", href: "/comparatifs/meilleur-deshumidificateur-maison/", description: "Critères de choix et sélection selon la superficie et le type de pièce.", badge: "Comparatif" },
+  { title: "Meilleur absorbeur d'humidité", href: "/comparatifs/meilleur-absorbeur-humidite/", description: "Absorbeurs à cristaux : pour quels usages et quelle efficacité réelle.", badge: "Comparatif" },
+  { title: "Meilleur hygromètre maison", href: "/comparatifs/meilleur-hygrometre-maison/", description: "L'outil indispensable avant tout achat : comment bien choisir.", badge: "Comparatif" },
+  { title: "Déshumidificateur ou absorbeur ?", href: "/comparatifs/deshumidificateur-ou-absorbeur/", description: "Quel produit choisir selon votre situation et votre budget.", badge: "Aide au choix" },
+];
+---
+<BaseLayout
+  title="Comparatifs produits anti-humidité — Maison Moins Humide"
+  description="Comparatifs honnêtes de déshumidificateurs, absorbeurs et hygromètres pour choisir le bon produit."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs' }]} />
+    <h1>Comparatifs produits anti-humidité</h1>
+    <p>Avant d'acheter, mesurez avec un hygromètre. Un produit aide, mais ne remplace pas la recherche de la cause.</p>
+    <AffiliateDisclosure />
+    <div class="card-grid" style="margin-top:1.5rem">
+      {comparatifs.map(c => <ArticleCard {...c} />)}
+    </div>
+  </div>
+</BaseLayout>

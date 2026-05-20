@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+<BaseLayout
+  title="À propos — Maison Moins Humide"
+  description="Qui sommes-nous et pourquoi ce site sur l'humidité dans la maison."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]} />
+    <h1>À propos</h1>
+    <p>
+      Maison Moins Humide est un site de conseils pratiques sur l'humidité résidentielle.
+      Notre objectif est simple : vous aider à comprendre ce qui se passe chez vous,
+      mesurer la situation avec un hygromètre, et identifier les actions adaptées.
+    </p>
+    <p>
+      Nous ne vendons pas de produits en direct. Certains liens sont des liens affiliés
+      (voir notre <a href="/politique-affiliation/">politique d'affiliation</a>).
+      Nos conseils restent indépendants et prudents.
+    </p>
+    <p>
+      Pour toute question, rendez-vous sur la page <a href="/contact/">Contact</a>.
+    </p>
+  </div>
+</BaseLayout>

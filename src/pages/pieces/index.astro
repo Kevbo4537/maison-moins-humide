@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const pieces = [
+  { title: "Salle de bain humide", href: "/pieces/salle-de-bain-humide/", description: "Ventilation, condensation et moisissures dans la pièce la plus humide." },
+  { title: "Chambre humide", href: "/pieces/chambre-humide/", description: "Causes fréquentes et solutions pour un air sain la nuit." },
+  { title: "Cave humide", href: "/pieces/cave-humide/", description: "Infiltrations, remontées capillaires : comprendre avant d'investir." },
+  { title: "Placard humide", href: "/pieces/placard-humide/", description: "Pourquoi les vêtements sentent l'humidité et comment y remédier." },
+  { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, vapeur d'eau : gérer l'humidité de la buanderie." },
+];
+---
+<BaseLayout
+  title="Humidité par pièce — Maison Moins Humide"
+  description="Conseils pratiques contre l'humidité dans chaque pièce de votre maison : salle de bain, chambre, cave, placard, buanderie."
+>
+  <div class="container" style="padding-top:2rem;padding-bottom:3rem">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce' }]} />
+    <h1>Humidité par pièce</h1>
+    <p>Chaque pièce a ses spécificités. Retrouvez les conseils adaptés à votre situation.</p>
+    <div class="card-grid" style="margin-top:1.5rem">
+      {pieces.map(p => <ArticleCard {...p} />)}
+    </div>
+  </div>
+</BaseLayout>
