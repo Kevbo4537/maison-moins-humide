@@ -1,57 +1,59 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Moisissure sur un mur : danger et solutions" description="Comprendre les causes possibles des moisissures, les bons gestes de nettoyage et les situations qui nécessitent un avis professionnel." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Moisissure sur un mur : danger et solutions' }]}>
-  <h1>Moisissure sur un mur : danger et solutions</h1>
-  <p>Comprendre les causes possibles des moisissures, les bons gestes de nettoyage et les situations qui nécessitent un avis professionnel. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Ce qu’il faut retenir</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Causes possibles</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Nettoyer sans masquer le problème</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Réduire le retour des traces</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand demander un diagnostic ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+<ArticleLayout title="Moisissure sur un mur : danger, causes et actions" description="Comprendre les risques d’une moisissure sur un mur, savoir quoi vérifier et quand demander un diagnostic." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Moisissure sur un mur' }]}>
+  <h1>Moisissure sur un mur : danger, causes et actions</h1>
+  <p>Une moisissure sur un mur n’est pas seulement un problème esthétique. Elle indique surtout qu’une zone reste humide assez longtemps pour permettre son développement. Nettoyer peut être utile, mais si la cause reste présente, les traces reviennent.</p>
+
+  <AlertBox type="warning" title="Priorité">
+    <p>Si la moisissure s’étend, revient vite après nettoyage ou touche une chambre, une salle de bain ou une pièce occupée longtemps, cherchez la cause au lieu de masquer la tache.</p>
+  </AlertBox>
+
+  <h2>Pourquoi une moisissure apparaît</h2>
+  <p>Les moisissures se développent quand humidité, support favorable et manque de séchage se combinent. Le cas le plus fréquent est une condensation répétée sur un mur froid ou mal ventilé, mais d’autres causes sont possibles.</p>
+  <ul>
+    <li>condensation dans un angle froid ;</li>
+    <li>meuble collé au mur qui bloque l’air ;</li>
+    <li>ventilation insuffisante ;</li>
+    <li>fuite ou infiltration ;</li>
+    <li>remontée d’humidité en bas de mur.</li>
+  </ul>
+
+  <h2>Les signes à regarder</h2>
+  <p>L’emplacement aide à orienter le diagnostic. Une trace noire derrière une armoire ne se traite pas comme une auréole au plafond.</p>
+  <ul>
+    <li><strong>angle haut de mur :</strong> souvent pont thermique ou air stagnant ;</li>
+    <li><strong>derrière un meuble :</strong> manque de circulation d’air ;</li>
+    <li><strong>bas de mur :</strong> humidité venant du sol possible ;</li>
+    <li><strong>plafond :</strong> fuite ou infiltration à vérifier ;</li>
+    <li><strong>autour d’une fenêtre :</strong> condensation répétée.</li>
+  </ul>
+
+  <h2>Que faire tout de suite</h2>
+  <ol>
+    <li>Mesurez l’humidité de la pièce plusieurs jours avec un hygromètre.</li>
+    <li>Écartez les meubles du mur pour laisser l’air circuler.</li>
+    <li>Vérifiez la ventilation : entrées d’air, VMC, grilles non bouchées.</li>
+    <li>Évitez le séchage de linge dans la pièce touchée.</li>
+    <li>Nettoyez prudemment la surface si elle est limitée, puis surveillez la réapparition.</li>
+  </ol>
+
+  <h2>Quand ne pas se contenter de nettoyer</h2>
+  <p>Si la peinture cloque, si le mur est mou ou humide au toucher, si la trace grandit, si l’odeur persiste ou si plusieurs pièces sont concernées, le nettoyage ne suffit pas. Il faut rechercher une cause technique : infiltration, fuite, défaut de ventilation, pont thermique ou humidité du sol.</p>
+
+  <h2>Produits utiles</h2>
+  <p>Un hygromètre est le premier outil utile. Un déshumidificateur peut aider à faire baisser le taux d’humidité d’une pièce, mais il ne réparera pas une fuite. Les peintures dites anti-humidité peuvent masquer temporairement un support, mais elles ne remplacent pas le traitement de la cause.</p>
+
+  <AlertBox type="tip" title="Bon repère">
+    <p>Si la moisissure revient au même endroit après nettoyage, considérez que le mur reçoit toujours trop d’humidité ou ne sèche pas assez.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Plan d’action contre l’humidité</a></li>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Comprendre la condensation</a></li>
+    <li><a href={`${base}guides/odeur-humidite-maison/`}>Odeur d’humidité : que vérifier ?</a></li>
+  </ul>
 </ArticleLayout>

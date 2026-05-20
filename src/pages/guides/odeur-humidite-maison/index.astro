@@ -1,57 +1,61 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Odeur d’humidité dans la maison : que faire ?" description="Identifier l’origine d’une odeur de renfermé ou d’humidité et agir à la source plutôt que la masquer." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Odeur d’humidité dans la maison : que faire ?' }]}>
-  <h1>Odeur d’humidité dans la maison : que faire ?</h1>
-  <p>Identifier l’origine d’une odeur de renfermé ou d’humidité et agir à la source plutôt que la masquer. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Causes fréquentes</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Où chercher en premier</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Aérer et mesurer</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Nettoyage et rangement</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand l’odeur persiste</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+<ArticleLayout title="Odeur d’humidité dans la maison : causes et solutions" description="Identifier l’origine d’une odeur d’humidité ou de moisi dans une maison et agir dans le bon ordre." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Odeur d’humidité' }]}>
+  <h1>Odeur d’humidité dans la maison : causes et solutions</h1>
+  <p>Une odeur d’humidité ou de moisi signifie souvent qu’une zone sèche mal. Elle peut venir d’un placard, d’un mur froid, d’une cave, d’un textile humide, d’une ventilation insuffisante ou d’une fuite discrète.</p>
+
+  <AlertBox type="tip" title="Méthode simple">
+    <p>Ne parfumez pas la pièce en premier. Cherchez la zone d’origine : placards, murs froids, derrière les meubles, joints, cave, linge, ventilation.</p>
+  </AlertBox>
+
+  <h2>Localiser l’odeur</h2>
+  <p>Fermez les portes quelques heures puis sentez pièce par pièce. L’objectif est de trouver si l’odeur vient d’une pièce entière, d’un meuble, d’un mur ou d’un objet stocké.</p>
+  <ul>
+    <li>ouvrez les placards et sentez les textiles ;</li>
+    <li>regardez derrière les meubles collés aux murs extérieurs ;</li>
+    <li>contrôlez les angles, plinthes et contours de fenêtres ;</li>
+    <li>vérifiez cave, buanderie, salle de bain et rangements ;</li>
+    <li>cherchez des traces : taches, cloques, poudre blanche, joints noirs.</li>
+  </ul>
+
+  <h2>Les causes possibles</h2>
+  <p>L’odeur peut venir d’un excès d’humidité dans l’air, mais aussi d’un matériau humide qui garde l’odeur. Les textiles, cartons, chaussures et meubles en bois aggloméré retiennent facilement les odeurs.</p>
+  <ul>
+    <li>ventilation insuffisante ;</li>
+    <li>linge rangé pas totalement sec ;</li>
+    <li>placard contre un mur froid ;</li>
+    <li>cave ou vide sanitaire humide ;</li>
+    <li>fuite lente ou infiltration ;</li>
+    <li>moisissure cachée derrière un meuble.</li>
+  </ul>
+
+  <h2>Que faire en premier</h2>
+  <ol>
+    <li>Mesurez l’humidité de la pièce avec un hygromètre.</li>
+    <li>Aérez largement et vérifiez si l’odeur diminue.</li>
+    <li>Sortez les textiles, cartons et objets suspects pour les sécher ou les nettoyer.</li>
+    <li>Écartez les meubles des murs froids.</li>
+    <li>Nettoyez les surfaces touchées si la moisissure est limitée.</li>
+    <li>Corrigez la ventilation si l’odeur revient.</li>
+  </ol>
+
+  <h2>Ce qu’il faut éviter</h2>
+  <p>Les parfums, bougies et sprays masquent l’odeur sans régler le problème. Enfermer davantage la pièce ou chauffer très fort ponctuellement ne suffit pas non plus si l’air ne se renouvelle pas.</p>
+
+  <h2>Produits utiles</h2>
+  <p>Un absorbeur peut aider dans un petit placard, mais il ne traitera pas une pièce humide. Pour une pièce entière, il faut d’abord ventilation et mesure, puis éventuellement un déshumidificateur. Si l’odeur vient d’une fuite ou d’un mur humide, l’appareil ne remplace pas la réparation.</p>
+
+  <AlertBox type="warning" title="Odeur persistante">
+    <p>Une odeur de moisi qui revient après aération et nettoyage doit faire chercher une source cachée : meuble, mur, fuite lente, cave ou défaut de ventilation.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/moisissure-mur-danger/`}>Moisissure sur un mur</a></li>
+    <li><a href={`${base}pieces/placard-humide/`}>Placard humide</a></li>
+    <li><a href={`${base}comparatifs/meilleur-absorbeur-humidite/`}>Absorbeur d’humidité : usages utiles</a></li>
+  </ul>
 </ArticleLayout>

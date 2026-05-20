@@ -1,57 +1,58 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
+const base = import.meta.env.BASE_URL;
 ---
-<ArticleLayout title="Humidité maison à 70 % : est-ce grave ?" description="Un taux à 70 % mérite d’être surveillé : voici comment vérifier s’il est ponctuel ou durable, et quoi faire." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité maison à 70 % : est-ce grave ?' }]}>
-  <h1>Humidité maison à 70 % : est-ce grave ?</h1>
-  <p>Un taux à 70 % mérite d’être surveillé : voici comment vérifier s’il est ponctuel ou durable, et quoi faire. Cette page vous aide à identifier les causes probables, à mesurer correctement et à choisir des actions simples avant d’envisager une solution plus lourde.</p>
-  <AlertBox type="tip" title="Premier réflexe"> <p>Avant d’acheter un absorbeur ou un déshumidificateur, mesurez l’humidité avec un hygromètre pendant quelques jours.</p></AlertBox>
-  <h2>Réponse rapide</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Pourquoi le taux monte à 70 %</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Mesurer sur plusieurs jours</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Actions immédiates</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul><h2>Quand s’inquiéter ?</h2>
-<p>Commencez par observer la pièce, la période où le problème apparaît et le taux indiqué par un hygromètre. Une humidité ponctuelle après une douche, une cuisson ou une nuit froide n’a pas la même signification qu’un taux élevé plusieurs jours d’affilée.</p>
-<ul>
-  <li>mesurez le taux d’humidité sur plusieurs jours ;</li>
-  <li>vérifiez la ventilation et les entrées d’air ;</li>
-  <li>recherchez les traces, odeurs, cloques ou zones froides ;</li>
-  <li>évitez d’acheter un appareil sans comprendre la cause.</li>
-</ul>
-  <AlertBox type="warning" title="Attention"> <p>Si le mur est humide en profondeur, si la peinture cloque, si les traces reviennent malgré le nettoyage ou si des symptômes de santé apparaissent, un diagnostic professionnel peut être nécessaire.</p></AlertBox>
-  <h2>Questions fréquentes</h2>
-  <h3>Un taux élevé est-il toujours grave ?</h3><p>Non. Le problème commence surtout quand l’humidité reste élevée durablement ou quand des moisissures apparaissent.</p>
-  <h3>Quel produit acheter en premier ?</h3><p>Dans beaucoup de cas, le premier achat utile est un hygromètre. Il permet de savoir si le problème est réel, ponctuel ou récurrent.</p>
-  <h2>À lire aussi</h2>
-  
-<ul>
-  <li><a href="/guides/taux-humidite-ideal-maison/">Comprendre le bon taux d’humidité</a></li>
-  <li><a href="/comparatifs/meilleur-hygrometre-maison/">Choisir un hygromètre pour mesurer</a></li>
-  <li><a href="/comparatifs/deshumidificateur-ou-absorbeur/">Déshumidificateur ou absorbeur : comparer</a></li>
-  <li><a href="/avertissement/">Lire l’avertissement santé et bâtiment</a></li>
-</ul>
+<ArticleLayout title="Humidité maison à 70 % : que faire ?" description="Comprendre ce que signifie un taux d’humidité à 70 %, les vérifications à faire et les solutions adaptées." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité à 70 %' }]}>
+  <h1>Humidité maison à 70&nbsp;% : que faire ?</h1>
+  <p>Un taux d’humidité à 70&nbsp;% dans une maison n’est pas automatiquement dramatique s’il est ponctuel. Mais s’il revient souvent ou reste stable plusieurs jours, il faut comprendre pourquoi l’air ne sèche pas.</p>
+
+  <AlertBox type="tip" title="À retenir">
+    <p>Une mesure à 70&nbsp;% après une douche, une cuisson ou une nuit froide peut être ponctuelle. Une pièce à 70&nbsp;% toute la journée, plusieurs jours de suite, mérite une vraie recherche de cause.</p>
+  </AlertBox>
+
+  <h2>70&nbsp;% : ponctuel ou durable ?</h2>
+  <p>La première question est la durée. Prenez trois mesures par jour pendant quelques jours : matin, après-midi et soir. Si le taux redescend vite après aération, l’humidité est probablement liée à un usage ou à un manque de renouvellement d’air ponctuel.</p>
+  <ul>
+    <li><strong>ponctuel :</strong> après douche, cuisson, linge, nuit froide ;</li>
+    <li><strong>répété :</strong> tous les matins ou tous les soirs ;</li>
+    <li><strong>durable :</strong> reste proche de 70&nbsp;% même après aération ;</li>
+    <li><strong>préoccupant :</strong> 70&nbsp;% + moisissures, odeurs ou condensation.</li>
+  </ul>
+
+  <h2>Les causes fréquentes</h2>
+  <p>Un taux à 70&nbsp;% peut venir d’un air trop chargé, d’une ventilation insuffisante ou d’une pièce froide. Dans une cave ou une buanderie, la situation peut aussi être liée au sol, aux murs enterrés ou au linge qui sèche.</p>
+  <ul>
+    <li>VMC insuffisante ou grilles encrassées ;</li>
+    <li>entrées d’air bouchées ;</li>
+    <li>chauffage irrégulier ;</li>
+    <li>linge séché à l’intérieur ;</li>
+    <li>infiltration, fuite ou mur froid selon l’emplacement.</li>
+  </ul>
+
+  <h2>Actions simples à tester</h2>
+  <ol>
+    <li>Aérez largement 5 à 10 minutes et vérifiez si le taux baisse.</li>
+    <li>Nettoyez les bouches d’extraction et laissez les entrées d’air ouvertes.</li>
+    <li>Évitez le linge humide dans la pièce pendant quelques jours pour comparer.</li>
+    <li>Maintenez une température plus régulière.</li>
+    <li>Déplacez l’hygromètre pour confirmer que la mesure n’est pas locale.</li>
+  </ol>
+
+  <h2>Quand utiliser un déshumidificateur</h2>
+  <p>Si la pièce reste à 70&nbsp;% malgré les gestes simples, un déshumidificateur peut aider, surtout en cave, buanderie ou pièce peu ventilée. Choisissez-le selon le volume de la pièce et la température : certains appareils sont moins efficaces dans les pièces froides.</p>
+
+  <h2>Quand demander un avis</h2>
+  <p>Si le taux reste élevé avec mur humide, cloques, salpêtre, odeur persistante ou tache localisée, il faut chercher une cause bâtiment. Acheter un appareil sans diagnostic peut seulement déplacer le problème.</p>
+
+  <AlertBox type="warning" title="Ne pas attendre si des traces apparaissent">
+    <p>70&nbsp;% avec moisissures ou condensation importante doit être traité rapidement : ventilation, cause technique et assèchement doivent être regardés ensemble.</p>
+  </AlertBox>
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Taux d’humidité idéal</a></li>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Choisir un déshumidificateur</a></li>
+    <li><a href={`${base}pieces/cave-humide/`}>Cave humide : les bons réflexes</a></li>
+  </ul>
 </ArticleLayout>
