@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://www.maisonmoinshumide.fr/sitemap-index.xml
+LLMS: https://www.maisonmoinshumide.fr/llms.txt
+LLMS-Full: https://www.maisonmoinshumide.fr/llms-full.txt

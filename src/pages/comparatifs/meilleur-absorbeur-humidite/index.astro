@@ -2,6 +2,7 @@
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Un absorbeur d’humidité est-il efficace ?", answer: "Oui dans un petit volume fermé ou pour un appoint ponctuel, mais son effet reste limité dans une grande pièce ou face à un vrai problème d’humidité." },
@@ -16,6 +17,8 @@ const faqs = [
   <AlertBox type="info" title="Transparence">
     <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
   </AlertBox>
+
+  <RevenueProductBlock title="Absorbeurs : utile surtout pour les petits volumes" intro="La mise en avant reste ciblée : placard, rangement, chaussures, petite zone fermée. Pour une pièce entière, le site oriente vers le déshumidificateur." />
 
   <h2>Quand un absorbeur est pertinent</h2>
   <ul>

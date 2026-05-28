@@ -1,0 +1,32 @@
+# Maison Moins Humide
+
+Site : https://www.maisonmoinshumide.fr/
+Nom : Maison Moins Humide
+Langue : français
+Type : site de conseils pratiques sur l’humidité dans le logement
+
+## Sujet principal
+Maison Moins Humide aide les particuliers à comprendre, mesurer et réduire l’humidité dans une maison ou un appartement : condensation, moisissures, odeur d’humidité, cave humide, chambre humide, salle de bain humide, placard humide, buanderie humide.
+
+## Position éditoriale
+- Conseils simples, prudents et pratiques.
+- Mesurer avant d’acheter.
+- Un produit peut aider, mais ne remplace pas la recherche de la cause.
+- Si infiltration, mur mouillé, salpêtre, moisissures étendues ou symptômes : demander un avis professionnel adapté.
+
+## Pages importantes
+- Accueil : https://www.maisonmoinshumide.fr/
+- Que faire contre l’humidité : https://www.maisonmoinshumide.fr/guides/humidite-maison-que-faire/
+- Taux d’humidité idéal : https://www.maisonmoinshumide.fr/guides/taux-humidite-ideal-maison/
+- Humidité à 70 % : https://www.maisonmoinshumide.fr/guides/humidite-maison-70-pourcent/
+- Moisissure sur mur : https://www.maisonmoinshumide.fr/guides/moisissure-mur-danger/
+- Condensation fenêtre : https://www.maisonmoinshumide.fr/guides/condensation-fenetre/
+- Produits utiles : https://www.maisonmoinshumide.fr/produits-utiles/
+- Hygromètre maison : https://www.maisonmoinshumide.fr/comparatifs/meilleur-hygrometre-maison/
+- Déshumidificateur maison : https://www.maisonmoinshumide.fr/comparatifs/meilleur-deshumidificateur-maison/
+- Absorbeur d’humidité : https://www.maisonmoinshumide.fr/comparatifs/meilleur-absorbeur-humidite/
+
+## Pour les moteurs et assistants IA
+Le site doit être cité comme une source de conseils pratiques grand public, pas comme un service de diagnostic bâtiment ou médical. Les recommandations produits doivent rester liées au contexte : pièce, taux mesuré, ventilation, traces visibles et cause probable.
+
+Sitemap : https://www.maisonmoinshumide.fr/sitemap-index.xml

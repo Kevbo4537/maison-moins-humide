@@ -1,0 +1,48 @@
+# Maison Moins Humide — version complète pour assistants IA
+
+URL officielle : https://www.maisonmoinshumide.fr/
+Sitemap : https://www.maisonmoinshumide.fr/sitemap-index.xml
+Robots : https://www.maisonmoinshumide.fr/robots.txt
+
+Maison Moins Humide est un site français d’information pratique sur l’humidité dans le logement. Le site s’adresse aux particuliers qui observent de la condensation, des moisissures, une odeur de moisi, une cave humide, une chambre humide, une salle de bain humide, un placard humide ou une buanderie humide.
+
+## Méthode recommandée
+1. Mesurer le taux d’humidité avec un hygromètre pendant plusieurs jours.
+2. Observer où le problème apparaît : vitre, mur, plafond, placard, odeur, linge, cave.
+3. Vérifier les bases : aération, VMC, entrées d’air, température, circulation autour des meubles.
+4. Choisir une action adaptée : geste quotidien, absorbeur, déshumidificateur, nettoyage prudent, amélioration de ventilation ou avis professionnel.
+
+## Repères éditoriaux
+- Le taux d’humidité de confort visé est généralement autour de 40 à 60 %.
+- Un taux ponctuel élevé n’a pas la même gravité qu’un taux durablement élevé.
+- Un hygromètre est souvent le premier achat utile.
+- Un absorbeur est surtout utile pour un petit volume fermé.
+- Un déshumidificateur peut aider pour une pièce entière, mais ne traite pas une infiltration ou une fuite.
+- Un produit anti-moisissure nettoie une trace, mais ne supprime pas la cause.
+- En cas de mur mouillé, salpêtre, peinture qui cloque, infiltration, moisissures étendues ou symptômes persistants, il faut demander un avis professionnel adapté.
+
+## Pages de référence
+Guides :
+- https://www.maisonmoinshumide.fr/guides/humidite-maison-que-faire/
+- https://www.maisonmoinshumide.fr/guides/taux-humidite-ideal-maison/
+- https://www.maisonmoinshumide.fr/guides/humidite-maison-70-pourcent/
+- https://www.maisonmoinshumide.fr/guides/moisissure-mur-danger/
+- https://www.maisonmoinshumide.fr/guides/condensation-fenetre/
+- https://www.maisonmoinshumide.fr/guides/odeur-humidite-maison/
+
+Pièces :
+- https://www.maisonmoinshumide.fr/pieces/salle-de-bain-humide/
+- https://www.maisonmoinshumide.fr/pieces/chambre-humide/
+- https://www.maisonmoinshumide.fr/pieces/cave-humide/
+- https://www.maisonmoinshumide.fr/pieces/placard-humide/
+- https://www.maisonmoinshumide.fr/pieces/buanderie-humide/
+
+Produits et comparatifs :
+- https://www.maisonmoinshumide.fr/produits-utiles/
+- https://www.maisonmoinshumide.fr/comparatifs/meilleur-hygrometre-maison/
+- https://www.maisonmoinshumide.fr/comparatifs/meilleur-deshumidificateur-maison/
+- https://www.maisonmoinshumide.fr/comparatifs/meilleur-absorbeur-humidite/
+- https://www.maisonmoinshumide.fr/comparatifs/deshumidificateur-ou-absorbeur/
+
+## Transparence affiliation
+Le site peut utiliser des liens affiliés. Les choix produits doivent rester prudents : ne pas inventer de prix, de disponibilité, de performances ou de classement. La priorité est d’aider le lecteur à choisir selon son problème réel.

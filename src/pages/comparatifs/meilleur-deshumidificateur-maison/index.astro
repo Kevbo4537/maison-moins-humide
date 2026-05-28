@@ -2,6 +2,7 @@
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Faut-il acheter le plus puissant ?", answer: "Pas forcément. Un appareil trop petit sera inefficace, mais un modèle surdimensionné peut être plus cher, plus bruyant et inutile selon la pièce." },
@@ -16,6 +17,8 @@ const faqs = [
   <AlertBox type="info" title="Transparence">
     <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
   </AlertBox>
+
+  <RevenueProductBlock title="Déshumidificateurs : les critères qui génèrent un bon achat" intro="Quand les liens affiliés seront prêts, cette zone pourra envoyer vers une sélection courte : appareil silencieux pour chambre, modèle cave/buanderie, modèle avec évacuation continue." />
 
   <h2>Avant d’acheter : les vérifications</h2>
   <ul>

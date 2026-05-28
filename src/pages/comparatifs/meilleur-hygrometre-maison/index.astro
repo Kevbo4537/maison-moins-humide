@@ -2,6 +2,7 @@
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Un hygromètre pas cher suffit-il ?", answer: "Pour un premier repère, oui, s’il est lisible et stable. L’important est surtout de suivre les tendances sur plusieurs jours." },
@@ -16,6 +17,8 @@ const faqs = [
   <AlertBox type="info" title="Transparence">
     <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
   </AlertBox>
+
+  <RevenueProductBlock title="Hygromètres : le premier achat à monétiser" intro="C’est le produit le plus logique à pousser en premier : faible prix, utile dans presque tous les cas, et cohérent avec la méthode du site." />
 
   <h2>Pourquoi commencer par mesurer</h2>
   <ul>

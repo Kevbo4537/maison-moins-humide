@@ -1,0 +1,111 @@
+---
+interface Product {
+  title: string;
+  useCase: string;
+  href: string;
+  badge?: string;
+}
+
+interface Props {
+  title?: string;
+  intro?: string;
+  products?: Product[];
+}
+
+const base = import.meta.env.BASE_URL;
+const {
+  title = 'Produits à regarder en priorité',
+  intro = 'Ces liens restent prudents : on mesure d’abord, puis on choisit un produit adapté à la pièce et à la cause probable.',
+  products = [
+    {
+      title: 'Hygromètre maison',
+      useCase: 'Premier achat utile pour confirmer le taux d’humidité avant toute dépense plus chère.',
+      href: `${base}comparatifs/meilleur-hygrometre-maison/`,
+      badge: 'À faire en premier',
+    },
+    {
+      title: 'Déshumidificateur électrique',
+      useCase: 'Pour une pièce entière qui reste humide plusieurs jours : cave, buanderie, chambre ou pièce de vie.',
+      href: `${base}comparatifs/meilleur-deshumidificateur-maison/`,
+      badge: 'Pièce entière',
+    },
+    {
+      title: 'Absorbeur d’humidité',
+      useCase: 'Pour un placard, un petit rangement ou une zone fermée légèrement humide.',
+      href: `${base}comparatifs/meilleur-absorbeur-humidite/`,
+      badge: 'Petit volume',
+    },
+  ],
+} = Astro.props;
+---
+<section class="revenue-products" aria-labelledby="revenue-products-title">
+  <div class="revenue-products__heading">
+    <p class="eyebrow">Produits utiles</p>
+    <h2 id="revenue-products-title">{title}</h2>
+    <p>{intro}</p>
+  </div>
+  <div class="revenue-products__grid">
+    {products.map((product) => (
+      <a class="revenue-card" href={product.href}>
+        {product.badge && <span>{product.badge}</span>}
+        <strong>{product.title}</strong>
+        <p>{product.useCase}</p>
+        <em>Voir le guide →</em>
+      </a>
+    ))}
+  </div>
+  <p class="revenue-products__note">Conseil : commencez par le produit le plus simple pour confirmer le problème, puis montez en puissance seulement si les mesures le justifient.</p>
+</section>
+
+<style>
+.revenue-products {
+  margin: 2rem 0;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f7fbf8 0%, #eef5fb 100%);
+}
+.eyebrow { color: var(--color-primary); font-weight: 750; text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; margin-bottom: .45rem; }
+.revenue-products__heading h2 { margin-top: .2rem; }
+.revenue-products__heading p { color: var(--color-text-muted); }
+.revenue-products__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .9rem;
+  margin-top: 1rem;
+}
+@media (min-width: 760px) {
+  .revenue-products__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.revenue-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  gap: .45rem;
+  padding: 1rem;
+  border: 1px solid rgba(26,86,160,.18);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--color-text);
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(30,42,58,.06);
+}
+.revenue-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+.revenue-card span {
+  width: fit-content;
+  border-radius: 999px;
+  padding: .18rem .55rem;
+  background: #eaf2fb;
+  color: var(--color-primary);
+  font-size: .78rem;
+  font-weight: 750;
+}
+.revenue-card strong { font-size: 1.02rem; color: var(--color-text); }
+.revenue-card p { margin: 0; color: var(--color-text-muted); font-size: .92rem; }
+.revenue-card em { margin-top: auto; color: var(--color-primary); font-style: normal; font-weight: 750; }
+.revenue-products__note { margin: 1rem 0 0; font-size: .86rem; color: var(--color-text-muted); }
+.prose .revenue-products ul { background: transparent; }
+</style>

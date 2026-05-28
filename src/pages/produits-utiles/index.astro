@@ -1,6 +1,7 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import AlertBox from '../../components/AlertBox.astro';
+import RevenueProductBlock from '../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <ArticleLayout title="Produits utiles contre l’humidité : quoi acheter en premier ?" description="Comprendre les produits utiles contre l’humidité : hygromètre, absorbeur, déshumidificateur, anti-moisissure, ventilation et accessoires." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Produits utiles' }]} showAffiliateDisclosure={true}>
@@ -10,6 +11,8 @@ const base = import.meta.env.BASE_URL;
   <AlertBox type="tip" title="Ordre conseillé">
     <p>Mesurer → comprendre la pièce → vérifier la ventilation → choisir un produit adapté. Acheter directement un appareil sans mesure conduit souvent à une solution trop faible, trop bruyante ou inutile.</p>
   </AlertBox>
+
+  <RevenueProductBlock title="Les produits à mettre en avant" intro="Les produits sont présentés dans un ordre simple : confirmer le taux, traiter un petit volume si besoin, puis passer à un appareil plus puissant seulement si la pièce le justifie." />
 
   <h2>1. Hygromètre : le premier outil</h2>
   <p>L’hygromètre mesure le taux d’humidité et souvent la température. Il permet de savoir si le problème est ponctuel ou durable, de comparer plusieurs pièces et de vérifier si une action fonctionne.</p>

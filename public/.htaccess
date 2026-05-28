@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Domaine canonique : HTTPS + www
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.maisonmoinshumide\.fr$ [NC]
+RewriteRule ^(.*)$ https://www.maisonmoinshumide.fr/$1 [R=301,L]
+
+# Compatibilité SEO : certains outils cherchent /sitemap.xml
+RewriteRule ^sitemap\.xml$ https://www.maisonmoinshumide.fr/sitemap-index.xml [R=301,L]
+
+# Pages propres sans index.html visible
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# Compression navigateur si disponible chez l’hébergeur
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache des assets versionnés Astro
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
