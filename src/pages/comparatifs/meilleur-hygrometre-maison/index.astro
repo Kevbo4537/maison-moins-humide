@@ -9,16 +9,78 @@ const faqs = [
   { question: "Faut-il en mettre un dans chaque pièce ?", answer: "Pas forcément. On peut commencer par la pièce problématique, puis comparer avec une pièce saine avant d’équiper davantage." },
   { question: "Où placer un hygromètre dans une pièce ?", answer: "Placez-le à hauteur de vie, loin d’une fenêtre ouverte, d’un radiateur, d’une bouche de ventilation et d’une source d’eau directe." },
 ];
+
+const hygrometerProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Le choix simple pour commencer à mesurer dans une chambre, un salon ou une pièce de vie.',
+    details: 'Écran lisible, température + humidité, bon premier repère avant d’acheter plus gros.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Choix simple',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'SwitchBot hygromètre connecté',
+    useCase: 'Pour suivre l’évolution depuis le téléphone et garder un historique utile.',
+    details: 'Intéressant si l’on veut comparer les moments de la journée ou surveiller à distance.',
+    href: 'https://amzn.to/49vf5TW',
+    badge: 'Connecté',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71bsSeJ9z5L._SL1500_.jpg',
+  },
+  {
+    title: 'Govee hygromètre lot de 2',
+    useCase: 'Pour comparer deux pièces ou suivre une pièce humide et une pièce saine.',
+    details: 'Pratique quand on ne veut pas se baser sur une seule mesure isolée.',
+    href: 'https://amzn.to/4uF6h6l',
+    badge: 'Plusieurs pièces',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61LLO8SJEbL._SL1119_.jpg',
+  },
+  {
+    title: 'Testo 608-H1',
+    useCase: 'Pour une mesure plus sérieuse dans un atelier, une cave, une réserve ou un local sensible.',
+    details: 'Plus cher, mais cohérent si la mesure doit être plus fiable et suivie régulièrement.',
+    href: 'https://amzn.to/4uIG2ft',
+    badge: 'Plus sérieux',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71B-TQVMpXL._AC_SL1000_.jpg',
+  },
+  {
+    title: 'ThermoPro TP49 lot de 4',
+    useCase: 'Pour équiper plusieurs pièces sans exploser le budget.',
+    details: 'Utile pour comparer chambre, salon, placard, buanderie ou cave légère.',
+    href: 'https://amzn.to/3RtRHQF',
+    badge: 'Budget / lot',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71fFXBVI8OL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Xiaomi Temperature and Humidity Monitor 2',
+    useCase: 'Petit format discret pour une chambre, un bureau ou une pièce déjà équipée Xiaomi.',
+    details: 'Compact et visuel, moins adapté si l’on veut un très grand écran.',
+    href: 'https://amzn.to/4fQbgMX',
+    badge: 'Compact',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/41LmrB17gDL._AC_SL1000_.jpg',
+  },
+];
 ---
 <ComparisonLayout title="Hygromètre maison : choisir un modèle simple et utile" description="Pourquoi mesurer l’humidité, où placer un hygromètre et quels critères regarder avant achat." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Hygromètre maison : guide de choix' }]}>
   <h1>Hygromètre maison : guide de choix</h1>
   <p>L’hygromètre est souvent le premier achat utile quand on suspecte un problème d’humidité. Il ne règle rien à lui seul, mais il évite les décisions au ressenti et permet de savoir si une pièce reste trop humide durablement.</p>
 
   <AlertBox type="info" title="Transparence">
-    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+    <p>Certains liens de cette page sont affiliés. La sélection reste faite dans l’ordre logique : mesurer d’abord, comprendre la pièce, puis acheter seulement ce qui correspond au besoin.</p>
   </AlertBox>
 
-  <RevenueProductBlock title="Hygromètres : le premier achat à monétiser" intro="C’est le produit le plus logique à pousser en premier : faible prix, utile dans presque tous les cas, et cohérent avec la méthode du site." />
+  <RevenueProductBlock
+    title="Sélection d’hygromètres utiles"
+    intro="Voici les modèles à regarder en priorité selon le besoin : simple mesure, suivi connecté, plusieurs pièces ou mesure plus sérieuse. Les images aident à repérer rapidement le format du produit."
+    products={hygrometerProducts}
+    note="Les prix et disponibilités peuvent bouger sur Amazon. Le plus important reste de choisir le format adapté : un modèle simple pour débuter, un lot pour comparer plusieurs pièces, ou un modèle connecté si l’historique est utile."
+  />
 
   <h2>Pourquoi commencer par mesurer</h2>
   <ul>

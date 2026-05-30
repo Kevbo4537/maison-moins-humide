@@ -4,18 +4,24 @@ interface Product {
   useCase: string;
   href: string;
   badge?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  ctaLabel?: string;
+  details?: string;
 }
 
 interface Props {
   title?: string;
   intro?: string;
   products?: Product[];
+  note?: string;
 }
 
 const base = import.meta.env.BASE_URL;
 const {
   title = 'Produits à regarder en priorité',
   intro = 'Ces liens restent prudents : on mesure d’abord, puis on choisit un produit adapté à la pièce et à la cause probable.',
+  note = 'Conseil : commencez par le produit le plus simple pour confirmer le problème, puis montez en puissance seulement si les mesures le justifient.',
   products = [
     {
       title: 'Hygromètre maison',
@@ -37,6 +43,8 @@ const {
     },
   ],
 } = Astro.props;
+
+const isExternal = (href: string) => /^https?:\/\//.test(href);
 ---
 <section class="revenue-products" aria-labelledby="revenue-products-title">
   <div class="revenue-products__heading">
@@ -46,15 +54,28 @@ const {
   </div>
   <div class="revenue-products__grid">
     {products.map((product) => (
-      <a class="revenue-card" href={product.href}>
-        {product.badge && <span>{product.badge}</span>}
-        <strong>{product.title}</strong>
-        <p>{product.useCase}</p>
-        <em>Voir le guide →</em>
+      <a
+        class:list={['revenue-card', product.imageSrc && 'revenue-card--with-image']}
+        href={product.href}
+        target={isExternal(product.href) ? '_blank' : undefined}
+        rel={isExternal(product.href) ? 'sponsored nofollow noopener' : undefined}
+      >
+        {product.imageSrc && (
+          <span class="revenue-card__image-wrap" aria-hidden="true">
+            <img src={product.imageSrc} alt="" loading="lazy" decoding="async" />
+          </span>
+        )}
+        <span class="revenue-card__body">
+          {product.badge && <span class="revenue-card__badge">{product.badge}</span>}
+          <strong>{product.title}</strong>
+          <p>{product.useCase}</p>
+          {product.details && <small>{product.details}</small>}
+          <em>{product.ctaLabel ?? 'Voir le guide →'}</em>
+        </span>
       </a>
     ))}
   </div>
-  <p class="revenue-products__note">Conseil : commencez par le produit le plus simple pour confirmer le problème, puis montez en puissance seulement si les mesures le justifient.</p>
+  {note && <p class="revenue-products__note">{note}</p>}
 </section>
 
 <style>
@@ -75,13 +96,13 @@ const {
   margin-top: 1rem;
 }
 @media (min-width: 760px) {
-  .revenue-products__grid { grid-template-columns: repeat(3, 1fr); }
+  .revenue-products__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .revenue-card {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  gap: .45rem;
+  gap: .7rem;
   padding: 1rem;
   border: 1px solid rgba(26,86,160,.18);
   border-radius: 14px;
@@ -89,12 +110,38 @@ const {
   color: var(--color-text);
   text-decoration: none;
   box-shadow: 0 10px 24px rgba(30,42,58,.06);
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  overflow: hidden;
 }
 .revenue-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(30,42,58,.1);
 }
-.revenue-card span {
+.revenue-card__image-wrap {
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  margin: -1rem -1rem .15rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8fb 100%);
+  border-bottom: 1px solid rgba(26,86,160,.1);
+}
+.revenue-card__image-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 190px;
+  height: 145px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.revenue-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: .45rem;
+}
+.revenue-card__badge {
   width: fit-content;
   border-radius: 999px;
   padding: .18rem .55rem;
@@ -103,8 +150,9 @@ const {
   font-size: .78rem;
   font-weight: 750;
 }
-.revenue-card strong { font-size: 1.02rem; color: var(--color-text); }
+.revenue-card strong { font-size: 1.02rem; color: var(--color-text); line-height: 1.25; }
 .revenue-card p { margin: 0; color: var(--color-text-muted); font-size: .92rem; }
+.revenue-card small { color: #64748b; font-size: .82rem; line-height: 1.35; }
 .revenue-card em { margin-top: auto; color: var(--color-primary); font-style: normal; font-weight: 750; }
 .revenue-products__note { margin: 1rem 0 0; font-size: .86rem; color: var(--color-text-muted); }
 .prose .revenue-products ul { background: transparent; }
