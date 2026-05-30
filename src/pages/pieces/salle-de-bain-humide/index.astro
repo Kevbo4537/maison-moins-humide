@@ -3,11 +3,51 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Comment réduire rapidement l’humidité dans une salle de bain ?", answer: "Aérez après la douche, laissez la porte entrouverte si possible, essuyez les surfaces très mouillées et vérifiez que la VMC ou l’extracteur fonctionne correctement." },
   { question: "Un absorbeur suffit-il dans une salle de bain ?", answer: "Il peut aider ponctuellement dans une petite salle d’eau, mais il ne remplace pas une extraction d’air efficace après les douches." },
   { question: "Pourquoi la moisissure revient dans les joints ?", answer: "Souvent parce que l’eau reste sur les surfaces et que l’air se renouvelle mal. Il faut nettoyer, sécher et réduire l’humidité après chaque usage." },
+];
+
+const ventilationProducts = [
+  {
+    title: 'AIROPE extracteur 100 mm avec clapet',
+    useCase: 'Pour salle de bain, WC, cuisine ou petite pièce humide avec sortie d’air adaptée.',
+    details: 'Extracteur 100 mm avec clapet anti-retour et moustiquaire. À installer seulement si la gaine, l’alimentation et l’évacuation sont adaptées.',
+    href: 'https://amzn.to/4vhQU3A',
+    badge: 'Extracteur simple',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61U0Oe882nL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'FanGoFast extracteur avec hygrostat',
+    useCase: 'Pour une salle de bain où l’on veut un déclenchement selon l’humidité, avec minuterie réglable.',
+    details: 'Plus pertinent qu’un simple interrupteur si la vapeur reste après la douche. Installation électrique à vérifier.',
+    href: 'https://amzn.to/49wOB4n',
+    badge: 'Hygrostat',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51TLDKfUHTL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Kit de nettoyage de conduits d’aération',
+    useCase: 'Pour dépoussiérer certains conduits, grilles et passages d’air accessibles.',
+    details: 'À utiliser sans forcer dans une installation inconnue. Ne remplace pas l’entretien complet d’une VMC encrassée ou défectueuse.',
+    href: 'https://amzn.to/3RtURE1',
+    badge: 'Nettoyage air',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71hSu2I1UOL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'KOTARBAU grille de ventilation de porte',
+    useCase: 'Pour améliorer le passage d’air quand une porte bloque trop la circulation entre pièces.',
+    details: 'Utile en complément d’une extraction. À poser proprement et seulement si cela convient à la porte et à la configuration.',
+    href: 'https://amzn.to/4dDPxX8',
+    badge: 'Circulation d’air',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61zv9W5fZ4L._AC_SL1500_.jpg',
+  },
 ];
 ---
 <ArticleLayout title="Salle de bain humide : causes et solutions" description="Ventilation, condensation, joints noircis : les bons réflexes pour une salle de bain qui sèche mieux." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Salle de bain humide : causes et solutions' }]}>
@@ -42,13 +82,15 @@ const faqs = [
     <li>étendre les serviettes pour qu’elles sèchent vite</li>
     <li>laisser la porte entrouverte quand l’humidité a commencé à baisser</li>
   </ul>
-  <h2>Produits utiles</h2>
-  <ul>
-    <li>hygromètre pour confirmer la durée du pic d’humidité</li>
-    <li>petit extracteur ou amélioration de VMC si ventilation faible</li>
-    <li>déshumidificateur seulement si la pièce reste humide durablement</li>
-    <li>joints adaptés si les anciens sont dégradés, après assèchement</li>
-  </ul>
+  <h2>Produits utiles pour améliorer la ventilation</h2>
+  <p>Quand le problème vient d’un air qui ne sort pas assez vite, un extracteur, une grille de passage d’air ou un nettoyage des conduits peut aider. Il faut toutefois vérifier la configuration avant achat : diamètre, gaine, alimentation électrique, sortie extérieure et circulation d’air sous la porte.</p>
+
+  <RevenueProductBlock
+    title="Ventilation et accessoires utiles"
+    intro="Sélection courte pour aider une salle de bain à mieux sécher : extracteur simple, extracteur avec hygrostat, nettoyage des conduits et grille de passage d’air."
+    products={ventilationProducts}
+    note="Ces produits ne remplacent pas un diagnostic : si l’extraction ne fonctionne pas, si la gaine est bouchée ou si l’installation électrique n’est pas adaptée, il faut corriger la cause avant de compter sur un accessoire."
+  />
 
   <AlertBox type="warning" title="À vérifier">
     <p>Si le plafond noircit, si la peinture cloque ou si l’humidité revient malgré une ventilation correcte, vérifiez une fuite, une infiltration ou un défaut d’extraction.</p>
