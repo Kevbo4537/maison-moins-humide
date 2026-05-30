@@ -3,11 +3,51 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "La moisissure sur un mur est-elle dangereuse ?", answer: "Elle ne doit pas être banalisée, surtout si elle s’étend, revient souvent ou s’accompagne de symptômes. Il faut nettoyer prudemment, mais surtout supprimer la cause de l’humidité." },
   { question: "Peut-on seulement repeindre un mur moisi ?", answer: "Non. Repeindre sans traiter la cause masque le problème et les traces risquent de revenir. Il faut d’abord comprendre l’origine : condensation, fuite, infiltration ou pont thermique." },
   { question: "Quand demander un avis médical ou professionnel ?", answer: "Demandez un avis adapté si les moisissures sont importantes, si le mur reste humide, si elles reviennent vite ou si des occupants ont des symptômes respiratoires." },
+];
+
+const mouldCleaningProducts = [
+  {
+    title: 'HG Spray anti-moisissures',
+    useCase: 'Pour nettoyer des traces localisées sur joints, carrelage, salle de bain ou petite zone touchée.',
+    details: 'Produit fongicide à utiliser avec prudence, protection et aération. Ne règle pas la cause de l’humidité.',
+    href: 'https://amzn.to/4uacUg3',
+    badge: 'Nettoyage local',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/81HgHuwxFNL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Starwax anti-moisissures joints salle de bains',
+    useCase: 'Pour les traces noires sur joints, carrelage et zones de salle de bain.',
+    details: 'Action blanchissante avec javel : efficace visuellement, mais à éviter sur surfaces sensibles et sans bonne aération.',
+    href: 'https://amzn.to/43B8XWH',
+    badge: 'Joints salle de bain',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71SoQcrtvWL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'AGO kit anti-moisissure 2 en 1',
+    useCase: 'Pour murs, douches, joints silicone et zones où l’on veut appliquer au spray ou au pinceau.',
+    details: 'Produit concentré : bien lire la notice et tester sur une petite zone avant usage large.',
+    href: 'https://amzn.to/4uR1wqg',
+    badge: 'Application précise',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/81AN+ZlKMoL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'MR.SIGA brosses à joints',
+    useCase: 'Accessoire simple pour nettoyer joints, rainures, fenêtres, salle de bain et cuisine.',
+    details: 'Utile avec un produit adapté. Évite de frotter au hasard avec une éponge trop large.',
+    href: 'https://amzn.to/4uCe2tJ',
+    badge: 'Accessoire utile',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71X-3o2kosL._AC_SL1500_.jpg',
+  },
 ];
 ---
 <ArticleLayout title="Moisissure sur un mur : danger, causes et actions" description="Comprendre les risques d’une moisissure sur un mur, savoir quoi vérifier et quand demander un diagnostic." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Moisissure sur un mur' }]}>
@@ -50,8 +90,15 @@ const faqs = [
   <h2>Quand ne pas se contenter de nettoyer</h2>
   <p>Si la peinture cloque, si le mur est mou ou humide au toucher, si la trace grandit, si l’odeur persiste ou si plusieurs pièces sont concernées, le nettoyage ne suffit pas. Il faut rechercher une cause technique : infiltration, fuite, défaut de ventilation, pont thermique ou humidité du sol.</p>
 
-  <h2>Produits utiles</h2>
-  <p>Un hygromètre est le premier outil utile. Un déshumidificateur peut aider à faire baisser le taux d’humidité d’une pièce, mais il ne réparera pas une fuite. Les peintures dites anti-humidité peuvent masquer temporairement un support, mais elles ne remplacent pas le traitement de la cause.</p>
+  <h2>Produits utiles pour nettoyer une trace limitée</h2>
+  <p>Un produit anti-moisissure peut aider à nettoyer une petite surface, surtout sur joints ou carrelage. Il ne doit pas servir à masquer un problème qui revient. Avant tout usage, aérez, protégez-vous, lisez la notice et testez sur une zone discrète.</p>
+
+  <RevenueProductBlock
+    title="Produits anti-moisissure et accessoires"
+    intro="Sélection courte pour nettoyer des traces localisées : sprays anti-moisissure, application plus précise et brosses à joints. À utiliser comme nettoyage, pas comme diagnostic ni traitement de la cause."
+    products={mouldCleaningProducts}
+    note="Si les traces reviennent après nettoyage, le problème n’est pas le produit : la zone reçoit encore trop d’humidité ou ne sèche pas assez. Il faut alors chercher la cause."
+  />
 
   <AlertBox type="tip" title="Bon repère">
     <p>Si la moisissure revient au même endroit après nettoyage, considérez que le mur reçoit toujours trop d’humidité ou ne sèche pas assez.</p>
