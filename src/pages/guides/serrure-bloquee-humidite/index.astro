@@ -1,0 +1,91 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+const base = import.meta.env.BASE_URL;
+const faqs = [
+  { question: "L’humidité peut-elle vraiment bloquer une serrure ?", answer: "Oui. L’humidité peut oxyder le cylindre, encrasser le mécanisme, faire gonfler une porte en bois ou dérégler légèrement l’alignement entre la serrure et la gâche." },
+  { question: "Faut-il mettre de l’huile dans une serrure humide ?", answer: "Ce n’est pas le meilleur réflexe. Une huile trop grasse peut retenir les poussières et aggraver le problème. Il vaut mieux sécher, éviter de forcer et utiliser un produit adapté aux serrures si le mécanisme n’est pas abîmé." },
+  { question: "Quand faut-il appeler un serrurier ?", answer: "Si la clé force, si elle commence à se tordre, si le cylindre accroche fortement ou si la porte ne ferme plus correctement, il vaut mieux arrêter avant de casser la clé dans la serrure." },
+];
+---
+<ArticleLayout
+  title="Serrure bloquée par l’humidité : causes et solutions"
+  description="Clé qui accroche, porte qui gonfle, cylindre oxydé : comprendre comment l’humidité peut bloquer une serrure et quoi faire sans aggraver le problème."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Serrure bloquée par l’humidité' }]}
+  publishedDate="2026-05-30"
+  updatedDate="2026-05-30"
+>
+  <h1>Serrure bloquée par l’humidité : causes et solutions</h1>
+  <p>Une serrure qui devient dure, une clé qui accroche ou une porte qui ferme mal peuvent avoir un lien direct avec l’humidité. L’eau ne reste pas toujours visible : elle peut condenser sur une porte froide, s’infiltrer autour d’une entrée, oxyder un cylindre ou faire gonfler une porte en bois.</p>
+  <p>Le bon réflexe est simple : ne pas forcer, identifier si le problème vient du mécanisme ou de la porte, puis traiter aussi la cause d’humidité si elle revient régulièrement.</p>
+
+  <AlertBox type="warning" title="À éviter absolument">
+    <p>Ne forcez pas la clé si elle commence à se tordre. Une clé cassée dans le cylindre transforme souvent un petit blocage en vraie intervention de dépannage.</p>
+  </AlertBox>
+
+  <h2>Pourquoi l’humidité peut bloquer une serrure</h2>
+  <p>L’humidité agit rarement seule. Elle provoque surtout une série de petits problèmes qui finissent par gêner la serrure.</p>
+  <ul>
+    <li><strong>Oxydation du cylindre :</strong> l’eau et l’air humide peuvent créer de la corrosion dans les parties métalliques.</li>
+    <li><strong>Poussières collées :</strong> un produit trop gras ou un mécanisme humide retient plus facilement les saletés.</li>
+    <li><strong>Porte en bois qui gonfle :</strong> la porte frotte, la serrure force, le pêne n’arrive plus bien en face de la gâche.</li>
+    <li><strong>Condensation près de l’entrée :</strong> une porte froide dans une zone humide peut accumuler de l’eau sur les parties métalliques.</li>
+    <li><strong>Serrure extérieure exposée :</strong> portail, garage, portillon et local non chauffé subissent davantage pluie, gel et humidité stagnante.</li>
+  </ul>
+
+  <h2>Les signes qui doivent alerter</h2>
+  <p>Un blocage n’arrive pas toujours d’un coup. Souvent, plusieurs signes apparaissent avant la panne complète.</p>
+  <ul>
+    <li>la clé entre mal ou ressort difficilement ;</li>
+    <li>la clé accroche sur une partie de la rotation ;</li>
+    <li>la poignée revient mal ;</li>
+    <li>la porte doit être poussée ou tirée pour fermer ;</li>
+    <li>des traces de rouille apparaissent autour du cylindre ou de la gâche ;</li>
+    <li>le problème augmente par temps froid, pluvieux ou très humide.</li>
+  </ul>
+
+  <h2>Que faire sans aggraver le problème</h2>
+  <ol>
+    <li><strong>Arrêter de forcer.</strong> Si la clé résiste franchement, insistez le moins possible.</li>
+    <li><strong>Regarder si la porte frotte.</strong> Si le pêne n’est plus aligné avec la gâche, le problème peut venir de la porte, pas seulement du cylindre.</li>
+    <li><strong>Sécher la zone visible.</strong> Essuyez l’humidité autour de la serrure, du seuil et du dormant.</li>
+    <li><strong>Observer le contexte.</strong> Condensation près de la porte, entrée froide, pièce humide, fuite ou infiltration proche : ces indices comptent.</li>
+    <li><strong>Utiliser uniquement un produit adapté.</strong> Évitez les huiles épaisses. Si le mécanisme est déjà abîmé ou oxydé, un produit ne suffira pas toujours.</li>
+  </ol>
+
+  <AlertBox type="tip" title="Le test utile">
+    <p>Si la clé tourne mieux quand vous tirez ou poussez légèrement la porte, le souci vient probablement de l’alignement porte/gâche. Si la clé accroche même porte ouverte, le cylindre ou le mécanisme est davantage suspect.</p>
+  </AlertBox>
+
+  <h2>Quand appeler un serrurier</h2>
+  <p>Il vaut mieux demander une intervention avant la casse si la clé se tord, si le cylindre accroche fortement ou si la porte ne ferme plus correctement. Un serrurier pourra vérifier le cylindre, la gâche, l’alignement de la porte et l’état général de la fermeture.</p>
+  <p>Si vous êtes en Indre-et-Loire et que la serrure reste bloquée, vous pouvez contacter <a href="https://tns37.com/serrurier-tours/">TNS37, serrurier à Tours</a>. L’intérêt est surtout d’éviter de casser la clé dans la serrure ou d’endommager la porte en forçant.</p>
+
+  <h2>Prévenir le retour du problème</h2>
+  <p>Si la serrure bloque une fois après une forte pluie, le problème peut être ponctuel. Si cela revient souvent, il faut regarder l’environnement autour de la porte.</p>
+  <ul>
+    <li>vérifier si de l’eau ruisselle vers la porte ;</li>
+    <li>contrôler les joints, le seuil et les infiltrations possibles ;</li>
+    <li>améliorer l’aération si l’entrée condense souvent ;</li>
+    <li>éviter les pièces froides et humides qui restent fermées longtemps ;</li>
+    <li>surveiller le taux d’humidité avec un hygromètre si le logement sent le moisi.</li>
+  </ul>
+
+  <h2>Le lien avec l’humidité du logement</h2>
+  <p>Une serrure bloquée n’est pas toujours un problème d’humidité dans toute la maison. Mais si vous avez aussi de la condensation sur les fenêtres, une odeur de moisi, des murs froids ou un taux élevé, le blocage peut être un symptôme de plus.</p>
+  <p>Dans ce cas, commencez par mesurer l’humidité pendant quelques jours et regardez où l’eau apparaît. Un absorbeur peut aider dans un petit volume fermé, un déshumidificateur peut stabiliser une pièce, mais aucun appareil ne corrige une infiltration ou une porte mal protégée.</p>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Comprendre la condensation sur les fenêtres</a></li>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Mesurer le taux d’humidité idéal dans une maison</a></li>
+    <li><a href={`${base}pieces/salle-de-bain-humide/`}>Que faire dans une salle de bain humide</a></li>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre simple pour surveiller l’humidité</a></li>
+  </ul>
+</ArticleLayout>
