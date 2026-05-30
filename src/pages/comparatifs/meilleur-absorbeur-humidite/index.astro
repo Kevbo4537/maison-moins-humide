@@ -9,16 +9,69 @@ const faqs = [
   { question: "Où utiliser un absorbeur ?", answer: "Il est surtout utile dans un placard, une petite entrée, un rangement, une caravane ou un volume peu ventilé, à condition de surveiller régulièrement le bac." },
   { question: "Quand préférer un déshumidificateur ?", answer: "Préférez un déshumidificateur si toute une pièce reste humide, si le taux est élevé sur plusieurs jours ou si le volume est important." },
 ];
+
+const absorberProducts = [
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'Le choix principal pour un petit volume, un placard, une petite salle d’eau ou une zone fermée légèrement humide.',
+    details: 'Connu, facile à comprendre, avec recharges. À ne pas présenter comme solution pour une cave ou une chambre entière.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: 'Choix principal',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+  {
+    title: 'Recharges Rubson Aero 360 neutres',
+    useCase: 'À prévoir si l’absorbeur est utilisé régulièrement dans un placard, une entrée ou un petit rangement.',
+    details: 'Achat récurrent logique : sans recharge, l’absorbeur ne sert plus. Bien vérifier la compatibilité Aero 360.',
+    href: 'https://amzn.to/433PPR2',
+    badge: 'Recharges',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71K+KDq7qNL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'UHU Air Max ambiance compact',
+    useCase: 'Format compact pour placard, petit rangement, WC ou zone où un gros bac prend trop de place.',
+    details: 'Pertinent pour un appoint discret. Trop limité pour traiter une vraie pièce humide.',
+    href: 'https://amzn.to/4u1gfhr',
+    badge: 'Compact',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71MiQbR4+BL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Sachets anti-humidité suspendus',
+    useCase: 'Pratique pour penderie, dressing, armoire, vêtements ou petite zone verticale.',
+    details: 'Visuel et simple à comprendre. À utiliser comme complément, pas comme traitement d’un mur humide.',
+    href: 'https://amzn.to/4edPEJ6',
+    badge: 'Penderie',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/7131PTbYsxL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Wisedry gel de silice réutilisable',
+    useCase: 'Pour boîtes, tiroirs, chaussures, sacs, petit matériel ou rangement fermé.',
+    details: 'Réutilisable après séchage. Très utile en petit espace, mais inutile pour assécher une pièce.',
+    href: 'https://amzn.to/4eeBWpi',
+    badge: 'Petits objets',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71S+7vgsXyL._SL1500_.jpg',
+  },
+];
 ---
 <ComparisonLayout title="Absorbeur d’humidité : quand est-ce utile ?" description="Comprendre les usages réels d’un absorbeur d’humidité, ses limites et les cas où il ne suffit pas." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Absorbeur d’humidité : guide de choix' }]}>
   <h1>Absorbeur d’humidité : guide de choix</h1>
   <p>Un absorbeur d’humidité est simple, peu bruyant et pratique dans un petit volume fermé. Il peut rendre service dans un placard, un rangement ou une petite zone peu ventilée. En revanche, il est rarement suffisant pour traiter une pièce entière humide.</p>
 
   <AlertBox type="info" title="Transparence">
-    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+    <p>Certains liens de cette page sont affiliés. La sélection reste volontairement ciblée : petits volumes, placards, rangements, chaussures et appoint ponctuel.</p>
   </AlertBox>
 
-  <RevenueProductBlock title="Absorbeurs : utile surtout pour les petits volumes" intro="La mise en avant reste ciblée : placard, rangement, chaussures, petite zone fermée. Pour une pièce entière, le site oriente vers le déshumidificateur." />
+  <RevenueProductBlock
+    title="Sélection d’absorbeurs d’humidité utiles"
+    intro="Voici les produits à regarder selon l’usage : bac principal, recharges, format compact, sachets suspendus ou gel de silice pour petits objets."
+    products={absorberProducts}
+    note="Un absorbeur est utile dans un petit volume fermé. Pour une chambre, une cave ou une buanderie entière qui reste humide, il faut plutôt mesurer puis envisager un déshumidificateur adapté."
+  />
 
   <h2>Quand un absorbeur est pertinent</h2>
   <ul>
