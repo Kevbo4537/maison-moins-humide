@@ -9,16 +9,69 @@ const faqs = [
   { question: "Un déshumidificateur suffit-il contre les moisissures ?", answer: "Il peut aider à réduire l’humidité de l’air, mais il faut aussi supprimer la cause et nettoyer les surfaces touchées." },
   { question: "Quel critère regarder en priorité ?", answer: "Regardez d’abord le volume de la pièce, la température, le niveau sonore et la possibilité d’évacuation continue si l’usage est fréquent." },
 ];
+
+const dehumidifierProducts = [
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'Bon choix simple pour une chambre, une buanderie ou une pièce moyenne déjà mesurée comme humide.',
+    details: 'Réservoir 1,8 L, drainage continu possible, annoncé à 40 dB. À éviter comme solution unique si mur mouillé ou infiltration.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Choix simple',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+  {
+    title: "COMFEE' Easy Dry 16 L",
+    useCase: 'Plus adapté quand la pièce est plus humide : buanderie, grande chambre, cave légère ou pièce de 29 à 44 m² selon la fiche.',
+    details: 'Déshumidificateur 2-en-1 avec purification, modes et contrôle par application. À choisir si le volume justifie 16 L/jour.',
+    href: 'https://amzn.to/43J24CF',
+    badge: 'Pièce plus humide',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61iz4zedC-L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Meaco Arete One 12 L',
+    useCase: 'Option plus premium pour une pièce de vie ou une maison où l’on veut un appareil sérieux et plus agréable au quotidien.',
+    details: 'Déshumidificateur avec purification HEPA. Plus cher : intéressant si le bruit, la finition et l’usage régulier comptent.',
+    href: 'https://amzn.to/4dDjgzv',
+    badge: 'Premium',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61HFkn33tpL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'De’Longhi Tasciugo AriaDry DEX212SF',
+    useCase: 'Alternative de marque connue pour la maison, avec séchage du linge et filtration.',
+    details: '12 L/24 h annoncé. À regarder si l’on veut un appareil de marque reconnue plutôt qu’un modèle premier prix.',
+    href: 'https://amzn.to/4dRNOw5',
+    badge: 'Marque connue',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51fKBuZfhFL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Rubson Aero 360 + recharges',
+    useCase: 'À part : ce n’est pas un déshumidificateur électrique, mais un absorbeur utile pour petit volume ou placard.',
+    details: 'À ne pas vendre comme solution pour une cave ou une chambre entière. Utile pour expliquer clairement la différence.',
+    href: 'https://amzn.to/3Q8VemY',
+    badge: 'Petit volume',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+];
 ---
 <ComparisonLayout title="Déshumidificateur maison : guide d’achat prudent" description="Choisir un déshumidificateur adapté à une maison, une chambre, une cave ou une buanderie sans le présenter comme une solution miracle." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur maison : guide d’achat' }]}>
   <h1>Déshumidificateur maison : guide d’achat</h1>
   <p>Un déshumidificateur peut faire baisser l’humidité d’une pièce, améliorer le confort et protéger certains objets. Mais il ne répare pas une fuite, une infiltration ou une ventilation défaillante. Le bon choix dépend de la pièce, de la température et du taux mesuré.</p>
 
   <AlertBox type="info" title="Transparence">
-    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+    <p>Certains liens de cette page sont affiliés. La sélection reste prudente : mesurer d’abord, vérifier la ventilation, puis choisir un appareil adapté au volume réel de la pièce.</p>
   </AlertBox>
 
-  <RevenueProductBlock title="Déshumidificateurs : les critères qui génèrent un bon achat" intro="Quand les liens affiliés seront prêts, cette zone pourra envoyer vers une sélection courte : appareil silencieux pour chambre, modèle cave/buanderie, modèle avec évacuation continue." />
+  <RevenueProductBlock
+    title="Sélection de déshumidificateurs utiles"
+    intro="Voici une sélection courte selon le besoin : pièce moyenne, pièce plus humide, modèle premium, marque connue, ou petit absorbeur à ne pas confondre avec un appareil électrique."
+    products={dehumidifierProducts}
+    note="Un déshumidificateur aide à retirer l’eau de l’air, mais ne corrige pas une fuite, une infiltration, des remontées capillaires ou une ventilation absente. Si la cause est technique, il faut la traiter."
+  />
 
   <h2>Avant d’acheter : les vérifications</h2>
   <ul>
