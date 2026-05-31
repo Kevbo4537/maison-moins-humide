@@ -3,22 +3,23 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
-  { question: "L’humidité peut-elle vraiment bloquer une serrure ?", answer: "Oui. L’humidité peut oxyder le cylindre, encrasser le mécanisme, faire gonfler une porte en bois ou dérégler légèrement l’alignement entre la serrure et la gâche." },
+  { question: "L’humidité peut-elle vraiment bloquer une serrure ?", answer: "Oui. L’humidité peut faire gonfler une porte en bois, dérégler l’alignement entre la serrure et la gâche, et favoriser l’oxydation de certaines pièces métalliques de la serrure. Le cylindre, souvent en laiton, est généralement moins concerné par la rouille que le reste du mécanisme." },
   { question: "Faut-il mettre de l’huile dans une serrure humide ?", answer: "Ce n’est pas le meilleur réflexe. Une huile trop grasse peut retenir les poussières et aggraver le problème. Il vaut mieux sécher, éviter de forcer et utiliser un produit adapté aux serrures si le mécanisme n’est pas abîmé." },
   { question: "Quand faut-il appeler un serrurier ?", answer: "Si la clé force, si elle commence à se tordre, si le cylindre accroche fortement ou si la porte ne ferme plus correctement, il vaut mieux arrêter avant de casser la clé dans la serrure." },
 ];
 ---
 <ArticleLayout
   title="Serrure bloquée par l’humidité : causes et solutions"
-  description="Clé qui accroche, porte qui gonfle, cylindre oxydé : comprendre comment l’humidité peut bloquer une serrure et quoi faire sans aggraver le problème."
+  description="Clé qui accroche, porte qui gonfle, serrure qui s’oxyde : comprendre comment l’humidité peut gêner une fermeture et quoi faire sans aggraver le problème."
   breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Serrure bloquée par l’humidité' }]}
   publishedDate="2026-05-30"
-  updatedDate="2026-05-30"
+  updatedDate="2026-05-31"
 >
   <h1>Serrure bloquée par l’humidité : causes et solutions</h1>
-  <p>Une serrure qui devient dure, une clé qui accroche ou une porte qui ferme mal peuvent avoir un lien direct avec l’humidité. L’eau ne reste pas toujours visible : elle peut condenser sur une porte froide, s’infiltrer autour d’une entrée, oxyder un cylindre ou faire gonfler une porte en bois.</p>
+  <p>Une serrure qui devient dure, une clé qui accroche ou une porte qui ferme mal peuvent avoir un lien direct avec l’humidité. L’eau ne reste pas toujours visible : elle peut condenser sur une porte froide, s’infiltrer autour d’une entrée, favoriser l’oxydation de la serrure ou faire gonfler une porte en bois.</p>
   <p>Le bon réflexe est simple : ne pas forcer, identifier si le problème vient du mécanisme ou de la porte, puis traiter aussi la cause d’humidité si elle revient régulièrement.</p>
 
   <AlertBox type="warning" title="À éviter absolument">
@@ -28,7 +29,7 @@ const faqs = [
   <h2>Pourquoi l’humidité peut bloquer une serrure</h2>
   <p>L’humidité agit rarement seule. Elle provoque surtout une série de petits problèmes qui finissent par gêner la serrure.</p>
   <ul>
-    <li><strong>Oxydation du cylindre :</strong> l’eau et l’air humide peuvent créer de la corrosion dans les parties métalliques.</li>
+    <li><strong>Oxydation de la serrure :</strong> l’eau et l’air humide peuvent créer de la corrosion sur certaines pièces métalliques de la serrure. Le cylindre, souvent en laiton, est généralement moins exposé à la rouille que le reste du mécanisme.</li>
     <li><strong>Poussières collées :</strong> un produit trop gras ou un mécanisme humide retient plus facilement les saletés.</li>
     <li><strong>Porte en bois qui gonfle :</strong> la porte frotte, la serrure force, le pêne n’arrive plus bien en face de la gâche.</li>
     <li><strong>Condensation près de l’entrée :</strong> une porte froide dans une zone humide peut accumuler de l’eau sur les parties métalliques.</li>
@@ -42,7 +43,7 @@ const faqs = [
     <li>la clé accroche sur une partie de la rotation ;</li>
     <li>la poignée revient mal ;</li>
     <li>la porte doit être poussée ou tirée pour fermer ;</li>
-    <li>des traces de rouille apparaissent autour du cylindre ou de la gâche ;</li>
+    <li>des traces de rouille apparaissent autour de la serrure, de la têtière ou de la gâche ;</li>
     <li>le problème augmente par temps froid, pluvieux ou très humide.</li>
   </ul>
 
@@ -72,6 +73,28 @@ const faqs = [
     <li>éviter les pièces froides et humides qui restent fermées longtemps ;</li>
     <li>surveiller le taux d’humidité avec un hygromètre si le logement sent le moisi.</li>
   </ul>
+
+  <h2>Entretenir la serrure dans une habitation humide</h2>
+  <p>Quand une habitation est humide, un produit d’entretien ne règle pas la cause. Il ne corrige pas non plus une porte qui gonfle, un pêne mal aligné ou une infiltration près de l’entrée.</p>
+  <p>En revanche, un entretien ponctuel de la serrure peut être utile en prévention. Un lubrifiant adapté aux serrures aide à chasser l’humidité, à limiter l’oxydation des pièces métalliques et à préserver le bon fonctionnement du mécanisme dans le temps.</p>
+
+  <RevenueProductBlock
+    title="Produit utile pour l’entretien préventif"
+    intro="Pour une serrure exposée à l’humidité, l’objectif est l’entretien : chasser l’humidité, limiter l’oxydation et éviter qu’un petit grippage s’installe. Ce n’est pas une solution contre l’humidité du logement."
+    note="À utiliser avec modération, sur une serrure encore fonctionnelle. Si la porte force parce que le bois a gonflé ou que la clé se tord, il faut traiter la cause et éviter d’insister."
+    products={[
+      {
+        title: 'WD-40 Specialist Lubrifiant Serrures 250 ml',
+        useCase: 'Format cohérent pour l’entretien ponctuel d’une serrure dans une maison humide, une cave, un garage, une dépendance ou une entrée exposée.',
+        details: 'Produit spécialisé serrure : anticorrosion, sans graisse ni silicone. Utile en prévention, pas pour corriger une porte qui frotte.',
+        href: 'https://amzn.to/4fSmMax',
+        badge: 'Entretien serrure',
+        imageSrc: 'https://m.media-amazon.com/images/I/719XPSuWq1L._SL1500_.jpg',
+        imageAlt: 'WD-40 Specialist Lubrifiant Serrures 250 ml',
+        ctaLabel: 'Voir le produit →',
+      },
+    ]}
+  />
 
   <h2>Le lien avec l’humidité du logement</h2>
   <p>Une serrure bloquée n’est pas toujours un problème d’humidité dans toute la maison. Mais si vous avez aussi de la condensation sur les fenêtres, une odeur de moisi, des murs froids ou un taux élevé, le blocage peut être un symptôme de plus.</p>
