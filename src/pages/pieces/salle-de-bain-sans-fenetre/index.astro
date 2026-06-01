@@ -1,0 +1,121 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+
+const faqs = [
+  {
+    question: 'Comment enlever l’humidité dans une salle de bain sans fenêtre ?',
+    answer: 'Il faut surtout évacuer l’air humide : vérifier la VMC ou l’extracteur, laisser un passage d’air sous la porte, faire tourner l’extraction après la douche et essuyer les surfaces très mouillées.',
+  },
+  {
+    question: 'Un absorbeur d’humidité suffit-il sans fenêtre ?',
+    answer: 'Non dans la plupart des cas. Un absorbeur peut aider dans une petite salle d’eau peu utilisée, mais il ne remplace pas une vraie extraction d’air après la douche.',
+  },
+  {
+    question: 'Faut-il acheter un déshumidificateur pour une salle de bain sans fenêtre ?',
+    answer: 'Seulement si la pièce reste très humide malgré une extraction correcte, et après mesure avec un hygromètre. Dans une salle de bain, la priorité reste la ventilation et la sécurité électrique.',
+  },
+];
+
+const ventilationProducts = [
+  {
+    title: 'AIROPE extracteur 100 mm avec clapet',
+    useCase: 'Pour une petite salle de bain sans fenêtre avec gaine et sortie d’air adaptées.',
+    details: 'Extracteur simple avec clapet anti-retour. À choisir seulement si le diamètre, l’alimentation électrique et l’évacuation conviennent.',
+    href: 'https://amzn.to/4vhQU3A',
+    badge: 'Extracteur simple',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61U0Oe882nL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'FanGoFast extracteur avec hygrostat',
+    useCase: 'Pour déclencher l’extraction selon l’humidité quand la vapeur reste longtemps après la douche.',
+    details: 'L’hygrostat peut être pratique, mais l’installation doit être compatible et sûre. En cas de doute, demandez à un professionnel.',
+    href: 'https://amzn.to/49wOB4n',
+    badge: 'Hygrostat',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51TLDKfUHTL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'KOTARBAU grille de ventilation de porte',
+    useCase: 'Pour améliorer l’arrivée d’air si la porte coupe trop la circulation.',
+    details: 'Utile en complément d’une extraction. Une grille seule ne suffit pas si l’air humide n’est pas évacué.',
+    href: 'https://amzn.to/4dDPxX8',
+    badge: 'Passage d’air',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61zv9W5fZ4L._AC_SL1500_.jpg',
+  },
+];
+---
+<ArticleLayout
+  title="Salle de bain sans fenêtre : humidité, VMC et solutions"
+  description="Que faire contre l’humidité dans une salle de bain sans fenêtre : ventilation, VMC, extracteur, porte, absorbeur et erreurs à éviter."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Salle de bain sans fenêtre' }]}
+  showAffiliateDisclosure={true}
+>
+  <h1>Salle de bain sans fenêtre : que faire contre l’humidité ?</h1>
+
+  <p>Une salle de bain sans fenêtre peut rester humide longtemps après la douche. Ce n’est pas forcément grave, mais il faut éviter que la vapeur stagne tous les jours sur les murs, le plafond et les joints.</p>
+
+  <AlertBox type="tip" title="Réponse courte">
+    <p>La priorité est l’extraction de l’air humide : VMC ou extracteur qui fonctionne, arrivée d’air sous la porte, surfaces essuyées après la douche et mesure du taux d’humidité pendant plusieurs jours.</p>
+  </AlertBox>
+
+  <h2>Pourquoi l’humidité reste plus longtemps sans fenêtre</h2>
+  <p>Après une douche chaude, l’air se charge vite en vapeur d’eau. Sans fenêtre, cette vapeur ne sort pas naturellement. Elle se dépose alors sur les surfaces froides : miroir, carrelage, plafond, murs et joints.</p>
+  <p>Une salle de bain sans fenêtre dépend donc beaucoup de deux choses : l’air humide doit sortir, et de l’air plus sec doit pouvoir entrer depuis le logement.</p>
+
+  <h2>Les vérifications à faire avant d’acheter un produit</h2>
+  <ul>
+    <li>Regardez si la bouche de VMC aspire réellement une feuille de papier léger.</li>
+    <li>Vérifiez que la porte laisse passer l’air : jour sous la porte ou grille adaptée.</li>
+    <li>Nettoyez les grilles accessibles, sans démonter une installation inconnue.</li>
+    <li>Mesurez l’humidité avec un hygromètre avant et après la douche, sur plusieurs jours.</li>
+    <li>Notez si l’humidité redescend sous environ 60 % dans les heures qui suivent.</li>
+  </ul>
+
+  <AlertBox type="warning" title="Attention aux fausses bonnes solutions">
+    <p>Un absorbeur, une plante ou un parfum d’ambiance ne règle pas une salle de bain mal ventilée. Ils peuvent masquer ou réduire un peu l’inconfort, mais ils ne remplacent pas une extraction d’air correcte.</p>
+  </AlertBox>
+
+  <h2>Plan d’action simple après chaque douche</h2>
+  <ol>
+    <li>Laissez tourner la VMC ou l’extracteur après la douche si c’est possible.</li>
+    <li>Raclez les parois de douche et essuyez les zones où l’eau stagne.</li>
+    <li>Étendez les serviettes au lieu de les laisser en boule.</li>
+    <li>Laissez la porte entrouverte quand la vapeur commence à baisser, pour aider l’air à circuler.</li>
+    <li>Surveillez les joints noirs, le plafond qui tache ou la peinture qui cloque.</li>
+  </ol>
+
+  <h2>Produits utiles dans une salle de bain sans fenêtre</h2>
+  <p>Les produits les plus utiles sont ceux qui aident l’air à circuler ou à sortir. Avant achat, vérifiez la configuration : diamètre de gaine, sortie extérieure, alimentation électrique, présence d’une VMC collective, contraintes de location et sécurité dans les volumes de salle de bain.</p>
+
+  <RevenueProductBlock
+    title="Ventilation : sélection courte et prudente"
+    intro="Trois options utiles selon le cas : extracteur simple, extracteur avec hygrostat ou grille de passage d’air. À choisir seulement si l’installation est compatible."
+    products={ventilationProducts}
+    note="Ces produits peuvent aider l’air humide à sortir ou à circuler. Ils ne réparent pas une VMC collective en panne, une gaine bouchée, une fuite ou une infiltration."
+  />
+
+  <h2>Quand un déshumidificateur peut aider</h2>
+  <p>Un petit déshumidificateur peut aider si la salle de bain reste humide longtemps malgré une ventilation correcte, par exemple dans un logement très peu ventilé en hiver. Mais il faut rester prudent : une salle de bain est une pièce d’eau, donc l’emplacement, les projections et la sécurité électrique comptent beaucoup.</p>
+  <p>Si le problème vient d’une VMC absente, en panne ou bouchée, corriger la ventilation est plus logique que de compter uniquement sur un appareil.</p>
+
+  <h2>Quand demander de l’aide</h2>
+  <p>Demandez un avis professionnel si le plafond noircit rapidement, si la peinture cloque, si le mur est mouillé, si une odeur forte revient malgré le nettoyage, ou si la VMC collective semble ne plus aspirer. En location, signalez le problème par écrit au propriétaire ou au gestionnaire.</p>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain humide : causes et solutions</a></li>
+    <li><a href={`${base}guides/moisissure-mur-danger/`}>Moisissure sur un mur : quand s’inquiéter ?</a></li>
+    <li><a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Déshumidificateur ou absorbeur : lequel choisir ?</a></li>
+  </ul>
+</ArticleLayout>
