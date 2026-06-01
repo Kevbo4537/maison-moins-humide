@@ -2,20 +2,58 @@
 import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Quelle est la différence principale ?", answer: "Un absorbeur agit lentement et sans électricité dans un petit volume. Un déshumidificateur électrique extrait davantage d’eau et convient mieux à une pièce entière." },
   { question: "Quel choix pour une chambre humide ?", answer: "Commencez par mesurer et vérifier la ventilation. Si la chambre reste humide, un déshumidificateur silencieux est souvent plus cohérent qu’un simple absorbeur." },
   { question: "Quel choix pour un placard humide ?", answer: "Un absorbeur peut suffire si le problème est limité au placard. Il faut aussi aérer, espacer les vêtements et vérifier que le mur du fond n’est pas humide." },
 ];
+
+const comparisonProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Premier achat utile si vous hésitez : mesurer plusieurs jours avant de choisir absorbeur ou déshumidificateur.',
+    details: 'Simple, lisible, température + humidité. Ne règle rien seul, mais évite souvent un achat mal dimensionné.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Mesurer d’abord',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'À choisir pour un placard, un petit rangement ou une zone fermée légèrement humide.',
+    details: 'Silencieux et sans électricité, mais trop limité pour une chambre, une cave ou une buanderie entière.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: 'Petit volume',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'À regarder si une pièce entière reste humide malgré aération et mesures répétées.',
+    details: 'Plus efficace qu’un absorbeur, mais électrique et à éviter comme cache-misère en cas de fuite ou infiltration.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Pièce entière',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+];
 ---
-<ComparisonLayout title="Déshumidificateur ou absorbeur : lequel choisir ?" description="Comparer simplement déshumidificateur électrique et absorbeur d’humidité selon la pièce, le taux mesuré et le budget." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur ou absorbeur : lequel choisir ?' }]}>
+<ComparisonLayout title="Déshumidificateur ou absorbeur : lequel choisir ?" description="Comparer simplement déshumidificateur électrique et absorbeur d’humidité selon la pièce, le taux mesuré et le budget." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur ou absorbeur : lequel choisir ?' }]} showAmazon={true}>
   <h1>Déshumidificateur ou absorbeur : lequel choisir ?</h1>
   <p>Les deux solutions n’ont pas le même rôle. L’absorbeur convient surtout aux petits volumes fermés. Le déshumidificateur électrique est plus adapté à une pièce entière avec un excès d’humidité mesuré.</p>
 
   <AlertBox type="info" title="Transparence">
-    <p>Cette page ne cite pas encore de marques ni de prix. La sélection produit sera ajoutée plus tard après vérification des références, disponibilités et conditions d’affiliation.</p>
+    <p>Certains liens de cette page sont affiliés. La sélection reste guidée par l’usage réel : mesurer d’abord, puis choisir un absorbeur pour petit volume ou un déshumidificateur pour pièce entière.</p>
   </AlertBox>
+
+  <RevenueProductBlock
+    title="Le bon achat selon votre cas"
+    intro="Si vous hésitez entre absorbeur et déshumidificateur, partez de la pièce et du taux mesuré : hygromètre d’abord, absorbeur pour petit volume, appareil électrique pour pièce entière."
+    products={comparisonProducts}
+    note="Ces produits peuvent aider, mais aucun ne répare une fuite, une infiltration, des remontées capillaires ou une ventilation absente. Si le mur est mouillé ou si la moisissure revient, cherchez la cause."
+  />
 
   <h2>Choisir un absorbeur si</h2>
   <ul>
