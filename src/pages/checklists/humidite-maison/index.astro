@@ -1,0 +1,98 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+const observations = [
+  'Taux d’humidité matin et soir pendant 7 jours',
+  'Température de la pièce au moment de la mesure',
+  'Pièce touchée : chambre, salle de bain, cave, placard, buanderie…',
+  'Traces visibles : condensation, moisissure, peinture qui cloque, salpêtre, odeur',
+  'Moment où le problème augmente : nuit, douche, cuisson, pluie, séchage du linge',
+  'Ventilation : entrées d’air dégagées, bouche VMC propre, passage sous porte',
+  'Signes d’alerte : mur mouillé, fuite possible, tache qui s’étend, symptômes respiratoires',
+];
+const actions = [
+  ['Mesurer', 'Installer un hygromètre loin d’une fenêtre, d’un radiateur et d’une bouche de ventilation. Noter matin et soir.'],
+  ['Comparer', 'Mesurer une autre pièce saine pour savoir si le problème est local ou général.'],
+  ['Ventiler', 'Aérer franchement 5 à 10 minutes, nettoyer les grilles et vérifier que l’air circule sous les portes.'],
+  ['Réduire les apports', 'Limiter le linge qui sèche à l’intérieur, couvrir les casseroles, extraire l’air après la douche.'],
+  ['Choisir une solution', 'Absorbeur pour petit volume, déshumidificateur si excès mesuré, professionnel si cause bâtiment probable.'],
+];
+---
+<ArticleLayout
+  title="Checklist humidité maison à imprimer : mesures, causes et actions"
+  description="Checklist gratuite et imprimable pour suivre l’humidité d’une maison pendant 7 jours, repérer la cause probable et décider quoi faire sans achat inutile."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Checklists' }, { label: 'Checklist humidité maison' }]}
+>
+  <h1>Checklist humidité maison à imprimer</h1>
+  <p>Cette checklist sert à noter les bons éléments avant d’acheter un produit ou d’appeler quelqu’un. Elle aide à répondre à trois questions : <strong>le taux est-il vraiment trop haut ? où apparaît l’humidité ? quelle action est logique en premier ?</strong></p>
+
+  <div class="print-actions no-print">
+    <a class="btn btn--primary" href="#" onclick="window.print(); return false;">Imprimer la checklist</a>
+    <a class="btn btn--secondary" href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre</a>
+  </div>
+
+  <AlertBox type="tip" title="Objectif simple">
+    <p>Mesurez pendant 7 jours avant de conclure. Un achat utile commence souvent par un hygromètre, puis par une solution adaptée à la pièce et à la cause probable.</p>
+  </AlertBox>
+
+  <h2>1. Relevé sur 7 jours</h2>
+  <p>Notez le taux d’humidité et la température matin et soir. L’objectif n’est pas d’obtenir une valeur parfaite, mais de repérer une tendance durable.</p>
+  <div class="print-table" role="table" aria-label="Tableau de relevé humidité sur 7 jours">
+    <div class="print-row print-row--head" role="row"><span>Jour</span><span>Matin : % / °C</span><span>Soir : % / °C</span><span>Observation</span></div>
+    {Array.from({ length: 7 }).map((_, index) => (
+      <div class="print-row" role="row"><span>Jour {index + 1}</span><span></span><span></span><span></span></div>
+    ))}
+  </div>
+
+  <h2>2. Points à vérifier dans la pièce</h2>
+  <ul class="checklist">
+    {observations.map((item) => <li>{item}</li>)}
+  </ul>
+
+  <h2>3. Actions dans le bon ordre</h2>
+  <ol class="action-list">
+    {actions.map(([title, text]) => <li><strong>{title}</strong><br />{text}</li>)}
+  </ol>
+
+  <AlertBox type="warning" title="Quand ne pas se contenter d’un produit ?">
+    <p>Mur mouillé, salpêtre, peinture qui cloque, fuite possible, tache qui revient ou moisissures étendues : un absorbeur ou un déshumidificateur peut accompagner, mais il ne traite pas la cause. Dans ces cas, cherchez un diagnostic adapté.</p>
+  </AlertBox>
+
+  <RevenueProductBlock
+    title="Produits utiles après la checklist"
+    intro="Une fois les mesures notées, ces guides aident à choisir sans surdimensionner ni acheter un produit inutile."
+  />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/humidite-maison-que-faire/`}>Humidité maison : que faire ?</a></li>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Taux d’humidité idéal dans une maison</a></li>
+    <li><a href={`${base}pieces/chambre-humide/`}>Chambre humide : causes et solutions</a></li>
+  </ul>
+</ArticleLayout>
+
+<style>
+.print-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin:1.2rem 0 1.5rem; }
+.btn--secondary { background:#fff; color:var(--color-primary); border:1.5px solid var(--color-primary); display:inline-block; padding:.6rem 1.4rem; border-radius:var(--radius); font-weight:600; text-decoration:none; font-size:.95rem; }
+.print-table { border:1px solid var(--color-border); border-radius:14px; overflow:hidden; margin:1rem 0 1.5rem; background:#fff; }
+.print-row { display:grid; grid-template-columns:.8fr 1fr 1fr 1.4fr; min-height:3rem; border-top:1px solid var(--color-border); }
+.print-row:first-child { border-top:0; }
+.print-row span { padding:.75rem; border-left:1px solid var(--color-border); }
+.print-row span:first-child { border-left:0; font-weight:700; }
+.print-row--head { background:#eaf2fb; color:var(--color-primary); font-weight:800; min-height:auto; }
+.checklist li { margin:.55rem 0; }
+.checklist li::marker { content:'☐  '; color:var(--color-primary); }
+.action-list li { margin:.75rem 0; }
+@media(max-width:720px){ .print-row{grid-template-columns:1fr}.print-row span{border-left:0;border-top:1px solid var(--color-border)}.print-row span:first-child{border-top:0}.print-row--head{display:none}.print-actions .btn,.print-actions .btn--secondary{width:100%;text-align:center} }
+@media print {
+  .no-print, header, footer, .breadcrumbs, .revenue-products { display:none !important; }
+  body { background:#fff; color:#000; }
+  .container, .article-wrapper { width:100%; max-width:none; padding:0; }
+  .prose { font-size:11pt; }
+  a { color:#000; text-decoration:none; }
+  .print-row { break-inside:avoid; grid-template-columns:.75fr 1fr 1fr 1.6fr; min-height:2.4rem; }
+  .print-table, .print-row, .print-row span { border-color:#999; }
+}
+</style>
