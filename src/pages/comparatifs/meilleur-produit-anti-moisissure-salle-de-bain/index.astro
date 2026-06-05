@@ -1,0 +1,106 @@
+---
+import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+
+const products = [
+  {
+    title: 'HG Spray anti-moisissures',
+    useCase: 'Pour nettoyer une trace localisée sur joints, carrelage ou zone de salle de bain bien ventilée.',
+    details: 'Produit fongicide : protection, aération et notice obligatoires. Ne traite pas la cause si la moisissure revient.',
+    href: 'https://amzn.to/4uacUg3',
+    badge: 'Trace localisée',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/81HgHuwxFNL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Starwax anti-moisissures joints',
+    useCase: 'Utile surtout pour les traces noires sur joints de douche ou salle de bain.',
+    details: 'Action blanchissante/javel : tester sur zone discrète et éviter les surfaces sensibles.',
+    href: 'https://amzn.to/43B8XWH',
+    badge: 'Joints noircis',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71SoQcrtvWL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'AGO kit anti-moisissure 2 en 1',
+    useCase: 'Pour murs, douche ou joints silicone quand il faut une application plus précise.',
+    details: 'Produit concentré : lire la notice, porter une protection et ne pas mélanger avec d’autres produits.',
+    href: 'https://amzn.to/4uR1wqg',
+    badge: 'Application précise',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/81AN+ZlKMoL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Brosses à joints MR.SIGA',
+    useCase: 'Accessoire complémentaire pour frotter joints, rainures et angles après choix du bon produit.',
+    details: 'Ce n’est pas un produit anti-humidité : seulement une aide au nettoyage mécanique.',
+    href: 'https://amzn.to/4uCe2tJ',
+    badge: 'Accessoire',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71X-3o2kosL._AC_SL1500_.jpg',
+  },
+];
+
+const faqs = [
+  { question: 'Un produit anti-moisissure suffit-il ?', answer: 'Il peut nettoyer une trace limitée, mais il ne règle pas la cause. Si la tache revient, il faut chercher condensation, ventilation insuffisante, fuite ou pont thermique.' },
+  { question: 'Quel produit choisir pour des joints noirs ?', answer: 'Pour des joints de salle de bain, un produit prévu pour joints/carrelage et une petite brosse peuvent aider. Il faut tester sur une zone discrète et bien ventiler.' },
+  { question: 'Quand faut-il éviter de traiter soi-même ?', answer: 'Si la surface est étendue, si le mur est mouillé, si la peinture cloque, s’il y a du salpêtre ou des symptômes, il vaut mieux demander un avis professionnel.' },
+];
+---
+<ComparisonLayout title="Meilleur produit anti-moisissure salle de bain : choisir sans masquer la cause" description="Guide prudent pour choisir un produit anti-moisissure en salle de bain : joints noirs, traces localisées, limites et précautions avant achat." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Produit anti-moisissure salle de bain' }]} showAmazon={true}>
+  <h1>Produit anti-moisissure salle de bain : lequel choisir ?</h1>
+  <p>Un produit anti-moisissure peut rendre service sur une trace limitée : joint noirci, angle de douche, carrelage ou petite zone de mur. Mais il ne doit pas servir à masquer un problème qui revient. Si la cause reste présente, la moisissure reviendra.</p>
+
+  <AlertBox type="warning" title="À retenir avant d’acheter">
+    <p>Nettoyer une tache n’est pas diagnostiquer l’humidité. Si la trace revient après quelques semaines, cherchez la cause : ventilation insuffisante, condensation, fuite, infiltration ou pont thermique.</p>
+  </AlertBox>
+
+  <RevenueProductBlock
+    title="Produits et accessoires utiles pour une trace limitée"
+    intro="Cette sélection vise le nettoyage local en salle de bain. Elle ne remplace pas l’aération, la recherche de cause ni un diagnostic si le problème est étendu."
+    products={products}
+    note="Utilisez toujours ces produits avec prudence : aération, gants si nécessaire, respect de la notice, test sur zone discrète, et aucun mélange de produits chimiques."
+  />
+
+  <h2>Dans quel cas un produit peut aider ?</h2>
+  <ul>
+    <li>trace noire limitée sur un joint de douche ;</li>
+    <li>petite zone de carrelage ou angle humide ;</li>
+    <li>moisissure apparue après une période de mauvaise ventilation ;</li>
+    <li>nettoyage ponctuel avant de corriger l’aération.</li>
+  </ul>
+
+  <h2>Dans quel cas ce n’est pas le bon achat ?</h2>
+  <ul>
+    <li>mur mouillé au toucher ;</li>
+    <li>peinture qui cloque ou enduit qui se décolle ;</li>
+    <li>salpêtre, auréoles après pluie ou odeur persistante ;</li>
+    <li>moisissures sur grande surface ;</li>
+    <li>traces qui reviennent rapidement malgré le nettoyage.</li>
+  </ul>
+
+  <h2>Critères simples pour choisir</h2>
+  <ul>
+    <li><strong>Support :</strong> joint, carrelage, mur peint, silicone ou surface fragile.</li>
+    <li><strong>Mode d’application :</strong> spray pour zone accessible, pinceau pour application précise.</li>
+    <li><strong>Précautions :</strong> aération, protection, compatibilité surface et notice.</li>
+    <li><strong>Cause :</strong> si le taux reste élevé, mesurez avec un hygromètre et améliorez la ventilation.</li>
+  </ul>
+
+  <AlertBox type="tip" title="Ordre conseillé">
+    <p>Nettoyer la petite trace, aérer correctement, mesurer l’humidité pendant 7 jours, puis vérifier si une action de ventilation ou un déshumidificateur est nécessaire.</p>
+  </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/moisissure-mur-danger/`}>Moisissure sur mur : est-ce dangereux ?</a></li>
+    <li><a href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain humide : causes et solutions</a></li>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Choisir un hygromètre pour suivre le taux</a></li>
+    <li><a href={`${base}comparatifs/meilleur-extracteur-air-salle-de-bain/`}>Extracteur d’air salle de bain : guide d’achat</a></li>
+  </ul>
+</ComparisonLayout>

@@ -1,0 +1,109 @@
+---
+import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+
+const products = [
+  {
+    title: 'AIROPE extracteur 100 mm',
+    useCase: 'Extracteur simple pour petite salle de bain, WC ou pièce humide si le conduit et l’évacuation extérieure sont adaptés.',
+    details: 'Vérifier diamètre 100 mm, clapet, alimentation électrique et sortie réelle vers l’extérieur.',
+    href: 'https://amzn.to/4vhQU3A',
+    badge: 'Simple',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61U0Oe882nL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'FanGoFast extracteur avec minuterie et hygrostat',
+    useCase: 'Pour une salle de bain où l’extraction doit continuer après la douche ou se déclencher selon l’humidité.',
+    details: 'Contrôler compatibilité électrique, réglages, volume de pièce et installation sécurisée.',
+    href: 'https://amzn.to/49wOB4n',
+    badge: 'Hygrostat',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51TLDKfUHTL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Kit nettoyage conduits / brosses',
+    useCase: 'Pour dépoussiérer une grille ou un conduit accessible quand l’air semble mal circuler.',
+    details: 'Ne remplace pas l’entretien complet d’une VMC ni la réparation d’un moteur ou d’un conduit bouché en profondeur.',
+    href: 'https://amzn.to/3RtURE1',
+    badge: 'Entretien',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/71hSu2I1UOL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Grille de ventilation de porte KOTARBAU',
+    useCase: 'Utile si la porte coupe le passage de l’air : l’air doit pouvoir entrer pour être extrait.',
+    details: 'Complément d’une extraction, pas une solution seule contre l’humidité.',
+    href: 'https://amzn.to/4dDPxX8',
+    badge: 'Passage d’air',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61zv9W5fZ4L._AC_SL1500_.jpg',
+  },
+];
+
+const faqs = [
+  { question: 'Un extracteur suffit-il contre l’humidité de salle de bain ?', answer: 'Il aide si le problème vient d’une mauvaise extraction d’air. Il ne corrige pas une fuite, une infiltration, une VMC collective défaillante ou un défaut de bâtiment.' },
+  { question: 'Faut-il prendre un modèle avec hygrostat ?', answer: 'Un hygrostat peut être utile si l’humidité monte fortement après la douche et que l’on oublie souvent d’aérer. Il faut toutefois régler correctement le seuil et vérifier l’installation électrique.' },
+  { question: 'Pourquoi parler aussi de grille de porte ?', answer: 'Pour extraire l’air humide, il faut aussi que de l’air puisse entrer. Une porte trop étanche peut limiter la circulation et réduire l’efficacité de l’extracteur.' },
+];
+---
+<ComparisonLayout title="Meilleur extracteur d’air salle de bain humide : critères et modèles utiles" description="Choisir un extracteur d’air pour salle de bain humide : diamètre, hygrostat, minuterie, entrée d’air, limites et produits utiles." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Extracteur d’air salle de bain' }]} showAmazon={true}>
+  <h1>Extracteur d’air salle de bain humide : comment choisir ?</h1>
+  <p>Dans une salle de bain, l’air humide doit pouvoir sortir rapidement après la douche. Un extracteur peut aider, mais seulement si l’installation est cohérente : conduit adapté, évacuation réelle, arrivée d’air suffisante et sécurité électrique.</p>
+
+  <AlertBox type="info" title="La ventilation fonctionne comme un système">
+    <p>Un extracteur qui aspire mal n’est pas toujours le problème. Il faut aussi vérifier l’entrée d’air sous la porte, les grilles, le conduit, la VMC existante et le temps d’extraction après la douche.</p>
+  </AlertBox>
+
+  <RevenueProductBlock
+    title="Produits utiles pour améliorer l’extraction et la circulation d’air"
+    intro="Ces produits ont du sens uniquement si la configuration de la salle de bain le permet. Vérifiez diamètre, alimentation, conduit, sortie extérieure et passage d’air avant achat."
+    products={products}
+    note="Si vous êtes en logement collectif, en VMC collective ou sans accès au conduit, ne modifiez pas l’installation sans accord ou avis compétent."
+  />
+
+  <h2>Quand un extracteur est pertinent ?</h2>
+  <ul>
+    <li>salle de bain sans fenêtre ou peu aérée ;</li>
+    <li>buée persistante longtemps après la douche ;</li>
+    <li>odeur humide malgré nettoyage régulier ;</li>
+    <li>grille existante faible ou extraction ponctuelle insuffisante ;</li>
+    <li>pièce avec conduit adapté et possibilité d’évacuer l’air correctement.</li>
+  </ul>
+
+  <h2>Les critères à vérifier avant d’acheter</h2>
+  <ul>
+    <li><strong>Diamètre :</strong> beaucoup de petits extracteurs sont en 100 mm, mais il faut vérifier le conduit réel.</li>
+    <li><strong>Débit :</strong> adapté au volume de la salle de bain, sans surpromesse.</li>
+    <li><strong>Minuterie :</strong> utile pour continuer l’extraction après la douche.</li>
+    <li><strong>Hygrostat :</strong> intéressant si l’appareil doit réagir au taux d’humidité.</li>
+    <li><strong>Clapet :</strong> limite les retours d’air quand l’extracteur est arrêté.</li>
+    <li><strong>Entrée d’air :</strong> jeu sous la porte ou grille, sinon l’extracteur manque d’air à aspirer.</li>
+  </ul>
+
+  <h2>Les erreurs fréquentes</h2>
+  <ul>
+    <li>acheter un extracteur sans vérifier le diamètre du conduit ;</li>
+    <li>poser un appareil alors que l’air ne peut pas entrer dans la pièce ;</li>
+    <li>confondre nettoyage d’une grille et réparation d’une VMC défaillante ;</li>
+    <li>croire qu’un extracteur règle une fuite ou une infiltration ;</li>
+    <li>faire une modification électrique sans compétence suffisante.</li>
+  </ul>
+
+  <AlertBox type="warning" title="Sécurité et limites">
+    <p>Une salle de bain impose des règles électriques. En cas de doute sur l’alimentation, les volumes de sécurité, la VMC collective ou le conduit, il faut demander un avis professionnel.</p>
+  </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain humide : causes et solutions</a></li>
+    <li><a href={`${base}pieces/salle-de-bain-sans-fenetre/`}>Salle de bain sans fenêtre : que faire ?</a></li>
+    <li><a href={`${base}comparatifs/meilleur-produit-anti-moisissure-salle-de-bain/`}>Produit anti-moisissure salle de bain</a></li>
+    <li><a href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Mesurer l’humidité avec un hygromètre</a></li>
+  </ul>
+</ComparisonLayout>
