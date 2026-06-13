@@ -13,20 +13,20 @@ const comparatifs = [
   { title: "Déshumidificateur ou absorbeur ?", href: "/comparatifs/deshumidificateur-ou-absorbeur/", description: "Comparer simplement les deux solutions selon le taux, la pièce et le budget.", badge: "Aide au choix" },
 ];
 ---
-<BaseLayout title="Comparatifs anti-humidité : hygromètre, absorbeur, déshumidificateur" description="Guides d’achat prudents pour choisir un hygromètre, un absorbeur ou un déshumidificateur sans inventer de produits ni masquer la cause.">
+<BaseLayout title="Comparatifs anti-humidité : hygromètre, absorbeur, déshumidificateur" description="Guides d’achat pour choisir un hygromètre, un absorbeur ou un déshumidificateur selon la pièce et le taux mesuré.">
   <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs' }]} />
     <section class="hub-hero">
       <p class="eyebrow">Choisir sans acheter au hasard</p>
       <h1>Comparatifs produits anti-humidité</h1>
-      <p class="lead">Ces pages expliquent les critères de choix avant la sélection de références précises. Le site ne met pas encore de marques en avant : priorité à la mesure, à la cause et à l’usage réel.</p>
+      <p class="lead">Un produit anti-humidité peut aider, mais pas dans tous les cas. Ces pages servent à choisir le bon type d’achat selon la pièce, le taux mesuré et les limites de chaque appareil.</p>
       <AffiliateDisclosure />
       <div class="hub-actions"><a class="btn btn--primary" href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Commencer par mesurer</a><a class="btn btn--light" href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>Comparer les solutions</a></div>
     </section>
     <div class="intro-grid">
-      <div class="info-card"><h2>Hygromètre</h2><p>Premier achat utile pour confirmer le problème et suivre l’évolution.</p></div>
-      <div class="info-card"><h2>Absorbeur</h2><p>Utile en petit volume fermé, rarement suffisant pour une pièce entière.</p></div>
-      <div class="info-card"><h2>Déshumidificateur</h2><p>Plus efficace pour une pièce, mais à choisir selon volume, bruit et température.</p></div>
+      <div class="info-card"><h2>Hygromètre</h2><p>Le plus utile au départ : il confirme si le problème est réel et durable.</p></div>
+      <div class="info-card"><h2>Absorbeur</h2><p>Pratique dans un placard ou un petit rangement, beaucoup moins dans une pièce.</p></div>
+      <div class="info-card"><h2>Déshumidificateur</h2><p>Plus efficace, mais il faut vérifier le volume, le bruit, la température et l’évacuation.</p></div>
     </div>
     <div class="section-heading"><h2>Tous les guides d’achat</h2></div>
     <div class="card-grid">{comparatifs.map(c => <ArticleCard {...c} />)}</div>

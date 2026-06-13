@@ -3,24 +3,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<BaseLayout title="À propos — Maison Moins Humide" description="Pourquoi Maison Moins Humide existe : conseils pratiques, prudents et lisibles pour comprendre l’humidité dans une maison.">
+<BaseLayout title="À propos — Maison Moins Humide" description="Pourquoi Maison Moins Humide existe : aider à comprendre l’humidité dans une maison avant d’acheter un produit.">
   <div class="container" style="padding-top:2rem;padding-bottom:3rem">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]} />
     <article class="prose">
       <h1>À propos</h1>
-      <p>Maison Moins Humide est un site de conseils pratiques sur l’humidité dans la maison : condensation, moisissures, odeurs, cave humide, chambre humide ou choix d’un appareil.</p>
+      <p>Maison Moins Humide part d’un constat simple : quand une pièce sent le moisi ou que les vitres coulent, on trouve beaucoup de produits, mais peu d’explications claires pour savoir quoi faire en premier.</p>
       <h2>Notre objectif</h2>
-      <p>L’objectif est simple : aider le lecteur à comprendre ce qui se passe chez lui, mesurer la situation avec un hygromètre et choisir une action adaptée, sans dramatiser et sans vendre de solution miracle.</p>
+      <p>L’objectif est d’aider le lecteur à poser un diagnostic de bon sens : mesurer, observer la pièce, vérifier l’aération, puis seulement décider s’il faut un geste simple, un appareil ou un avis professionnel.</p>
       <h2>Notre méthode</h2>
       <ul>
-        <li>commencer par mesurer l’humidité sur plusieurs jours ;</li>
-        <li>observer la pièce touchée et les signes visibles ;</li>
-        <li>vérifier ventilation, température et circulation d’air ;</li>
-        <li>choisir un produit seulement si son usage correspond au problème ;</li>
-        <li>recommander un avis professionnel quand la situation dépasse les gestes simples.</li>
+        <li>prendre plusieurs mesures, pas seulement un chiffre isolé ;</li>
+        <li>regarder où apparaissent l’eau, les taches ou l’odeur ;</li>
+        <li>contrôler l’aération, la température et la circulation de l’air ;</li>
+        <li>proposer un produit uniquement quand il correspond au cas ;</li>
+        <li>renvoyer vers un professionnel quand les signes dépassent les gestes simples.</li>
       </ul>
       <h2>Transparence</h2>
-      <p>Nous ne vendons pas de produits en direct. Certains liens peuvent être affiliés : si vous achetez via ces liens, le site peut recevoir une commission sans coût supplémentaire pour vous. Cela ne change pas la priorité éditoriale : rester utile, clair et prudent.</p>
+      <p>Le site ne vend pas de produits en direct. Certains liens peuvent être affiliés : si vous achetez via ces liens, le site peut recevoir une commission, sans coût supplémentaire pour vous. Les conseils restent orientés usage réel, pas achat automatique.</p>
       <p><a href={`${base}politique-affiliation/`}>Lire la politique d’affiliation</a> ou <a href={`${base}contact/`}>contacter le site</a>.</p>
     </article>
   </div>

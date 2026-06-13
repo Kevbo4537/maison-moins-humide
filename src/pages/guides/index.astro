@@ -14,19 +14,19 @@ const guides = [
   { title: "Odeur d’humidité", description: "Localiser l’origine d’une odeur de moisi dans une pièce, un placard ou une cave.", href: "/guides/odeur-humidite-maison/" },
 ];
 ---
-<BaseLayout title="Guides humidité maison : mesurer, comprendre, agir" description="Tous les guides pratiques pour comprendre l’humidité dans une maison, mesurer le taux, limiter condensation, odeurs et moisissures.">
+<BaseLayout title="Guides humidité maison : mesurer, comprendre, agir" description="Guides pratiques pour comprendre l’humidité dans une maison : mesure, condensation, odeurs, moisissures et premiers gestes.">
   <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité' }]} />
     <section class="hub-hero">
       <p class="eyebrow">Guides pratiques</p>
       <h1>Guides humidité maison</h1>
-      <p class="lead">Commencez par comprendre ce que vous observez : taux élevé, condensation, moisissure, odeur ou pièce qui sèche mal. Chaque guide donne des actions simples, sans dramatiser et sans promettre de solution miracle.</p>
+      <p class="lead">Commencez par ce que vous voyez vraiment : vitres mouillées, odeur de moisi, mur qui marque, linge qui ne sèche pas ou taux trop haut. Les guides aident à trier les causes probables avant d’acheter.</p>
       <div class="hub-actions"><a class="btn btn--primary" href={`${base}guides/humidite-maison-que-faire/`}>Lire le guide de départ</a><a class="btn btn--light" href={`${base}comparatifs/meilleur-hygrometre-maison/`}>Mesurer correctement</a></div>
     </section>
     <div class="intro-grid">
-      <div class="info-card"><h2>1. Mesurer</h2><p>Un hygromètre donne une tendance fiable si vous notez les valeurs plusieurs jours.</p></div>
-      <div class="info-card"><h2>2. Identifier</h2><p>Fenêtre, mur, plafond, placard ou cave : la zone touchée oriente la cause.</p></div>
-      <div class="info-card"><h2>3. Agir</h2><p>Ventilation, chauffage, produit ou professionnel : la solution dépend de la cause.</p></div>
+      <div class="info-card"><h2>1. Mesurer</h2><p>Notez le taux matin et soir. Une seule mesure ne suffit pas toujours.</p></div>
+      <div class="info-card"><h2>2. Identifier</h2><p>La zone touchée donne souvent la piste : fenêtre, angle, placard, cave ou plafond.</p></div>
+      <div class="info-card"><h2>3. Agir</h2><p>Aération, ventilation, chauffage, appareil ou avis pro : on choisit après observation.</p></div>
     </div>
     <div class="section-heading"><h2>Tous les guides</h2></div>
     <div class="card-grid">{guides.map(g => <ArticleCard {...g} />)}</div>

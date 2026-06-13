@@ -6,9 +6,9 @@ import RevenueProductBlock from '../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 
 const guides = [
-  { title: "Humidité dans la maison : que faire ?", description: "La méthode complète : mesurer, observer, ventiler, puis choisir la bonne action.", href: "/guides/humidite-maison-que-faire/", badge: "Départ" },
+  { title: "Humidité dans la maison : que faire ?", description: "Par où commencer quand les vitres coulent, qu’un mur marque ou qu’une pièce sent le moisi.", href: "/guides/humidite-maison-que-faire/", badge: "Départ" },
   { title: "Checklist humidité maison à imprimer", description: "Un relevé sur 7 jours pour noter taux, température, observations et décider quoi faire sans achat inutile.", href: "/checklists/humidite-maison/", badge: "Gratuit" },
-  { title: "Taux d’humidité idéal", description: "Les repères 40-60 %, comment mesurer et quand s’inquiéter vraiment.", href: "/guides/taux-humidite-ideal-maison/", badge: "Mesure" },
+  { title: "Taux d’humidité idéal", description: "Les repères 40-60 %, avec les cas où une mesure isolée ne veut pas dire grand-chose.", href: "/guides/taux-humidite-ideal-maison/", badge: "Mesure" },
   { title: "Humidité à 70 %", description: "Comprendre si le taux est ponctuel ou durable, et quoi tester en premier.", href: "/guides/humidite-maison-70-pourcent/" },
   { title: "Moisissure sur un mur", description: "Causes probables, risques, nettoyage prudent et signes qui imposent un diagnostic.", href: "/guides/moisissure-mur-danger/", badge: "Important" },
   { title: "Condensation sur les fenêtres", description: "Pourquoi les vitres ruissellent et comment limiter la buée au quotidien.", href: "/guides/condensation-fenetre/" },
@@ -28,20 +28,20 @@ const quickSteps = [
   ['1', 'Mesurer', 'Un hygromètre dans la pièce concernée pendant plusieurs jours.'],
   ['2', 'Observer', 'Vitre, mur, plafond, placard, odeur : l’emplacement donne la piste.'],
   ['3', 'Ventiler', 'Entrées d’air, VMC, aération courte et efficace, circulation sous les portes.'],
-  ['4', 'Choisir', 'Absorbeur, déshumidificateur ou professionnel selon la cause probable.'],
+  ['4', 'Décider', 'Petit geste, appareil ou avis pro : le choix dépend de ce que vous avez observé.'],
 ];
 ---
 <BaseLayout
   title="Humidité maison : mesurer, comprendre, agir — Maison Moins Humide"
-  description="Guides simples pour comprendre l’humidité dans une maison, mesurer le taux, limiter condensation et moisissures, puis choisir une solution adaptée."
+  description="Guides pratiques pour comprendre l’humidité dans une maison : taux, condensation, moisissures, odeurs et choix d’un appareil utile."
   isHome={true}
 >
   <section class="hero hero--split">
     <div class="container container--wide hero-grid">
       <div>
-        <p class="eyebrow">Maison saine, conseils simples</p>
+        <p class="eyebrow">Humidité, sans achat réflexe</p>
         <h1>Humidité dans la maison : mesurer, comprendre, agir dans le bon ordre</h1>
-        <p class="hero-intro">Moisissures, condensation, odeur de renfermé, chambre humide ou cave qui sent le moisi : le but n’est pas de vendre une solution miracle, mais de vous aider à trouver la cause probable et les gestes utiles.</p>
+        <p class="hero-intro">Quand une maison sent le renfermé ou que les vitres ruissellent le matin, on a vite envie d’acheter un produit. Mieux vaut d’abord mesurer, regarder où l’humidité apparaît et éliminer les causes simples.</p>
         <div class="hero-cta-row">
           <a href={`${base}guides/humidite-maison-que-faire/`} class="btn btn--primary">Commencer le diagnostic</a>
           <a href={`${base}comparatifs/meilleur-hygrometre-maison/`} class="btn btn--secondary">Choisir un hygromètre</a>
@@ -87,7 +87,7 @@ const quickSteps = [
 
   <section class="section-revenue-products">
     <div class="container container--wide">
-      <RevenueProductBlock title="Les 3 achats à envisager dans le bon ordre" intro="Pour que le site puisse générer du revenu sans perdre en crédibilité, les produits sont mis en avant après la méthode : mesure, choix selon la pièce, puis achat seulement si c’est adapté." />
+      <RevenueProductBlock title="Les 3 achats à envisager dans le bon ordre" intro="On commence par un hygromètre. Ensuite seulement, on regarde si un absorbeur ou un déshumidificateur a du sens pour la pièce concernée." />
     </div>
   </section>
 

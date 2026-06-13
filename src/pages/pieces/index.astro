@@ -12,19 +12,19 @@ const pieces = [
   { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, sèche-linge, machine et ventilation de la pièce.", badge: "Linge" },
 ];
 ---
-<BaseLayout title="Humidité par pièce : salle de bain, chambre, cave, placard" description="Conseils ciblés contre l’humidité selon la pièce : salle de bain, chambre, cave, placard et buanderie.">
+<BaseLayout title="Humidité par pièce : salle de bain, chambre, cave, placard" description="Comprendre l’humidité selon la pièce touchée : salle de bain, chambre, cave, placard ou buanderie.">
   <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce' }]} />
     <section class="hub-hero">
       <p class="eyebrow">Solutions par pièce</p>
       <h1>Humidité par pièce</h1>
-      <p class="lead">Une salle de bain humide, une chambre qui condense et une cave qui sent le moisi n’ont pas les mêmes causes. Choisissez la pièce concernée pour aller directement aux bons gestes.</p>
+      <p class="lead">Une salle de bain qui garde la vapeur, une chambre humide le matin et une cave qui sent le moisi ne se traitent pas de la même façon. Partez de la pièce touchée, puis vérifiez les gestes utiles.</p>
       <div class="hub-actions"><a class="btn btn--primary" href={`${base}pieces/chambre-humide/`}>Chambre humide</a><a class="btn btn--light" href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain</a></div>
     </section>
     <div class="intro-grid">
-      <div class="info-card"><h2>Pièces d’eau</h2><p>Vapeur rapide, extraction et séchage des surfaces sont les priorités.</p></div>
-      <div class="info-card"><h2>Pièces de nuit</h2><p>La condensation du matin vient souvent du couple température + air stagnant.</p></div>
-      <div class="info-card"><h2>Volumes fermés</h2><p>Cave et placard demandent stockage prudent, circulation d’air et suivi du taux.</p></div>
+      <div class="info-card"><h2>Pièces d’eau</h2><p>Après douche ou bain, le sujet principal est d’évacuer la vapeur assez vite.</p></div>
+      <div class="info-card"><h2>Pièces de nuit</h2><p>Dans une chambre, l’humidité se voit souvent le matin : vitres, angles froids, odeur.</p></div>
+      <div class="info-card"><h2>Volumes fermés</h2><p>Cave et placard piègent facilement l’air humide. Le rangement compte autant que l’appareil.</p></div>
     </div>
     <div class="section-heading"><h2>Choisir la pièce concernée</h2></div>
     <div class="card-grid">{pieces.map(p => <ArticleCard {...p} />)}</div>
