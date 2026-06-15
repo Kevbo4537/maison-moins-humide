@@ -3,14 +3,45 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Une cave humide est-elle normale ?", answer: "Une cave peut être plus fraîche et humide qu’une pièce de vie, mais un taux très élevé, des murs mouillés, du salpêtre ou une odeur forte doivent faire chercher la cause." },
   { question: "Quel appareil choisir pour une cave humide ?", answer: "Un déshumidificateur efficace en pièce fraîche est souvent plus adapté qu’un absorbeur si le volume est important et si le taux reste élevé." },
   { question: "Quand éviter de stocker des affaires dans une cave ?", answer: "Évitez les cartons, textiles et objets sensibles si la cave sent le moisi, si les murs sont humides ou si le taux reste haut malgré l’aération." },
 ];
+
+const caveProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'À placer dans la cave pour suivre le taux plusieurs jours, surtout après pluie ou aération.',
+    details: 'La mesure évite de confondre cave fraîche ponctuellement humide et problème durable.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Contrôle',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'CONOPU 12 L/jour',
+    useCase: 'À regarder pour une cave ou buanderie qui reste humide, avec besoin d’assèchement régulier.',
+    details: 'Pratique si le volume est réel ; à associer à une vérification de l’arrivée d’eau et de la ventilation.',
+    href: 'https://amzn.to/43J24CF',
+    badge: 'Cave / buanderie',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61iz4zedC-L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'Pour un petit rangement de cave ou une zone fermée légèrement humide, pas pour une cave entière.',
+    details: 'Utile en complément local, insuffisant si les murs ou le sol apportent beaucoup d’humidité.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: 'Petit stockage',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Cave humide : que faire avant d’acheter un appareil ?" description="Cave humide, odeur de moisi, cartons abîmés : quoi vérifier avant absorbeur, ventilation ou déshumidificateur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Cave humide : que faire avant d’acheter un appareil ?' }]}>
+<ArticleLayout title="Cave humide : que faire avant d’acheter un appareil ?" description="Cave humide, odeur de moisi, cartons abîmés : quoi vérifier avant absorbeur, ventilation ou déshumidificateur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Cave humide : que faire avant d’acheter un appareil ?' }]} showAffiliateDisclosure={true}>
   <h1>Cave humide : que faire avant d’acheter un appareil ?</h1>
   <p>Une cave est souvent plus fraîche que le reste de la maison. Avec des murs enterrés, un sol poreux ou peu d’air qui circule, elle peut sentir le moisi sans qu’il y ait forcément une grosse fuite.</p>
 
@@ -49,6 +80,13 @@ const faqs = [
     <li>recherche d’infiltration si l’eau apparaît après pluie</li>
     <li>drainage ou avis professionnel si problème structurel</li>
   </ul>
+
+  <RevenueProductBlock
+    title="Produits utiles pour une cave humide"
+    intro="Une cave demande plus de prudence qu’un placard : on mesure, on observe l’eau après la pluie, puis on choisit un produit seulement si le problème n’est pas une infiltration active."
+    products={caveProducts}
+    note="Si la cave a de l’eau visible, du salpêtre important ou un mur enterré mouillé, un appareil peut aider à assécher l’air mais ne remplace pas un diagnostic bâtiment."
+  />
 
   <AlertBox type="warning" title="À vérifier">
     <p>Un déshumidificateur peut aider une cave, mais s’il y a arrivée d’eau, infiltration ou mur très humide, il ne remplace pas un diagnostic bâtiment.</p>

@@ -3,14 +3,45 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "70 % d’humidité dans une maison, est-ce trop ?", answer: "Oui, si le taux reste autour de 70 % durablement. Cela favorise condensation, odeurs, inconfort et parfois moisissures, surtout dans une pièce froide ou mal ventilée." },
   { question: "Que faire en premier avec 70 % d’humidité ?", answer: "Aérez franchement quelques minutes, vérifiez la VMC et les entrées d’air, limitez les apports d’humidité puis mesurez à nouveau pour voir si le taux redescend." },
   { question: "Faut-il acheter un déshumidificateur à 70 % ?", answer: "Il peut être utile si le taux reste élevé malgré les gestes simples, mais il faut d’abord écarter une fuite, une infiltration ou une ventilation défaillante." },
 ];
+
+const products70 = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Pour vérifier si les 70 % sont ponctuels ou répétés, avec température et humidité visibles en un coup d’œil.',
+    details: 'À utiliser plusieurs jours avant de décider d’un appareil plus cher.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Mesurer d’abord',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'À envisager si une pièce entière reste autour de 70 % malgré aération, VMC et chauffage régulier.',
+    details: 'Utile pour stabiliser l’air, pas pour masquer une infiltration ou un mur mouillé.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Pièce entière',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'À réserver aux petits volumes fermés : placard, rangement, petit coin localisé.',
+    details: 'Trop limité pour corriger seul une pièce complète à 70 %.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: 'Petit volume',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Humidité maison à 70 % : que faire ?" description="Comprendre ce que signifie un taux d’humidité à 70 %, les vérifications à faire et les solutions adaptées." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité à 70 %' }]}>
+<ArticleLayout title="Humidité maison à 70 % : que faire ?" description="Comprendre ce que signifie un taux d’humidité à 70 %, les vérifications à faire et les solutions adaptées." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Humidité à 70 %' }]} showAffiliateDisclosure={true}>
   <h1>Humidité maison à 70&nbsp;% : que faire ?</h1>
   <p>Un taux d’humidité à 70&nbsp;% dans une maison n’est pas automatiquement dramatique s’il est ponctuel. Mais s’il revient souvent ou reste stable plusieurs jours, il faut comprendre pourquoi l’air ne sèche pas.</p>
 
@@ -48,6 +79,13 @@ const faqs = [
 
   <h2>Quand utiliser un déshumidificateur</h2>
   <p>Si la pièce reste à 70&nbsp;% malgré les gestes simples, un déshumidificateur peut aider, surtout en cave, buanderie ou pièce peu ventilée. Choisissez-le selon le volume de la pièce et la température : certains appareils sont moins efficaces dans les pièces froides.</p>
+
+  <RevenueProductBlock
+    title="Que regarder si le taux reste à 70 % ?"
+    intro="Le bon ordre reste simple : confirmer la mesure, choisir un petit absorbeur seulement pour un volume fermé, ou un déshumidificateur pour une pièce entière."
+    products={products70}
+    note="N’achetez pas pour cacher un signe sérieux : mur mouillé, salpêtre, fuite, infiltration ou moisissures étendues nécessitent d’abord une recherche de cause."
+  />
 
   <h2>Quand demander un avis</h2>
   <p>Si le taux reste élevé avec mur humide, cloques, salpêtre, odeur persistante ou tache localisée, il faut chercher une cause bâtiment. Acheter un appareil sans diagnostic peut seulement déplacer le problème.</p>
