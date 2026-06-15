@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<BaseLayout title="Politique d’affiliation — Maison Moins Humide" description="Transparence sur les liens affiliés, la sélection produit et l’indépendance éditoriale du site Maison Moins Humide.">
+<BaseLayout title="Politique d’affiliation — Maison Moins Humide" description="Transparence sur les liens affiliés, la sélection produit et l’indépendance éditoriale du site Maison Moins Humide." noindex>
   <div class="container" style="padding-top:2rem;padding-bottom:3rem">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: "Politique d'affiliation" }]} />
     <article class="prose">
