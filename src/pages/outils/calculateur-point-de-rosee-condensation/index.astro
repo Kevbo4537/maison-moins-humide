@@ -295,22 +295,31 @@ const faqs = [
     let className = 'result-card result-card--ok';
     let explanation = 'L’air et la surface ne semblent pas en zone critique avec les valeurs saisies.';
 
+    const recurrent = frequency === 'matin' || frequency === 'souvent' || frequency === 'permanent';
+    const visibleCondensationLikely = symptom === 'condensation' && recurrent;
+    const visibleMoldOrMusty = symptom === 'moisissure' || ((symptom === 'odeur' || symptom === 'mur froid') && recurrent);
+    const slowDryingLikely = symptom === 'linge' && rh >= 60;
+
     if (hasTechnicalAlert(symptom, frequency, alerts)) {
       level = 'technical';
       label = 'Signal d’alerte technique';
       className = 'result-card result-card--danger';
       explanation = 'Les signes indiqués peuvent dépasser une simple condensation : fuite, infiltration, salpêtre, mur mouillé ou moisissure étendue.';
-    } else if (hasSurface && (delta <= 2 || srh >= 95)) {
+    } else if ((hasSurface && (delta <= 2 || srh >= 95)) || visibleCondensationLikely) {
       level = 'condensation';
       label = 'Risque élevé de condensation';
       className = 'result-card result-card--danger';
-      explanation = 'La surface froide est trop proche du point de rosée. L’eau contenue dans l’air peut se déposer dessus, surtout la nuit ou quand la pièce refroidit.';
-    } else if (hasSurface && srh >= 80) {
+      explanation = hasSurface
+        ? 'La surface froide est trop proche du point de rosée. L’eau contenue dans l’air peut se déposer dessus, surtout la nuit ou quand la pièce refroidit.'
+        : 'Vous signalez une condensation qui revient. Sans température de surface, le calcul ne peut pas confirmer le mur ou la vitre, mais le symptôme oriente fortement vers une surface trop froide ou un renouvellement d’air insuffisant.';
+    } else if ((hasSurface && srh >= 80) || visibleMoldOrMusty) {
       level = 'mold';
       label = 'Conditions favorables aux moisissures si cela dure';
       className = 'result-card result-card--warning';
-      explanation = 'La surface ne goutte pas forcément, mais elle peut rester assez humide pour favoriser des traces si la situation se répète.';
-    } else if (rh >= 70 || (rh >= 60 && frequency !== 'ponctuel')) {
+      explanation = hasSurface
+        ? 'La surface ne goutte pas forcément, mais elle peut rester assez humide pour favoriser des traces si la situation se répète.'
+        : 'Le symptôme déclaré mérite une vérification sur plusieurs jours. Une odeur de moisi, un angle noir ou une moisissure visible ne doit pas être classé comme “normal” même si la mesure instantanée paraît correcte.';
+    } else if (rh >= 70 || (rh >= 60 && frequency !== 'ponctuel') || slowDryingLikely) {
       level = 'humid';
       label = 'Humidité intérieure élevée';
       className = 'result-card result-card--warning';
