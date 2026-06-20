@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+const base = import.meta.env.BASE_URL;
+const tools = [
+  {
+    title: 'Calculateur point de rosée',
+    description: 'Estimer le risque de condensation sur une vitre, un mur froid ou une cave avec température et humidité.',
+    href: '/outils/calculateur-point-de-rosee-condensation/',
+    badge: 'Nouveau',
+  },
+];
+---
+<BaseLayout title="Outils humidité maison : calculateurs et checklists" description="Outils pratiques pour mesurer, comprendre et suivre l’humidité dans une maison avant d’acheter une solution.">
+  <div class="container container--wide hub">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils' }]} />
+    <section class="hub-hero">
+      <p class="eyebrow">Outils pratiques</p>
+      <h1>Outils humidité maison</h1>
+      <p class="lead">Des outils simples pour passer de “je vois de la buée ou une trace” à une hypothèse claire : air trop humide, surface froide, ventilation insuffisante ou signal technique à vérifier.</p>
+      <div class="hub-actions">
+        <a class="btn btn--primary" href={`${base}outils/calculateur-point-de-rosee-condensation/`}>Tester le risque de condensation</a>
+        <a class="btn btn--light" href={`${base}checklists/humidite-maison/`}>Imprimer la checklist 7 jours</a>
+      </div>
+    </section>
+    <div class="card-grid">{tools.map(tool => <ArticleCard {...tool} />)}</div>
+  </div>
+</BaseLayout>
+
+<style>
+.hub { padding:2rem 0 3.25rem; }
+.hub-hero { background:#fff; border:1px solid var(--color-border); border-radius:20px; padding:clamp(1.25rem,3vw,2rem); box-shadow:0 14px 40px rgba(30,42,58,.06); margin-bottom:2rem; }
+.eyebrow { color:var(--color-primary); font-weight:750; text-transform:uppercase; letter-spacing:.06em; font-size:.78rem; margin-bottom:.45rem; }
+.lead { color:var(--color-text-muted); font-size:1.08rem; max-width:760px; }
+.hub-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+.btn--light { background:#fff; color:var(--color-primary); border:1.5px solid var(--color-primary); }
+@media(max-width:640px){ .hub-actions .btn{width:100%;text-align:center} }
+</style>

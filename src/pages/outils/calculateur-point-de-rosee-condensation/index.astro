@@ -1,0 +1,503 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const faqs = [
+  {
+    question: 'Qu’est-ce que le point de rosée dans une maison ?',
+    answer: 'C’est la température à partir de laquelle l’air devient saturé en vapeur d’eau. Si une vitre ou un mur descend à cette température, l’eau peut se déposer sur la surface sous forme de condensation.',
+  },
+  {
+    question: 'Pourquoi un mur peut condenser même avec 60 % d’humidité ?',
+    answer: 'Parce que le taux affiché par l’hygromètre concerne l’air de la pièce. Au contact d’un mur froid, l’humidité relative locale augmente. Si la surface est proche du point de rosée, elle peut devenir humide.',
+  },
+  {
+    question: 'Faut-il mesurer la température du mur ?',
+    answer: 'Ce n’est pas obligatoire pour estimer le point de rosée, mais c’est beaucoup plus utile pour savoir si une vitre, un angle ou un mur est réellement en zone de condensation. Un thermomètre infrarouge peut aider.',
+  },
+  {
+    question: 'À partir de quel taux d’humidité faut-il s’inquiéter ?',
+    answer: 'Un repère pratique est de viser environ 40 à 60 % dans les pièces de vie. Au-dessus de 60 à 70 % de façon durable, surtout avec odeur, condensation ou moisissure, il faut chercher la cause.',
+  },
+  {
+    question: 'Le calculateur remplace-t-il un diagnostic humidité ?',
+    answer: 'Non. Il aide à comprendre le risque de condensation. En cas de salpêtre, mur mouillé, fuite, infiltration, peinture qui cloque ou moisissure étendue, il faut rechercher une cause technique.',
+  },
+];
+---
+<ArticleLayout
+  title="Calculateur point de rosée : risque de condensation dans la maison"
+  description="Calculez le point de rosée, le risque de condensation sur une vitre ou un mur froid, et les actions à prioriser contre l’humidité."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Calculateur point de rosée' }]}
+  publishedDate="2026-06-20"
+  updatedDate="2026-06-20"
+>
+  <h1>Calculateur de point de rosée et risque de condensation</h1>
+  <p>Entrez la température et l’humidité de la pièce. Si vous connaissez aussi la température d’une vitre, d’un mur ou d’un angle froid, l’outil estime le risque de condensation à cet endroit.</p>
+
+  <section class="calculator" aria-labelledby="calculator-title">
+    <div class="calculator__intro">
+      <h2 id="calculator-title">Tester votre pièce</h2>
+      <p>Le résultat est une aide à la décision : il ne remplace pas un diagnostic si le mur est mouillé, s’il y a du salpêtre ou une fuite possible.</p>
+    </div>
+
+    <form id="dewpoint-form" class="calculator-form">
+      <div class="field-grid">
+        <label>
+          <span>Pièce concernée</span>
+          <select id="room" name="room">
+            <option value="chambre">Chambre</option>
+            <option value="salle de bain">Salle de bain</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="cave">Cave / sous-sol</option>
+            <option value="buanderie">Buanderie</option>
+            <option value="placard">Placard</option>
+            <option value="salon">Salon</option>
+            <option value="autre">Autre pièce</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Température de l’air</span>
+          <input id="air-temp" name="airTemp" type="number" min="0" max="40" step="0.1" value="19" inputmode="decimal" required />
+          <small>En °C, lue sur thermomètre ou hygromètre.</small>
+        </label>
+
+        <label>
+          <span>Humidité relative</span>
+          <input id="relative-humidity" name="relativeHumidity" type="number" min="20" max="100" step="1" value="70" inputmode="numeric" required />
+          <small>En %, lue sur hygromètre.</small>
+        </label>
+
+        <label>
+          <span>Température de la surface froide <em>(facultatif)</em></span>
+          <input id="surface-temp" name="surfaceTemp" type="number" min="-5" max="40" step="0.1" value="13" inputmode="decimal" />
+          <small>Vitre, mur, angle, plafond, sol de cave…</small>
+        </label>
+
+        <label>
+          <span>Symptôme principal</span>
+          <select id="symptom" name="symptom">
+            <option value="condensation">Vitre embuée ou qui coule</option>
+            <option value="mur froid">Mur froid / angle noir</option>
+            <option value="odeur">Odeur de moisi</option>
+            <option value="moisissure">Moisissure visible</option>
+            <option value="linge">Linge qui sèche mal</option>
+            <option value="salpetre">Salpêtre ou peinture qui cloque</option>
+            <option value="pluie">Eau après pluie ou fuite possible</option>
+            <option value="aucun">Aucun signe visible</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Fréquence</span>
+          <select id="frequency" name="frequency">
+            <option value="ponctuel">Ponctuel après douche, cuisson ou météo humide</option>
+            <option value="matin">Surtout le matin</option>
+            <option value="souvent">Plusieurs jours par semaine</option>
+            <option value="permanent">Presque permanent</option>
+            <option value="pluie">Aggravé quand il pleut</option>
+          </select>
+        </label>
+      </div>
+
+      <fieldset class="alerts-fieldset">
+        <legend>Signaux d’alerte éventuels</legend>
+        <label><input type="checkbox" name="alert" value="mur mouillé" /> Mur mouillé au toucher</label>
+        <label><input type="checkbox" name="alert" value="salpêtre" /> Salpêtre</label>
+        <label><input type="checkbox" name="alert" value="fuite" /> Fuite ou trace après pluie</label>
+        <label><input type="checkbox" name="alert" value="étendu" /> Moisissure étendue</label>
+      </fieldset>
+
+      <button class="btn btn--primary" type="submit">Calculer le risque</button>
+    </form>
+
+    <section id="dewpoint-result" class="result-card" aria-live="polite">
+      <p class="result-card__placeholder">Remplissez les valeurs puis lancez le calcul. Un exemple est déjà prérempli.</p>
+    </section>
+  </section>
+
+  <AlertBox type="tip" title="Lecture rapide du résultat">
+    <p>Le point de rosée indique la température où l’eau commence à pouvoir condenser. Plus une vitre ou un mur se rapproche de cette valeur, plus le risque augmente.</p>
+  </AlertBox>
+
+  <h2>Pourquoi ce calcul aide vraiment</h2>
+  <p>Un hygromètre affiche l’humidité de l’air. Mais les traces apparaissent souvent sur les surfaces les plus froides : bas de vitre, angle de mur, plafond, derrière un meuble ou cave fraîche. Le calculateur relie donc trois données : température de l’air, humidité relative et température de surface.</p>
+
+  <h2>Les repères utilisés</h2>
+  <ul>
+    <li><strong>40 à 60&nbsp;% d’humidité relative</strong> : zone pratique souvent visée dans les pièces de vie.</li>
+    <li><strong>Au-dessus de 60&nbsp;% durablement</strong> : situation à surveiller, surtout avec condensation ou odeur.</li>
+    <li><strong>Surface proche du point de rosée</strong> : condensation possible, avec une marge d’erreur de quelques degrés.</li>
+    <li><strong>Humidité relative de surface autour de 80&nbsp;% ou plus</strong> : conditions favorables aux moisissures si cela dure.</li>
+  </ul>
+
+  <h2>Exemples concrets</h2>
+  <div class="examples-grid">
+    <article>
+      <h3>Chambre à 19 °C et 70 %</h3>
+      <p>Point de rosée ≈ 13,4 °C. Si un mur est à 13 °C, il peut condenser.</p>
+    </article>
+    <article>
+      <h3>Salon à 20 °C et 60 %</h3>
+      <p>Point de rosée ≈ 12 °C. Une surface à 15 °C ne goutte pas forcément, mais peut rester très humide.</p>
+    </article>
+    <article>
+      <h3>Cave à 10 °C et 80 %</h3>
+      <p>Point de rosée ≈ 6,7 °C. Même sans gouttes visibles, les matériaux peuvent rester humides longtemps.</p>
+    </article>
+  </div>
+
+  <h2>Que faire selon le résultat ?</h2>
+  <ul>
+    <li><strong>Risque faible :</strong> surveiller, refaire une mesure matin/soir, éviter les achats inutiles.</li>
+    <li><strong>Humidité élevée :</strong> vérifier VMC, aération, séchage du linge, cuisson, douche, puis mesurer 7 jours.</li>
+    <li><strong>Condensation probable :</strong> agir sur l’air humide, la ventilation, le chauffage régulier et les surfaces froides.</li>
+    <li><strong>Signal technique :</strong> ne pas se contenter d’un produit ; chercher fuite, infiltration, remontée ou défaut de ventilation.</li>
+  </ul>
+
+  <h2>Sources utilisées</h2>
+  <ul>
+    <li>OMS, <em>Guidelines for Indoor Air Quality: Dampness and Mould</em>.</li>
+    <li>Institute of Medicine, <em>Damp Indoor Spaces and Health</em>, National Academies Press.</li>
+    <li>EPA, <em>A Brief Guide to Mold, Moisture and Your Home</em>.</li>
+    <li>CDC / NIOSH, ressources sur humidité intérieure et moisissures.</li>
+    <li>Alduchov & Eskridge, formule de Magnus améliorée pour la pression de vapeur saturante.</li>
+  </ul>
+
+  <FAQSection items={faqs} />
+
+  <UsefulProductLinks />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Condensation sur les fenêtres : causes et solutions</a></li>
+    <li><a href={`${base}guides/taux-humidite-ideal-maison/`}>Taux d’humidité idéal dans une maison</a></li>
+    <li><a href={`${base}pieces/chambre-humide/`}>Chambre humide : que faire ?</a></li>
+    <li><a href={`${base}pieces/cave-humide/`}>Cave humide : comprendre et agir</a></li>
+  </ul>
+</ArticleLayout>
+
+<script>
+  const form = document.getElementById('dewpoint-form');
+  const result = document.getElementById('dewpoint-result');
+
+  const format = (value, digits = 1) => Number.isFinite(value) ? value.toFixed(digits).replace('.', ',') : '—';
+
+  function saturationVaporPressure(tempC) {
+    return 6.1094 * Math.exp((17.625 * tempC) / (243.04 + tempC));
+  }
+
+  function dewPoint(tempC, rh) {
+    const a = 17.625;
+    const b = 243.04;
+    const gamma = Math.log(rh / 100) + (a * tempC) / (b + tempC);
+    return (b * gamma) / (a - gamma);
+  }
+
+  function absoluteHumidity(tempC, rh) {
+    const vaporPressure = saturationVaporPressure(tempC) * (rh / 100);
+    return 216.7 * vaporPressure / (tempC + 273.15);
+  }
+
+  function surfaceRelativeHumidity(airTemp, rh, surfaceTemp) {
+    const actualVaporPressure = saturationVaporPressure(airTemp) * (rh / 100);
+    return 100 * actualVaporPressure / saturationVaporPressure(surfaceTemp);
+  }
+
+  function getCheckedAlerts() {
+    return [...document.querySelectorAll('input[name="alert"]:checked')].map((input) => input.value);
+  }
+
+  function hasTechnicalAlert(symptom, frequency, alerts) {
+    return symptom === 'salpetre' || symptom === 'pluie' || frequency === 'pluie' || alerts.length > 0;
+  }
+
+  function buildActions(level, room, symptom, frequency) {
+    if (level === 'technical') {
+      return [
+        'Ne pas masquer avec peinture, parfum ou absorbeur seul.',
+        'Chercher fuite, infiltration, remontée capillaire, salpêtre ou défaut de ventilation.',
+        'Demander un avis pro si le mur reste mouillé, si la trace revient ou si la moisissure est étendue.',
+      ];
+    }
+
+    if (level === 'condensation') {
+      const roomAction = room === 'chambre'
+        ? 'Mesurer au réveil et éviter les meubles collés au mur froid.'
+        : room === 'salle de bain'
+          ? 'Aérer ou extraire l’air juste après douche jusqu’à disparition de la buée.'
+          : room === 'cave'
+            ? 'Tester plusieurs jours : une cave fraîche peut garder des surfaces très humides.'
+            : 'Identifier la surface froide : vitre, angle, pont thermique, mur extérieur.';
+      return [
+        roomAction,
+        'Vérifier les entrées d’air, la VMC ou l’extraction.',
+        'Garder un chauffage plus régulier si la pièce refroidit fortement la nuit.',
+      ];
+    }
+
+    if (level === 'mold') {
+      return [
+        'Mesurer matin et soir pendant 7 jours pour voir si le problème dure.',
+        'Améliorer le renouvellement d’air et éloigner meubles/cartons des murs froids.',
+        symptom === 'moisissure' || symptom === 'odeur'
+          ? 'Nettoyer les petites traces prudemment, mais chercher la cause si elles reviennent.'
+          : 'Surveiller les angles, fenêtres et zones derrière meubles.',
+      ];
+    }
+
+    if (level === 'humid') {
+      return [
+        'Contrôler VMC, aérations, douche, cuisson et séchage du linge.',
+        frequency === 'ponctuel' ? 'Refaire une mesure hors douche/cuisson pour vérifier l’état habituel.' : 'Noter les valeurs matin et soir pendant une semaine.',
+        'Envisager un déshumidificateur seulement si l’humidité reste élevée durablement.',
+      ];
+    }
+
+    return [
+      'Refaire une mesure matin et soir pour confirmer.',
+      'Continuer une aération régulière.',
+      'Ne pas acheter d’appareil lourd sans signe durable.',
+    ];
+  }
+
+  function renderResult(event) {
+    event.preventDefault();
+
+    const airTemp = Number(document.getElementById('air-temp').value.replace(',', '.'));
+    const rh = Number(document.getElementById('relative-humidity').value.replace(',', '.'));
+    const surfaceRaw = document.getElementById('surface-temp').value.trim().replace(',', '.');
+    const surfaceTemp = surfaceRaw === '' ? null : Number(surfaceRaw);
+    const room = document.getElementById('room').value;
+    const symptom = document.getElementById('symptom').value;
+    const frequency = document.getElementById('frequency').value;
+    const alerts = getCheckedAlerts();
+
+    if (!Number.isFinite(airTemp) || !Number.isFinite(rh) || rh < 20 || rh > 100) {
+      result.innerHTML = '<p class="result-card__placeholder">Vérifiez la température et l’humidité saisies.</p>';
+      return;
+    }
+
+    const dp = dewPoint(airTemp, rh);
+    const ah = absoluteHumidity(airTemp, rh);
+    const recommendedSurface = dp + 3;
+    const hasSurface = Number.isFinite(surfaceTemp);
+    const delta = hasSurface ? surfaceTemp - dp : null;
+    const srh = hasSurface ? surfaceRelativeHumidity(airTemp, rh, surfaceTemp) : null;
+
+    let level = 'ok';
+    let label = 'Risque faible au moment de la mesure';
+    let className = 'result-card result-card--ok';
+    let explanation = 'L’air et la surface ne semblent pas en zone critique avec les valeurs saisies.';
+
+    if (hasTechnicalAlert(symptom, frequency, alerts)) {
+      level = 'technical';
+      label = 'Signal d’alerte technique';
+      className = 'result-card result-card--danger';
+      explanation = 'Les signes indiqués peuvent dépasser une simple condensation : fuite, infiltration, salpêtre, mur mouillé ou moisissure étendue.';
+    } else if (hasSurface && (delta <= 2 || srh >= 95)) {
+      level = 'condensation';
+      label = 'Risque élevé de condensation';
+      className = 'result-card result-card--danger';
+      explanation = 'La surface froide est trop proche du point de rosée. L’eau contenue dans l’air peut se déposer dessus, surtout la nuit ou quand la pièce refroidit.';
+    } else if (hasSurface && srh >= 80) {
+      level = 'mold';
+      label = 'Conditions favorables aux moisissures si cela dure';
+      className = 'result-card result-card--warning';
+      explanation = 'La surface ne goutte pas forcément, mais elle peut rester assez humide pour favoriser des traces si la situation se répète.';
+    } else if (rh >= 70 || (rh >= 60 && frequency !== 'ponctuel')) {
+      level = 'humid';
+      label = 'Humidité intérieure élevée';
+      className = 'result-card result-card--warning';
+      explanation = 'L’air contient déjà beaucoup d’humidité. Une baisse de température ou une surface froide peut suffire à déclencher buée ou traces.';
+    }
+
+    const actions = buildActions(level, room, symptom, frequency);
+    const surfaceHtml = hasSurface ? `
+      <li><strong>Écart surface / point de rosée :</strong> ${format(delta)} °C</li>
+      <li><strong>Humidité estimée au niveau de la surface :</strong> ${format(srh, 0)} %</li>
+    ` : `
+      <li><strong>Surface froide :</strong> non renseignée</li>
+      <li><strong>Repère utile :</strong> essayez de garder les murs/vitres au-dessus de ${format(recommendedSurface)} °C environ.</li>
+    `;
+
+    result.className = className;
+    result.innerHTML = `
+      <p class="result-kicker">Résultat</p>
+      <h2>${label}</h2>
+      <p>${explanation}</p>
+      <ul class="result-metrics">
+        <li><strong>Point de rosée :</strong> ${format(dp)} °C</li>
+        <li><strong>Humidité absolue estimée :</strong> ${format(ah)} g/m³</li>
+        ${surfaceHtml}
+      </ul>
+      <h3>Actions prioritaires</h3>
+      <ol>${actions.map((action) => `<li>${action}</li>`).join('')}</ol>
+      <p class="result-note">Mesure approximative : refaites le test matin/soir, surtout par temps froid. En cas de fuite, salpêtre ou mur mouillé, le calcul ne suffit pas.</p>
+    `;
+  }
+
+  form?.addEventListener('submit', renderResult);
+  form?.dispatchEvent(new Event('submit', { cancelable: true }));
+</script>
+
+<style>
+.calculator {
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: #f7faf8;
+  margin: 1.5rem 0 2rem;
+}
+
+.calculator__intro h2 {
+  margin-top: 0;
+}
+
+.calculator-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.calculator label,
+.alerts-fieldset label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 650;
+}
+
+.calculator input,
+.calculator select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  background: #fff;
+}
+
+.calculator small,
+.calculator em {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.alerts-fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  background: #fff;
+}
+
+.alerts-fieldset legend {
+  padding: 0 0.35rem;
+  font-weight: 700;
+}
+
+.alerts-fieldset label {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  font-weight: 500;
+}
+
+.alerts-fieldset input {
+  width: auto;
+  min-height: auto;
+}
+
+.result-card {
+  margin-top: 1.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: 18px;
+  padding: 1.1rem;
+  background: #fff;
+}
+
+.result-card h2 {
+  margin-top: 0.15rem;
+  border: 0;
+  padding: 0;
+}
+
+.result-card--ok {
+  border-color: #7aab8a;
+  background: #f4fbf6;
+}
+
+.result-card--warning {
+  border-color: #e8c97a;
+  background: #fffaf0;
+}
+
+.result-card--danger {
+  border-color: #d98b7d;
+  background: #fff6f3;
+}
+
+.result-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+}
+
+.result-metrics {
+  background: rgba(255,255,255,0.72) !important;
+}
+
+.result-note,
+.result-card__placeholder {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+.examples-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 720px) {
+  .examples-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.examples-grid article {
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 1rem;
+  background: #f7faf8;
+}
+
+.examples-grid h3 {
+  margin-top: 0;
+}
+
+.examples-grid p {
+  margin-bottom: 0;
+}
+</style>

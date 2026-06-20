@@ -1,6 +1,7 @@
 {
   "main": [
     { "label": "Guides humidité", "href": "/guides/" },
+    { "label": "Outils", "href": "/outils/" },
     { "label": "Solutions par pièce", "href": "/pieces/" },
     { "label": "Comparatifs", "href": "/comparatifs/" },
     { "label": "Produits utiles", "href": "/produits-utiles/" },
