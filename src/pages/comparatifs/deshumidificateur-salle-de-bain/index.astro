@@ -1,0 +1,124 @@
+---
+import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+
+const faqs = [
+  {
+    question: 'Un déshumidificateur est-il utile dans une salle de bain ?',
+    answer: 'Oui parfois, surtout si la pièce reste humide longtemps malgré une aération correcte. Mais dans une salle de bain, la priorité reste la ventilation : VMC, extracteur, passage d’air sous la porte et surfaces essuyées après la douche.',
+  },
+  {
+    question: 'Faut-il choisir un petit modèle sans fil pour la salle de bain ?',
+    answer: 'Les petits appareils sans fil ou mini absorbeurs sont rarement suffisants après une douche. Ils peuvent aider dans un petit volume fermé, mais pas remplacer une extraction d’air ni un vrai déshumidificateur électrique adapté.',
+  },
+  {
+    question: 'Peut-on laisser un déshumidificateur dans une salle de bain ?',
+    answer: 'Il faut rester prudent : éloigner l’appareil des projections, respecter la notice, éviter les rallonges hasardeuses et ne pas l’utiliser si l’installation électrique ou l’emplacement n’est pas sûr.',
+  },
+];
+
+const bathroomDehumidifierProducts = [
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'Pour une salle de bain qui reste humide longtemps, ou une salle d’eau ouverte sur une petite pièce attenante.',
+    details: 'Format raisonnable pour un usage ponctuel. À placer hors projections et seulement si la sécurité électrique est claire.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Usage ponctuel',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+  {
+    title: "COMFEE' Easy Dry 16 L",
+    useCase: 'Pour une salle de bain très humide avec buanderie, linge qui sèche ou volume plus important.',
+    details: 'Plus puissant : à choisir seulement si le volume et les mesures le justifient, pas pour une petite pièce déjà bien ventilée.',
+    href: 'https://amzn.to/43J24CF',
+    badge: 'Pièce plus humide',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61iz4zedC-L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'FanGoFast extracteur avec hygrostat',
+    useCase: 'Souvent plus logique qu’un déshumidificateur si la vapeur ne sort pas après la douche.',
+    details: 'L’hygrostat déclenche selon l’humidité. Installation à vérifier : gaine, sortie, alimentation, VMC collective ou non.',
+    href: 'https://amzn.to/49wOB4n',
+    badge: 'Ventilation',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51TLDKfUHTL._AC_SL1500_.jpg',
+  },
+];
+---
+<ComparisonLayout
+  title="Déshumidificateur salle de bain : utile ou fausse bonne idée ?"
+  description="Choisir un déshumidificateur pour salle de bain : quand c’est utile, quand privilégier VMC ou extracteur, sécurité et modèles à comparer."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'Déshumidificateur salle de bain' }]}
+  showAmazon={true}
+>
+  <h1>Déshumidificateur salle de bain : utile ou fausse bonne idée ?</h1>
+
+  <p>Un déshumidificateur de salle de bain peut aider dans certains logements français : salle d’eau sans fenêtre, VMC faible, linge qui sèche, appartement ancien, pièce qui reste embuée longtemps. Mais il ne doit pas devenir le réflexe automatique. Après une douche, le plus important est d’évacuer la vapeur.</p>
+
+  <AlertBox type="tip" title="Réponse courte">
+    <p>Avant d’acheter, mesurez l’humidité plusieurs jours. Si la salle de bain redescend sous environ 60&nbsp;% dans les heures qui suivent la douche, un déshumidificateur n’est pas forcément prioritaire. Si elle reste humide malgré une extraction correcte, un appareil peut aider en appoint.</p>
+  </AlertBox>
+
+  <RevenueProductBlock
+    title="Options à comparer avant achat"
+    intro="Dans une salle de bain, le bon achat n’est pas toujours un déshumidificateur. Comparez d’abord le besoin : retirer l’eau de l’air, mieux extraire la vapeur, ou traiter une pièce plus grande avec linge humide."
+    products={bathroomDehumidifierProducts}
+    note="Un produit peut aider, mais ne remplace pas la recherche de la cause : VMC absente, extraction bouchée, fuite, infiltration, pont thermique ou mur déjà mouillé."
+  />
+
+  <h2>Quand un déshumidificateur est pertinent dans une salle de bain</h2>
+  <ul>
+    <li>la pièce reste au-dessus de 60 à 70&nbsp;% plusieurs heures après la douche ;</li>
+    <li>il n’y a pas de fenêtre et la VMC est faible, mais pas totalement absente ;</li>
+    <li>le linge sèche dans la salle de bain ou la buanderie attenante ;</li>
+    <li>les serviettes ne sèchent jamais vraiment entre deux usages ;</li>
+    <li>l’humidité est confirmée avec un hygromètre, pas seulement au ressenti.</li>
+  </ul>
+
+  <h2>Quand il vaut mieux traiter la ventilation d’abord</h2>
+  <p>Si la salle de bain devient embuée à chaque douche et que la buée reste longtemps sur le miroir, la priorité est souvent l’extraction. Un déshumidificateur pourra retirer de l’eau, mais il travaillera contre un problème qui revient tous les jours.</p>
+  <ul>
+    <li>Vérifiez que la bouche de VMC aspire une feuille légère.</li>
+    <li>Nettoyez les grilles accessibles sans démonter une installation inconnue.</li>
+    <li>Laissez un passage d’air sous la porte ou ajoutez une grille adaptée si nécessaire.</li>
+    <li>Si la salle de bain n’a pas de fenêtre, lisez aussi le guide <a href={`${base}pieces/salle-de-bain-sans-fenetre/`}>salle de bain sans fenêtre</a>.</li>
+  </ul>
+
+  <AlertBox type="warning" title="Sécurité dans une pièce d’eau">
+    <p>Un déshumidificateur est un appareil électrique. Il doit rester à distance des projections, être posé de façon stable, utilisé selon la notice et branché sans bricolage. En cas de doute sur l’emplacement ou l’installation, privilégiez l’avis d’un professionnel.</p>
+  </AlertBox>
+
+  <h2>Quelle capacité choisir ?</h2>
+  <p>Pour une petite salle de bain, un modèle trop puissant peut être bruyant, cher et inutile. Pour une salle de bain ouverte sur une buanderie ou une pièce où le linge sèche, un appareil de 12 à 16&nbsp;L/jour peut être plus cohérent. La capacité doit suivre le volume réel et la durée d’humidité mesurée.</p>
+
+  <h2>Mini déshumidificateur, absorbeur ou vrai appareil ?</h2>
+  <p>Les mini appareils et absorbeurs séduisent parce qu’ils sont petits et peu chers. Ils conviennent surtout aux placards, meubles ou petits volumes fermés. Pour la vapeur de douche d’une pièce entière, ils sont souvent trop limités.</p>
+  <p>Si vous hésitez, consultez le guide <a href={`${base}comparatifs/deshumidificateur-ou-absorbeur/`}>déshumidificateur ou absorbeur d’humidité</a>.</p>
+
+  <h2>À éviter</h2>
+  <ul>
+    <li>acheter un appareil avant d’avoir mesuré le taux d’humidité ;</li>
+    <li>poser un appareil trop près de la douche ou de la baignoire ;</li>
+    <li>croire qu’un absorbeur règle une VMC en panne ;</li>
+    <li>parfumer ou repeindre sans traiter la cause si les moisissures reviennent ;</li>
+    <li>ignorer un mur mouillé, du salpêtre ou une infiltration.</li>
+  </ul>
+
+  <h2>Quand demander un avis professionnel</h2>
+  <p>Demandez un diagnostic si le mur est mouillé, si la peinture cloque, si les moisissures s’étendent, si une odeur forte revient malgré le nettoyage ou si la VMC collective semble ne plus aspirer. En location, signalez le problème par écrit au propriétaire ou au gestionnaire.</p>
+
+  <FAQSection items={faqs} />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Déshumidificateur maison : guide d’achat</a></li>
+    <li><a href={`${base}comparatifs/meilleur-extracteur-air-salle-de-bain/`}>Choisir un extracteur d’air de salle de bain</a></li>
+    <li><a href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain humide : causes et solutions</a></li>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Condensation sur les fenêtres : que faire ?</a></li>
+  </ul>
+</ComparisonLayout>
