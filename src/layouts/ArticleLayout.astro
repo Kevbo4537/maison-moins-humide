@@ -11,6 +11,7 @@ interface Props {
   publishedDate?: string;
   updatedDate?: string;
   showAffiliateDisclosure?: boolean;
+  showAmazon?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   publishedDate,
   updatedDate,
   showAffiliateDisclosure = false,
+  showAmazon = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.maisonmoinshumide.fr';
@@ -45,7 +47,7 @@ const articleJsonLd = {
   <div class="container article-wrapper">
     <Breadcrumbs crumbs={breadcrumbs} />
     <article class="prose">
-      {showAffiliateDisclosure && <AffiliateDisclosure />}
+      {showAffiliateDisclosure && <AffiliateDisclosure amazon={showAmazon} />}
       <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
       <slot />
     </article>
