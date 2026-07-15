@@ -3,14 +3,35 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Pourquoi une buanderie devient-elle humide ?", answer: "Le linge mouillé, le sèche-linge, une pièce froide et une ventilation insuffisante peuvent faire monter rapidement le taux d’humidité." },
   { question: "Comment sécher du linge sans humidifier toute la pièce ?", answer: "Essorez bien, espacez le linge, aérez ou extrayez l’air, chauffez modérément et mesurez le taux. Un déshumidificateur peut aider si le séchage est fréquent." },
   { question: "Un déshumidificateur est-il utile dans une buanderie ?", answer: "Oui si le taux reste haut pendant le séchage ou si la pièce manque d’extraction, mais il doit être dimensionné pour le volume et facile à vider ou raccorder." },
 ];
+const laundryProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Pour vérifier combien de temps le taux reste élevé après une lessive ou un séchage de linge.',
+    details: 'Un premier repère simple avant de dimensionner un appareil pour la pièce.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Contrôle',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: "COMFEE' Easy Dry 16 L",
+    useCase: 'Pour une buanderie où le linge sèche souvent et où l’humidité reste haute plusieurs heures.',
+    details: 'Le volume de la pièce doit justifier l’appareil. Le drainage continu peut être pratique pour un usage fréquent.',
+    href: 'https://amzn.to/43J24CF',
+    badge: 'Séchage fréquent',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61iz4zedC-L._AC_SL1500_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Buanderie humide : linge, condensation et ventilation" description="Limiter l’humidité dans une buanderie, surtout avec lave-linge, sèche-linge ou linge qui sèche à l’intérieur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide : linge, condensation et ventilation' }]}>
+<ArticleLayout title="Buanderie humide : linge, condensation et ventilation" description="Limiter l’humidité dans une buanderie, surtout avec lave-linge, sèche-linge ou linge qui sèche à l’intérieur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide : linge, condensation et ventilation' }]} showAffiliateDisclosure={true}>
   <h1>Buanderie humide : linge, condensation et ventilation</h1>
   <p>Une buanderie concentre souvent lave-linge, sèche-linge, linge mouillé et peu de ventilation. C’est une pièce pratique, mais elle peut vite devenir humide si l’air ne se renouvelle pas.</p>
 
@@ -53,6 +74,13 @@ const faqs = [
   <AlertBox type="warning" title="À vérifier">
     <p>Si la buanderie sert souvent à sécher du linge, l’humidité produite est importante. Sans ventilation ou déshumidification, elle peut migrer vers les pièces voisines.</p>
   </AlertBox>
+
+  <RevenueProductBlock
+    title="Mesurer puis aider le séchage si nécessaire"
+    intro="Le bon ordre est simple : vérifier les pics avec un hygromètre, améliorer l’extraction, puis envisager un déshumidificateur si le linge sèche souvent dans la pièce."
+    products={laundryProducts}
+    note="Un appareil peut accélérer le séchage et limiter la diffusion d’humidité, mais il ne remplace pas la réparation d’une fuite ni l’entretien d’une évacuation défectueuse."
+  />
 
   <FAQSection items={faqs} />
 

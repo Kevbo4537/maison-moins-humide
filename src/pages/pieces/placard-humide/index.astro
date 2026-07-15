@@ -3,14 +3,35 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Pourquoi un placard sent-il l’humidité ?", answer: "L’air circule peu, les vêtements peuvent garder de l’humidité et le placard peut être contre un mur froid. Ces trois facteurs favorisent l’odeur et parfois les moisissures." },
   { question: "Que faire dans un placard humide ?", answer: "Videz-le, aérez, vérifiez le mur du fond, espacez les vêtements et utilisez éventuellement un absorbeur si le problème est limité au placard." },
   { question: "Faut-il laisser la porte du placard ouverte ?", answer: "Oui, ponctuellement, cela aide à renouveler l’air. Si l’odeur revient toujours, il faut vérifier le mur, la pièce et le taux d’humidité." },
 ];
+const cupboardProducts = [
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'Pour un placard ou un petit rangement légèrement humide après inspection et aération.',
+    details: 'À surveiller et vider régulièrement. Trop limité si le mur du fond est mouillé ou si toute la pièce est humide.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: 'Petit volume',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+  {
+    title: 'Sachets anti-humidité suspendus',
+    useCase: 'Pour une penderie, des vêtements ou une armoire où un bac posé au sol serait peu pratique.',
+    details: 'Solution d’appoint verticale. Elle ne doit pas masquer un mur froid, humide ou taché.',
+    href: 'https://amzn.to/4edPEJ6',
+    badge: 'Penderie',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/7131PTbYsxL._AC_SL1500_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Placard humide : odeur, moisissure et solutions simples" description="Placard humide, vêtements qui sentent, fond de rangement taché : gestes simples et limites des absorbeurs." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Placard humide : odeur, moisissure et solutions simples' }]}>
+<ArticleLayout title="Placard humide : odeur, moisissure et solutions simples" description="Placard humide, vêtements qui sentent, fond de rangement taché : gestes simples et limites des absorbeurs." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Placard humide : odeur, moisissure et solutions simples' }]} showAffiliateDisclosure={true}>
   <h1>Placard humide : odeur, moisissure et solutions simples</h1>
   <p>Dans un placard, l’air bouge peu. Si le linge est rangé trop serré ou si le fond touche un mur froid, l’odeur d’humidité peut arriver avant même de voir de vraies taches.</p>
 
@@ -53,6 +74,13 @@ const faqs = [
   <AlertBox type="warning" title="À vérifier">
     <p>Si le fond du placard est humide ou si les taches reviennent, l’absorbeur ne suffira pas. Le problème vient sûrement du mur ou de la pièce.</p>
   </AlertBox>
+
+  <RevenueProductBlock
+    title="Deux formats utiles pour un petit rangement"
+    intro="Après avoir vidé, inspecté et aéré le placard, un absorbeur peut servir d’appoint si le problème reste léger et localisé."
+    products={cupboardProducts}
+    note="Contrôlez le bac ou les sachets régulièrement. Si l’odeur ou les taches reviennent, arrêtez de compter sur l’absorbeur seul et cherchez la cause dans le mur ou la pièce."
+  />
 
   <FAQSection items={faqs} />
 

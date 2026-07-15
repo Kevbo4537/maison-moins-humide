@@ -3,14 +3,35 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import AlertBox from '../../../components/AlertBox.astro';
 import FAQSection from '../../../components/FAQSection.astro';
 import UsefulProductLinks from '../../../components/UsefulProductLinks.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Quel taux d’humidité viser dans une chambre ?", answer: "Visez surtout un taux stable proche de 40 à 60 %. Une chambre froide, peu ventilée ou occupée toute la nuit peut monter plus haut, mais le taux doit redescendre après aération." },
   { question: "Un déshumidificateur est-il conseillé dans une chambre ?", answer: "Il peut aider si l’humidité reste élevée, mais le bruit, la taille et la ventilation doivent être regardés. Il faut d’abord mesurer et vérifier l’aération." },
   { question: "Pourquoi les angles de la chambre moisissent ?", answer: "Les angles sont souvent plus froids et moins ventilés, surtout derrière un meuble. Cela favorise la condensation et les moisissures si l’air circule mal." },
 ];
+const bedroomProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Pour noter le taux au coucher et au réveil avant d’envisager un appareil plus coûteux.',
+    details: 'Température et humidité sur un écran simple. À placer loin du radiateur, de la fenêtre et de la bouche d’air.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Mesurer d’abord',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'À envisager seulement si toute la chambre reste humide plusieurs jours malgré l’aération et un chauffage régulier.',
+    details: 'Le niveau sonore compte dans une chambre. L’appareil aide l’air, mais ne corrige pas une fuite, une infiltration ou une ventilation défaillante.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Si le taux reste haut',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Chambre humide : causes, risques et solutions" description="Chambre humide, vitres embuées, odeur au réveil : causes fréquentes et gestes simples avant d’acheter un appareil." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Chambre humide : causes, risques et solutions' }]}>
+<ArticleLayout title="Chambre humide : causes, risques et solutions" description="Chambre humide, vitres embuées, odeur au réveil : causes fréquentes et gestes simples avant d’acheter un appareil." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Chambre humide : causes, risques et solutions' }]} showAffiliateDisclosure={true}>
   <h1>Chambre humide : causes, risques et solutions</h1>
   <p>Une chambre peut être humide sans fuite apparente. Après une nuit porte fermée, la respiration, un mur froid ou un meuble collé au mur peuvent suffire à créer de la condensation et une odeur de renfermé.</p>
 
@@ -54,6 +75,13 @@ const faqs = [
   <AlertBox type="warning" title="À vérifier">
     <p>Si les moisissures reviennent dans une chambre occupée chaque nuit, ne vous contentez pas de parfumer ou de nettoyer. Il faut comprendre la cause.</p>
   </AlertBox>
+
+  <RevenueProductBlock
+    title="Deux options selon vos mesures"
+    intro="Commencez par contrôler le taux pendant plusieurs nuits. Un déshumidificateur n’a de sens que si l’humidité reste réellement élevée après les gestes simples."
+    products={bedroomProducts}
+    note="Dans une chambre, privilégiez la mesure et la recherche de cause. Si vous utilisez un appareil, regardez aussi le bruit et évitez de le faire fonctionner inutilement pendant le sommeil."
+  />
 
   <FAQSection items={faqs} />
 
