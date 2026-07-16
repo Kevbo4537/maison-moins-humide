@@ -7,8 +7,8 @@ import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
 const faqs = [
   { question: "Pourquoi une buanderie devient-elle humide ?", answer: "Le linge mouillé, le sèche-linge, une pièce froide et une ventilation insuffisante peuvent faire monter rapidement le taux d’humidité." },
-  { question: "Comment sécher du linge sans humidifier toute la pièce ?", answer: "Essorez bien, espacez le linge, aérez ou extrayez l’air, chauffez modérément et mesurez le taux. Un déshumidificateur peut aider si le séchage est fréquent." },
-  { question: "Un déshumidificateur est-il utile dans une buanderie ?", answer: "Oui si le taux reste haut pendant le séchage ou si la pièce manque d’extraction, mais il doit être dimensionné pour le volume et facile à vider ou raccorder." },
+  { question: "Comment sécher du linge sans humidifier toute la pièce ?", answer: "Essorez bien, espacez le linge, aérez vers l’extérieur ou utilisez l’extraction, chauffez modérément et mesurez le taux. N’envoyez pas simplement l’air humide vers les pièces de vie." },
+  { question: "Un déshumidificateur est-il utile dans une buanderie ?", answer: "Il peut aider si l’humidité reste élevée pendant le séchage, à condition d’être dimensionné pour le volume et facile à vider ou raccorder. Il ne remplace pas la ventilation nécessaire au renouvellement de l’air." },
 ];
 const laundryProducts = [
   {
@@ -31,9 +31,17 @@ const laundryProducts = [
   },
 ];
 ---
-<ArticleLayout title="Buanderie humide : linge, condensation et ventilation" description="Limiter l’humidité dans une buanderie, surtout avec lave-linge, sèche-linge ou linge qui sèche à l’intérieur." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide : linge, condensation et ventilation' }]} showAffiliateDisclosure={true} showAmazon={true}>
-  <h1>Buanderie humide : linge, condensation et ventilation</h1>
-  <p>Une buanderie concentre souvent lave-linge, sèche-linge, linge mouillé et peu de ventilation. C’est une pièce pratique, mais elle peut vite devenir humide si l’air ne se renouvelle pas.</p>
+<ArticleLayout
+  title="Buanderie humide : causes et solutions pour le linge"
+  description="Buanderie humide, linge qui sèche mal ou condensation : protocole de mesure, ventilation, gestes efficaces et choix prudent d’un déshumidificateur."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce', href: '/pieces/' }, { label: 'Buanderie humide' }]}
+  publishedDate="2026-05-20"
+  updatedDate="2026-07-16"
+  showAffiliateDisclosure={true}
+  showAmazon={true}
+>
+  <h1>Buanderie humide : que faire quand le linge sèche mal ?</h1>
+  <p>Une buanderie humide concentre souvent lave-linge, sèche-linge, linge mouillé et peu de ventilation. Avant d’acheter un appareil, mesurez combien de temps l’humidité reste élevée après une lessive : un pic court n’appelle pas la même solution qu’un taux supérieur à 60&nbsp;% pendant plusieurs heures.</p>
 
   <AlertBox type="tip" title="Premier réflexe">
     <p>Mesurez l’humidité quelques jours avec un hygromètre et regardez si le problème est ponctuel ou durable.</p>
@@ -47,6 +55,7 @@ const laundryProducts = [
     <li>ventilation faible</li>
     <li>pièce fraîche ou peu chauffée</li>
   </ul>
+  <p>Une humidité qui augmente seulement pendant le séchage oriente vers la vapeur produite dans la pièce. Une flaque ou une trace près du lave-linge impose de contrôler l’arrivée d’eau, la vidange et les raccords. Une trace qui revient après la pluie évoque plutôt une infiltration. Un bas de mur durablement humide, surtout dans une pièce en rez-de-chaussée ou enterrée, nécessite de rechercher une infiltration latérale, une fuite ou d’éventuelles remontées capillaires.</p>
   <h2>Signes à surveiller</h2>
   <ul>
     <li>odeur de linge humide persistante</li>
@@ -58,7 +67,7 @@ const laundryProducts = [
   <h2>Gestes efficaces</h2>
   <ul>
     <li>essorer correctement le linge</li>
-    <li>ouvrir la porte ou aérer pendant le séchage</li>
+    <li>aérer vers l’extérieur ou utiliser l’extraction pendant le séchage ; n’ouvrir la porte que si l’air humide est dirigé vers une extraction, et non vers les pièces de vie</li>
     <li>nettoyer filtres et évacuation du sèche-linge</li>
     <li>ne pas coller les appareils au mur</li>
     <li>éviter d’accumuler du linge humide fermé</li>

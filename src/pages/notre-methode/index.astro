@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Notre méthode éditoriale — Maison Moins Humide"
+  description="Sources, méthode de rédaction, sélection des produits, mises à jour et limites des conseils publiés sur Maison Moins Humide."
+>
+  <div class="container method-page">
+    <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Notre méthode éditoriale' }]} />
+    <article class="prose">
+      <h1>Notre méthode éditoriale</h1>
+      <p>Maison Moins Humide aide à comprendre un symptôme avant de proposer une solution. Un taux élevé, une vitre mouillée, une odeur ou une tache ne prouvent pas à eux seuls l’origine du problème. Nos contenus séparent donc la mesure, l’observation, les causes possibles et les actions prudentes.</p>
+
+      <h2>Comment nous préparons un guide</h2>
+      <ol>
+        <li><strong>Partir d’une situation concrète de logement :</strong> pièce concernée, moment d’apparition, météo, température, ventilation et durée du phénomène.</li>
+        <li><strong>Vérifier les mécanismes :</strong> humidité relative, point de rosée, surfaces froides, production de vapeur, circulation de l’air, fuite ou infiltration possible.</li>
+        <li><strong>Croiser les sources :</strong> organismes publics, publications sanitaires, documents techniques et notices des fabricants.</li>
+        <li><strong>Hiérarchiser les actions :</strong> mesurer et corriger les causes simples avant de recommander un achat.</li>
+        <li><strong>Indiquer les limites :</strong> un article ou un calculateur ne remplace pas l’examen du bâtiment.</li>
+      </ol>
+
+      <h2>Sources de référence</h2>
+      <p>Nous privilégions notamment les ressources de l’ADEME, de l’ANSES, de Santé publique France, du CSTB, de l’Organisation mondiale de la Santé et les publications scientifiques consacrées à l’humidité intérieure, aux moisissures et à la qualité de l’air. Les principales références sont ajoutées progressivement aux guides lors de leur vérification éditoriale.</p>
+
+      <h2>Comment les produits sont sélectionnés</h2>
+      <p>Nous comparons l’usage prévu, la capacité annoncée, le niveau sonore, la consommation, l’entretien, la sécurité, la disponibilité des consommables et le prix observé. Nous vérifions les notices et caractéristiques accessibles. <strong>Nous ne présentons jamais un produit comme testé en laboratoire ou testé personnellement si ce n’est pas réellement le cas.</strong></p>
+      <p>Un appareil n’est recommandé que s’il correspond au diagnostic probable : hygromètre pour mesurer, absorbeur pour un petit volume fermé, déshumidificateur pour un excès durable mesuré, ventilation adaptée pour évacuer la vapeur. Aucun de ces produits ne répare une fuite, une infiltration ou une remontée capillaire.</p>
+
+      <h2>Affiliation et indépendance</h2>
+      <p>Certains liens sont affiliés. Le site peut recevoir une commission si un achat est effectué, sans surcoût pour le lecteur. Cette rémunération ne change pas l’ordre conseillé : comprendre, mesurer, agir sur la cause, puis acheter seulement si nécessaire.</p>
+      <p><a href={`${base}politique-affiliation/`}>Consulter la politique d’affiliation</a>.</p>
+
+      <h2>Mises à jour et corrections</h2>
+      <p>Les pages prioritaires sont revues lorsque les retours des lecteurs, l’évolution des connaissances ou une vérification éditoriale révèlent une question mal couverte, lorsqu’une recommandation évolue ou lorsqu’un produit devient indisponible. Les pages réellement revues portent une date de mise à jour. Une erreur peut être signalée via la <a href={`${base}contact/`}>page de contact</a>.</p>
+
+      <h2>Quand demander un professionnel</h2>
+      <p>Mur mouillé, salpêtre, peinture qui cloque, trace après pluie, fuite, odeur persistante, moisissure étendue ou symptômes de santé : ces situations dépassent les conseils généraux. Il faut rechercher la cause avec le professionnel adapté et, pour une question de santé, demander un avis médical.</p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+.method-page { padding-top: 2rem; padding-bottom: 3rem; }
+</style>

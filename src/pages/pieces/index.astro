@@ -12,13 +12,13 @@ const pieces = [
   { title: "Buanderie humide", href: "/pieces/buanderie-humide/", description: "Linge qui sèche, sèche-linge, machine et ventilation de la pièce.", badge: "Linge" },
 ];
 ---
-<BaseLayout title="Humidité par pièce : salle de bain, chambre, cave, placard" description="Comprendre l’humidité selon la pièce touchée : salle de bain, chambre, cave, placard ou buanderie.">
+<BaseLayout title="Pièce humide : causes et solutions selon chaque pièce" description="Chambre, salle de bain, cave, placard ou buanderie humide : identifier la cause probable et choisir les actions adaptées à chaque pièce.">
   <div class="container container--wide hub">
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Solutions par pièce' }]} />
     <section class="hub-hero">
       <p class="eyebrow">Solutions par pièce</p>
-      <h1>Humidité par pièce</h1>
-      <p class="lead">Une salle de bain qui garde la vapeur, une chambre humide le matin et une cave qui sent le moisi ne se traitent pas de la même façon. Partez de la pièce touchée, puis vérifiez les gestes utiles.</p>
+      <h1>Pièce humide : causes et solutions selon chaque pièce</h1>
+      <p class="lead">Une pièce humide ne se traite pas au hasard. Dans une salle de bain, la priorité est souvent d’évacuer rapidement la vapeur ; dans une chambre, il faut observer la nuit et le réveil ; dans une cave ou un placard, la température des surfaces et la circulation de l’air deviennent déterminantes.</p>
       <div class="hub-actions"><a class="btn btn--primary" href={`${base}pieces/chambre-humide/`}>Chambre humide</a><a class="btn btn--light" href={`${base}pieces/salle-de-bain-humide/`}>Salle de bain</a></div>
     </section>
     <div class="intro-grid">
@@ -28,6 +28,37 @@ const pieces = [
     </div>
     <div class="section-heading"><h2>Choisir la pièce concernée</h2></div>
     <div class="card-grid">{pieces.map(p => <ArticleCard {...p} />)}</div>
+
+    <section class="diagnostic-section">
+      <h2>Reconnaître la cause probable d’une pièce humide</h2>
+      <p>Le taux d’humidité seul ne suffit pas. Notez le moment, la durée et l’endroit précis où le problème apparaît. Ces indices permettent de distinguer un excès de vapeur courant d’un défaut qui mérite un diagnostic du bâtiment.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Symptômes fréquents, causes à vérifier et premières actions</caption>
+          <thead><tr><th>Ce que vous observez</th><th>Cause à vérifier en premier</th><th>Première action</th></tr></thead>
+          <tbody>
+            <tr><td>Buée après douche ou cuisson</td><td>Vapeur produite plus vite qu’elle n’est évacuée</td><td>Aérer brièvement et vérifier l’extraction</td></tr>
+            <tr><td>Vitres mouillées surtout le matin</td><td>Air nocturne humide et vitrage froid</td><td>Mesurer au coucher et au réveil, puis calculer le point de rosée</td></tr>
+            <tr><td>Angle noir derrière un meuble</td><td>Surface froide et air qui circule mal</td><td>Écarter le meuble, nettoyer prudemment et surveiller</td></tr>
+            <tr><td>Trace qui revient après la pluie</td><td>Infiltration possible</td><td>Photographier, repérer le trajet de l’eau et faire contrôler l’enveloppe</td></tr>
+            <tr><td>Bas de mur humide ou salpêtre</td><td>Remontées capillaires possibles, infiltration latérale, ruissellement extérieur ou fuite à proximité</td><td>Éviter de masquer la trace et demander un diagnostic adapté</td></tr>
+            <tr><td>Odeur dans un placard fermé</td><td>Air stagnant contre une paroi froide</td><td>Vider, sécher, espacer les objets et contrôler le mur</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="protocol-section">
+      <h2>Le protocole simple avant d’acheter</h2>
+      <ol>
+        <li>Placez un hygromètre au centre de la pièce, loin d’une fenêtre, d’un radiateur ou d’une bouche d’air.</li>
+        <li>Relevez température et humidité matin et soir pendant trois jours, ainsi qu’après douche, lessive ou cuisson.</li>
+        <li>Vérifiez si les entrées et sorties d’air sont ouvertes, propres et réellement fonctionnelles.</li>
+        <li>Repérez les surfaces froides et utilisez le <a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>calculateur de point de rosée</a> pour comprendre la condensation.</li>
+        <li>Si une trace localisée progresse après la pluie ou résiste à l’aération, recherchez une fuite ou une infiltration avant de choisir un appareil.</li>
+      </ol>
+      <p><strong>À retenir :</strong> un absorbeur ou un déshumidificateur peut retirer de l’eau de l’air, mais aucun appareil ne répare une entrée d’eau ni une ventilation défectueuse.</p>
+    </section>
   </div>
 </BaseLayout>
 
@@ -45,5 +76,15 @@ const pieces = [
 .info-card p { color:var(--color-text-muted); font-size:.94rem; margin-bottom:0; }
 .section-heading { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin:2rem 0 1rem; }
 .section-heading h2 { margin:0; }
+.diagnostic-section, .protocol-section { margin-top:2.5rem; max-width:960px; }
+.table-wrap { overflow-x:auto; margin:1rem 0 1.5rem; border:1px solid var(--color-border); border-radius:14px; }
+table { width:100%; border-collapse:collapse; min-width:700px; background:#fff; }
+caption { padding:.75rem .9rem; text-align:left; font-weight:700; background:#fff; }
+th, td { padding:.8rem .9rem; text-align:left; vertical-align:top; border-bottom:1px solid var(--color-border); }
+th { background:#eef6f1; color:var(--color-text); font-size:.9rem; }
+tbody tr:last-child td { border-bottom:0; }
+.protocol-section { background:#f7faf8; border:1px solid var(--color-border); border-radius:16px; padding:clamp(1rem,3vw,1.5rem); }
+.protocol-section h2 { margin-top:0; }
+.protocol-section li + li { margin-top:.5rem; }
 @media(max-width:640px){ .hub-actions .btn{width:100%;text-align:center}.section-heading{display:block} }
 </style>

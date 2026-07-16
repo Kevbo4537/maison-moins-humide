@@ -8,6 +8,7 @@
     { "label": "À propos", "href": "/a-propos/" }
   ],
   "footer": [
+    { "label": "Notre méthode éditoriale", "href": "/notre-methode/" },
     { "label": "Contact", "href": "/contact/" },
     { "label": "Mentions légales", "href": "/mentions-legales/" },
     { "label": "Politique de confidentialité", "href": "/politique-confidentialite/" },

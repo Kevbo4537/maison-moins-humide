@@ -26,7 +26,11 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://www.maisonmoinshumide.fr';
+const base = import.meta.env.BASE_URL;
 const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
+const formatDate = (date?: string) => date
+  ? new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`))
+  : '';
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
@@ -34,21 +38,42 @@ const articleJsonLd = {
   headline: title,
   description,
   url: canonicalUrl,
-  publisher: {
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  inLanguage: 'fr-FR',
+  author: {
     '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
     name: 'Maison Moins Humide',
     url: siteUrl,
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Maison Moins Humide',
+    url: siteUrl,
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
   },
   ...(publishedDate && { datePublished: publishedDate }),
   ...(updatedDate && { dateModified: updatedDate }),
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} canonical={canonical} ogType="article">
   <div class="container article-wrapper">
     <Breadcrumbs crumbs={breadcrumbs} />
     <article class="prose">
       {showAffiliateDisclosure && <AffiliateDisclosure amazon={showAmazon} />}
       <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+      {(publishedDate || updatedDate) && (
+        <p class="editorial-meta">
+          <span>Par Maison Moins Humide</span>
+          <span aria-hidden="true">·</span>
+          {updatedDate
+            ? <time datetime={updatedDate}>Mis à jour le {formatDate(updatedDate)}</time>
+            : <time datetime={publishedDate}>Publié le {formatDate(publishedDate)}</time>}
+          <span aria-hidden="true">·</span>
+          <a href={`${base}notre-methode/`}>Notre méthode éditoriale</a>
+        </p>
+      )}
       <slot />
     </article>
   </div>
@@ -59,4 +84,16 @@ const articleJsonLd = {
   padding-top: 2rem;
   padding-bottom: 3rem;
 }
+
+.editorial-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  align-items: center;
+  margin: 0 0 1.25rem;
+  color: var(--color-text-muted);
+  font-size: .86rem;
+}
+
+.editorial-meta a { font-weight: 650; }
 </style>

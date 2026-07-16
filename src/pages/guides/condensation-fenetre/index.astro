@@ -11,9 +11,15 @@ const faqs = [
   { question: "Un déshumidificateur règle-t-il la condensation ?", answer: "Il peut réduire l’humidité de l’air, mais il ne remplace pas une ventilation correcte et ne corrige pas un pont thermique ou une pièce trop froide." },
 ];
 ---
-<ArticleLayout title="Condensation sur les fenêtres : causes et solutions" description="Fenêtre de chambre mouillée le matin, buée sur double vitrage, eau qui coule : comprendre la condensation et les bons gestes avant d’acheter." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Condensation sur les fenêtres' }]}>
-  <h1>Condensation sur les fenêtres : causes et solutions</h1>
-  <p>La condensation sur les fenêtres apparaît quand l’air intérieur contient de l’humidité et rencontre une surface froide. La vapeur d’eau se transforme alors en gouttelettes sur la vitre, le dormant ou le mur autour de la fenêtre.</p>
+<ArticleLayout
+  title="Condensation sur les vitres : que faire ?"
+  description="Condensation sur les vitres le matin, eau qui coule ou joints noirs : causes, test du point de rosée et actions efficaces avant tout achat."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Condensation sur les vitres' }]}
+  publishedDate="2026-05-20"
+  updatedDate="2026-07-16"
+>
+  <h1>Condensation sur les vitres : que faire ?</h1>
+  <p>La condensation sur les vitres apparaît quand l’air intérieur humide rencontre une surface froide. Commencez par essuyer l’eau, mesurer température et humidité, puis vérifier la ventilation : changer de fenêtre ou acheter un appareil n’est pas toujours nécessaire.</p>
 
   <AlertBox type="tip" title="Le bon réflexe le matin">
     <p>Essuyez l’eau visible, aérez franchement quelques minutes, puis surveillez si la condensation revient tous les jours ou seulement ponctuellement.</p>
@@ -53,11 +59,11 @@ const faqs = [
 
   <h2>Condensation sur double vitrage : pourquoi ça arrive quand même</h2>
   <p>Le double vitrage limite les surfaces froides, mais il ne supprime pas toutes les causes. Une fenêtre très étanche peut même rendre le problème plus visible si les entrées d’air sont absentes, bouchées ou si la VMC ne renouvelle pas assez l’air.</p>
-  <p>Regardez aussi l’endroit où l’eau apparaît. Une buée au bas de la vitre oriente souvent vers condensation intérieure. De l’eau entre les deux vitres peut indiquer un vitrage défectueux. Des traces autour du mur, du linteau ou dans un angle peuvent faire penser à un pont thermique ou à un défaut local d’isolation.</p>
+  <p>Regardez aussi l’endroit où l’eau apparaît. Une condensation sur la face intérieure signale que la surface intérieure est assez froide au regard de l’humidité de la pièce. Une buée entre les vitrages évoque une perte d’étanchéité du vitrage isolant. Une condensation sur la face extérieure peut au contraire être ponctuelle et normale avec un vitrage performant, notamment par temps clair et humide. Des traces autour du mur, du linteau ou dans un angle peuvent faire penser à un pont thermique ou à un défaut local d’isolation.</p>
 
   <h2>Relier le symptôme au point de rosée</h2>
-  <p>La question utile n’est pas seulement “quel est le taux d’humidité ?”, mais “la vitre est-elle assez froide pour faire condenser cet air ?”. C’est le rôle du point de rosée : si la surface de la fenêtre s’approche de cette température, la vapeur d’eau devient liquide.</p>
-  <p>Pour éviter de deviner, utilisez le <a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>calculateur de point de rosée</a> avec la température et l’humidité de la chambre. Si vous avez un thermomètre infrarouge, ajoutez la température de la vitre ou du mur froid pour mieux estimer le risque.</p>
+  <p>La question utile n’est pas seulement “quel est le taux d’humidité ?”, mais “la vitre est-elle assez froide pour faire condenser cet air ?”. C’est le rôle du point de rosée : plus la surface s’en approche, plus la marge avant condensation diminue ; à cette température ou en dessous, de l’eau peut se condenser.</p>
+  <p>Pour éviter de deviner, utilisez le <a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>calculateur de point de rosée</a> avec la température et l’humidité de la chambre. Si vous avez un thermomètre infrarouge, ajoutez la température du mur froid pour mieux estimer le risque. Sur une vitre, les reflets et l’émissivité du verre peuvent fausser la mesure : utilisez une petite zone mate non réfléchissante, par exemple un morceau de ruban adhésif mat laissé quelques minutes, et suivez la notice de l’appareil.</p>
 
   <h2>Gestes simples pour réduire la condensation</h2>
   <ol>
@@ -88,6 +94,12 @@ const faqs = [
   <AlertBox type="warning" title="Ne pas se limiter au nettoyage">
     <p>Nettoyer les moisissures autour des fenêtres est utile, mais si la condensation revient chaque jour, il faut réduire l’humidité et améliorer la circulation d’air.</p>
   </AlertBox>
+
+  <h2>Sources de référence</h2>
+  <ul>
+    <li><a href="https://www.who.int/publications/i/item/9789289041683" rel="noopener noreferrer">Organisation mondiale de la Santé, <em>WHO Guidelines for Indoor Air Quality: Dampness and Mould</em> (2009)</a>.</li>
+    <li><a href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" rel="noopener noreferrer">U.S. EPA, <em>A Brief Guide to Mold, Moisture and Your Home</em></a>.</li>
+  </ul>
 
   <FAQSection items={faqs} />
 

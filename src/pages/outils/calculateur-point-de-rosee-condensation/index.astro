@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'Faut-il mesurer la température du mur ?',
-    answer: 'Ce n’est pas obligatoire pour estimer le point de rosée, mais c’est beaucoup plus utile pour savoir si une vitre, un angle ou un mur est réellement en zone de condensation. Un thermomètre infrarouge peut aider.',
+    answer: 'Ce n’est pas obligatoire pour estimer le point de rosée, mais c’est beaucoup plus utile pour savoir si une vitre, un angle ou un mur est réellement en zone de condensation. Un thermomètre infrarouge peut aider. Sur une vitre, les reflets et l’émissivité du verre peuvent fausser la mesure : suivez la notice et mesurez de préférence une petite zone mate non réfléchissante.',
   },
   {
     question: 'À partir de quel taux d’humidité faut-il s’inquiéter ?',
@@ -30,19 +30,19 @@ const faqs = [
 ];
 ---
 <ArticleLayout
-  title="Calculateur point de rosée : risque de condensation dans la maison"
-  description="Calculez le point de rosée, le risque de condensation sur une vitre ou un mur froid, et les actions à prioriser contre l’humidité."
-  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Calculateur point de rosée' }]}
+  title="Calcul point de rosée : calculateur gratuit"
+  description="Calculez gratuitement le point de rosée avec la température et l’humidité, puis estimez le risque de condensation sur une vitre ou un mur froid."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Calcul du point de rosée' }]}
   publishedDate="2026-06-20"
-  updatedDate="2026-06-20"
+  updatedDate="2026-07-16"
 >
-  <h1>Calculateur de point de rosée et risque de condensation</h1>
-  <p>Entrez la température et l’humidité de la pièce. Si vous connaissez aussi la température d’une vitre, d’un mur ou d’un angle froid, l’outil estime le risque de condensation à cet endroit.</p>
+  <h1>Calculateur du point de rosée et risque de condensation</h1>
+  <p>Indiquez la température et l’humidité de la pièce pour calculer son point de rosée. Si vous connaissez aussi la température d’une vitre, d’un mur ou d’un angle froid, l’outil estime si cette surface risque de condenser.</p>
 
   <section class="calculator" aria-labelledby="calculator-title">
     <div class="calculator__intro">
       <p class="tool-kicker">Outil interactif · résultat immédiat</p>
-      <h2 id="calculator-title">Tester votre pièce</h2>
+      <h2 id="calculator-title">Calculer le risque de condensation</h2>
       <p>Entrez vos mesures. Le résultat reste indicatif : salpêtre, mur mouillé ou fuite possible doivent être vérifiés à part.</p>
     </div>
 
@@ -130,6 +130,7 @@ const faqs = [
 
   <h2>Pourquoi ce calcul aide vraiment</h2>
   <p>Un hygromètre affiche l’humidité de l’air. Mais les traces apparaissent souvent sur les surfaces les plus froides : bas de vitre, angle de mur, plafond, derrière un meuble ou cave fraîche. Le calculateur relie donc trois données : température de l’air, humidité relative et température de surface.</p>
+  <p><strong>Mesure d’une vitre :</strong> un thermomètre infrarouge peut être trompé par les reflets et l’émissivité du verre. Mesurez de préférence une petite zone mate non réfléchissante, par exemple un morceau de ruban adhésif mat laissé quelques minutes sur la surface, et consultez la notice de l’appareil.</p>
 
   <h2>Les repères utilisés</h2>
   <ul>
@@ -160,16 +161,16 @@ const faqs = [
     <li><strong>Risque faible :</strong> surveiller, refaire une mesure matin/soir, éviter les achats inutiles.</li>
     <li><strong>Humidité élevée :</strong> vérifier VMC, aération, séchage du linge, cuisson, douche, puis mesurer 7 jours.</li>
     <li><strong>Condensation probable :</strong> agir sur l’air humide, la ventilation, le chauffage régulier et les surfaces froides.</li>
-    <li><strong>Signal technique :</strong> ne pas se contenter d’un produit ; chercher fuite, infiltration, remontée ou défaut de ventilation.</li>
+    <li><strong>Signal technique :</strong> ne pas se contenter d’un produit ; rechercher l’origine de l’eau : fuite, infiltration, remontées capillaires possibles ou défaut de ventilation. Le salpêtre est un indice, pas un diagnostic à lui seul.</li>
   </ul>
 
   <h2>Sources utilisées</h2>
   <ul>
-    <li>OMS, <em>Guidelines for Indoor Air Quality: Dampness and Mould</em>.</li>
-    <li>Institute of Medicine, <em>Damp Indoor Spaces and Health</em>, National Academies Press.</li>
-    <li>EPA, <em>A Brief Guide to Mold, Moisture and Your Home</em>.</li>
-    <li>CDC / NIOSH, ressources sur humidité intérieure et moisissures.</li>
-    <li>Alduchov & Eskridge, formule de Magnus améliorée pour la pression de vapeur saturante.</li>
+    <li><a href="https://www.who.int/publications/i/item/9789289041683" rel="noopener noreferrer">Organisation mondiale de la Santé, <em>WHO Guidelines for Indoor Air Quality: Dampness and Mould</em> (2009)</a>.</li>
+    <li><a href="https://nap.nationalacademies.org/catalog/11011/damp-indoor-spaces-and-health" rel="noopener noreferrer">Institute of Medicine, <em>Damp Indoor Spaces and Health</em>, National Academies Press (2004)</a>.</li>
+    <li><a href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home" rel="noopener noreferrer">U.S. EPA, <em>A Brief Guide to Mold, Moisture and Your Home</em></a>.</li>
+    <li><a href="https://www.cdc.gov/niosh/mold/about/index.html" rel="noopener noreferrer">CDC / NIOSH, <em>Mold, Testing, and Remediation</em></a>.</li>
+    <li><a href="https://ui.adsabs.harvard.edu/abs/1996JApMe..35..601A/abstract" rel="noopener noreferrer">O. A. Alduchov et R. E. Eskridge, <em>Improved Magnus Form Approximation of Saturation Vapor Pressure</em> (1996)</a>.</li>
   </ul>
 
   <FAQSection items={faqs} />
@@ -224,7 +225,7 @@ const faqs = [
     if (level === 'technical') {
       return [
         'Ne pas masquer avec peinture, parfum ou absorbeur seul.',
-        'Chercher fuite, infiltration, remontée capillaire, salpêtre ou défaut de ventilation.',
+        'Rechercher l’origine de l’eau : fuite, infiltration, remontées capillaires possibles ou défaut de ventilation. Le salpêtre est un indice, pas un diagnostic à lui seul.',
         'Demander un avis pro si le mur reste mouillé, si la trace revient ou si la moisissure est étendue.',
       ];
     }
@@ -364,7 +365,7 @@ const faqs = [
       level = 'humid';
       label = 'Humidité intérieure élevée';
       className = 'result-card result-card--warning';
-      explanation = 'L’air contient déjà beaucoup d’humidité. Une baisse de température ou une surface froide peut suffire à déclencher buée ou traces.';
+      explanation = 'L’humidité relative est élevée. Une baisse de température ou le contact avec une surface froide peut suffire à provoquer de la buée ou des traces.';
     }
 
     const actions = buildActions(level, room, symptom, frequency);
