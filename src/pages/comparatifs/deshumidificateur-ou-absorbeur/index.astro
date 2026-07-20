@@ -72,13 +72,43 @@ const comparisonProducts = [
     <li>vous voulez voir la quantité d’eau réellement retirée</li>
   </ul>
   <h2>Comparaison pratique</h2>
-  <ul>
-    <li>absorbeur : simple, silencieux, peu puissant</li>
-    <li>déshumidificateur : plus efficace, mais bruyant et électrique</li>
-    <li>absorbeur : adapté aux petits volumes</li>
-    <li>déshumidificateur : adapté aux pièces complètes</li>
-    <li>aucun des deux ne répare une infiltration</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Situation mesurée</th>
+        <th>Choix le plus cohérent</th>
+        <th>Pourquoi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href={`${base}pieces/placard-humide/`}>Placard légèrement humide</a></td>
+        <td>Absorbeur</td>
+        <td>Silencieux et adapté à un petit volume fermé, avec recharge à surveiller.</td>
+      </tr>
+      <tr>
+        <td><a href={`${base}pieces/chambre-humide/`}>Chambre au-dessus de 60&nbsp;% plusieurs jours</a></td>
+        <td>Déshumidificateur silencieux</td>
+        <td>Un absorbeur est généralement trop limité pour traiter le volume de la pièce.</td>
+      </tr>
+      <tr>
+        <td><a href={`${base}pieces/buanderie-humide/`}>Buanderie avec linge qui sèche</a></td>
+        <td>Déshumidificateur avec drainage possible</td>
+        <td>L’apport d’humidité est répété et demande une extraction d’eau plus importante.</td>
+      </tr>
+      <tr>
+        <td>Buée ponctuelle puis retour sous 60&nbsp;%</td>
+        <td>Pas d’achat immédiat</td>
+        <td>Aérer et suivre les mesures peut suffire si le taux redescend correctement.</td>
+      </tr>
+      <tr>
+        <td>Mur mouillé, salpêtre ou traces après la pluie</td>
+        <td>Recherche de cause</td>
+        <td>Ni l’absorbeur ni le déshumidificateur ne stoppe l’arrivée d’eau.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Encore un doute&nbsp;?</strong> Notez température et humidité matin et soir pendant 3 à 7 jours. En cas de paroi froide ou de buée, le <a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>calculateur de point de rosée et de condensation</a> aide à distinguer un risque de condensation d’un simple pic passager.</p>
   <h2>Erreur fréquente</h2>
   <ul>
     <li>acheter un absorbeur pour une pièce entière très humide</li>
