@@ -4,137 +4,362 @@ const base = import.meta.env.BASE_URL;
 const pdfUrl = `${base}downloads/checklist-humidite-7-jours.pdf`;
 ---
 <ArticleLayout
-  title="Fiche relevé humidité : PDF remplissable sur 7 jours"
-  description="Téléchargez une fiche de relevé d’humidité PDF : 14 relevés sur 7 jours, vérifications guidées et grille d’interprétation prudente."
-  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Fiche relevé humidité' }]}
+  title="Suivi humidité 7 jours : relevé et compte rendu"
+  description="Notez 14 mesures d’humidité pendant 7 jours, puis obtenez un compte rendu personnalisé avec les faits importants et les prochaines actions."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Suivi humidité 7 jours' }]}
 >
-  <h1>Fiche de relevé d’humidité sur 7 jours</h1>
-  <p class="lead">Un PDF A4 à <strong>remplir à l’écran</strong> ou à imprimer. Chaque information notée sert ensuite à relier les mesures, le contexte et les signes visibles pour orienter la suite, sans prétendre identifier seule la cause.</p>
+  <h1>Suivi humidité sur 7 jours avec compte rendu</h1>
+  <p class="lead">Le relevé n’est plus une fin en soi : vous mesurez pendant 7 jours, puis l’outil transforme vos 14 mesures et vos observations en <strong>bilan lisible, piste principale et actions concrètes</strong>.</p>
 
-  <div class="download-card" aria-labelledby="download-title">
-    <div>
-      <p class="eyebrow">PDF REMPLISSABLE · 3 PAGES A4</p>
-      <h2 id="download-title">Suivi humidité — 7 jours</h2>
-      <p>14 relevés, vérifications avec résultats et grille d’orientation finale.</p>
-    </div>
-    <div class="download-actions">
-      <a class="btn btn--primary" href={pdfUrl} download="checklist-humidite-7-jours.pdf">Télécharger le PDF</a>
-      <a class="btn btn--secondary" href={pdfUrl} target="_blank" rel="noopener">Ouvrir pour imprimer (nouvel onglet)</a>
-    </div>
+  <section class="journey" aria-labelledby="journey-title">
+    <p class="eyebrow">LE PARCOURS, SANS AMBIGUÏTÉ</p>
+    <h2 id="journey-title">Quand remplir chaque partie ?</h2>
+    <ol class="timeline">
+      <li><span>1</span><div><strong>Avant le premier relevé</strong><p>Choisissez une seule pièce et posez l’hygromètre toujours au même endroit, loin d’un radiateur, d’une fenêtre ouverte et d’une bouche d’air.</p></div></li>
+      <li><span>2</span><div><strong>Du jour 1 au jour 7</strong><p>Chaque matin et chaque soir, <strong>avant d’aérer</strong>, notez la température et l’humidité. Cochez au moment où ils surviennent tous les faits utiles de la journée : activité produisant de la vapeur, pluie et/ou autre changement.</p></div></li>
+      <li><span>3</span><div><strong>Après le dernier relevé du jour 7</strong><p>Répondez une seule fois aux questions sur ce que vous avez réellement observé pendant la semaine : traces, odeur, pluie et ventilation.</p></div></li>
+      <li><span>4</span><div><strong>Enfin : générez le compte rendu</strong><p>Le site calcule les dépassements, la persistance, les liens avec les activités et l’effet des variations de température. Il explique ce que les données suggèrent et quoi faire ensuite.</p></div></li>
+    </ol>
+  </section>
+
+  <div class="choice-grid">
+    <article class="download-card">
+      <p class="eyebrow">OPTION PAPIER · 2 PAGES A4</p>
+      <h2>Relever sur papier</h2>
+      <p>Imprimez la grille, notez les 14 mesures, puis revenez les saisir ci-dessous pour produire le compte rendu.</p>
+      <div class="download-actions">
+        <a class="btn btn--primary" href={pdfUrl} download="checklist-humidite-7-jours.pdf">Télécharger la grille PDF</a>
+        <a class="btn btn--secondary" href={pdfUrl} target="_blank" rel="noopener">Ouvrir pour imprimer</a>
+      </div>
+    </article>
+    <article class="quick-card">
+      <p class="eyebrow">SIMULATION RAPIDE</p>
+      <h2>Une seule mesure maintenant</h2>
+      <p>Pour estimer immédiatement le risque de condensation à partir d’une température et d’un taux d’humidité.</p>
+      <a class="btn btn--secondary" href={`${base}outils/calculateur-point-de-rosee-condensation/`}>Ouvrir la simulation rapide</a>
+    </article>
   </div>
-
-  <aside class="save-tip">
-    <strong>Pour le remplir sur ordinateur ou tablette :</strong> téléchargez d’abord le PDF, puis ouvrez-le dans votre lecteur PDF afin de conserver les informations saisies.
-  </aside>
 
   <aside class="urgent-tip">
-    <strong>N’attendez pas la fin des 7 jours</strong> en cas de fuite active, mur mouillé ou moisissures étendues ou récidivantes : contactez un professionnel du bâtiment et, selon la situation, votre assurance. En cas de symptômes respiratoires ou si un occupant est fragile, demandez un avis médical.
+    <strong>N’attendez pas le jour 7</strong> en cas de fuite active, mur actuellement mouillé ou moisissures étendues/récidivantes. Le relevé ne doit jamais retarder une intervention utile.
   </aside>
 
-  <h2>Comment l’utiliser</h2>
-  <ol class="steps">
-    <li><span>1</span><div><strong>Choisissez une seule pièce</strong><p>Placez l’hygromètre toujours au même endroit, loin d’une fenêtre, d’un radiateur et d’une bouche d’air.</p></div></li>
-    <li><span>2</span><div><strong>Notez matin et soir</strong><p>Relevez la température et l’humidité avant d’aérer. Ajoutez seulement les faits utiles : douche, linge, pluie, cuisson ou trace visible.</p></div></li>
-    <li><span>3</span><div><strong>Reliez les indices au 7e jour</strong><p>Comptez les dépassements, notez Oui, Non, Non vérifié ou Non applicable pour chaque contrôle, puis utilisez la grille finale. Une orientation repose toujours sur plusieurs indices.</p></div></li>
-  </ol>
+  <section class="analyzer" aria-labelledby="analyzer-title">
+    <div class="analyzer__intro">
+      <p class="eyebrow">BILAN APRÈS 7 JOURS</p>
+      <h2 id="analyzer-title">Saisir les relevés et obtenir le compte rendu</h2>
+      <p>Vous pouvez aussi saisir les valeurs au fil de la semaine : elles restent enregistrées dans ce navigateur. Le compte rendu final n’est produit qu’avec les <strong>14 mesures complètes</strong>.</p>
+    </div>
 
-  <aside class="logic-tip">
-    <strong>Pourquoi chaque champ est présent :</strong> les dates et observations relient les variations aux activités ou à la pluie ; la température évite de mal interpréter un changement d’humidité relative ; l’emplacement et les signes visibles distinguent une piste locale d’un phénomène général ; les contrôles et le test avant/après déterminent l’action logique suivante. Les signes d’eau ou d’alerte restent prioritaires.
-  </aside>
+    <form id="week-form">
+      <div class="room-row">
+        <label><span>Pièce suivie</span>
+          <select name="roomType" id="room-type">
+            <option value="chambre">Chambre</option>
+            <option value="salon">Salon / séjour</option>
+            <option value="salle-bain">Salle de bain</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="buanderie">Buanderie</option>
+            <option value="cave">Cave / sous-sol</option>
+            <option value="autre">Autre pièce</option>
+          </select>
+        </label>
+      </div>
 
-  <div class="included">
-    <h2>Dans le fichier</h2>
-    <ul>
-      <li>14 relevés matin et soir ;</li>
-      <li>température, humidité et observations ;</li>
-      <li>signes visibles et emplacement précis ;</li>
-      <li>résultat explicite de chaque vérification : Oui, Non, Non vérifié ou Non applicable ;</li>
-      <li>test avant/après pendant 24 à 48 heures ;</li>
-      <li>sept orientations reliant les indices à une suite concrète.</li>
-    </ul>
-  </div>
+      <p class="scroll-hint">Sur téléphone, faites glisser le tableau vers la gauche pour voir la colonne « faits de la journée ».</p>
+      <div class="table-wrap">
+        <table class="readings-table">
+          <caption>À remplir matin et soir pendant les 7 jours</caption>
+          <thead><tr><th>Jour</th><th>Matin<br><small>avant d’aérer</small></th><th>Soir<br><small>avant d’aérer</small></th><th>Faits de la journée</th></tr></thead>
+          <tbody>
+            {Array.from({ length: 7 }, (_, index) => {
+              const day = index + 1;
+              return <tr>
+                <th scope="row">J{day}</th>
+                <td><div class="measure-pair"><label><span>°C</span><input name={`d${day}mTemp`} type="number" min="0" max="40" step="0.1" inputmode="decimal" aria-label={`Jour ${day} matin température`} required /></label><label><span>%</span><input name={`d${day}mRh`} type="number" min="20" max="100" step="1" inputmode="numeric" aria-label={`Jour ${day} matin humidité`} required /></label></div></td>
+                <td><div class="measure-pair"><label><span>°C</span><input name={`d${day}eTemp`} type="number" min="0" max="40" step="0.1" inputmode="decimal" aria-label={`Jour ${day} soir température`} required /></label><label><span>%</span><input name={`d${day}eRh`} type="number" min="20" max="100" step="1" inputmode="numeric" aria-label={`Jour ${day} soir humidité`} required /></label></div></td>
+                <td><div class="event-checks" aria-label={`Jour ${day} faits notables`}><label><input type="checkbox" name={`d${day}activity`} /> Douche, cuisson ou linge</label><label><input type="checkbox" name={`d${day}rain`} /> Pluie marquée</label><label><input type="checkbox" name={`d${day}other`} /> Autre changement</label></div></td>
+              </tr>;
+            })}
+          </tbody>
+        </table>
+      </div>
 
-  <p class="next-link"><a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>Calculer ensuite le risque de condensation →</a></p>
+      <fieldset class="after-week">
+        <legend>À répondre une seule fois, après le dernier relevé du jour 7</legend>
+        <p class="fieldset-help">Répondez selon ce qui s’est produit à un moment quelconque pendant les 7 jours.</p>
+        <div class="question-block">
+          <strong>Signes observés pendant la semaine</strong>
+          <div class="check-grid">
+            <label><input type="checkbox" name="signCondensation" /> Buée ou eau sur une vitre/paroi</label>
+            <label><input type="checkbox" name="signOdor" /> Odeur de moisi</label>
+            <label><input type="checkbox" name="signMold" /> Moisissure visible</label>
+            <label><input type="checkbox" name="moldRecurring" /> Moisissure réapparue après nettoyage</label>
+            <label><input type="checkbox" name="signWetWall" /> Mur mouillé au toucher</label>
+            <label><input type="checkbox" name="signBlistering" /> Peinture ou enduit qui cloque</label>
+            <label><input type="checkbox" name="signSalts" /> Dépôt blanc / salpêtre possible</label>
+          </div>
+          <p class="microcopy">Ne cochez rien si aucun de ces signes n’est apparu.</p>
+        </div>
+        <div class="final-grid">
+          <label><span>Une trace ou zone humide s’est-elle aggravée après la pluie ?</span><select name="rainWorse" required><option value="">Choisir une réponse</option><option value="no">Non</option><option value="yes">Oui</option><option value="unknown">Impossible à vérifier cette semaine</option><option value="na">Aucune trace concernée</option></select></label>
+          <label><span>Les entrées d’air ou l’extraction attendues dans cette pièce sont-elles présentes, ouvertes et propres ?</span><select name="ventilation" required><option value="">Choisir une réponse</option><option value="yes">Oui</option><option value="no">Non</option><option value="unknown">Je ne sais pas / non vérifié</option><option value="na">Aucun dispositif attendu ici</option></select></label>
+          <label><span>Où les signes sont-ils apparus ?</span><select name="scope" required><option value="">Choisir une réponse</option><option value="none">Aucun signe</option><option value="local">Toujours dans une zone précise</option><option value="multiple">Sur plusieurs zones ou murs</option></select></label>
+        </div>
+      </fieldset>
+
+      <div id="form-message" class="form-message" aria-live="polite"></div>
+      <div class="form-actions">
+        <button class="btn btn--primary" type="submit">Générer mon compte rendu</button>
+        <button class="btn btn--secondary" type="button" id="save-week">Enregistrer dans ce navigateur</button>
+        <button class="btn btn--secondary" type="button" id="load-example">Voir un exemple rempli</button>
+        <button class="text-button" type="button" id="reset-week">Effacer et recommencer</button>
+      </div>
+      <p class="privacy-note">Les données restent uniquement dans votre navigateur : elles ne sont pas envoyées au site.</p>
+    </form>
+
+    <section id="week-report" class="report" aria-live="polite" hidden></section>
+  </section>
 </ArticleLayout>
 
+<script>
+  import { analyzeHumidityWeek } from '../../../lib/humidity-report.mjs';
+
+  const form = document.getElementById('week-form');
+  const report = document.getElementById('week-report');
+  const message = document.getElementById('form-message');
+  const saveButton = document.getElementById('save-week');
+  const exampleButton = document.getElementById('load-example');
+  const resetButton = document.getElementById('reset-week');
+  const storageKey = 'mmh-humidity-week-v2';
+
+  const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
+
+  function serializeForm() {
+    const data = {};
+    for (const element of form.elements) {
+      if (!element.name) continue;
+      data[element.name] = element.type === 'checkbox' ? element.checked : element.value;
+    }
+    return data;
+  }
+
+  function restoreForm() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      if (!saved?.data) return;
+      for (const element of form.elements) {
+        if (!element.name || !(element.name in saved.data)) continue;
+        if (element.type === 'checkbox') element.checked = Boolean(saved.data[element.name]);
+        else element.value = saved.data[element.name];
+      }
+      message.textContent = `Suivi retrouvé dans ce navigateur (dernier enregistrement : ${new Date(saved.savedAt).toLocaleString('fr-FR')}).`;
+      message.className = 'form-message form-message--ok';
+    } catch {
+      localStorage.removeItem(storageKey);
+    }
+  }
+
+  function saveForm(showConfirmation = true) {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ data: serializeForm(), savedAt: new Date().toISOString() }));
+      if (showConfirmation) {
+        message.textContent = 'Suivi enregistré dans ce navigateur.';
+        message.className = 'form-message form-message--ok';
+      }
+      return true;
+    } catch {
+      if (showConfirmation) {
+        message.textContent = 'Enregistrement local indisponible sur ce navigateur. Vous pouvez néanmoins générer le compte rendu.';
+        message.className = 'form-message form-message--error';
+      }
+      return false;
+    }
+  }
+
+  function numberValue(name) {
+    const raw = new FormData(form).get(name);
+    if (raw === null || String(raw).trim() === '') return null;
+    const value = Number(String(raw).replace(',', '.'));
+    return Number.isFinite(value) ? value : null;
+  }
+
+  function buildInput() {
+    const data = new FormData(form);
+    const readings = [];
+    const contexts = [];
+    for (let day = 1; day <= 7; day += 1) {
+      readings.push({ day, period: 'morning', temp: numberValue(`d${day}mTemp`), rh: numberValue(`d${day}mRh`) });
+      readings.push({ day, period: 'evening', temp: numberValue(`d${day}eTemp`), rh: numberValue(`d${day}eRh`) });
+      const events = [];
+      if (data.get(`d${day}activity`) === 'on') events.push('activity');
+      if (data.get(`d${day}rain`) === 'on') events.push('rain');
+      if (data.get(`d${day}other`) === 'on') events.push('other');
+      contexts.push({ day, events });
+    }
+    return {
+      roomType: data.get('roomType'), readings, contexts,
+      signs: {
+        condensation: data.get('signCondensation') === 'on', odor: data.get('signOdor') === 'on',
+        mold: data.get('signMold') === 'on', moldRecurring: data.get('moldRecurring') === 'on', wetWall: data.get('signWetWall') === 'on',
+        blistering: data.get('signBlistering') === 'on', salts: data.get('signSalts') === 'on',
+      },
+      rainWorse: data.get('rainWorse'), ventilation: data.get('ventilation'), scope: data.get('scope'),
+    };
+  }
+
+  function renderReport(result) {
+    const secondary = result.secondary.length
+      ? `<div class="secondary-pistes"><strong>Piste complémentaire :</strong> ${result.secondary.map((item) => escapeHtml(item.title)).join(', ')}</div>` : '';
+    const alert = result.alert.level !== 'none'
+      ? `<div class="report-alert report-alert--${escapeHtml(result.alert.level)}"><strong>Priorité :</strong> ${escapeHtml(result.alert.message)}</div>` : '';
+    report.innerHTML = `
+      <div class="report-head"><div><p class="eyebrow">VOTRE COMPTE RENDU</p><h2>${escapeHtml(result.primary.title)}</h2><p>${escapeHtml(result.primary.description)}</p></div><button type="button" class="btn btn--secondary" id="print-report">Imprimer ce bilan</button></div>
+      ${alert}
+      <div class="summary-grid">
+        <div><strong>${escapeHtml(result.summary.averageRh.toFixed(1).replace('.', ','))} %</strong><span>Humidité moyenne</span></div>
+        <div><strong>${result.summary.countHighComfort}/14</strong><span>Relevés entre 55 et 60 %</span></div>
+        <div><strong>${result.summary.countAbove60}/14</strong><span>Relevés au-dessus de 60 %</span></div>
+        <div><strong>${result.summary.countAtLeast70}/14</strong><span>Relevés à 70 % ou plus</span></div>
+        <div><strong>${escapeHtml(result.summary.minRh)}–${escapeHtml(result.summary.maxRh)} %</strong><span>Minimum – maximum</span></div>
+      </div>
+      <section><h3>Pourquoi cette orientation ?</h3><ul>${result.evidence.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>${secondary}<p class="temperature-note">${escapeHtml(result.temperatureNote)}</p></section>
+      <section><h3>Ce que vous pouvez faire maintenant</h3><ol class="action-list">${result.actions.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol></section>
+      <p class="report-disclaimer">Ce compte rendu est un prédiagnostic d’orientation. Il ne permet pas d’identifier à lui seul une cause dans le bâtiment.</p>`;
+    report.hidden = false;
+    document.getElementById('print-report')?.addEventListener('click', () => window.print());
+    report.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    form.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
+    if (!form.checkValidity()) {
+      const invalid = form.querySelector(':invalid');
+      invalid?.setAttribute('aria-invalid', 'true');
+      invalid?.focus();
+      return;
+    }
+    const result = analyzeHumidityWeek(buildInput());
+    if (result.status !== 'complete') {
+      report.hidden = true;
+      message.textContent = result.message || 'Compte rendu impossible : vérifiez les champs signalés.';
+      message.className = 'form-message form-message--error';
+      const target = result.status === 'incomplete-context' ? form.elements.scope : form.querySelector('input[type="number"]:invalid');
+      target?.setAttribute('aria-invalid', 'true');
+      target?.focus();
+      message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    saveForm(false);
+    message.textContent = 'Les 14 relevés et le bilan final ont été analysés.';
+    message.className = 'form-message form-message--ok';
+    renderReport(result);
+  });
+
+  saveButton.addEventListener('click', () => saveForm(true));
+  exampleButton.addEventListener('click', () => {
+    const humidity = [51, 52, 50, 66, 52, 53, 50, 68, 51, 52, 49, 65, 50, 51];
+    let humidityIndex = 0;
+    form.querySelectorAll('input[type="number"]').forEach((input, index) => {
+      input.value = index % 2 === 0 ? '19' : String(humidity[humidityIndex++]);
+    });
+    form.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = false; });
+    [2, 4, 6].forEach((day) => { form.elements[`d${day}activity`].checked = true; });
+    form.elements.rainWorse.value = 'na';
+    form.elements.ventilation.value = 'yes';
+    form.elements.scope.value = 'none';
+    saveForm(false);
+    form.requestSubmit();
+  });
+  form.addEventListener('input', () => saveForm(false));
+  resetButton.addEventListener('click', () => {
+    if (!window.confirm('Effacer les 7 jours enregistrés dans ce navigateur ?')) return;
+    form.reset(); localStorage.removeItem(storageKey); report.hidden = true;
+    message.textContent = 'Suivi effacé.'; message.className = 'form-message';
+  });
+  restoreForm();
+</script>
+
 <style>
-.lead { max-width: 46rem; font-size: 1.08rem; }
-.download-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem;
-  align-items: center;
-  margin: 1.5rem 0 1rem;
-  padding: 1.5rem;
-  border: 1px solid #bfd3df;
-  border-radius: 18px;
-  background: #eaf3f8;
-}
-.download-card h2 { margin: .2rem 0 .45rem; }
-.download-card p { margin: 0; }
-.eyebrow { color: var(--color-primary); font-size: .78rem; font-weight: 800; letter-spacing: .05em; }
-.download-actions { display: flex; flex-direction: column; gap: .7rem; min-width: 13rem; }
-.btn--secondary {
-  display: inline-block;
-  padding: .65rem 1rem;
-  border: 1.5px solid var(--color-primary);
-  border-radius: var(--radius);
-  background: #fff;
-  color: var(--color-primary);
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-}
-.save-tip {
-  margin: 1rem 0 2rem;
-  padding: .85rem 1rem;
-  border-left: 4px solid #d7ad38;
-  background: #fff4d6;
-  font-size: .94rem;
-}
-.urgent-tip {
-  margin: 1rem 0 2rem;
-  padding: .9rem 1rem;
-  border-left: 4px solid #b94b43;
-  background: #fce8e6;
-  font-size: .94rem;
-}
-.logic-tip {
-  margin: 1rem 0 2rem;
-  padding: 1rem 1.1rem;
-  border-left: 4px solid #5a8f70;
-  background: #eef5f0;
-  font-size: .94rem;
-}
-.steps { display: grid; gap: .8rem; padding: 0; list-style: none; }
-.steps li {
-  display: grid;
-  grid-template-columns: 2.2rem 1fr;
-  gap: .8rem;
-  align-items: start;
-  padding: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  background: #fff;
-}
-.steps li > span {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 9px;
-  background: var(--color-primary);
-  color: #fff;
-  font-weight: 800;
-}
-.steps p { margin: .25rem 0 0; }
-.included { margin: 2rem 0 1rem; padding: 1.2rem 1.4rem; border-radius: 16px; background: #eef5f0; }
-.included h2 { margin-top: 0; }
-.included li { margin: .35rem 0; }
-.next-link { margin-top: 1.5rem; font-weight: 700; }
-@media (max-width: 720px) {
-  .download-card { grid-template-columns: 1fr; padding: 1.2rem; }
-  .download-actions { min-width: 0; }
-  .download-actions .btn, .btn--secondary { width: 100%; }
-}
+  .lead { max-width: 50rem; font-size: 1.1rem; }
+  .eyebrow { margin: 0 0 .35rem; color: var(--color-primary); font-size: .76rem; font-weight: 800; letter-spacing: .06em; }
+  .journey { margin: 1.7rem 0; padding: 1.4rem; border: 1px solid #bfd3df; border-radius: 18px; background: #f5f9fb; }
+  .journey h2, .download-card h2, .quick-card h2 { margin: .2rem 0 .7rem; }
+  .timeline { display: grid; gap: .75rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .timeline li { display: grid; grid-template-columns: 2.25rem 1fr; gap: .8rem; align-items: start; }
+  .timeline li > span { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 800; }
+  .timeline p { margin: .2rem 0 0; }
+  .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .download-card, .quick-card { padding: 1.35rem; border: 1px solid var(--color-border); border-radius: 16px; background: #fff; }
+  .download-card { background: #eaf3f8; }
+  .download-actions { display: flex; gap: .65rem; flex-wrap: wrap; margin-top: 1rem; }
+  .btn--secondary { display: inline-block; padding: .65rem 1rem; border: 1.5px solid var(--color-primary); border-radius: var(--radius); background: #fff; color: var(--color-primary); font-weight: 700; text-align: center; text-decoration: none; }
+  .urgent-tip { margin: 1rem 0 2rem; padding: .9rem 1rem; border-left: 4px solid #b94b43; background: #fce8e6; }
+  .analyzer { margin: 2rem 0; border: 1px solid #bfd3df; border-radius: 20px; background: #f8fbfc; overflow: hidden; }
+  .analyzer__intro { padding: 1.5rem; background: #eaf3f8; }
+  .analyzer__intro h2 { margin: .2rem 0 .5rem; }
+  #week-form { padding: 1.4rem; }
+  .room-row { max-width: 24rem; margin-bottom: 1rem; }
+  label > span, .question-block > strong { display: block; margin-bottom: .35rem; font-weight: 700; }
+  input, select { width: 100%; min-height: 2.6rem; padding: .55rem .65rem; border: 1px solid #9db0bd; border-radius: 8px; background: #fff; color: var(--color-text); font: inherit; }
+  input:focus, select:focus { outline: 3px solid rgba(43,111,156,.2); border-color: var(--color-primary); }
+  .scroll-hint { display: none; margin-bottom: .4rem; color: #5e6f7d; font-size: .82rem; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+  .readings-table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; }
+  .readings-table caption { padding: .8rem; background: #17324d; color: #fff; font-weight: 800; text-align: left; }
+  .readings-table th, .readings-table td { padding: .65rem; border: 1px solid #cbd7de; vertical-align: middle; }
+  .readings-table thead th { background: #edf4f7; color: #17324d; }
+  .readings-table small { font-weight: 400; }
+  .measure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
+  .measure-pair label { position: relative; }
+  .measure-pair label span { position: absolute; right: .5rem; top: .62rem; margin: 0; color: #5e6f7d; font-size: .8rem; }
+  .measure-pair input { padding-right: 1.6rem; }
+  .event-checks { display: grid; gap: .35rem; min-width: 8.5rem; }
+  .event-checks label { display: flex; gap: .4rem; align-items: flex-start; font-size: .82rem; }
+  .event-checks input { width: 1rem; min-height: 1rem; margin-top: .15rem; flex: 0 0 auto; }
+  .after-week { margin: 1.5rem 0; padding: 1.2rem; border: 2px solid #2b6f9c; border-radius: 14px; background: #fff; }
+  .after-week legend { padding: 0 .5rem; color: #17324d; font-size: 1.05rem; font-weight: 800; }
+  .fieldset-help { margin-top: 0; color: #5e6f7d; }
+  .question-block { padding: 1rem; border-radius: 10px; background: #f5f8fa; }
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; }
+  .check-grid label { display: flex; gap: .55rem; align-items: flex-start; }
+  .check-grid input { width: 1.2rem; min-height: 1.2rem; margin-top: .15rem; }
+  .microcopy, .privacy-note { color: #5e6f7d; font-size: .86rem; }
+  .final-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+  .form-actions { display: flex; gap: .7rem; align-items: center; flex-wrap: wrap; }
+  .text-button { padding: .65rem; border: 0; background: transparent; color: #7c2f2a; text-decoration: underline; cursor: pointer; }
+  .form-message { min-height: 1.5rem; margin: 1rem 0; font-weight: 700; }
+  .form-message--error { padding: .8rem; border-radius: 8px; background: #fce8e6; color: #8f2f29; }
+  .form-message--ok { color: #2f6d48; }
+  .report { margin: 0 1.4rem 1.4rem; padding: 1.5rem; border: 2px solid #4d8665; border-radius: 16px; background: #fff; }
+  :global(.report-head) { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+  :global(.report-head h2) { margin: .2rem 0 .5rem; color: #17324d; }
+  :global(.summary-grid) { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: .7rem; margin: 1.25rem 0; }
+  :global(.summary-grid div) { padding: 1rem; border-radius: 12px; background: #eaf3f8; text-align: center; }
+  :global(.summary-grid strong) { display: block; color: #17324d; font-size: 1.35rem; }
+  :global(.summary-grid span) { display: block; margin-top: .25rem; font-size: .82rem; }
+  :global(.report section) { margin-top: 1.4rem; }
+  :global(.report section h3) { margin-bottom: .6rem; }
+  :global(.temperature-note), :global(.secondary-pistes) { padding: .8rem; border-left: 4px solid #d7ad38; background: #fff4d6; }
+  :global(.report-alert) { margin: 1rem 0; padding: .85rem; border-radius: 9px; }
+  :global(.report-alert--urgent) { background: #fce8e6; color: #8f2f29; }
+  :global(.report-alert--check) { background: #fff4d6; color: #6c5114; }
+  :global(.action-list li) { margin: .55rem 0; }
+  :global(.report-disclaimer) { margin-top: 1.5rem; color: #5e6f7d; font-size: .85rem; }
+  @media (max-width: 760px) {
+    .choice-grid, .final-grid, .check-grid, :global(.summary-grid) { grid-template-columns: 1fr; }
+    .download-actions, .form-actions { align-items: stretch; flex-direction: column; }
+    .download-actions .btn, .form-actions .btn { width: 100%; }
+    .analyzer__intro, #week-form, .report { padding: 1rem; }
+    .report { margin: 0 1rem 1rem; }
+    .scroll-hint { display: block; }
+    :global(.report-head) { flex-direction: column; }
+  }
+  @media print {
+    body * { visibility: hidden; }
+    #week-report, :global(#week-report *) { visibility: visible; }
+    #week-report { position: absolute; inset: 0; margin: 0; border: 0; }
+    :global(#print-report) { display: none; }
+  }
 </style>

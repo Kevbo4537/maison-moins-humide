@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Génère la checklist PDF remplissable « Humidité — 7 jours ».
-
-Dépendances (hors projet Astro) : reportlab.
-Exemple :
-  /opt/data/.venvs/mmh-pdf/bin/python scripts/generate-checklist-pdf.py
-"""
+"""Génère la grille remplissable du suivi humidité sur 7 jours."""
 from pathlib import Path
 import sys
 
@@ -12,443 +7,284 @@ from reportlab.lib.colors import HexColor, white
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
 from reportlab.pdfbase.pdfmetrics import stringWidth
-from reportlab.pdfbase.pdfdoc import PDFString
 from reportlab.pdfgen import canvas
+import fitz
 
-OUTPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(
-    "public/downloads/checklist-humidite-7-jours.pdf"
-)
+OUTPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('public/downloads/checklist-humidite-7-jours.pdf')
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
 PAGE_W, PAGE_H = A4
-MARGIN = 14 * mm
-CONTENT_W = PAGE_W - 2 * MARGIN
+M = 14 * mm
+CW = PAGE_W - 2 * M
+NAVY = HexColor('#17324D')
+BLUE = HexColor('#2B6F9C')
+PALE_BLUE = HexColor('#EAF3F8')
+PALE_RED = HexColor('#FCE8E6')
+PALE_GREEN = HexColor('#EEF5F0')
+TEXT = HexColor('#253746')
+MUTED = HexColor('#5E6F7D')
+BORDER = HexColor('#AABBC7')
+LIGHT = HexColor('#D5E0E7')
+URL = 'https://www.maisonmoinshumide.fr/checklists/humidite-maison/'
 
-NAVY = HexColor("#17324D")
-BLUE = HexColor("#2B6F9C")
-PALE_BLUE = HexColor("#EAF3F8")
-SAGE = HexColor("#DDEBE3")
-PALE_YELLOW = HexColor("#FFF4D6")
-PALE_RED = HexColor("#FCE8E6")
-TEXT = HexColor("#253746")
-MUTED = HexColor("#5E6F7D")
-BORDER = HexColor("#AABBC7")
-LIGHT_BORDER = HexColor("#D5E0E7")
 
-
-def wrap(text: str, font: str, size: float, width: float) -> list[str]:
-    words = text.split()
-    lines: list[str] = []
-    line = ""
-    for word in words:
-        candidate = f"{line} {word}".strip()
+def wrapped_lines(text, font, size, width):
+    lines, current = [], ''
+    for word in text.split():
+        candidate = f'{current} {word}'.strip()
         if stringWidth(candidate, font, size) <= width:
-            line = candidate
+            current = candidate
         else:
-            if line:
-                lines.append(line)
-            line = word
-    if line:
-        lines.append(line)
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
     return lines
 
 
-def draw_wrapped(c, text, x, y, width, font="Helvetica", size=8.5, leading=10.5, color=TEXT, max_lines=None):
-    lines = wrap(text, font, size, width)
-    if max_lines:
-        lines = lines[:max_lines]
+def draw_wrapped(c, text, x, y, width, font='Helvetica', size: float = 8, leading: float = 10, color=TEXT):
     c.setFont(font, size)
     c.setFillColor(color)
-    for line in lines:
+    for line in wrapped_lines(text, font, size, width):
         c.drawString(x, y, line)
         y -= leading
     return y
 
 
-def section_title(c, number, title, y):
-    c.setFillColor(BLUE)
-    c.roundRect(MARGIN, y - 4 * mm, 9 * mm, 9 * mm, 2 * mm, fill=1, stroke=0)
-    c.setFillColor(white)
-    c.setFont("Helvetica-Bold", 11)
-    c.drawCentredString(MARGIN + 4.5 * mm, y - 1.1 * mm, str(number))
+def header(c, page, subtitle):
     c.setFillColor(NAVY)
-    c.setFont("Helvetica-Bold", 13)
-    c.drawString(MARGIN + 13 * mm, y - 1.5 * mm, title)
-
-
-def header(c, page_number, subtitle):
-    c.setFillColor(NAVY)
-    c.rect(0, PAGE_H - 31 * mm, PAGE_W, 31 * mm, fill=1, stroke=0)
+    c.rect(0, PAGE_H - 29 * mm, PAGE_W, 29 * mm, fill=1, stroke=0)
     c.setFillColor(white)
-    c.setFont("Helvetica-Bold", 19)
-    c.drawString(MARGIN, PAGE_H - 14 * mm, "Suivi humidité — 7 jours")
-    c.setFont("Helvetica", 9.5)
-    c.drawString(MARGIN, PAGE_H - 21 * mm, subtitle)
-    c.setFont("Helvetica-Bold", 9)
-    c.drawRightString(PAGE_W - MARGIN, PAGE_H - 14 * mm, f"FICHE {page_number}/3")
-    c.setFont("Helvetica", 7.5)
-    c.drawRightString(PAGE_W - MARGIN, PAGE_H - 21 * mm, "maisonmoinshumide.fr")
+    c.setFont('Helvetica-Bold', 19)
+    c.drawString(M, PAGE_H - 13 * mm, 'Suivi humidité — 7 jours')
+    c.setFont('Helvetica', 9)
+    c.drawString(M, PAGE_H - 20 * mm, subtitle)
+    c.setFont('Helvetica-Bold', 9)
+    c.drawRightString(PAGE_W - M, PAGE_H - 13 * mm, f'FICHE {page}/2')
+    c.setFont('Helvetica', 7.5)
+    c.drawRightString(PAGE_W - M, PAGE_H - 20 * mm, 'maisonmoinshumide.fr')
 
 
 def footer(c):
-    c.setStrokeColor(LIGHT_BORDER)
-    c.line(MARGIN, 15 * mm, PAGE_W - MARGIN, 15 * mm)
+    c.setStrokeColor(LIGHT)
+    c.line(M, 15 * mm, PAGE_W - M, 15 * mm)
     c.setFillColor(MUTED)
-    c.setFont("Helvetica", 6.8)
-    c.drawString(MARGIN, 10.5 * mm, "Repère pratique, pas diagnostic : cette fiche ne permet pas d’identifier seule la cause.")
-    c.drawRightString(PAGE_W - MARGIN, 10.5 * mm, "Version 2026-07")
+    c.setFont('Helvetica', 6.8)
+    c.drawString(M, 10.5 * mm, 'Relevé d’orientation, pas diagnostic : une fuite ou un mur mouillé reste prioritaire.')
+    c.drawRightString(PAGE_W - M, 10.5 * mm, 'Version 2026-07')
 
 
-def text_field(c, name, x, y, w, h, font_size: float = 9, multiline=False, fill=white, tooltip=None):
-    flags = "multiline" if multiline else ""
+def title(c, number, text, y):
+    c.setFillColor(BLUE)
+    c.roundRect(M, y - 3 * mm, 8 * mm, 8 * mm, 2 * mm, fill=1, stroke=0)
+    c.setFillColor(white)
+    c.setFont('Helvetica-Bold', 10)
+    c.drawCentredString(M + 4 * mm, y - .5 * mm, str(number))
+    c.setFillColor(NAVY)
+    c.setFont('Helvetica-Bold', 12.5)
+    c.drawString(M + 12 * mm, y - .5 * mm, text)
+
+
+def text_field(c, name, x, y, w, h, tooltip, font_size: float = 8, multiline=False):
     c.acroForm.textfield(
-        name=name,
-        tooltip=tooltip or name.replace("_", " "),
-        x=x,
-        y=y,
-        width=w,
-        height=h,
-        borderWidth=0,
-        fillColor=fill,
-        textColor=TEXT,
-        forceBorder=False,
-        fontName="Helvetica",
-        fontSize=font_size,
-        fieldFlags=flags,
+        name=name, tooltip=tooltip, x=x, y=y, width=w, height=h,
+        borderWidth=0, fillColor=white, textColor=TEXT, forceBorder=False,
+        fontName='Helvetica', fontSize=font_size,
+        fieldFlags='multiline' if multiline else '',
     )
 
 
-def checkbox(c, name, x, y, label, size=4.2 * mm, font_size=8.2, label_width=None):
+def checkbox(c, name, label, x, y, width=None):
+    size = 4.2 * mm
     c.acroForm.checkbox(
-        name=name,
-        tooltip=label,
-        x=x,
-        y=y,
-        size=size,
-        buttonStyle="check",
-        borderWidth=1,
-        borderColor=BORDER,
-        fillColor=white,
-        checked=False,
-        fieldFlags="",
-        forceBorder=True,
+        name=name, tooltip=label, x=x, y=y, size=size,
+        buttonStyle='check', borderWidth=1, borderColor=BORDER,
+        fillColor=white, checked=False, fieldFlags='', forceBorder=True,
     )
-    label_x = x + size + 2 * mm
-    if label_width:
-        draw_wrapped(c, label, label_x, y + size - 2.4 * mm, label_width, size=font_size, leading=9)
+    if width:
+        draw_wrapped(c, label, x + 6 * mm, y + 1.2 * mm, width, size=7.8, leading=9)
     else:
         c.setFillColor(TEXT)
-        c.setFont("Helvetica", font_size)
-        c.drawString(label_x, y + size - 2.4 * mm, label)
+        c.setFont('Helvetica', 7.8)
+        c.drawString(x + 6 * mm, y + 1.2 * mm, label)
 
 
-def labelled_field(c, label, name, x, y, w, h=8 * mm):
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica-Bold", 7.2)
-    c.drawString(x, y + h + 1.5 * mm, label.upper())
-    c.setStrokeColor(BORDER)
-    c.setFillColor(white)
-    c.roundRect(x, y, w, h, 1.5 * mm, fill=1, stroke=1)
-    text_field(c, name, x + 1.5 * mm, y + 1 * mm, w - 3 * mm, h - 2 * mm, tooltip=label)
-
-
-def radio(c, group, value, x, y, label, selected=False, tooltip=None):
+def radio(c, group, value, label, x, y, question):
+    size = 4.1 * mm
     c.acroForm.radio(
-        name=group,
-        value=value,
-        selected=selected,
-        tooltip=tooltip or "Le signe s’est-il amélioré ? Une seule réponse.",
-        x=x,
-        y=y,
-        size=4.2 * mm,
-        buttonStyle="circle",
-        borderWidth=1,
-        borderColor=BORDER,
-        fillColor=white,
-        textColor=BLUE,
-        fieldFlags="noToggleToOff radio",
-        forceBorder=True,
+        name=group, value=value, selected=False,
+        tooltip=f'{question} — {label}', x=x, y=y, size=size,
+        buttonStyle='circle', borderWidth=1, borderColor=BORDER,
+        fillColor=white, textColor=BLUE,
+        fieldFlags='noToggleToOff radio', forceBorder=True,
     )
     c.setFillColor(TEXT)
-    c.setFont("Helvetica", 8)
-    c.drawString(x + 6 * mm, y + 1.1 * mm, label)
-
-
-def result_row(c, group, label, y):
-    """Une réponse exploitable : Oui / Non / Non vérifié / Non applicable."""
-    c.setFillColor(TEXT)
-    c.setFont("Helvetica", 7.4)
-    c.drawString(MARGIN + 4 * mm, y + 1.1 * mm, label)
-    for value, x in [
-        ("oui", MARGIN + 129 * mm),
-        ("non", MARGIN + 145 * mm),
-        ("non_verifie", MARGIN + 161 * mm),
-        ("non_applicable", MARGIN + 177 * mm),
-    ]:
-        c.acroForm.radio(
-            name=group,
-            value=value,
-            selected=False,
-            tooltip=f"{label} — Oui, Non, Non vérifié ou Non applicable. Une seule réponse.",
-            x=x,
-            y=y,
-            size=4.2 * mm,
-            buttonStyle="circle",
-            borderWidth=1,
-            borderColor=BORDER,
-            fillColor=white,
-            textColor=BLUE,
-            fieldFlags="noToggleToOff radio",
-            forceBorder=True,
-        )
+    c.setFont('Helvetica', 7)
+    c.drawString(x + 5.7 * mm, y + 1.1 * mm, label)
 
 
 def page_one(c):
-    header(c, 1, "Mesurez matin et soir, avant d’aérer. Une seule pièce par fiche.")
-
-    section_title(c, 1, "Préparer le suivi", PAGE_H - 40 * mm)
-    box_y = PAGE_H - 77 * mm
+    header(c, 1, 'Page 1 : ce que vous faites avant puis pendant les 7 jours')
+    y = PAGE_H - 39 * mm
+    title(c, 1, 'AVANT LE PREMIER RELEVÉ', y)
+    y -= 13 * mm
     c.setFillColor(PALE_BLUE)
-    c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, box_y, CONTENT_W, 29 * mm, 3 * mm, fill=1, stroke=1)
-    labelled_field(c, "Pièce suivie — une fiche distincte par pièce", "piece", MARGIN + 4 * mm, box_y + 8 * mm, CONTENT_W - 8 * mm)
+    c.setStrokeColor(LIGHT)
+    c.roundRect(M, y - 25 * mm, CW, 25 * mm, 2.5 * mm, fill=1, stroke=1)
+    draw_wrapped(c, 'Choisissez une seule pièce. Posez l’hygromètre toujours au même endroit, loin d’un radiateur, d’une fenêtre ouverte et d’une bouche d’air.', M + 4 * mm, y - 5 * mm, CW - 8 * mm, size=8.2, leading=10)
+    c.setFont('Helvetica-Bold', 7.2)
+    c.setFillColor(MUTED)
+    c.drawString(M + 4 * mm, y - 16.5 * mm, 'PIÈCE SUIVIE')
+    c.setFillColor(white)
+    c.roundRect(M + 32 * mm, y - 21 * mm, CW - 36 * mm, 8 * mm, 1.5 * mm, fill=1, stroke=1)
+    text_field(c, 'piece', M + 34 * mm, y - 20 * mm, CW - 40 * mm, 6 * mm, 'Pièce suivie')
 
-    alert_y = 194 * mm
-    c.setFillColor(PALE_RED)
-    c.setStrokeColor(HexColor("#D9A7A2"))
-    c.roundRect(MARGIN, alert_y, CONTENT_W, 19 * mm, 2 * mm, fill=1, stroke=1)
-    c.setFillColor(TEXT)
-    c.setFont("Helvetica-Bold", 7.8)
-    c.drawString(MARGIN + 4 * mm, alert_y + 13.2 * mm, "N’attendez pas 7 jours : fuite active, mur mouillé ou moisissures étendues / récidivantes.")
-    c.setFont("Helvetica", 7.4)
-    c.drawString(MARGIN + 4 * mm, alert_y + 8.5 * mm, "Bâtiment / assurance selon la situation. Symptômes respiratoires ou occupant fragile : demandez un avis médical.")
-    c.drawString(MARGIN + 4 * mm, alert_y + 3.8 * mm, "Sinon, mesurez au même endroit avant d’aérer et notez seulement les faits utiles : douche, linge, cuisson ou pluie.")
+    y -= 35 * mm
+    title(c, 2, 'DU JOUR 1 AU JOUR 7', y)
+    draw_wrapped(c, 'Chaque matin et chaque soir, avant d’aérer : notez température et humidité. Notez tous les faits utiles de la journée ; activité, pluie et autre changement peuvent se cumuler.', M + 12 * mm, y - 8 * mm, CW - 12 * mm, size=8.1, leading=9.5)
 
-    section_title(c, 2, "Noter les mesures", PAGE_H - 112 * mm)
-    table_x = MARGIN
-    table_top = PAGE_H - 121 * mm
-    header_h = 11 * mm
-    row_h = 13 * mm
-    widths = [22 * mm, 19 * mm, 19 * mm, 19 * mm, 19 * mm, CONTENT_W - 98 * mm]
-    headers = ["JOUR / DATE", "MATIN\n°C", "MATIN\n%", "SOIR\n°C", "SOIR\n%", "FAIT NOTABLE / OBSERVATION"]
-
+    top = y - 20 * mm
+    hh, rh = 10 * mm, 16 * mm
+    widths = [15 * mm, 22 * mm, 18 * mm, 18 * mm, 18 * mm, 18 * mm, CW - 109 * mm]
+    labels = ['JOUR', 'DATE', 'MATIN °C', 'MATIN %', 'SOIR °C', 'SOIR %', 'FAITS : heure, activité, pluie, autre…']
+    x = M
     c.setFillColor(NAVY)
-    c.roundRect(table_x, table_top - header_h, CONTENT_W, header_h, 2 * mm, fill=1, stroke=0)
-    x = table_x
-    for i, (w, label) in enumerate(zip(widths, headers)):
-        if i:
-            c.setStrokeColor(HexColor("#587087"))
-            c.line(x, table_top - header_h, x, table_top)
+    c.roundRect(M, top - hh, CW, hh, 2 * mm, fill=1, stroke=0)
+    for index, (width, label) in enumerate(zip(widths, labels)):
+        if index:
+            c.setStrokeColor(HexColor('#587087'))
+            c.line(x, top - hh, x, top)
         c.setFillColor(white)
-        c.setFont("Helvetica-Bold", 7.4)
-        parts = label.split("\n")
-        for j, part in enumerate(parts):
-            c.drawCentredString(x + w / 2, table_top - 4.5 * mm - j * 3.2 * mm, part)
-        x += w
+        c.setFont('Helvetica-Bold', 6.6)
+        for line_index, line in enumerate(wrapped_lines(label, 'Helvetica-Bold', 6.6, width - 2 * mm)[:2]):
+            c.drawCentredString(x + width / 2, top - 4 * mm - line_index * 3 * mm, line)
+        x += width
 
     for day in range(1, 8):
-        y = table_top - header_h - day * row_h
-        fill = white if day % 2 else HexColor("#F7FAFC")
-        c.setFillColor(fill)
+        row_y = top - hh - day * rh
+        c.setFillColor(white if day % 2 else HexColor('#F7FAFC'))
         c.setStrokeColor(BORDER)
-        c.rect(table_x, y, CONTENT_W, row_h, fill=1, stroke=1)
-        x = table_x
-        for w in widths[:-1]:
-            x += w
-            c.line(x, y, x, y + row_h)
+        c.rect(M, row_y, CW, rh, fill=1, stroke=1)
+        x = M
+        for width in widths[:-1]:
+            x += width
+            c.line(x, row_y, x, row_y + rh)
         c.setFillColor(NAVY)
-        c.setFont("Helvetica-Bold", 8.5)
-        c.drawString(table_x + 2.5 * mm, y + row_h - 4.2 * mm, f"J{day}")
-        text_field(c, f"jour_{day}_date", table_x + 2 * mm, y + 1 * mm, widths[0] - 4 * mm, 6 * mm, 7.5, fill=fill, tooltip=f"Jour {day} — date")
-        x = table_x + widths[0]
-        measures = [
-            ("matin_temp", "température du matin en degrés Celsius"),
-            ("matin_hr", "humidité du matin en pourcentage"),
-            ("soir_temp", "température du soir en degrés Celsius"),
-            ("soir_hr", "humidité du soir en pourcentage"),
-        ]
-        for (key, label), w in zip(measures, widths[1:5]):
-            text_field(c, f"jour_{day}_{key}", x + 1.2 * mm, y + 1.5 * mm, w - 2.4 * mm, row_h - 3 * mm, 9, fill=fill, tooltip=f"Jour {day} — {label}")
-            x += w
-        text_field(c, f"jour_{day}_note", x + 2 * mm, y + 1.5 * mm, widths[5] - 4 * mm, row_h - 3 * mm, 7.5, True, fill, tooltip=f"Jour {day} — fait notable ou observation")
+        c.setFont('Helvetica-Bold', 8)
+        c.drawCentredString(M + widths[0] / 2, row_y + 6.2 * mm, f'J{day}')
+        x = M + widths[0]
+        names = [f'jour_{day}_date', f'jour_{day}_matin_temp', f'jour_{day}_matin_hr', f'jour_{day}_soir_temp', f'jour_{day}_soir_hr', f'jour_{day}_fait']
+        tips = [f'Jour {day} date', f'Jour {day} matin température', f'Jour {day} matin humidité', f'Jour {day} soir température', f'Jour {day} soir humidité', f'Jour {day} fait notable']
+        for width, name, tip in zip(widths[1:], names, tips):
+            text_field(c, name, x + 1 * mm, row_y + 2 * mm, width - 2 * mm, rh - 4 * mm, tip, font_size=7.2, multiline=name.endswith('fait'))
+            x += width
 
-    block_top = table_top - header_h - 7 * row_h - 8 * mm
-    section_title(c, 3, "Localiser ce que vous voyez", block_top)
-    note_y = 31 * mm
-    c.setFillColor(SAGE)
-    c.setStrokeColor(HexColor("#A8C7B2"))
-    c.roundRect(MARGIN, note_y, CONTENT_W, 28 * mm, 3 * mm, fill=1, stroke=1)
-    labels = [
-        ("condensation", "Vitre / miroir embué"),
-        ("odeur", "Odeur de moisi"),
-        ("moisissure", "Points noirs / moisissure"),
-        ("mur_humide", "Mur humide au toucher"),
-        ("peinture", "Peinture qui cloque"),
-        ("salpetre", "Dépôt blanc / salpêtre"),
-        ("aucun", "Aucun de ces signes observé"),
-    ]
-    cols = 3
-    col_w = (CONTENT_W - 8 * mm) / cols
-    for idx, (key, label) in enumerate(labels):
-        col = idx % cols
-        row = idx // cols
-        checkbox(c, f"symptome_{key}", MARGIN + 4 * mm + col * col_w, note_y + 19 * mm - row * 7.8 * mm, label, label_width=col_w - 10 * mm)
-
-    labelled_field(c, "Emplacement précis (ex. angle nord, bas de mur, derrière une armoire)", "emplacement_precis", MARGIN, 18 * mm, CONTENT_W, 9 * mm)
+    alert_y = 22 * mm
+    c.setFillColor(PALE_RED)
+    c.setStrokeColor(HexColor('#D9A7A2'))
+    c.roundRect(M, alert_y, CW, 15 * mm, 2 * mm, fill=1, stroke=1)
+    c.setFont('Helvetica-Bold', 7.6)
+    c.setFillColor(TEXT)
+    c.drawString(M + 4 * mm, alert_y + 9.5 * mm, 'N’ATTENDEZ PAS LE JOUR 7 : fuite active, mur mouillé ou moisissures étendues / récidivantes.')
+    c.setFont('Helvetica', 7.2)
+    c.drawString(M + 4 * mm, alert_y + 4.3 * mm, 'Faites vérifier sans attendre ; le relevé ne doit jamais retarder une intervention utile.')
     footer(c)
+
+
+def answer_row(c, group, question, y, values, offsets=None):
+    draw_wrapped(c, question, M + 4 * mm, y + 4.5 * mm, 86 * mm, size=7.8, leading=9)
+    start = M + 96 * mm
+    positions = offsets or [index * 21 for index in range(len(values))]
+    for index, (value, label) in enumerate(values):
+        radio(c, group, value, label, start + positions[index] * mm, y, question)
 
 
 def page_two(c):
-    header(c, 2, "Transformez les 14 relevés en indices, puis vérifiez chaque piste sans supposer la cause.")
+    header(c, 2, 'Page 2 : à remplir une seule fois, après le dernier relevé du jour 7')
+    y = PAGE_H - 39 * mm
+    title(c, 3, 'APRÈS LE DERNIER RELEVÉ DU JOUR 7', y)
+    draw_wrapped(c, 'Répondez maintenant selon ce qui s’est produit à un moment quelconque pendant la semaine. Ces réponses ne sont pas à remplir au début.', M + 12 * mm, y - 8 * mm, CW - 12 * mm, size=8.2, leading=10)
 
-    section_title(c, 4, "Compter et comparer", PAGE_H - 40 * mm)
-    trend_y = PAGE_H - 100 * mm
+    box_top = y - 23 * mm
     c.setFillColor(PALE_BLUE)
-    c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, trend_y, CONTENT_W, 50 * mm, 3 * mm, fill=1, stroke=1)
-    labelled_field(c, "Relevés > 60 % (sur 14)", "compte_sup_60", MARGIN + 4 * mm, trend_y + 35 * mm, 38 * mm, 7 * mm)
-    labelled_field(c, "Relevés ≥ 70 % (sur 14)", "compte_70", MARGIN + 48 * mm, trend_y + 35 * mm, 38 * mm, 7 * mm)
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica", 7.2)
-    c.drawString(MARGIN + 94 * mm, trend_y + 38 * mm, "40–60 % : repère pratique, jamais diagnostic à lui seul.")
-    trends = [
-        ("tendance_activite", "Pics après douche, cuisson ou linge"),
-        ("tendance_hors_activite", "Valeurs élevées hors activité"),
-        ("tendance_matin", "Taux surtout élevé le matin"),
-        ("tendance_retour", "Retour vers 40–60 % entre deux pics"),
+    c.setStrokeColor(LIGHT)
+    c.roundRect(M, box_top - 46 * mm, CW, 46 * mm, 2.5 * mm, fill=1, stroke=1)
+    c.setFillColor(NAVY)
+    c.setFont('Helvetica-Bold', 9)
+    c.drawString(M + 4 * mm, box_top - 7 * mm, 'Signes apparus au moins une fois pendant les 7 jours')
+    items = [
+        ('signe_condensation', 'Buée ou eau sur vitre / paroi'), ('signe_odeur', 'Odeur de moisi'),
+        ('signe_moisissure', 'Moisissure visible'), ('signe_moisissure_recidive', 'Moisissure réapparue après nettoyage'),
+        ('signe_mur_mouille', 'Mur mouillé au toucher'),
+        ('signe_cloque', 'Peinture ou enduit qui cloque'), ('signe_depot', 'Dépôt blanc / salpêtre possible'),
     ]
-    col_w = (CONTENT_W - 10 * mm) / 2
-    for idx, (key, label) in enumerate(trends):
-        col = idx % 2
-        row = idx // 2
-        checkbox(c, key, MARGIN + 4 * mm + col * col_w, trend_y + 19 * mm - row * 7.5 * mm, label, label_width=col_w - 9 * mm)
-    checkbox(c, "tendance_aucune", MARGIN + 4 * mm, trend_y + 3.8 * mm, "Aucune tendance nette", label_width=70 * mm)
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica-Bold", 6.7)
-    c.drawString(MARGIN + 91 * mm, trend_y + 6.5 * mm, "FICHES :")
-    portee_tip = "Comparaison de fiches : une pièce, plusieurs pièces ou comparaison non réalisée."
-    radio(c, "portee", "une", MARGIN + 108 * mm, trend_y + 3.8 * mm, "1 pièce", tooltip=portee_tip)
-    radio(c, "portee", "plusieurs", MARGIN + 133 * mm, trend_y + 3.8 * mm, "+ pièces", tooltip=portee_tip)
-    radio(c, "portee", "non_comparee", MARGIN + 158 * mm, trend_y + 3.8 * mm, "N/C", tooltip=portee_tip)
+    for index, (name, label) in enumerate(items):
+        col = index % 2
+        row = index // 2
+        checkbox(c, name, label, M + 5 * mm + col * 88 * mm, box_top - 16 * mm - row * 7 * mm, 73 * mm)
+    draw_wrapped(c, 'Si aucun signe n’est apparu, ne cochez rien ici puis choisissez « Aucun » à la question sur leur emplacement.', M + 5 * mm, box_top - 43 * mm, CW - 10 * mm, size=7.2, leading=8.5)
 
-    section_title(c, 5, "Noter le résultat des vérifications", 188 * mm)
-    check_y = 104 * mm
+    y = box_top - 53 * mm
     c.setFillColor(white)
-    c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, check_y, CONTENT_W, 74 * mm, 3 * mm, fill=1, stroke=1)
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica", 6.8)
-    c.drawString(MARGIN + 4 * mm, check_y + 66.5 * mm, "N/V = non vérifié · N/A = équipement ou contrôle non applicable à cette pièce.")
-    c.setFont("Helvetica-Bold", 6.5)
-    for label, x in [("OUI", 131), ("NON", 147), ("N/V", 163), ("N/A", 179)]:
-        c.drawCentredString(MARGIN + x * mm, check_y + 59.5 * mm, label)
-    checks = [
-        ("verif_entrees", "Entrées d’air attendues dans une pièce sèche : présentes et libres ?"),
-        ("verif_bouche", "Extraction attendue dans une pièce de service : présente et propre ?"),
-        ("verif_papier", "Aspiration apparente au papier ? (pas une mesure de débit)"),
-        ("verif_porte", "Passage de transfert d’air sous la porte présent ?"),
-        ("verif_fuite", "Fuite ou trace d’eau repérée près des tuyaux / raccords ?"),
-        ("verif_pluie", "Trace ou mur plus humide après la pluie ?"),
-        ("verif_meuble", "Signe concentré derrière un meuble collé au mur ?"),
-        ("verif_zone_froide", "Surface ou zone nettement plus froide repérée ?"),
-        ("verif_aeration", "Taux en baisse 10 min après une aération franche ?"),
-    ]
-    for idx, (group, label) in enumerate(checks):
-        y = check_y + 51 * mm - idx * 5.75 * mm
-        if idx:
-            c.setStrokeColor(HexColor("#EDF1F4"))
-            c.line(MARGIN + 4 * mm, y + 4.8 * mm, PAGE_W - MARGIN - 4 * mm, y + 4.8 * mm)
-        result_row(c, group, label, y)
-
-    section_title(c, 6, "Tester une seule action : 24 à 48 h", 95 * mm)
-    action_y = 50 * mm
-    c.setFillColor(SAGE)
-    c.setStrokeColor(HexColor("#A8C7B2"))
-    c.roundRect(MARGIN, action_y, CONTENT_W, 34 * mm, 3 * mm, fill=1, stroke=1)
-    labelled_field(c, "Action testée — même heure, même endroit et conditions proches", "action_testee", MARGIN + 4 * mm, action_y + 19 * mm, CONTENT_W - 8 * mm, 7 * mm)
-    x = MARGIN + 4 * mm
-    for label, name, width in [
-        ("Avant °C", "action_avant_temp", 20 * mm),
-        ("Avant %", "action_avant_hr", 20 * mm),
-        ("Après °C", "action_apres_temp", 20 * mm),
-        ("Après %", "action_apres_hr", 20 * mm),
-    ]:
-        labelled_field(c, label, name, x, action_y + 4 * mm, width, 7 * mm)
-        x += width + 4 * mm
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica-Bold", 7)
-    c.drawString(x + 1 * mm, action_y + 13 * mm, "LE SIGNE S’EST-IL AMÉLIORÉ ?")
-    radio(c, "effet", "oui", x + 1 * mm, action_y + 4 * mm, "Oui")
-    radio(c, "effet", "non", x + 24 * mm, action_y + 4 * mm, "Non")
-    radio(c, "effet", "incertain", x + 47 * mm, action_y + 4 * mm, "Incertain")
-
+    c.setStrokeColor(BORDER)
+    c.roundRect(M, y - 57 * mm, CW, 57 * mm, 2.5 * mm, fill=1, stroke=1)
     c.setFillColor(NAVY)
-    c.setFont("Helvetica-Bold", 7.6)
-    c.drawString(MARGIN, 40 * mm, "Passez à la page 3 : aucune donnée ci-dessus n’est interprétée isolément.")
+    c.setFont('Helvetica-Bold', 8.8)
+    c.drawString(M + 4 * mm, y - 7 * mm, 'Trois réponses de fin de suivi')
+    common = [('oui', 'Oui'), ('non', 'Non'), ('inconnu', 'Inconnu'), ('na', 'N/A')]
+    answer_row(c, 'pluie', 'Une trace s’est-elle aggravée après la pluie ?', y - 20 * mm, common)
+    c.setStrokeColor(LIGHT); c.line(M + 4 * mm, y - 26 * mm, PAGE_W - M - 4 * mm, y - 26 * mm)
+    answer_row(c, 'ventilation', 'Les entrées d’air ou l’extraction attendues sont-elles présentes, ouvertes et propres ?', y - 38 * mm, common)
+    c.setStrokeColor(LIGHT); c.line(M + 4 * mm, y - 44 * mm, PAGE_W - M - 4 * mm, y - 44 * mm)
+    answer_row(c, 'portee', 'Où les signes sont-ils apparus ?', y - 54 * mm, [('aucun', 'Aucun'), ('local', 'Zone précise'), ('multiple', 'Plusieurs zones')], offsets=[0, 22, 56])
+
+    y -= 70 * mm
+    title(c, 4, 'Générez votre compte rendu personnalisé', y)
+    c.setFillColor(PALE_GREEN)
+    c.setStrokeColor(HexColor('#B8D1C1'))
+    c.roundRect(M, y - 61 * mm, CW, 52 * mm, 3 * mm, fill=1, stroke=1)
+    draw_wrapped(c, 'À ce stade seulement, reportez les 14 mesures et les réponses ci-dessus dans l’outil du site. Il calcule automatiquement :', M + 5 * mm, y - 18 * mm, CW - 10 * mm, font='Helvetica-Bold', size=8.4, leading=10)
+    bullets = [
+        'le nombre de relevés au-dessus de 60 % et à 70 % ou plus ;',
+        'la moyenne, le minimum, le maximum et la persistance ;',
+        'les liens avec les activités ou la pluie et l’effet des variations de température ;',
+        'une piste principale, les faits qui la justifient et trois actions concrètes.',
+    ]
+    bullet_y = y - 31 * mm
+    for item in bullets:
+        c.setFillColor(BLUE); c.circle(M + 7 * mm, bullet_y + 1 * mm, 1 * mm, fill=1, stroke=0)
+        draw_wrapped(c, item, M + 11 * mm, bullet_y, CW - 17 * mm, size=8, leading=9)
+        bullet_y -= 8 * mm
+
+    url_y = 26 * mm
+    c.setFillColor(NAVY)
+    c.roundRect(M, url_y, CW, 20 * mm, 3 * mm, fill=1, stroke=0)
+    c.setFillColor(white)
+    c.setFont('Helvetica-Bold', 9)
+    c.drawCentredString(PAGE_W / 2, url_y + 12 * mm, 'Saisir les données et obtenir le bilan :')
+    c.setFont('Helvetica', 8.2)
+    c.drawCentredString(PAGE_W / 2, url_y + 6 * mm, 'maisonmoinshumide.fr/checklists/humidite-maison/')
+    c.linkURL(URL, (M, url_y, PAGE_W - M, url_y + 20 * mm), relative=0)
+    c.setFillColor(MUTED)
+    c.setFont('Helvetica', 7.2)
+    c.drawCentredString(PAGE_W / 2, 19.5 * mm, 'Le site ne transmet pas vos données : elles restent dans votre navigateur.')
     footer(c)
 
 
-def decision_card(c, y, color, key, title, indices, action):
-    card_h = 22.5 * mm
-    c.setFillColor(color)
-    c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, y, CONTENT_W, card_h, 2 * mm, fill=1, stroke=1)
-    checkbox(c, f"orientation_{key}", MARGIN + 4 * mm, y + 12.3 * mm, title, font_size=7.2, label_width=31 * mm)
-    c.setFillColor(NAVY)
-    c.setFont("Helvetica-Bold", 6.6)
-    c.drawString(MARGIN + 41 * mm, y + 17 * mm, "INDICES À RELIER")
-    c.drawString(MARGIN + 111 * mm, y + 17 * mm, "SUITE LOGIQUE")
-    draw_wrapped(c, indices, MARGIN + 41 * mm, y + 13 * mm, 65 * mm, size=6.6, leading=7.1)
-    draw_wrapped(c, action, MARGIN + 111 * mm, y + 13 * mm, 65 * mm, size=6.6, leading=7.1)
-
-
-def page_three(c):
-    header(c, 3, "Reliez plusieurs indices. Une valeur, une case ou un test isolé ne suffit pas à conclure.")
-
-    section_title(c, 7, "Avant d’interpréter", PAGE_H - 40 * mm)
-    note_y = 220 * mm
-    c.setFillColor(PALE_YELLOW)
-    c.setStrokeColor(HexColor("#DFC66D"))
-    c.roundRect(MARGIN, note_y, CONTENT_W, 28 * mm, 3 * mm, fill=1, stroke=1)
-    draw_wrapped(c, "Température : l’humidité relative varie avec elle. Comparez surtout des relevés pris à température proche ; si l’écart avant / après dépasse environ 2 °C, n’attribuez pas la variation du % à l’action seule.", MARGIN + 4 * mm, note_y + 20 * mm, CONTENT_W - 8 * mm, font="Helvetica-Bold", size=7.4, leading=9)
-    draw_wrapped(c, "Dates + faits notables : ils servent à relier les variations à la pluie, à une activité ou à une récidive. L’emplacement précis distingue un signe local d’un problème plus général. Conservez la fiche et des photos datées.", MARGIN + 4 * mm, note_y + 9 * mm, CONTENT_W - 8 * mm, size=7.2, leading=8.5)
-
-    section_title(c, 8, "Orienter la suite", 211 * mm)
-    c.setFillColor(MUTED)
-    draw_wrapped(c, "Cochez les orientations appuyées par plusieurs indices ; elles peuvent se cumuler. Les nombres ci-dessous sont des règles de tri, pas des seuils diagnostiques. Donnée manquante ou contradictoire : « Indéterminé ». « Eau / bâti » prime.", MARGIN, 198 * mm, CONTENT_W, size=6.9, leading=7.8)
-
-    cards = [
-        (PALE_RED, "eau", "EAU / BÂTI", "Fuite = Oui ou mur mouillé. Sinon : pluie = Oui + signe localisé (cloque, dépôt blanc ou emplacement précis).", "Fuite active / mur mouillé : n’attendez pas. Sinon, faites vérifier infiltration / remontée ; un appareil ne répare pas l’entrée d’eau."),
-        (SAGE, "ventilation", "AIR / VAPEUR", "≥ 4/14 relevés > 60 % ou ≥ 2/14 à 70 %+, + tendance activité / hors activité, + équipement attendu dans cette pièce = Non.", "Dégagez / nettoyez, réduisez les apports, remesurez. Si cela persiste : contrôle de la ventilation par un professionnel."),
-        (PALE_BLUE, "condensation", "CONDENSATION LOCALE", "Buée + taux matinal élevé, ou zone froide = Oui + signe local ; souvent derrière un meuble ; amélioration après aération / écartement.", "Améliorez circulation d’air et ventilation. Si la récidive reste locale, recherchez pont thermique / défaut du bâti."),
-        (PALE_YELLOW, "cachee", "HUMIDITÉ LOCALE CACHÉE", "Odeur, moisissure, cloque ou mur humide + emplacement précis + portée = 1 pièce, même si les relevés ambiants sont peu élevés.", "Un taux ambiant rassurant n’exclut pas un support humide. Cherchez la source ; professionnel si humide, étendu ou récidivant."),
-        (HexColor("#F3F5F7"), "ponctuel", "APPORT PONCTUEL", "1 à 3/14 relevés > 60 %, aucun à 70 %+, pics liés à l’activité + retour au repère + « aucun signe » + effet = Oui.", "Corrigez d’abord l’activité / l’aération. Déshumidificateur seulement en aide temporaire si besoin, jamais comme réparation."),
-        (HexColor("#EAF3EC"), "rassurant", "SUIVI RASSURANT", "0 à 2/14 relevés > 60 %, aucun à 70 %+, « aucun signe » + « aucune tendance », contrôles applicables = Oui ou N/A, fuite / pluie = Non.", "Gardez vos habitudes ; aucun achat justifié. Recommencez si le contexte change. Cela n’exclut pas une humidité cachée locale."),
-        (white, "incertain", "INDÉTERMINÉ / GÉNÉRAL", "Compteur ou contrôle utile manquant / N/V, réponses incompatibles, aucune tendance malgré dépassements / signes, plusieurs pièces ou effet incertain.", "Vérifiez placement / appareil, complétez puis répétez ou comparez. Si signes ou persistance : diagnostic professionnel."),
-    ]
-    y = 168 * mm
-    for color, key, title, indices, action in cards:
-        decision_card(c, y, color, key, title, indices, action)
-        y -= 24.5 * mm
-
-    footer(c)
-
-
-def build_pdf():
+def build():
     c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1)
-    getattr(c, "_doc").Catalog.Lang = PDFString("fr-FR")
-    c.setTitle("Suivi humidité — 7 jours")
-    c.setAuthor("Maison Moins Humide")
-    c.setSubject("Fiche A4 remplissable pour suivre l’humidité d’une pièce pendant 7 jours")
-    c.setKeywords("humidité, hygromètre, relevé, condensation, logement")
-    page_one(c)
-    c.showPage()
-    page_two(c)
-    c.showPage()
-    page_three(c)
+    c.setTitle('Suivi humidité 7 jours — grille et compte rendu')
+    c.setAuthor('Maison Moins Humide')
+    c.setSubject('14 relevés puis compte rendu personnalisé en ligne')
+    page_one(c); c.showPage()
+    page_two(c); c.showPage()
     c.save()
-    print(OUTPUT)
+    doc = fitz.open(OUTPUT)
+    doc.xref_set_key(doc.pdf_catalog(), 'Lang', '(fr-FR)')
+    doc.saveIncr()
+    doc.close()
 
 
-if __name__ == "__main__":
-    build_pdf()
+if __name__ == '__main__':
+    build()
+    print(f'Generated {OUTPUT}')

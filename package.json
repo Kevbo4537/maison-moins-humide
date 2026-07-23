@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "node --test tests/humidity-report.test.mjs tests/humidity-form-contract.test.mjs && /opt/data/.venvs/mmh-pdf/bin/python tests/checklist-pdf.test.py",
     "check:seo": "node scripts/seo-check.mjs",
     "astro": "astro"
   },
