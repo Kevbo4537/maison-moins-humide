@@ -130,6 +130,7 @@ def checkbox(c, name, x, y, label, size=4.2 * mm, font_size=8.2, label_width=Non
         borderColor=BORDER,
         fillColor=white,
         checked=False,
+        fieldFlags="",
         forceBorder=True,
     )
     label_x = x + size + 2 * mm
@@ -151,12 +152,12 @@ def labelled_field(c, label, name, x, y, w, h=8 * mm):
     text_field(c, name, x + 1.5 * mm, y + 1 * mm, w - 3 * mm, h - 2 * mm, tooltip=label)
 
 
-def radio(c, group, value, x, y, label, selected=False):
+def radio(c, group, value, x, y, label, selected=False, tooltip=None):
     c.acroForm.radio(
         name=group,
         value=value,
         selected=selected,
-        tooltip="Le signe s’est-il amélioré ? Une seule réponse.",
+        tooltip=tooltip or "Le signe s’est-il amélioré ? Une seule réponse.",
         x=x,
         y=y,
         size=4.2 * mm,
@@ -165,6 +166,7 @@ def radio(c, group, value, x, y, label, selected=False):
         borderColor=BORDER,
         fillColor=white,
         textColor=BLUE,
+        fieldFlags="noToggleToOff radio",
         forceBorder=True,
     )
     c.setFillColor(TEXT)
@@ -172,33 +174,33 @@ def radio(c, group, value, x, y, label, selected=False):
     c.drawString(x + 6 * mm, y + 1.1 * mm, label)
 
 
-def tri_state_row(c, group, label, y):
-    """Une réponse exploitable : Oui / Non / Non vérifié, jamais une case ambiguë."""
+def result_row(c, group, label, y):
+    """Une réponse exploitable : Oui / Non / Non vérifié / Non applicable."""
     c.setFillColor(TEXT)
-    c.setFont("Helvetica", 7.8)
+    c.setFont("Helvetica", 7.4)
     c.drawString(MARGIN + 4 * mm, y + 1.1 * mm, label)
-    for value, x, short_label in [
-        ("oui", MARGIN + 134 * mm, "Oui"),
-        ("non", MARGIN + 150 * mm, "Non"),
-        ("non_verifie", MARGIN + 166 * mm, "N/V"),
+    for value, x in [
+        ("oui", MARGIN + 129 * mm),
+        ("non", MARGIN + 145 * mm),
+        ("non_verifie", MARGIN + 161 * mm),
+        ("non_applicable", MARGIN + 177 * mm),
     ]:
         c.acroForm.radio(
             name=group,
             value=value,
             selected=False,
-            tooltip=f"{label} — Oui, Non ou Non vérifié. Une seule réponse.",
+            tooltip=f"{label} — Oui, Non, Non vérifié ou Non applicable. Une seule réponse.",
             x=x,
             y=y,
-            size=3.8 * mm,
+            size=4.2 * mm,
             buttonStyle="circle",
             borderWidth=1,
             borderColor=BORDER,
             fillColor=white,
             textColor=BLUE,
+            fieldFlags="noToggleToOff radio",
             forceBorder=True,
         )
-        c.setFont("Helvetica", 6.8)
-        c.drawString(x + 4.7 * mm, y + .9 * mm, short_label)
 
 
 def page_one(c):
@@ -283,13 +285,14 @@ def page_one(c):
         ("mur_humide", "Mur humide au toucher"),
         ("peinture", "Peinture qui cloque"),
         ("salpetre", "Dépôt blanc / salpêtre"),
+        ("aucun", "Aucun de ces signes observé"),
     ]
     cols = 3
     col_w = (CONTENT_W - 8 * mm) / cols
     for idx, (key, label) in enumerate(labels):
         col = idx % cols
         row = idx // cols
-        checkbox(c, f"symptome_{key}", MARGIN + 4 * mm + col * col_w, note_y + 17 * mm - row * 10 * mm, label, label_width=col_w - 10 * mm)
+        checkbox(c, f"symptome_{key}", MARGIN + 4 * mm + col * col_w, note_y + 19 * mm - row * 7.8 * mm, label, label_width=col_w - 10 * mm)
 
     labelled_field(c, "Emplacement précis (ex. angle nord, bas de mur, derrière une armoire)", "emplacement_precis", MARGIN, 18 * mm, CONTENT_W, 9 * mm)
     footer(c)
@@ -299,56 +302,66 @@ def page_two(c):
     header(c, 2, "Transformez les 14 relevés en indices, puis vérifiez chaque piste sans supposer la cause.")
 
     section_title(c, 4, "Compter et comparer", PAGE_H - 40 * mm)
-    trend_y = PAGE_H - 93 * mm
+    trend_y = PAGE_H - 100 * mm
     c.setFillColor(PALE_BLUE)
     c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, trend_y, CONTENT_W, 44 * mm, 3 * mm, fill=1, stroke=1)
-    labelled_field(c, "Relevés > 60 % (sur 14)", "compte_sup_60", MARGIN + 4 * mm, trend_y + 29 * mm, 38 * mm, 7 * mm)
-    labelled_field(c, "Relevés ≥ 70 % (sur 14)", "compte_70", MARGIN + 48 * mm, trend_y + 29 * mm, 38 * mm, 7 * mm)
+    c.roundRect(MARGIN, trend_y, CONTENT_W, 50 * mm, 3 * mm, fill=1, stroke=1)
+    labelled_field(c, "Relevés > 60 % (sur 14)", "compte_sup_60", MARGIN + 4 * mm, trend_y + 35 * mm, 38 * mm, 7 * mm)
+    labelled_field(c, "Relevés ≥ 70 % (sur 14)", "compte_70", MARGIN + 48 * mm, trend_y + 35 * mm, 38 * mm, 7 * mm)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(MARGIN + 94 * mm, trend_y + 32 * mm, "40–60 % : repère pratique, jamais diagnostic à lui seul.")
+    c.drawString(MARGIN + 94 * mm, trend_y + 38 * mm, "40–60 % : repère pratique, jamais diagnostic à lui seul.")
     trends = [
         ("tendance_activite", "Pics après douche, cuisson ou linge"),
         ("tendance_hors_activite", "Valeurs élevées hors activité"),
         ("tendance_matin", "Taux surtout élevé le matin"),
         ("tendance_retour", "Retour vers 40–60 % entre deux pics"),
-        ("tendance_locale", "Une seule pièce (fiches comparées)"),
-        ("tendance_generale", "Plusieurs pièces (fiches comparées)"),
     ]
     col_w = (CONTENT_W - 10 * mm) / 2
     for idx, (key, label) in enumerate(trends):
         col = idx % 2
         row = idx // 2
-        checkbox(c, key, MARGIN + 4 * mm + col * col_w, trend_y + 18 * mm - row * 7.2 * mm, label, label_width=col_w - 9 * mm)
+        checkbox(c, key, MARGIN + 4 * mm + col * col_w, trend_y + 19 * mm - row * 7.5 * mm, label, label_width=col_w - 9 * mm)
+    checkbox(c, "tendance_aucune", MARGIN + 4 * mm, trend_y + 3.8 * mm, "Aucune tendance nette", label_width=70 * mm)
+    c.setFillColor(MUTED)
+    c.setFont("Helvetica-Bold", 6.7)
+    c.drawString(MARGIN + 91 * mm, trend_y + 6.5 * mm, "FICHES :")
+    portee_tip = "Comparaison de fiches : une pièce, plusieurs pièces ou comparaison non réalisée."
+    radio(c, "portee", "une", MARGIN + 108 * mm, trend_y + 3.8 * mm, "1 pièce", tooltip=portee_tip)
+    radio(c, "portee", "plusieurs", MARGIN + 133 * mm, trend_y + 3.8 * mm, "+ pièces", tooltip=portee_tip)
+    radio(c, "portee", "non_comparee", MARGIN + 158 * mm, trend_y + 3.8 * mm, "N/C", tooltip=portee_tip)
 
-    section_title(c, 5, "Noter le résultat des vérifications", PAGE_H - 102 * mm)
-    check_y = 110 * mm
+    section_title(c, 5, "Noter le résultat des vérifications", 188 * mm)
+    check_y = 104 * mm
     c.setFillColor(white)
     c.setStrokeColor(LIGHT_BORDER)
-    c.roundRect(MARGIN, check_y, CONTENT_W, 75 * mm, 3 * mm, fill=1, stroke=1)
+    c.roundRect(MARGIN, check_y, CONTENT_W, 74 * mm, 3 * mm, fill=1, stroke=1)
     c.setFillColor(MUTED)
-    c.setFont("Helvetica-Bold", 6.8)
-    c.drawRightString(MARGIN + 178 * mm, check_y + 68 * mm, "OUI      NON      N/V")
+    c.setFont("Helvetica", 6.8)
+    c.drawString(MARGIN + 4 * mm, check_y + 66.5 * mm, "N/V = non vérifié · N/A = équipement ou contrôle non applicable à cette pièce.")
+    c.setFont("Helvetica-Bold", 6.5)
+    for label, x in [("OUI", 131), ("NON", 147), ("N/V", 163), ("N/A", 179)]:
+        c.drawCentredString(MARGIN + x * mm, check_y + 59.5 * mm, label)
     checks = [
-        ("verif_entrees", "Entrées d’air présentes et libres ?"),
-        ("verif_bouche", "Bouche d’extraction présente et propre ?"),
+        ("verif_entrees", "Entrées d’air attendues dans une pièce sèche : présentes et libres ?"),
+        ("verif_bouche", "Extraction attendue dans une pièce de service : présente et propre ?"),
         ("verif_papier", "Aspiration apparente au papier ? (pas une mesure de débit)"),
-        ("verif_porte", "Passage d’air sous la porte présent ?"),
+        ("verif_porte", "Passage de transfert d’air sous la porte présent ?"),
         ("verif_fuite", "Fuite ou trace d’eau repérée près des tuyaux / raccords ?"),
         ("verif_pluie", "Trace ou mur plus humide après la pluie ?"),
         ("verif_meuble", "Signe concentré derrière un meuble collé au mur ?"),
+        ("verif_zone_froide", "Surface ou zone nettement plus froide repérée ?"),
         ("verif_aeration", "Taux en baisse 10 min après une aération franche ?"),
     ]
     for idx, (group, label) in enumerate(checks):
-        y = check_y + 58 * mm - idx * 7.1 * mm
+        y = check_y + 51 * mm - idx * 5.75 * mm
         if idx:
             c.setStrokeColor(HexColor("#EDF1F4"))
-            c.line(MARGIN + 4 * mm, y + 5.2 * mm, PAGE_W - MARGIN - 4 * mm, y + 5.2 * mm)
-        tri_state_row(c, group, label, y)
+            c.line(MARGIN + 4 * mm, y + 4.8 * mm, PAGE_W - MARGIN - 4 * mm, y + 4.8 * mm)
+        result_row(c, group, label, y)
 
-    section_title(c, 6, "Tester une seule action : 24 à 48 h", 100 * mm)
-    action_y = 55 * mm
+    section_title(c, 6, "Tester une seule action : 24 à 48 h", 95 * mm)
+    action_y = 50 * mm
     c.setFillColor(SAGE)
     c.setStrokeColor(HexColor("#A8C7B2"))
     c.roundRect(MARGIN, action_y, CONTENT_W, 34 * mm, 3 * mm, fill=1, stroke=1)
@@ -371,7 +384,7 @@ def page_two(c):
 
     c.setFillColor(NAVY)
     c.setFont("Helvetica-Bold", 7.6)
-    c.drawString(MARGIN, 43 * mm, "Passez à la page 3 : aucune donnée ci-dessus n’est interprétée isolément.")
+    c.drawString(MARGIN, 40 * mm, "Passez à la page 3 : aucune donnée ci-dessus n’est interprétée isolément.")
     footer(c)
 
 
@@ -402,17 +415,16 @@ def page_three(c):
 
     section_title(c, 8, "Orienter la suite", 211 * mm)
     c.setFillColor(MUTED)
-    c.setFont("Helvetica", 7.1)
-    c.drawString(MARGIN, 197 * mm, "Cochez les orientations appuyées par plusieurs indices. Elles peuvent se cumuler ; « Eau / bâti » prime sur les autres.")
+    draw_wrapped(c, "Cochez les orientations appuyées par plusieurs indices ; elles peuvent se cumuler. Les nombres ci-dessous sont des règles de tri, pas des seuils diagnostiques. Donnée manquante ou contradictoire : « Indéterminé ». « Eau / bâti » prime.", MARGIN, 198 * mm, CONTENT_W, size=6.9, leading=7.8)
 
     cards = [
-        (PALE_RED, "eau", "EAU / BÂTI", "Fuite = Oui ou mur mouillé ; ou cloque / dépôt blanc en bas de mur, ou aggravation après pluie = Oui.", "Fuite active ou mur mouillé : n’attendez pas. Sinon, faites chercher infiltration / remontée ; un déshumidificateur ne répare pas l’entrée d’eau."),
-        (SAGE, "ventilation", "AIR / VAPEUR", "Nombreux relevés > 60 % ou relevés ≥ 70 %, avec pics d’activité ou valeurs élevées hors activité, et au moins un contrôle d’air = Non.", "Dégagez / nettoyez, réduisez les apports, remesurez. Si cela persiste : contrôle de la ventilation par un professionnel."),
-        (PALE_BLUE, "condensation", "CONDENSATION LOCALE", "Buée, taux surtout élevé le matin, signe derrière meuble = Oui, zone froide ; amélioration après aération / écartement.", "Améliorez circulation d’air et ventilation. Utilisez le calculateur ; si récidive locale, recherchez pont thermique / défaut du bâti."),
-        (PALE_YELLOW, "cachee", "HUMIDITÉ LOCALE CACHÉE", "Odeur, moisissure, cloque ou mur humide très localisé dans une seule pièce, alors que les relevés restent souvent dans le repère.", "Un taux ambiant rassurant n’exclut pas un support humide. Cherchez la source ; professionnel si humide, étendu ou récidivant."),
-        (HexColor("#F3F5F7"), "ponctuel", "APPORT PONCTUEL", "Pics liés à une activité, retour vers 40–60 % entre les pics, aucun signe d’eau, et amélioration au test.", "Corrigez d’abord l’activité / l’aération. Déshumidificateur seulement en aide temporaire si besoin, jamais comme réparation."),
-        (HexColor("#EAF3EC"), "rassurant", "SUIVI RASSURANT", "Relevés surtout entre 40 et 60 %, aucun ≥ 70 %, aucun signe visible ; contrôles applicables = Oui, fuite et aggravation après pluie = Non.", "Conservez les habitudes. Aucun achat n’est justifié par cette fiche ; recommencez si saison, usage ou signes changent."),
-        (white, "incertain", "INDÉTERMINÉ / GÉNÉRAL", "Résultats contradictoires, aucune tendance nette, plusieurs pièces touchées ou action sans effet clair.", "Vérifiez placement / appareil, répétez ou comparez une autre pièce. Si signes ou persistance : diagnostic professionnel."),
+        (PALE_RED, "eau", "EAU / BÂTI", "Fuite = Oui ou mur mouillé. Sinon : pluie = Oui + signe localisé (cloque, dépôt blanc ou emplacement précis).", "Fuite active / mur mouillé : n’attendez pas. Sinon, faites vérifier infiltration / remontée ; un appareil ne répare pas l’entrée d’eau."),
+        (SAGE, "ventilation", "AIR / VAPEUR", "≥ 4/14 relevés > 60 % ou ≥ 2/14 à 70 %+, + tendance activité / hors activité, + équipement attendu dans cette pièce = Non.", "Dégagez / nettoyez, réduisez les apports, remesurez. Si cela persiste : contrôle de la ventilation par un professionnel."),
+        (PALE_BLUE, "condensation", "CONDENSATION LOCALE", "Buée + taux matinal élevé, ou zone froide = Oui + signe local ; souvent derrière un meuble ; amélioration après aération / écartement.", "Améliorez circulation d’air et ventilation. Si la récidive reste locale, recherchez pont thermique / défaut du bâti."),
+        (PALE_YELLOW, "cachee", "HUMIDITÉ LOCALE CACHÉE", "Odeur, moisissure, cloque ou mur humide + emplacement précis + portée = 1 pièce, même si les relevés ambiants sont peu élevés.", "Un taux ambiant rassurant n’exclut pas un support humide. Cherchez la source ; professionnel si humide, étendu ou récidivant."),
+        (HexColor("#F3F5F7"), "ponctuel", "APPORT PONCTUEL", "1 à 3/14 relevés > 60 %, aucun à 70 %+, pics liés à l’activité + retour au repère + « aucun signe » + effet = Oui.", "Corrigez d’abord l’activité / l’aération. Déshumidificateur seulement en aide temporaire si besoin, jamais comme réparation."),
+        (HexColor("#EAF3EC"), "rassurant", "SUIVI RASSURANT", "0 à 2/14 relevés > 60 %, aucun à 70 %+, « aucun signe » + « aucune tendance », contrôles applicables = Oui ou N/A, fuite / pluie = Non.", "Gardez vos habitudes ; aucun achat justifié. Recommencez si le contexte change. Cela n’exclut pas une humidité cachée locale."),
+        (white, "incertain", "INDÉTERMINÉ / GÉNÉRAL", "Compteur ou contrôle utile manquant / N/V, réponses incompatibles, aucune tendance malgré dépassements / signes, plusieurs pièces ou effet incertain.", "Vérifiez placement / appareil, complétez puis répétez ou comparez. Si signes ou persistance : diagnostic professionnel."),
     ]
     y = 168 * mm
     for color, key, title, indices, action in cards:
