@@ -4,18 +4,18 @@ const base = import.meta.env.BASE_URL;
 const pdfUrl = `${base}downloads/checklist-humidite-7-jours.pdf`;
 ---
 <ArticleLayout
-  title="Checklist humidité 7 jours : PDF à remplir et imprimer"
-  description="Téléchargez une fiche PDF A4 simple pour noter température, humidité et observations matin et soir pendant 7 jours, puis décider de la suite."
-  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Checklist humidité 7 jours' }]}
+  title="Fiche relevé humidité : PDF remplissable sur 7 jours"
+  description="Téléchargez une fiche de relevé d’humidité PDF : 14 relevés sur 7 jours, vérifications guidées et grille d’interprétation prudente."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Outils', href: '/outils/' }, { label: 'Fiche relevé humidité' }]}
 >
-  <h1>Checklist humidité sur 7 jours</h1>
-  <p class="lead">Une vraie fiche A4, séparée du site. Elle peut être <strong>remplie à l’écran</strong> ou imprimée pour écrire au stylo. Elle aide à repérer des tendances et des indices, sans identifier à elle seule la cause.</p>
+  <h1>Fiche de relevé d’humidité sur 7 jours</h1>
+  <p class="lead">Un PDF A4 à <strong>remplir à l’écran</strong> ou à imprimer. Chaque information notée sert ensuite à relier les mesures, le contexte et les signes visibles pour orienter la suite, sans prétendre identifier seule la cause.</p>
 
   <div class="download-card" aria-labelledby="download-title">
     <div>
-      <p class="eyebrow">PDF REMPLISSABLE · 2 PAGES A4</p>
+      <p class="eyebrow">PDF REMPLISSABLE · 3 PAGES A4</p>
       <h2 id="download-title">Suivi humidité — 7 jours</h2>
-      <p>14 mesures, symptômes observés, vérifications simples et bilan final.</p>
+      <p>14 relevés, vérifications avec résultats et grille d’orientation finale.</p>
     </div>
     <div class="download-actions">
       <a class="btn btn--primary" href={pdfUrl} download="checklist-humidite-7-jours.pdf">Télécharger le PDF</a>
@@ -35,17 +35,22 @@ const pdfUrl = `${base}downloads/checklist-humidite-7-jours.pdf`;
   <ol class="steps">
     <li><span>1</span><div><strong>Choisissez une seule pièce</strong><p>Placez l’hygromètre toujours au même endroit, loin d’une fenêtre, d’un radiateur et d’une bouche d’air.</p></div></li>
     <li><span>2</span><div><strong>Notez matin et soir</strong><p>Relevez la température et l’humidité avant d’aérer. Ajoutez seulement les faits utiles : douche, linge, pluie, cuisson ou trace visible.</p></div></li>
-    <li><span>3</span><div><strong>Faites le bilan au 7e jour</strong><p>Comptez les dépassements, comparez les faits observés et testez une seule action dans des conditions proches. Ce bilan fournit des indices, pas un diagnostic.</p></div></li>
+    <li><span>3</span><div><strong>Reliez les indices au 7e jour</strong><p>Comptez les dépassements, notez Oui, Non ou Non vérifié pour chaque contrôle, puis utilisez la grille finale. Une orientation repose toujours sur plusieurs indices.</p></div></li>
   </ol>
+
+  <aside class="logic-tip">
+    <strong>Pourquoi chaque champ est présent :</strong> les dates et observations relient les variations aux activités ou à la pluie ; la température évite de mal interpréter un changement d’humidité relative ; l’emplacement et les signes visibles distinguent une piste locale d’un phénomène général ; les contrôles et le test avant/après déterminent l’action logique suivante. Les signes d’eau ou d’alerte restent prioritaires.
+  </aside>
 
   <div class="included">
     <h2>Dans le fichier</h2>
     <ul>
       <li>14 relevés matin et soir ;</li>
       <li>température, humidité et observations ;</li>
-      <li>cases pour localiser les signes visibles ;</li>
-      <li>test d’une action pendant 24 à 48 heures ;</li>
-      <li>repères prudents pour décider de la suite.</li>
+      <li>signes visibles et emplacement précis ;</li>
+      <li>résultat explicite de chaque vérification : Oui, Non ou Non vérifié ;</li>
+      <li>test avant/après pendant 24 à 48 heures ;</li>
+      <li>sept orientations reliant les indices à une suite concrète.</li>
     </ul>
   </div>
 
@@ -92,6 +97,13 @@ const pdfUrl = `${base}downloads/checklist-humidite-7-jours.pdf`;
   padding: .9rem 1rem;
   border-left: 4px solid #b94b43;
   background: #fce8e6;
+  font-size: .94rem;
+}
+.logic-tip {
+  margin: 1rem 0 2rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #5a8f70;
+  background: #eef5f0;
   font-size: .94rem;
 }
 .steps { display: grid; gap: .8rem; padding: 0; list-style: none; }
