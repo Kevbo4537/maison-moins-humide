@@ -1,0 +1,186 @@
+---
+import ComparisonLayout from '../../../layouts/ComparisonLayout.astro';
+import AlertBox from '../../../components/AlertBox.astro';
+import FAQSection from '../../../components/FAQSection.astro';
+import RevenueProductBlock from '../../../components/RevenueProductBlock.astro';
+const base = import.meta.env.BASE_URL;
+
+const products = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Pour mesurer le taux avant de choisir entre ventilation et déshumidification.',
+    details: 'À placer dans la pièce plusieurs jours, loin d’une bouche d’air, d’une fenêtre et d’un radiateur.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: 'Mesurer d’abord',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'FanGoFast extracteur avec minuterie et hygrostat',
+    useCase: 'Pour une salle de bain où la vapeur doit être extraite après la douche, si un conduit adapté existe.',
+    details: 'Vérifier diamètre, alimentation, réglages, sortie d’air et sécurité électrique avant achat.',
+    href: 'https://amzn.to/49wOB4n',
+    badge: 'Extraction locale',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/51TLDKfUHTL._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'Pour une pièce moyenne qui reste humide malgré une ventilation vérifiée et des mesures répétées.',
+    details: 'Réservoir 1,8 L, drainage continu possible, annoncé à 40 dB. Il ne corrige ni fuite ni infiltration.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: 'Pièce humide',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+  {
+    title: "COMFEE' Aqua Dry 12 L/jour",
+    useCase: 'Pour une chambre ou une pièce de vie où le niveau sonore compte.',
+    details: 'Jusqu’à 12 L/jour annoncés, mode silencieux à 36 dB, réservoir de 2,5 L et drainage continu.',
+    href: 'https://amzn.to/4hiqdrM',
+    badge: 'Plus silencieux',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/513XGYgk9ZL._AC_SL1500_.jpg',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Une VMC déshumidifie-t-elle le logement ?',
+    answer: 'Une VMC ne récupère pas l’eau dans un bac : elle évacue l’air intérieur humide et fait entrer de l’air neuf. Elle agit donc sur la cause fréquente qu’est le manque de renouvellement d’air.',
+  },
+  {
+    question: 'Peut-on remplacer une VMC par un déshumidificateur ?',
+    answer: 'Non. Un déshumidificateur retire de l’eau de l’air, mais ne renouvelle pas l’air du logement. Il peut servir d’appoint quand la ventilation fonctionne déjà ou dans une pièce difficile à traiter.',
+  },
+  {
+    question: 'Que choisir pour une salle de bain sans fenêtre ?',
+    answer: 'La priorité est une extraction d’air qui fonctionne et une arrivée d’air sous la porte. Un déshumidificateur ne vient qu’en appoint, après mesure, en respectant la sécurité électrique de la pièce d’eau.',
+  },
+  {
+    question: 'Que faire en location si la VMC ne fonctionne pas ?',
+    answer: 'Nettoyez seulement les éléments accessibles relevant de l’entretien courant, conservez des mesures et photos, puis signalez le problème par écrit au propriétaire ou au gestionnaire. Ne modifiez pas une VMC collective vous-même.',
+  },
+];
+---
+<ComparisonLayout
+  title="VMC ou déshumidificateur : que choisir contre l’humidité ?"
+  description="VMC ou déshumidificateur : comprendre la différence, choisir selon la pièce et le problème, et éviter un achat inutile en maison ou appartement."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Comparatifs', href: '/comparatifs/' }, { label: 'VMC ou déshumidificateur' }]}
+  showAmazon={true}
+>
+  <h1>VMC ou déshumidificateur : que choisir contre l’humidité ?</h1>
+  <p>La VMC et le déshumidificateur ne font pas le même travail. La ventilation renouvelle l’air du logement ; le déshumidificateur retire de l’eau de l’air d’une pièce. Dans beaucoup de maisons et d’appartements, il faut vérifier la VMC avant d’acheter un appareil.</p>
+
+  <AlertBox type="tip" title="Réponse rapide">
+    <p><strong>Buée après la douche, odeurs et air qui se renouvelle mal :</strong> priorité à la ventilation. <strong>Pièce qui reste au-dessus de 60&nbsp;% malgré une ventilation correcte :</strong> un déshumidificateur peut aider en appoint. <strong>Mur mouillé, salpêtre ou eau après pluie :</strong> cherchez d’abord une fuite ou une infiltration.</p>
+  </AlertBox>
+
+  <h2>La différence entre VMC et déshumidificateur</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Solution</th>
+        <th>Ce qu’elle fait</th>
+        <th>Ce qu’elle ne fait pas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>VMC ou extracteur</strong></td>
+        <td>Évacue l’air humide et les odeurs, fait circuler de l’air neuf</td>
+        <td>N’assèche pas un mur alimenté par une fuite ou une infiltration</td>
+      </tr>
+      <tr>
+        <td><strong>Déshumidificateur</strong></td>
+        <td>Condense l’eau de l’air et aide à faire baisser le taux dans une pièce</td>
+        <td>Ne renouvelle pas l’air et ne répare pas une ventilation défaillante</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Quel choix selon la situation ?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Situation</th>
+        <th>Priorité</th>
+        <th>Pourquoi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href={`${base}pieces/salle-de-bain-sans-fenetre/`}>Salle de bain sans fenêtre</a></td>
+        <td>VMC ou extracteur adapté</td>
+        <td>La vapeur doit sortir après chaque douche</td>
+      </tr>
+      <tr>
+        <td><a href={`${base}pieces/chambre-humide/`}>Chambre humide au réveil</a></td>
+        <td>Mesure et ventilation, puis appareil silencieux si nécessaire</td>
+        <td>La respiration nocturne et une pièce froide peuvent faire monter le taux</td>
+      </tr>
+      <tr>
+        <td><a href={`${base}pieces/cave-humide/`}>Cave fraîche et humide</a></td>
+        <td>Recherche de cause, puis déshumidificateur adapté à la température</td>
+        <td>Une VMC seule ne traite pas toujours l’humidité venant du sol ou des murs</td>
+      </tr>
+      <tr>
+        <td><a href={`${base}pieces/buanderie-humide/`}>Buanderie avec linge qui sèche</a></td>
+        <td>Extraction et, si besoin, déshumidificateur</td>
+        <td>La production de vapeur est répétée et localisée</td>
+      </tr>
+      <tr>
+        <td>Mur mouillé ou eau après pluie</td>
+        <td>Diagnostic de la cause</td>
+        <td>Ni la VMC ni l’appareil n’arrêtent l’arrivée d’eau</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Vérifier la ventilation avant l’achat</h2>
+  <ol>
+    <li>Mesurez humidité et température matin et soir pendant plusieurs jours.</li>
+    <li>Vérifiez que les entrées d’air et bouches accessibles ne sont pas bouchées.</li>
+    <li>Regardez si l’air peut circuler sous les portes jusqu’aux pièces d’eau.</li>
+    <li>Notez combien de temps la buée et le taux élevé persistent après une douche.</li>
+    <li>En appartement, identifiez si la VMC est individuelle ou collective avant toute intervention.</li>
+  </ol>
+
+  <AlertBox type="info" title="Un test simple, pas un diagnostic">
+    <p>Une feuille de papier léger peut montrer qu’une bouche aspire, mais elle ne mesure pas le débit réel. Si l’aspiration paraît absente ou très faible malgré un nettoyage accessible, demandez un contrôle plutôt que de démonter l’installation.</p>
+  </AlertBox>
+
+  <RevenueProductBlock
+    title="Mesurer, extraire ou déshumidifier selon le besoin"
+    intro="Cette sélection couvre trois étapes différentes : confirmer le taux, améliorer une extraction locale compatible, ou retirer l’eau de l’air d’une pièce déjà ventilée."
+    products={products}
+    note="Un produit peut aider, mais ne remplace pas la recherche de la cause. Pour une VMC collective, une installation électrique en salle de bain ou un conduit inconnu, demandez un avis compétent avant modification."
+  />
+
+  <h2>Dans quels cas le déshumidificateur est vraiment utile ?</h2>
+  <ul>
+    <li>le taux reste souvent supérieur à 60&nbsp;% sur plusieurs jours ;</li>
+    <li>la ventilation a été vérifiée et l’aération ne suffit pas ;</li>
+    <li>la pièce produit beaucoup d’humidité, comme une buanderie ;</li>
+    <li>une cave ou un local demande une protection temporaire du stockage ;</li>
+    <li>l’appareil peut être dimensionné selon le volume et la température réels.</li>
+  </ul>
+  <p>Pour une cave froide, regardez l’efficacité annoncée à basse température. Pour une chambre, le niveau sonore réel et la possibilité de faire fonctionner l’appareil avant le coucher comptent davantage que le chiffre maximal en litres par jour.</p>
+
+  <h2>Cas particulier du locataire</h2>
+  <p>En location, relevez les taux, photographiez les traces et signalez par écrit une VMC qui n’aspire pas, une moisissure qui revient ou un mur mouillé. L’entretien courant des bouches accessibles n’autorise pas à transformer une installation collective ou à percer une évacuation. Un petit appareil peut limiter l’humidité en attendant, mais il ne doit pas faire oublier le signalement de la cause.</p>
+
+  <AlertBox type="warning" title="Quand ne pas choisir entre les deux">
+    <p>Si vous voyez une infiltration, du salpêtre important, un mur durablement mouillé, des moisissures étendues ou si des symptômes apparaissent, demandez un diagnostic professionnel, contactez l’assurance si pertinent et consultez un professionnel de santé pour les symptômes.</p>
+  </AlertBox>
+
+  <FAQSection items={faqs} />
+
+  <h2>À lire ensuite</h2>
+  <ul>
+    <li><a href={`${base}comparatifs/meilleur-deshumidificateur-maison/`}>Choisir un déshumidificateur pour la maison</a></li>
+    <li><a href={`${base}comparatifs/meilleur-extracteur-air-salle-de-bain/`}>Choisir un extracteur d’air pour la salle de bain</a></li>
+    <li><a href={`${base}checklists/humidite-maison/`}>Faire un relevé humidité sur 7 jours</a></li>
+    <li><a href={`${base}guides/condensation-fenetre/`}>Comprendre la condensation sur les fenêtres</a></li>
+  </ul>
+</ComparisonLayout>
