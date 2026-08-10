@@ -10,7 +10,12 @@ const faqs = [
   { question: "Comment mesurer correctement le taux d’humidité ?", answer: "Placez l’hygromètre à hauteur de vie, loin d’une fenêtre ouverte, d’un radiateur ou d’une bouche de ventilation, puis comparez les mesures matin et soir pendant plusieurs jours." },
 ];
 ---
-<ArticleLayout title="Taux d’humidité idéal dans une maison" description="Repères simples pour savoir quel taux d’humidité viser, comment mesurer correctement et quand s’inquiéter." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Taux d’humidité idéal dans une maison' }]}>
+<ArticleLayout
+  title="Taux d’humidité idéal dans une maison"
+  description="Repères simples pour savoir quel taux d’humidité viser, comment mesurer correctement et quand s’inquiéter."
+  breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Guides humidité', href: '/guides/' }, { label: 'Taux d’humidité idéal dans une maison' }]}
+  updatedDate="2026-08-10"
+>
   <h1>Taux d’humidité idéal dans une maison</h1>
   <p>Le taux d’humidité intérieur, aussi appelé humidité relative, indique la quantité de vapeur d’eau présente dans l’air. Pour une maison, l’objectif est de rester dans une zone confortable, sans air trop sec et sans humidité durable.</p>
 
@@ -36,6 +41,10 @@ const faqs = [
     <li>comparez plusieurs pièces : chambre, salle de bain, salon, cave si besoin ;</li>
     <li>regardez la température en même temps, car une pièce froide condense plus facilement.</li>
   </ul>
+
+  <AlertBox type="tip" title="Passer d’un chiffre isolé à une décision utile">
+    <p>Notez température et humidité matin et soir pendant 7 jours avec la <a href={`${base}checklists/humidite-maison/`}>fiche de relevé gratuite</a>. Si vous observez une vitre embuée ou un mur froid, entrez ensuite vos mesures dans le <a href={`${base}outils/calculateur-point-de-rosee-condensation/`}>calculateur de point de rosée</a> : il aide à estimer le risque de condensation avant d’acheter un appareil.</p>
+  </AlertBox>
 
   <h2>Pourquoi le taux varie autant</h2>
   <p>Le taux change avec la météo, la température, l’occupation du logement et les gestes du quotidien. Une famille qui cuisine, se douche, sèche du linge et garde les fenêtres fermées produit beaucoup d’humidité. En hiver, les surfaces froides favorisent aussi la condensation, même avec un taux qui ne paraît pas extrême.</p>
