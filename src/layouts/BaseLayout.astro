@@ -46,6 +46,16 @@ const orgJsonLd = {
   url: siteUrl,
   logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
   description: "Site éditorial indépendant consacré à l'humidité dans le logement, à la condensation et à la prévention des moisissures.",
+  founder: { '@id': `${siteUrl}/#kevin-bodin` },
+};
+
+const editorJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}/#kevin-bodin`,
+  name: 'Kevin Bodin',
+  url: `${siteUrl}/a-propos/`,
+  worksFor: { '@id': `${siteUrl}/#organization` },
 };
 ---
 <!doctype html>
@@ -81,6 +91,7 @@ const orgJsonLd = {
   {isHome && (
     <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(editorJsonLd)} />
   )}
 </head>
 <body>

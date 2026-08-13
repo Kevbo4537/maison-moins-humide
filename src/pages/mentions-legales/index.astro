@@ -12,9 +12,11 @@ const base = import.meta.env.BASE_URL;
     <Breadcrumbs crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Mentions légales' }]} />
     <h1>Mentions légales</h1>
     <h2>Éditeur du site</h2>
-    <p>Ce site est édité à titre personnel. Pour toute demande, utilisez la page <a href={`${base}contact/`}>contact</a>.</p>
+    <p><strong>Maison Moins Humide est un site édité à titre personnel par Kevin Bodin, directeur de la publication.</strong></p>
+    <p>Contact éditorial : <a href="mailto:contact@maisonmoinshumide.fr">contact@maisonmoinshumide.fr</a> ou via la page <a href={`${base}contact/`}>contact</a>.</p>
+    <p>Pour préserver la vie privée de l’éditeur, son adresse personnelle n’est pas publiée sur le site. Les demandes officielles peuvent être adressées par e-mail ou à l’hébergeur dans le cadre légal applicable.</p>
     <h2>Hébergement</h2>
-    <p>Ce site est hébergé par OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
+    <p>OVH SAS, société immatriculée au RCS de Lille Métropole sous le numéro 424 761 419, dont le siège social est situé 2 rue Kellermann, 59100 Roubaix, France — téléphone : 1007.</p>
     <h2>Responsabilité</h2>
     <p>
       Les informations publiées sur ce site sont de nature générale et informative.
@@ -23,5 +25,7 @@ const base = import.meta.env.BASE_URL;
     </p>
     <h2>Propriété intellectuelle</h2>
     <p>Les contenus de ce site sont protégés par le droit d'auteur. Toute reproduction sans autorisation est interdite.</p>
+    <h2>Indépendance éditoriale</h2>
+    <p>Le site peut contenir des liens affiliés clairement signalés, mais n’achète pas de liens, de classement ni de publication. Les règles de sélection et de rémunération sont détaillées dans la <a href={`${base}politique-affiliation/`}>politique d’affiliation</a> et dans <a href={`${base}notre-methode/`}>notre méthode éditoriale</a>.</p>
   </div>
 </BaseLayout>

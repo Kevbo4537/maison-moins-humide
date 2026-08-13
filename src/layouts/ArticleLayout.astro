@@ -41,10 +41,10 @@ const articleJsonLd = {
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   inLanguage: 'fr-FR',
   author: {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: 'Maison Moins Humide',
-    url: siteUrl,
+    '@type': 'Person',
+    '@id': `${siteUrl}/#kevin-bodin`,
+    name: 'Kevin Bodin',
+    url: `${siteUrl}/a-propos/`,
   },
   publisher: {
     '@type': 'Organization',
@@ -65,7 +65,7 @@ const articleJsonLd = {
       <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
       {(publishedDate || updatedDate) && (
         <p class="editorial-meta">
-          <span>Par Maison Moins Humide</span>
+          <span>Par <a href={`${base}a-propos/`}>Kevin Bodin</a></span>
           <span aria-hidden="true">·</span>
           {updatedDate
             ? <time datetime={updatedDate}>Mis à jour le {formatDate(updatedDate)}</time>
