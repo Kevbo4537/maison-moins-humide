@@ -3,8 +3,38 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import AlertBox from '../../components/AlertBox.astro';
 import RevenueProductBlock from '../../components/RevenueProductBlock.astro';
 const base = import.meta.env.BASE_URL;
+
+const priorityProducts = [
+  {
+    title: 'ThermoPro TP50',
+    useCase: 'Pour mesurer température et humidité matin et soir pendant plusieurs jours avant tout achat plus coûteux.',
+    details: 'À placer loin d’une fenêtre, d’un radiateur et d’une bouche d’air pour obtenir un repère plus fiable.',
+    href: 'https://amzn.to/4tYqvqt',
+    badge: '1. Mesurer',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61gK5MV3o8L._AC_SL1500_.jpg',
+  },
+  {
+    title: 'Rubson Aero 360 + 3 recharges',
+    useCase: 'Pour un placard, un petit rangement ou une zone fermée légèrement humide.',
+    details: 'Silencieux et sans électricité, mais trop limité pour assécher une chambre, une cave ou une buanderie entière.',
+    href: 'https://amzn.to/4dROwtf',
+    badge: '2. Petit volume',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/61J+W8SeX9L._AC_SL1001_.jpg',
+  },
+  {
+    title: 'Pro Breeze 12 L/jour',
+    useCase: 'À envisager seulement si une pièce entière reste humide malgré les gestes simples et des mesures répétées.',
+    details: 'Un appareil peut stabiliser l’air, mais il ne corrige ni fuite, ni infiltration, ni ventilation défaillante.',
+    href: 'https://amzn.to/4wZdWy2',
+    badge: '3. Pièce entière',
+    ctaLabel: 'Voir sur Amazon →',
+    imageSrc: 'https://m.media-amazon.com/images/I/710MdNtxfzL._AC_SL1500_.jpg',
+  },
+];
 ---
-<ArticleLayout title="Produits utiles contre l’humidité : quoi acheter en premier ?" description="Comprendre les produits utiles contre l’humidité : hygromètre, absorbeur, déshumidificateur, anti-moisissure, ventilation et accessoires." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Produits utiles' }]} showAffiliateDisclosure={true}>
+<ArticleLayout title="Produits utiles contre l’humidité : quoi acheter en premier ?" description="Comprendre les produits utiles contre l’humidité : hygromètre, absorbeur, déshumidificateur, anti-moisissure, ventilation et accessoires." breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Produits utiles' }]} showAffiliateDisclosure={true} showAmazon={true}>
   <h1>Produits utiles contre l’humidité</h1>
   <p>Les produits anti-humidité peuvent aider, mais ils doivent être choisis dans le bon ordre. Le premier achat utile est souvent un hygromètre. Ensuite seulement, on peut décider si un absorbeur, un déshumidificateur ou une amélioration de ventilation a du sens.</p>
 
@@ -12,7 +42,12 @@ const base = import.meta.env.BASE_URL;
     <p>Mesurer → comprendre la pièce → vérifier la ventilation → choisir un produit adapté. Acheter directement un appareil sans mesure conduit souvent à une solution trop faible, trop bruyante ou inutile.</p>
   </AlertBox>
 
-  <RevenueProductBlock title="Les produits à mettre en avant" intro="Les produits sont présentés dans un ordre simple : confirmer le taux, traiter un petit volume si besoin, puis passer à un appareil plus puissant seulement si la pièce le justifie." />
+  <RevenueProductBlock
+    title="Trois achats possibles, dans le bon ordre"
+    intro="Commencez par confirmer le taux. Un absorbeur reste réservé à un petit volume ; un appareil électrique ne devient pertinent que si une pièce entière reste humide."
+    products={priorityProducts}
+    note="Ces produits peuvent aider, mais ne remplacent pas la recherche de la cause. Mur mouillé, salpêtre, infiltration ou moisissures étendues nécessitent un diagnostic adapté."
+  />
 
   <h2>1. Hygromètre : le premier outil</h2>
   <p>L’hygromètre mesure le taux d’humidité et souvent la température. Il permet de savoir si le problème est ponctuel ou durable, de comparer plusieurs pièces et de vérifier si une action fonctionne.</p>
