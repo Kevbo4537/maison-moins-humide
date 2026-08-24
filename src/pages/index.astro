@@ -89,6 +89,7 @@ const quickSteps = [
   <section class="section-revenue-products">
     <div class="container container--wide">
       <RevenueProductBlock title="Les 3 achats à envisager dans le bon ordre" intro="On commence par un hygromètre. Ensuite seulement, on regarde si un absorbeur ou un déshumidificateur a du sens pour la pièce concernée." />
+      <p class="section-revenue-products__more"><a href={`${base}produits-utiles/`}>Voir les produits utiles, classés du premier achat au plus puissant →</a></p>
     </div>
   </section>
 
@@ -145,6 +146,8 @@ const quickSteps = [
 .hero-panel strong { display:block; margin-bottom:.7rem; color: var(--color-primary); }
 .hero-panel ol { margin-bottom:0; }
 .quick-links, .method-section, .section-revenue-products, .section-guides, .section-pieces, .section-products, .section-alert { padding: 2.75rem 0; }
+.section-revenue-products__more { margin: -.75rem 0 0; text-align: center; }
+.section-revenue-products__more a { font-weight: 750; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.25rem; }
 @media (min-width: 760px) { .quick-grid--five { grid-template-columns: repeat(5,1fr); } }
 .quick-card { display:flex; flex-direction:column; gap:.3rem; background:var(--color-surface); border:1px solid var(--color-border); border-radius:14px; padding:1rem; text-decoration:none; color:var(--color-text); transition:.15s; }
